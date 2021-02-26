@@ -22,8 +22,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		add_filter( 'wp_localize_script_iworks_pwa_manifest', array( $this, 'add_pwa_data' ) );
 	}
 
-
-
 	public function register_scripts() {
 		wp_register_script(
 			$this->get_name( __CLASS__ ),
@@ -50,7 +48,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 
 	public function add_pwa_data( $data ) {
 		$data['pwa'] = array(
-			'root' => preg_replace( '@' . ABSPATH . '@', '/', get_template_directory() . '/assets/pwa/' ),
+			'root' => $this->url . '/assets/pwa/',
 		);
 		return $data;
 	}
