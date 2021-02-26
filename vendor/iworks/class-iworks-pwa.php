@@ -9,6 +9,8 @@ abstract class iWorks_PWA {
 
 	protected $debug = false;
 
+	protected $version = 'PLUGIN_VERSION';
+
 	protected function __construct() {
 		$this->url   = rtrim( plugin_dir_url( dirname( dirname( __FILE__ ) ) ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
