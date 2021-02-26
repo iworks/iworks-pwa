@@ -48,11 +48,11 @@ module.exports = function( grunt ) {
 				'tests/.*',		// Unit testing.
 			],
 			pot_dir: 'languages/', // With trailing slash.
-			textdomain: 'fleet',
+			textdomain: '<%= pkg.name %>',
 		},
 
-		dev_plugin_file: 'fleet.php',
-		dev_plugin_dir: 'fleet/',
+		dev_plugin_file: '<%= pkg.name %>.php',
+		dev_plugin_dir: '<%= pkg.name %>/',
 
 		// BUILD patterns to exclude code for specific builds.
 		replaces: {
@@ -276,8 +276,8 @@ module.exports = function( grunt ) {
 
 			po2mo: {
 				files: {
-					src: conf.translation.pot_dir + 'fleet-pl_PL.po',
-					desc: conf.translation.pot_dir + 'fleet-pl_PL.mo'
+					src: conf.translation.pot_dir + '<%= pkg.name %>-pl_PL.po',
+					desc: conf.translation.pot_dir + '<%= pkg.name %>-pl_PL.mo'
                 }
 			}
 		},
@@ -354,8 +354,8 @@ module.exports = function( grunt ) {
 
 		po2mo: {
 			files: {
-				src: 'languages/fleet-pl_PL.po',
-				dest: 'languages/fleet-pl_PL.mo',
+				src: 'languages/<%= pkg.name %>-pl_PL.po',
+				dest: 'languages/<%= pkg.name %>-pl_PL.mo',
 			},
 		},
 
