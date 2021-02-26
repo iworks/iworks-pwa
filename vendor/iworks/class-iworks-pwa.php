@@ -11,8 +11,12 @@ abstract class iWorks_PWA {
 
 	protected $version = 'PLUGIN_VERSION';
 
+	protected $root = '';
+
 	protected function __construct() {
-		$this->url   = rtrim( plugin_dir_url( dirname( dirname( __FILE__ ) ) ), '/' );
+		$file        = dirname( dirname( __FILE__ ) );
+		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
+		$this->root  = rtrim( plugin_dir_path( $file ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
 		add_action( 'init', array( $this, 'configuration' ) );
 	}

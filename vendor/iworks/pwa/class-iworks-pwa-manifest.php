@@ -11,7 +11,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 
 	public function __construct() {
 		parent::__construct();
-		add_action( 'parse_request', array( $this, 'manifest_json' ) );
+		/**
+		 * handle special requests
+		 */
+		add_action( 'parse_request', array( $this, 'parse_request' ) );
 		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX );
 		/**
 		 * js
@@ -62,19 +65,42 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		echo PHP_EOL;
 	}
 
+	public function parse_request() {
+		if (
+			! isset( $_SERVER['REQUEST_URI'] ) ) {
+			return;
+		}
+		switch ( $_SERVER['REQUEST_URI'] ) {
+			case '/manifest.json':
+				$this->print_manifest_json();
+				break;
+			case '/iworks-pwa-service-worker-js':
+				$this->print_iworks_pwa_service_worker_js();
+				break;
+			case '/iworks-pwa-offline':
+				$this->print_iworks_pwa_offline();
+				break;
+		}
+	}
+
+	private function print_iworks_pwa_offline() {
+		header( 'Content-Type: text/html' );
+		include $this->root . '/assets/pwa/offline.html';
+		exit;
+	}
+
+	private function print_iworks_pwa_service_worker_js() {
+		header( 'Content-Type: text/javascript' );
+		include $this->root . '/assets/pwa/service-worker.js';
+		exit;
+	}
+
 	/**
 	 * Handle "/manifest.json" request.
 	 *
 	 * @since 1.0.0
 	 */
-	public function manifest_json() {
-		if (
-			! isset( $_SERVER['REQUEST_URI'] ) ) {
-			return;
-		}
-		if ( '/manifest.json' !== $_SERVER['REQUEST_URI'] ) {
-			return;
-		}
+	private function print_manifest_json() {
 		header( 'Content-Type: application/json' );
 		echo json_encode( $this->configuration );
 		exit;
