@@ -85,7 +85,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 
 	private function print_iworks_pwa_offline() {
 		header( 'Content-Type: text/html' );
-		$data = file_get_contents( $this->root . '/assets/pwa/offline.html' );
+		$data = apply_filters( 'iworks_pwa_offline_file', null );
+		if ( empty( $data ) ) {
+			$data = file_get_contents( $this->root . '/assets/pwa/offline.html' );
+		}
 		/**
 		 * WP
 		 */
