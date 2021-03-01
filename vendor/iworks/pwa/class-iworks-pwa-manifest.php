@@ -136,7 +136,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		}
 		?>
 	const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', 1 ) ); ?>;
-const CACHE_NAME = 'offline';
+const CACHE_NAME = <?php echo apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ); ?>';
 const OFFLINE_URL = 'iworks-pwa-offline';
 
 const OFFLINE_URLS_SET = [<?php echo $set; ?>];
@@ -145,7 +145,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
 	const cache = await caches.open(CACHE_NAME);
 	await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
-	event.waitUntil( caches.open(MY_CACHE).then(function(cache) { return cache.addAll(OFFLINE_URLS_SET); })
+	event.waitUntil( caches.open(CACHE_NAME).then(function(cache) { return cache.addAll(OFFLINE_URLS_SET); })
   );
   })());
 });
