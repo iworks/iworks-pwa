@@ -135,8 +135,8 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			$set = implode( ', ', array_map( array( $this, 'helper_join_strings' ), $set ) );
 		}
 		?>
-	const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', 1 ) ); ?>;
-const CACHE_NAME = <?php echo apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ); ?>';
+const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', 1 ) ); ?>;
+const CACHE_NAME = '<?php echo apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ); ?>';
 const OFFLINE_URL = 'iworks-pwa-offline';
 
 const OFFLINE_URLS_SET = [<?php echo $set; ?>];
@@ -145,8 +145,9 @@ self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
 	const cache = await caches.open(CACHE_NAME);
 	await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
-	event.waitUntil( caches.open(CACHE_NAME).then(function(cache) { return cache.addAll(OFFLINE_URLS_SET); })
-  );
+	caches.open(CACHE_NAME).then(function(cache) {
+		return cache.addAll(OFFLINE_URLS_SET);
+	});
   })());
 });
 
@@ -157,6 +158,20 @@ self.addEventListener('activate', (event) => {
 	}
   })());
   self.clients.claim();
+});
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+	caches.keys().then(function(cacheNames) {
+	  return Promise.all(
+		cacheNames.filter(function(cacheName) {
+		  return cacheName !== CACHE_NAME;
+		}).map(function(cacheName) {
+		  return caches.delete(cacheName);
+		})
+	  );
+	})
+  );
 });
 
 self.addEventListener('fetch', (event) => {
