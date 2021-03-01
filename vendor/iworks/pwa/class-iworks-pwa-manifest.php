@@ -118,9 +118,68 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		exit;
 	}
 
+	private function helper_join_strings( $string ) {
+		return sprintf(
+			"'%s'",
+			preg_replace( "/'/", "\\'", $string )
+		);
+	}
+
+
 	private function print_iworks_pwa_service_worker_js() {
 		header( 'Content-Type: text/javascript' );
-		include $this->root . '/assets/pwa/service-worker.js';
+		$set = apply_filters( 'iworks_pwa_offline_urls_set', array() );
+		if ( empty( $set ) ) {
+			$set = '';
+		} else {
+			$set = implode( ', ', array_map( array( $this, 'helper_join_strings' ), $set ) );
+		}
+		?>
+	const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', 1 ) ); ?>;
+const CACHE_NAME = 'offline';
+const OFFLINE_URL = 'iworks-pwa-offline';
+
+const OFFLINE_URLS_SET = [<?php echo $set; ?>];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil((async () => {
+	const cache = await caches.open(CACHE_NAME);
+	await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
+	event.waitUntil( caches.open(MY_CACHE).then(function(cache) { return cache.addAll(OFFLINE_URLS_SET); })
+  );
+  })());
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+	if ('navigationPreload' in self.registration) {
+	  await self.registration.navigationPreload.enable();
+	}
+  })());
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+	event.respondWith((async () => {
+	  try {
+		// First, try to use the navigation preload response if it's supported.
+		const preloadResponse = await event.preloadResponse;
+		if (preloadResponse) {
+		  return preloadResponse;
+		}
+		const networkResponse = await fetch(event.request);
+		return networkResponse;
+	  } catch (error) {
+		console.log('Fetch failed; returning offline page instead.', error);
+		const cache = await caches.open(CACHE_NAME);
+		const cachedResponse = await cache.match(OFFLINE_URL);
+		return cachedResponse;
+	  }
+	})());
+  }
+});
+		<?php
 		exit;
 	}
 
