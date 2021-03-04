@@ -85,7 +85,7 @@ abstract class iWorks_PWA {
 							'type'    => 'image/png',
 							'purpose' => 'any maskable',
 						),
-					),
+					)
 				),
 			)
 		);
