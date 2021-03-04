@@ -14,7 +14,9 @@ class iWorks_PWA_Eexample_Integration {
 	private $color_theme      = '#000000';
 	private $color_background = '#f0f0ff';
 	private $short_name       = 'Example integration';
-	private $url              = 'https://example.com/wp-content/themes/example/';
+
+	private $url  = 'https://example.com/wp-content/themes/example/';
+	private $root = '/var/virtuals/wordpress/example/';
 
 	public function __construct() {
 		add_filter( 'iworks_pwa_configuration', array( $this, 'iworks_pwa_configuration' ) );
