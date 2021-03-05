@@ -33,11 +33,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			$this->version,
 			true
 		);
-		$data = array(
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		);
-		$data = apply_filters( 'wp_localize_script_iworks_pwa_manifest', $data );
-		wp_localize_script( $this->get_name( __CLASS__ ), 'iworks_pwa', $data );
 	}
 
 	/**
