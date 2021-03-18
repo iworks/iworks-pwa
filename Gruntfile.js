@@ -58,6 +58,7 @@ module.exports = function( grunt ) {
 		replaces: {
 			patterns: [
 				{ match: /PLUGIN_VERSION/g, replace: '<%= pkg.version %>' },
+				{ match: /PLUGIN_TAGLINE/g, replace: '<%= pkg.tagline %>' },
 				{ match: /BUILDTIME/g, replace: buildtime }
 			],
 
@@ -73,7 +74,6 @@ module.exports = function( grunt ) {
 					'!node_modules/**',
 					'!lib/**',
 					'!docs/**',
-					'release/**',
 					'!Gruntfile.js',
 					'!package-lock.json',
 					'!build/**',
@@ -82,7 +82,10 @@ module.exports = function( grunt ) {
 					'!stylelint.config.js',
 					'!vendor',
 					'!vendor/*',
-					'!vendor/**'
+					'!vendor/**',
+					'!release',
+					'!release/*',
+					'!release/**',
 				],
 				dest: './release/<%= pkg.name %>/'
 			}
@@ -289,6 +292,9 @@ module.exports = function( grunt ) {
 					'*',
 					'**',
 					'!languages/*~',
+					'!release',
+					'!release/*',
+					'!release/**',
 					'!node_modules',
 					'!node_modules/*',
 					'!node_modules/**',

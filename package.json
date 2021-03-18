@@ -4,6 +4,7 @@
     "homepage": "https://iworks.pl/",
     "version": "0.0.1",
     "description": "",
+    "tagline": "PWA plugin, handle /manifest.json and basic offline worker.",
     "repository": {
         "type": "git",
         "url": "git@github.com:iworks/iworks-pwa.git"

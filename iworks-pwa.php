@@ -3,8 +3,8 @@
 Plugin Name: iWorks PWA
 Text Domain: iworks-pwa
 Plugin URI: http://iworks.pl/iworks-pwa/
-Description: Simple PWA.
-Version: 1.0.0
+Description: PLUGIN_TAGLINE
+Version: PLUGIN_VERSION
 Author: Marcin Pietrzak
 Author URI: http://iworks.pl/
 License: GPLv2 or later

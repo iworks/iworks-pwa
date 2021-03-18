@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: iWorks PWA 1.0.0\n"
+"Project-Id-Version: iWorks PWA PLUGIN_VERSION\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2021-03-04 09:34:12+00:00\n"
+"POT-Creation-Date: 2021-03-18 09:32:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,15 +24,15 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:100
+#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:95
 msgid "Sorry!"
 msgstr ""
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:106
+#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:101
 msgid "We were unable to load the page you requested."
 msgstr ""
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:107
+#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:102
 msgid "Please check your network connection and try again."
 msgstr ""
 
@@ -45,7 +45,7 @@ msgid "http://iworks.pl/iworks-pwa/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Simple PWA."
+msgid "PLUGIN_TAGLINE"
 msgstr ""
 
 #. Author of the plugin/theme
