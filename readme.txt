@@ -46,7 +46,7 @@ There are 3 ways to install this plugin:
 == Changelog ==
 
 
-= 1.0.0 (2021-02-25) =
+= 0.0.1 (2021-03-18) =
 
 * Init.
 
