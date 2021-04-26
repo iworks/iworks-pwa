@@ -12,8 +12,7 @@ PLUGIN_TAGLINE
 
 == Description ==
 
-Super Simple PWA implementation /manifest.json and service worker for
-offline.
+Super Simple PWA implementation /manifest.json and service worker for offline.
 
 No configuration.
 
@@ -47,16 +46,14 @@ First plugin try to get `theme_mod` with default set to `f0f0f0`:
 
 `get_theme_mod( 'background_color', 'f0f0f0');`
 
-Please use `iworks_pwa_configuration_theme_color` filter to change this
-value:
+Please use `iworks_pwa_configuration_theme_color` filter to change this value:
 
 `
 add_filter( 'iworks_pwa_configuration_theme_color', function( $color ) {
     return '#f20';
 }
 `
-As returned value you can return any valid color, bu remember alpha
-value will be ignored (for rgba, hsla or hex with alpha).
+As returned value you can return any valid color, but remember alpha value will be ignored (for rgba, hsla or hex with alpha).
 
 
 == Screenshots ==

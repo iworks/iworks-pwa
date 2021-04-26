@@ -71,6 +71,7 @@ module.exports = function( grunt ) {
 					'**/*.js',
 					'**/*.html',
 					'**/*.txt',
+					'**/*.pot',
 					'!node_modules/**',
 					'!lib/**',
 					'!docs/**',
@@ -80,12 +81,9 @@ module.exports = function( grunt ) {
 					'!tests/**',
 					'!.git/**',
 					'!stylelint.config.js',
-					'!vendor',
-					'!vendor/*',
-					'!vendor/**',
-					'!release',
-					'!release/*',
-					'!release/**',
+                    '!release',
+                    '!release/*',
+                    '!release/**',
 				],
 				dest: './release/<%= pkg.name %>/'
 			}
@@ -258,7 +256,6 @@ module.exports = function( grunt ) {
 			}
 		},
 
-
 		// WATCH - Watch filesystem for changes during development.
 		watch:  {
 			sass: {
@@ -292,6 +289,8 @@ module.exports = function( grunt ) {
 					'*',
 					'**',
 					'!languages/*~',
+					'!languages/*.po',
+					'!languages/*.mo',
 					'!release',
 					'!release/*',
 					'!release/**',
