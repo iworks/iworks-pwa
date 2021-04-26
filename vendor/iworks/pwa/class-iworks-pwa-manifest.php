@@ -58,6 +58,11 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 	public function html_head() {
 		echo '<link rel="manifest" href="/manifest.json" />';
 		echo PHP_EOL;
+		$background_color = $this->get_background_color();
+		printf( '<meta name="msapplication-TileColor" content="%s" />', $background_color );
+		echo PHP_EOL;
+		printf( '<meta name="theme-color" content="%s" />', $background_color );
+		echo PHP_EOL;
 	}
 
 	public function parse_request() {

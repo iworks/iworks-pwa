@@ -2,7 +2,7 @@
     "name": "iworks-pwa",
     "title": "iWorks PWA",
     "homepage": "https://iworks.pl/",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "",
     "tagline": "PWA plugin, handle /manifest.json and basic offline worker.",
     "repository": {

@@ -22,14 +22,15 @@ abstract class iWorks_PWA {
 	}
 
 	public function configuration() {
+		$background_color    = $this->get_background_color();
 		$root                = sprintf( '%s/assets/images/icons/favicon', $this->url );
 		$this->configuration = apply_filters(
 			'iworks_pwa_configuration',
 			array(
 				'name'             => apply_filters( 'iworks_pwa_configuration_name', get_bloginfo( 'name' ) ),
 				'short_name'       => apply_filters( 'iworks_pwa_configuration_short_name', get_bloginfo( 'name' ) ),
-				'theme_color'      => apply_filters( 'iworks_pwa_configuration_theme_color', '#ffffff' ),
-				'background_color' => apply_filters( 'iworks_pwa_configuration_background_color', '#ffffff' ),
+				'theme_color'      => $background_color,
+				'background_color' => apply_filters( 'iworks_pwa_configuration_background_color', $background_color ),
 				'display'          => apply_filters( 'iworks_pwa_configuration_display', 'standalone' ),
 				'orientation'      => apply_filters( 'iworks_pwa_configuration_orientation', 'portrait' ),
 				'Scope'            => apply_filters( 'iworks_pwa_configuration_Scope', '/' ),
@@ -93,6 +94,19 @@ abstract class iWorks_PWA {
 
 	protected function get_name( $name ) {
 		return preg_replace( '/_/', '-', strtolower( $name ) );
+	}
+
+	/**
+	 * get background color (meta: theme-color)
+	 *
+	 * @since 0.0.2
+	 */
+	protected function get_background_color() {
+		$background_color = get_theme_mod( 'background_color', 'f0f0f0' );
+		if ( preg_match( '/^[0-9a-f]+$/', $background_color ) ) {
+			$background_color = '#' . $background_color;
+		}
+		return apply_filters( 'iworks_pwa_configuration_theme_color', $background_color );
 	}
 
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
 "POT-Creation-Date: 2021-03-18 09:32:22+00:00\n"
-"PO-Revision-Date: 2021-02-26 19:32+0100\n"
+"PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
 "Language: pl_PL\n"
@@ -45,7 +45,7 @@ msgstr "http://iworks.pl/iworks-pwa/"
 
 #. Description of the plugin/theme
 msgid "PLUGIN_TAGLINE"
-msgstr ""
+msgstr "PLUGIN_TAGLINE"
 
 #. Author of the plugin/theme
 msgid "Marcin Pietrzak"
