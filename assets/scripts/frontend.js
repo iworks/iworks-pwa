@@ -1,6 +1,6 @@
-/*! iWorks PWA - v0.0.3
+/*! iWorks PWA - v1.0.0
  * https://iworks.pl/
- * Copyright (c) 2021; * Licensed GPLv2+
+ * Copyright (c) 2022; * Licensed GPLv2+
  */
 if ('serviceWorker' in navigator) {
     // console.log('CLIENT: service worker registration in progress. serviceWorker');

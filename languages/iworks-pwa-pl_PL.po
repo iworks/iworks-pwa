@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2021-04-26 05:20:38+00:00\n"
+"POT-Creation-Date: 2022-01-04 17:55:46+00:00\n"
 "PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
@@ -23,21 +23,114 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:100
-msgid "Sorry!"
-msgstr "Przepraszamy!"
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: assets/templates/no-ssl.php:16
+msgid ""
+"The PWA needs to be hosted on a secure server! Please use HTTPS on your site "
+"before activate this plugin."
+msgstr ""
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:106
-msgid "We were unable to load the page you requested."
-msgstr "Nie udało się załadować żądanej strony."
+#: assets/templates/no-ssl.php:35
+msgid ""
+"We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again "
+"after this site will use SSL."
+msgstr ""
 
-#: vendor/iworks/pwa/class-iworks-pwa-manifest.php:107
-msgid "Please check your network connection and try again."
-msgstr "Proszę sprawdzić połączenie sieciowe i spróbować ponownie."
+#: assets/templates/no-ssl.php:42
+msgid "FAQ"
+msgstr ""
+
+#: assets/templates/no-ssl.php:43 includes/iworks/rate/templates/thanks.php:24
+#: includes/iworks/rate/templates/widgets/support.php:23
+msgid "Get help"
+msgstr ""
 
 #. Plugin Name of the plugin/theme
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:103
+msgid "Sorry!"
+msgstr "Przepraszamy!"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:109
+msgid "We were unable to load the page you requested."
+msgstr "Nie udało się załadować żądanej strony."
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:110
+msgid "Please check your network connection and try again."
+msgstr "Proszę sprawdzić połączenie sieciowe i spróbować ponownie."
+
+#: includes/iworks/rate/rate.php:118
+msgid "Settings"
+msgstr ""
+
+#: includes/iworks/rate/rate.php:124
+#: includes/iworks/rate/templates/thanks.php:28
+msgid "Provide us a coffee"
+msgstr ""
+
+#: includes/iworks/rate/templates/thanks.php:17
+msgid "Thank you for using our plugin %s!"
+msgstr ""
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: includes/iworks/rate/templates/thanks.php:20
+msgid ""
+"Please let us know what you think about our plugin. It is important that we "
+"can develop this tool. Thank you for all the ratings, reviews and donates. "
+"If you have a technical problem, please before you add a review %1$scheck "
+"our FAQ%2$s or contact us if you did not find help there. We will try to "
+"help you!"
+msgstr ""
+
+#: includes/iworks/rate/templates/thanks.php:26
+#: includes/iworks/rate/templates/widgets/support.php:33
+msgid "Add review"
+msgstr ""
+
+#: includes/iworks/rate/templates/thanks.php:30
+msgid "I added review, do not show again"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/donate.php:1
+msgid ""
+"However, working on plugins and technical support requires many hours of "
+"work. If you want to appreciate it, you can provide me a coffee."
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/donate.php:2
+msgid ""
+"If every plugin user did it, I could devote myself fully to working on this "
+"plugin. Thanks everyone!"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/donate.php:3
+msgid "Provide me a coffee"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/support.php:4
+msgid ""
+"Do you have a technical problem? Please contact us. We will be happy to help "
+"you. Or maybe you have an idea for a new feature? Please let us know about "
+"it by filling the support form. We will try to add it!"
+msgstr ""
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag, %3$s: open
+#. anchor tag, %4$s: close anchor tag
+#: includes/iworks/rate/templates/widgets/support.php:13
+msgid ""
+"Please %1$scheck our FAQ%2$s before adding a thread with technical problem. "
+"If you do not find help there, %3$scheck support forum%4$s for similar "
+"problems."
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/support.php:28
+msgid ""
+"Do you like our plugin? Could you rate him? Please let us know what you "
+"think about our plugin. It is important that we can develop this tool. Thank "
+"you for all the ratings, reviews and donates."
+msgstr ""
 
 #. Plugin URI of the plugin/theme
 msgid "http://iworks.pl/iworks-pwa/"
@@ -54,6 +147,29 @@ msgstr "Marcin Pietrzak"
 #. Author URI of the plugin/theme
 msgid "http://iworks.pl/"
 msgstr "http://iworks.pl/"
+
+#: includes/iworks/class-iworks-pwa.php:51
+#, fuzzy
+msgctxt "plugins home"
+msgid "https://wordpress.org/plugins/iworks-pwa"
+msgstr "http://iworks.pl/iworks-pwa/"
+
+#: includes/iworks/rate/rate.php:372
+#, fuzzy
+msgctxt "plugins home"
+msgid "https://wordpress.org/plugins/%s"
+msgstr "http://iworks.pl/"
+
+#: includes/iworks/class-iworks-pwa.php:54
+#, fuzzy
+msgctxt "plugins support home"
+msgid "https://wordpress.org/support/plugin/iworks-pwa"
+msgstr "http://iworks.pl/iworks-pwa/"
+
+#: includes/iworks/rate/rate.php:378
+msgctxt "plugins support home"
+msgid "https://wordpress.org/support/plugin/%s"
+msgstr ""
 
 #~ msgid "Simple PWA."
 #~ msgstr "Simple PWA."

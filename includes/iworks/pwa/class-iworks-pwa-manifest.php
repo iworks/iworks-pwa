@@ -9,8 +9,18 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_manifest extends iWorks_PWA {
 
+	/**
+	 * OFFLINE_VERSION
+	 *
+	 * @since 1.0.0
+	 */
+	private $offline_version = 2;
+
 	public function __construct() {
 		parent::__construct();
+		if ( ! is_ssl() ) {
+			return;
+		}
 		/**
 		 * handle special requests
 		 */
@@ -128,14 +138,21 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 
 	private function print_iworks_pwa_service_worker_js() {
 		header( 'Content-Type: text/javascript' );
-		$set = apply_filters( 'iworks_pwa_offline_urls_set', array() );
+		$set = array(
+			home_url(),
+		);
+		$url = get_privacy_policy_url();
+		if ( ! empty( $url ) ) {
+			$set[] = $url;
+		}
+		$set = array_unique( apply_filters( 'iworks_pwa_offline_urls_set', $set ) );
 		if ( empty( $set ) ) {
 			$set = '';
 		} else {
 			$set = implode( ', ', array_map( array( $this, 'helper_join_strings' ), $set ) );
 		}
 		?>
-const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', 1 ) ); ?>;
+const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', $this->offline_version ) ); ?>;
 const CACHE_NAME = '<?php echo apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ); ?>';
 const OFFLINE_URL = 'iworks-pwa-offline';
 

@@ -18,7 +18,64 @@ abstract class iWorks_PWA {
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
 		$this->root  = rtrim( plugin_dir_path( $file ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		if ( ! is_ssl() ) {
+			add_action( 'load-index.php', array( $this, 'load_no_ssl_warning' ) );
+			return;
+		}
 		add_action( 'init', array( $this, 'configuration' ) );
+		/**
+		 * change logo for rate
+		 */
+		add_filter( 'iworks_rate_notice_logo_style', array( $this, 'filter_plugin_logo' ), 10, 2 );
+	}
+
+	/**
+	 * load no SSL warning
+	 *
+	 * @since 1.0.0
+	 */
+	public function load_no_ssl_warning() {
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
+		add_action( 'admin_notices', array( $this, 'show_no_ssl' ) );
+	}
+
+	/**
+	 * show no SSL warning
+	 *
+	 * @since 1.0.0
+	 */
+	public function show_no_ssl() {
+		$file            = $this->root . '/assets/templates/no-ssl.php';
+		$args            = array(
+			'title'       => __( 'iWorks PWA', 'iworks-pwa' ),
+			'url'         => esc_url( _x( 'https://wordpress.org/plugins/iworks-pwa', 'plugins home', 'iworks-pwa' ) ),
+			'logo'        => $this->get_logo_url(),
+			'classes'     => array(),
+			'support_url' => _x( 'https://wordpress.org/support/plugin/iworks-pwa', 'plugins support home', 'iworks-pwa' ),
+			'slug'        => 'iworks-pwa',
+		);
+		$args['classes'] = array(
+			'iworks-rate',
+			'iworks-rate-' . $args['slug'],
+			'iworks-rate-notice',
+			'has-logo',
+		);
+		load_template( $file, true, $args );
+	}
+
+	/**
+	 * Action handler for 'load-index.php'
+	 * Set-up the Dashboard notification.
+	 *
+	 * @since  1.0.0
+	 */
+	public function admin_enqueue() {
+		wp_enqueue_style(
+			__CLASS__,
+			plugin_dir_url( __FILE__ ) . 'rate/admin.css',
+			array(),
+			$this->version
+		);
 	}
 
 	public function configuration() {
@@ -107,6 +164,33 @@ abstract class iWorks_PWA {
 			$background_color = '#' . $background_color;
 		}
 		return apply_filters( 'iworks_pwa_configuration_theme_color', $background_color );
+	}
+
+	/**
+	 * Plugin logo for rate messages
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $logo Logo, can be empty.
+	 * @param object $plugin Plugin basic data.
+	 */
+	public function filter_plugin_logo( $logo, $plugin ) {
+		if ( is_object( $plugin ) ) {
+			$plugin = (array) $plugin;
+		}
+		if ( 'iworks-pwa' === $plugin['slug'] ) {
+			return $this->get_logo_url();
+		}
+		return $logo;
+	}
+
+	/**
+	 * get logo url
+	 *
+	 * @since 1.0.0
+	 */
+	private function get_logo_url() {
+		return plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/images/icon.svg';
 	}
 
 }

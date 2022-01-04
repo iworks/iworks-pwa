@@ -30,16 +30,40 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
+/**
+ * static options
+ */
+$base     = dirname( __FILE__ );
+$includes = $base . '/includes';
+
+
 /**
  * i18n
  */
 load_plugin_textdomain( 'iworks-pwa', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+
 /**
  * load
  */
-require_once 'vendor/iworks/pwa/class-iworks-pwa-manifest.php';
+require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
 /**
  * run
  */
 new iWorks_PWA_manifest;
+
+/**
+ * Ask for vote
+ *
+ * @since 1.0.0
+ */
+if ( is_ssl() ) {
+	include_once $includes . '/iworks/rate/rate.php';
+	do_action(
+		'iworks-register-plugin',
+		plugin_basename( __FILE__ ),
+		__( 'iWorks PWA', 'iworks-pwa' ),
+		'iworks-pwa'
+	);
+}
 

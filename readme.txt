@@ -1,9 +1,9 @@
 === iWorks PWA ===
 Contributors: iworks
 Donate link: http://iworks.pl/donate/iworks-pwa.php
-Tags: 
+Tags: PWA, Progressive Web Application
 Requires at least: 5.6
-Tested up to: 5.7
+Tested up to: 5.9
 Stable tag: PLUGIN_VERSION
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,12 +61,17 @@ As returned value you can return any valid color, but remember alpha value will 
 == Changelog ==
 
 
-= 0.0.2 (2021-04-26) =
+= 1.0.0 (2022-01-04) =
+* First stable release.
+* Added check for non SSL site - SSL is required for PWA.
+* Added "Rate" module.
+* Fixed duplicates in offline urls set.
+* Bumped offline version to 2.
 
+= 0.0.2 (2021-04-26) =
 * Added meta `theme-color`. Props for [forexonlineproductionltd](https://wordpress.org/support/users/forexonlineproductionltd/).
 
 = 0.0.1 (2021-03-18) =
-
 * Init.
 
 == Upgrade Notice ==
