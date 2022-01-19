@@ -12,9 +12,15 @@ PLUGIN_TAGLINE
 
 == Description ==
 
-Super Simple PWA implementation /manifest.json and service worker for offline.
+Progressive Web Apps (PWA) is a technology that combines the best of mobile web and the best of mobile apps to create a superior mobile web experience. They are installed on the phone like a normal app (web app) and can be accessed from the home screen.
 
-No configuration.
+Users can come back to your website by launching the app from their home screen and interact with your website through an app-like interface.  Your return visitors will experience almost-instant loading times and enjoy the great performance benefits of your PWA!
+
+iWorks PWA makes it easy for you to convert your WordPress website into a Progressive Web App instantly!
+
+Once this plugin is installed, users browsing your website from a supported mobile device will see a “Add To Home Screen” notice (from the bottom of the screen) and will be able to ‘install your website’ on the home screen of their device. Every page visited is stored locally on their device and will be available to read even when they are offline!
+
+iWorks PWA is easy to configure, it takes less than a minute to set-up your Progressive Web App!
 
 
 == Installation ==
@@ -60,6 +66,9 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
+
+= 1.0.1 (2022-01-04) =
+* Added configuration.
 
 = 1.0.0 (2022-01-04) =
 * First stable release.

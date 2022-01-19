@@ -37,6 +37,21 @@ if ( ! defined( 'WPINC' ) ) {
 $base     = dirname( __FILE__ );
 $includes = $base . '/includes';
 
+/**
+ * get plugin settings
+ *
+ * @since 1.0.1
+ */
+include_once $base . '/etc/options.php';
+
+/**
+ * @since 1.0.6
+ */
+if ( ! class_exists( 'iworks_options' ) ) {
+	include_once $includes . '/iworks/options/options.php';
+}
+
+
 
 /**
  * i18n
@@ -53,17 +68,36 @@ require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
 new iWorks_PWA_manifest;
 
 /**
+ * load options
+ *
+ * since 2.6.8
+ *
+ */
+global $iworks_pwa_options;
+$iworks_pwa_options = null;
+
+function get_iworks_pwa_options() {
+	global $iworks_pwa_options;
+	if ( is_object( $iworks_pwa_options ) ) {
+		return $iworks_pwa_options;
+	}
+	$iworks_pwa_options = new iworks_options();
+	$iworks_pwa_options->set_option_function_name( 'iworks_pwa_options' );
+	$iworks_pwa_options->set_option_prefix( 'iworks_pwa_' );
+	$iworks_pwa_options->set_plugin( basename( __FILE__ ) );
+	return $iworks_pwa_options;
+}
+
+/**
  * Ask for vote
  *
  * @since 1.0.0
  */
-if ( is_ssl() ) {
-	include_once $includes . '/iworks/rate/rate.php';
-	do_action(
-		'iworks-register-plugin',
-		plugin_basename( __FILE__ ),
-		__( 'iWorks PWA', 'iworks-pwa' ),
-		'iworks-pwa'
-	);
-}
+include_once $includes . '/iworks/rate/rate.php';
+do_action(
+	'iworks-register-plugin',
+	plugin_basename( __FILE__ ),
+	__( 'iWorks PWA', 'iworks-pwa' ),
+	'iworks-pwa'
+);
 

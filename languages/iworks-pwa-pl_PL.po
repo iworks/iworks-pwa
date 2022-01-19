@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-01-04 17:55:46+00:00\n"
+"POT-Creation-Date: 2022-01-04 18:44:27+00:00\n"
 "PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
@@ -49,15 +49,15 @@ msgstr ""
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:103
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:110
 msgid "Sorry!"
 msgstr "Przepraszamy!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:109
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:116
 msgid "We were unable to load the page you requested."
 msgstr "Nie udało się załadować żądanej strony."
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:110
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:117
 msgid "Please check your network connection and try again."
 msgstr "Proszę sprawdzić połączenie sieciowe i spróbować ponownie."
 
