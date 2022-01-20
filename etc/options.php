@@ -46,12 +46,43 @@ function iworks_pwa_options() {
 				'default'           => get_bloginfo( 'description' ),
 			),
 			array(
-				'name'              => 'app_',
-				'type'              => 'text',
-				'class'             => 'regular-text',
-				'th'                => __( '', 'iworks-pwa' ),
-				'description'       => __( '', 'iworks-pwa' ),
-				'sanitize_callback' => 'esc_html',
+				'name'        => 'app_orientation',
+				'type'        => 'radio',
+				'th'          => __( 'Orientation', 'iworks-pwa' ),
+				'description' => __( 'Set the orientation of your app on devices. When set to &#8220;Follow Device Orientation&#8221; your app will rotate as the device is rotated.', 'iworks-pwa' ),
+				'radio'       => array(
+					'any'       => array(
+						'label' => _x( 'Follow Device Orientation', 'PWA settings', 'iworks-pwa' ),
+					),
+					'portrait'  => array(
+						'label' => _x( 'Portrait', 'PWA settings', 'iworks-pwa' ),
+					),
+					'landscape' => array(
+						'label' => _x( 'Landscape', 'PWA settings', 'iworks-pwa' ),
+					),
+				),
+				'default'     => 'portrait',
+			),
+			array(
+				'name'        => 'app_display',
+				'type'        => 'radio',
+				'th'          => __( 'display', 'iworks-pwa' ),
+				'description' => __( 'Display mode decides what browser UI is shown when your app is launched. Standalone is default.', 'iworks-pwa' ),
+				'radio'       => array(
+					'fullscreen' => array(
+						'label' => _x( 'Full Screen', 'PWA settings', 'iworks-pwa' ),
+					),
+					'standalone' => array(
+						'label' => _x( 'Standalone', 'PWA settings', 'iworks-pwa' ),
+					),
+					'minimal-ui' => array(
+						'label' => _x( 'Minimal UI', 'PWA settings', 'iworks-pwa' ),
+					),
+					'browser'    => array(
+						'label' => _x( 'Browser', 'PWA settings', 'iworks-pwa' ),
+					),
+				),
+				'default'     => 'standalone',
 			),
 			array(
 				'type'  => 'heading',
@@ -65,7 +96,6 @@ function iworks_pwa_options() {
 				'description'       => __( 'Background color of the splash screen.', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
-				'use_name_as_id'    => true,
 			),
 			array(
 				'name'              => 'color_theme',
@@ -75,13 +105,28 @@ function iworks_pwa_options() {
 				'description'       => __( 'Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color.', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
-				'use_name_as_id'    => true,
 			),
 			array(
 				'type'  => 'heading',
-				'label' => __( 'Pages', 'iworks-pwa' ),
+				'label' => __( 'Icons', 'iworks-pwa' ),
 			),
+			array(
+				'name'              => 'icon_app',
+				'type'              => 'image',
+				'th'                => __( 'Application Icon', 'iworks-pwa' ),
+				'description'       => __( 'This will be the icon of your app when installed on the phone. It should be a PNG image.', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+			),
+			array(
 
+				'name'              => 'icon_splash',
+				'type'              => 'image',
+				'th'                => __( 'Splash Screen Icon', 'iworks-pwa' ),
+				'description'       => __( 'This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image.', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+			),
 		),
 		'metaboxes'       => array(
 			'assistance' => array(

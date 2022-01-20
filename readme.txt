@@ -66,9 +66,10 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
-
-= 1.0.1 (2022-01-04) =
-* Added configuration.
+= 1.1.0 (2022-01-21) =
+* Added configuration: name, description, colors, orientation, display and icons.
+* Updated iWorks Options to 2.8.0.
+* Updated iWorks Rate to 2.0.6.
 
 = 1.0.0 (2022-01-04) =
 * First stable release.
