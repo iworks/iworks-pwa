@@ -119,9 +119,9 @@ function iworks_pwa_options() {
 				'max-width'         => 64,
 			),
 			array(
-
 				'name'              => 'icon_splash',
 				'type'              => 'image',
+				'type'              => 'special',
 				'th'                => __( 'Splash Screen Icon', 'iworks-pwa' ),
 				'description'       => __( 'This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
