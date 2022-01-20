@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: iWorks PWA
+Plugin Name: PWA — simple way to Progressive Web App
 Text Domain: iworks-pwa
 Plugin URI: http://iworks.pl/iworks-pwa/
 Description: PLUGIN_TAGLINE

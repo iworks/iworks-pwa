@@ -1,4 +1,4 @@
-=== iWorks PWA ===
+=== PWA — simple way to Progressive Web App ===
 Contributors: iworks
 Donate link: http://iworks.pl/donate/iworks-pwa.php
 Tags: PWA, Progressive Web Application
@@ -68,6 +68,7 @@ As returned value you can return any valid color, but remember alpha value will 
 
 = 1.1.0 (2022-01-21) =
 * Added configuration: name, description, colors, orientation, display and icons.
+* Changed plugin name from "iWorks PWA" into "PWA — simple way to Progressive Web App".
 * Updated iWorks Options to 2.8.0.
 * Updated iWorks Rate to 2.0.6.
 
