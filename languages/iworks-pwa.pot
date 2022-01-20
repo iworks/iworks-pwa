@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA PLUGIN_VERSION\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-01-04 18:44:27+00:00\n"
+"POT-Creation-Date: 2022-01-20 12:45:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,19 +46,185 @@ msgstr ""
 msgid "Get help"
 msgstr ""
 
+#: etc/options.php:11
+msgid "Progressive Web Application - Configuration"
+msgstr ""
+
+#: etc/options.php:12
+msgid "PWA"
+msgstr ""
+
+#: etc/options.php:19
+msgid "General"
+msgstr ""
+
+#: etc/options.php:25
+msgid "Application Name"
+msgstr ""
+
+#: etc/options.php:33
+msgid "Application Short Name"
+msgstr ""
+
+#: etc/options.php:34
+msgid ""
+"Used when there is insufficient space to display the full name of the "
+"application. 15 characters or less."
+msgstr ""
+
+#: etc/options.php:43
+msgid "Description"
+msgstr ""
+
+#: etc/options.php:44
+msgid "A brief description of what your app is about."
+msgstr ""
+
+#: etc/options.php:51
+msgid "Orientation"
+msgstr ""
+
+#: etc/options.php:52
+msgid ""
+"Set the orientation of your app on devices. When set to &#8220;Follow "
+"Device Orientation&#8221; your app will rotate as the device is rotated."
+msgstr ""
+
+#: etc/options.php:69
+msgid "display"
+msgstr ""
+
+#: etc/options.php:70
+msgid ""
+"Display mode decides what browser UI is shown when your app is launched. "
+"Standalone is default."
+msgstr ""
+
+#: etc/options.php:89
+msgid "Colors"
+msgstr ""
+
+#: etc/options.php:95
+msgid "Background Color"
+msgstr ""
+
+#: etc/options.php:96
+msgid "Background color of the splash screen."
+msgstr ""
+
+#: etc/options.php:104
+msgid "Theme Color"
+msgstr ""
+
+#: etc/options.php:105
+msgid ""
+"Theme color is used on supported devices to tint the UI elements of the "
+"browser and app switcher. When in doubt, use the same color as Background "
+"Color."
+msgstr ""
+
+#: etc/options.php:111
+msgid "Icons"
+msgstr ""
+
+#: etc/options.php:116
+msgid "Application Icon"
+msgstr ""
+
+#: etc/options.php:117
+msgid ""
+"This will be the icon of your app when installed on the phone. It should be "
+"a PNG image."
+msgstr ""
+
+#: etc/options.php:125
+msgid "Splash Screen Icon"
+msgstr ""
+
+#: etc/options.php:126
+msgid ""
+"This icon will be displayed on the splash screen of your app on supported "
+"devices. It should be a PNG image."
+msgstr ""
+
+#: etc/options.php:133 etc/options.php:192
+msgid "We are waiting for your message"
+msgstr ""
+
+#: etc/options.php:139
+msgid "I love what I do!"
+msgstr ""
+
+#: etc/options.php:156
+msgid "Below are some links to help spread this plugin to other users"
+msgstr ""
+
+#: etc/options.php:158
+msgid "Give it a five stars on WordPress.org"
+msgstr ""
+
+#: etc/options.php:159
+msgid "Link to it so others can easily find it"
+msgstr ""
+
+#: etc/options.php:194
+msgid "WordPress Help Forum"
+msgstr ""
+
 #. Plugin Name of the plugin/theme
 msgid "iWorks PWA"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:110
+#: includes/iworks/options/options.php:251
+msgid "An error occurred while getting the configuration."
+msgstr ""
+
+#: includes/iworks/options/options.php:752
+#: includes/iworks/options/options.php:1753
+msgid "Select Image"
+msgstr ""
+
+#: includes/iworks/options/options.php:757
+msgid "Delete image"
+msgstr ""
+
+#: includes/iworks/options/options.php:843
+msgid "Save Changes"
+msgstr ""
+
+#: includes/iworks/options/options.php:1647
+msgid "Country"
+msgstr ""
+
+#: includes/iworks/options/options.php:1648
+msgid "City"
+msgstr ""
+
+#: includes/iworks/options/options.php:1649
+msgid "Street"
+msgstr ""
+
+#: includes/iworks/options/options.php:1650
+msgid "ZIP code"
+msgstr ""
+
+#: includes/iworks/options/options.php:1806
+msgid "OFF"
+msgstr ""
+
+#: includes/iworks/options/options.php:1807
+msgid "ON"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:109
 msgid "Sorry!"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:116
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:115
 msgid "We were unable to load the page you requested."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:117
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:116
 msgid "Please check your network connection and try again."
 msgstr ""
 
@@ -149,22 +315,67 @@ msgstr ""
 msgid "http://iworks.pl/"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:51
+#: etc/options.php:55
+msgctxt "PWA settings"
+msgid "Follow Device Orientation"
+msgstr ""
+
+#: etc/options.php:58
+msgctxt "PWA settings"
+msgid "Portrait"
+msgstr ""
+
+#: etc/options.php:61
+msgctxt "PWA settings"
+msgid "Landscape"
+msgstr ""
+
+#: etc/options.php:73
+msgctxt "PWA settings"
+msgid "Full Screen"
+msgstr ""
+
+#: etc/options.php:76
+msgctxt "PWA settings"
+msgid "Standalone"
+msgstr ""
+
+#: etc/options.php:79
+msgctxt "PWA settings"
+msgid "Minimal UI"
+msgstr ""
+
+#: etc/options.php:82
+msgctxt "PWA settings"
+msgid "Browser"
+msgstr ""
+
+#: etc/options.php:159
+msgctxt "plugin home page on WordPress.org"
+msgid "https://wordpress.org/plugins/iworks-pwa/"
+msgstr ""
+
+#: etc/options.php:194
+msgctxt "link to support forum on WordPress.org"
+msgid "https://wordpress.org/support/plugin/iworks-pwa/"
+msgstr ""
+
+#: includes/iworks/class-iworks-pwa.php:124
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:372
+#: includes/iworks/rate/rate.php:399
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:54
+#: includes/iworks/class-iworks-pwa.php:127
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:378
+#: includes/iworks/rate/rate.php:405
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/%s"
 msgstr ""

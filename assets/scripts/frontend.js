@@ -1,4 +1,4 @@
-/*! iWorks PWA - v1.0.0
+/*! iWorks PWA - v1.1.0
  * https://iworks.pl/
  * Copyright (c) 2022; * Licensed GPLv2+
  */
