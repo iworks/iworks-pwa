@@ -277,7 +277,6 @@ abstract class iWorks_PWA {
 			if ( ! is_wp_error( $image ) ) {
 				$size = min( $image->get_size() );
 				$ext  = $this->get_image_ext_from_attachement_id( $value );
-
 				krsort( $this->icons );
 				foreach ( $this->icons as $width => $data ) {
 					$width = intval( $width );

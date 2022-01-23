@@ -139,7 +139,7 @@ function iworks_pwa_options() {
 				'name'              => 'icon_apple',
 				'type'              => 'image',
 				'th'                => __( 'Apple Touch Icon', 'iworks-pwa' ),
-				'description'       => __( 'This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image.', 'iworks-pwa' ),
+				'description'       => __( 'For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 			),
@@ -193,6 +193,7 @@ function iworks_pwa_options() {
 				'th'                => __( 'Square Tile Logo', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'description'       => __( 'It must be a PNG image, at least 310x310px.', 'iworks-pwa' ),
 			),
 			array(
 				'name'              => 'ms_wide',
@@ -200,6 +201,7 @@ function iworks_pwa_options() {
 				'th'                => __( 'Wide Tile Logo', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'description'       => __( 'It must be a PNG image. It should by exactly 310x150px.', 'iworks-pwa' ),
 			),
 		),
 		'metaboxes'       => array(

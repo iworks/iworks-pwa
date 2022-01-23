@@ -18,9 +18,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 
 	public function __construct() {
 		parent::__construct();
-		if ( ! is_ssl() ) {
-			return;
-		}
 		/**
 		 * handle special requests
 		 */
@@ -69,7 +66,8 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
-		switch ( $_SERVER['REQUEST_URI'] ) {
+		$uri = remove_query_arg( array_keys( $_GET ), $_SERVER['REQUEST_URI'] );
+		switch ( $uri ) {
 			case '/manifest.json':
 				$this->print_manifest_json();
 				break;

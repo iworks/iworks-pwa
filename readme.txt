@@ -68,6 +68,7 @@ As returned value you can return any valid color, but remember alpha value will 
 
 1.1.2
 * Changed plugin name into "PWA — easy way to Progressive Web App".
+* Improved handle `/manifest.json`.
 
 = 1.1.1 (2022-01-23)
 * Added configuration for Apple Splash Screen Icons.
@@ -77,7 +78,7 @@ As returned value you can return any valid color, but remember alpha value will 
 
 = 1.1.0 (2022-01-21) =
 * Added configuration for application name.
-* Added configuration fot application colors
+* Added configuration fot application colors.
 * Added configuration fot application description.
 * Added configuration fot application display.
 * Added configuration fot application icons.
