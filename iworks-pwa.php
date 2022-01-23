@@ -10,7 +10,7 @@ Author URI: http://iworks.pl/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Copyright 2021 Marcin Pietrzak (marcin@iworks.pl)
+Copyright 2021-PLUGIN_TILL_YEAR Marcin Pietrzak (marcin@iworks.pl)
 
 this program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as
@@ -51,8 +51,6 @@ if ( ! class_exists( 'iworks_options' ) ) {
 	include_once $includes . '/iworks/options/options.php';
 }
 
-
-
 /**
  * i18n
  */
@@ -62,10 +60,19 @@ load_plugin_textdomain( 'iworks-pwa', false, plugin_basename( dirname( __FILE__ 
  * load
  */
 require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
+require_once $includes . '/iworks/pwa/class-iworks-pwa-html-head.php';
 /**
  * run
  */
 new iWorks_PWA_manifest;
+new iWorks_PWA_HTML_Head;
+/**
+ * admin
+ */
+if ( is_admin() ) {
+	require_once $includes . '/iworks/pwa/class-iworks-pwa-administrator.php';
+	new iWorks_PWA_Administrator;
+}
 
 /**
  * load options

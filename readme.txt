@@ -66,8 +66,20 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
+= 1.1.1 (2022-01-23)
+* Added configuration for Apple Splash Screen Icons.
+* Added configuration for Apple Touch Icon.
+* Added configuration for IE11.
+* Added configuration for Microsoft Tile Icons.
+
 = 1.1.0 (2022-01-21) =
-* Added configuration: name, description, colors, orientation, display and icons.
+* Added configuration for application name.
+* Added configuration fot application colors
+* Added configuration fot application description.
+* Added configuration fot application display.
+* Added configuration fot application icons.
+* Added configuration fot application orientation.
+* Added configuration fot application short name.
 * Changed plugin name from "iWorks PWA" into "PWA — simple way to Progressive Web App".
 * Updated iWorks Options to 2.8.0.
 * Updated iWorks Rate to 2.0.6.

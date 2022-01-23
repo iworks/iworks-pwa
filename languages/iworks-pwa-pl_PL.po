@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-01-20 12:45:28+00:00\n"
+"POT-Creation-Date: 2022-01-23 11:16:21+00:00\n"
 "PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
@@ -122,55 +122,109 @@ msgid ""
 "Color."
 msgstr ""
 
-#: etc/options.php:111
+#: etc/options.php:111 includes/iworks/pwa/class-iworks-pwa-manifest.php:219
 msgid "Icons"
 msgstr ""
 
-#: etc/options.php:116
+#: etc/options.php:115
+msgid "Android/Generic"
+msgstr ""
+
+#: etc/options.php:120
 msgid "Application Icon"
 msgstr ""
 
-#: etc/options.php:117
+#: etc/options.php:121
 msgid ""
 "This will be the icon of your app when installed on the phone. It should be "
 "a PNG image."
 msgstr ""
 
-#: etc/options.php:125
+#: etc/options.php:129
 msgid "Splash Screen Icon"
 msgstr ""
 
-#: etc/options.php:126
+#: etc/options.php:130 etc/options.php:142
 msgid ""
 "This icon will be displayed on the splash screen of your app on supported "
 "devices. It should be a PNG image."
 msgstr ""
 
-#: etc/options.php:133 etc/options.php:192
-msgid "We are waiting for your message"
+#: etc/options.php:136
+msgid "Apple"
 msgstr ""
 
-#: etc/options.php:139
-msgid "I love what I do!"
+#: etc/options.php:141
+msgid "Apple Touch Icon"
 msgstr ""
 
-#: etc/options.php:156
-msgid "Below are some links to help spread this plugin to other users"
+#: etc/options.php:149
+msgid "iPad landscape splash screen"
 msgstr ""
 
-#: etc/options.php:158
-msgid "Give it a five stars on WordPress.org"
+#: etc/options.php:150
+msgid "It must be a PNG image. 1024x748px."
 msgstr ""
 
 #: etc/options.php:159
+msgid "iPad portriat splash screen"
+msgstr ""
+
+#: etc/options.php:160
+msgid "It must be a PNG image. 768x1004px."
+msgstr ""
+
+#: etc/options.php:169 etc/options.php:179
+msgid "iPhone, iPod high resolution portriat splash screen"
+msgstr ""
+
+#: etc/options.php:170
+msgid "It must be a PNG image. 640x960px."
+msgstr ""
+
+#: etc/options.php:180
+msgid "It must be a PNG image. 320x480px."
+msgstr ""
+
+#: etc/options.php:188
+msgid "Microsoft"
+msgstr ""
+
+#: etc/options.php:193
+msgid "Square Tile Logo"
+msgstr ""
+
+#: etc/options.php:200
+msgid "Wide Tile Logo"
+msgstr ""
+
+#: etc/options.php:207 etc/options.php:266
+msgid "We are waiting for your message"
+msgstr ""
+
+#: etc/options.php:213
+msgid "I love what I do!"
+msgstr ""
+
+#: etc/options.php:230
+msgid "Below are some links to help spread this plugin to other users"
+msgstr ""
+
+#: etc/options.php:232
+msgid "Give it a five stars on WordPress.org"
+msgstr ""
+
+#: etc/options.php:233
 msgid "Link to it so others can easily find it"
 msgstr ""
 
-#: etc/options.php:194
+#: etc/options.php:268
 msgid "WordPress Help Forum"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
+#: includes/iworks/class-iworks-pwa.php:181
+#: includes/iworks/pwa/class-iworks-pwa-html-head.php:124
+#: includes/iworks/pwa/class-iworks-pwa-html-head.php:215 iworks-pwa.php:107
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
 
@@ -215,17 +269,41 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:109
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:30
+msgid "Debug info"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:40
+msgid "Main files"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:43
+msgid "manifest.json"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:44
+msgid "Service Worker"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:45
+msgid "Offline page"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:99
 msgid "Sorry!"
 msgstr "Przepraszamy!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:115
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:105
 msgid "We were unable to load the page you requested."
 msgstr "Nie udało się załadować żądanej strony."
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:116
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:106
 msgid "Please check your network connection and try again."
 msgstr "Proszę sprawdzić połączenie sieciowe i spróbować ponownie."
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:222
+msgid "First you need to set some icons."
+msgstr ""
 
 #: includes/iworks/rate/rate.php:118
 msgid "Settings"
@@ -298,6 +376,10 @@ msgid ""
 "you for all the ratings, reviews and donates."
 msgstr ""
 
+#. Plugin Name of the plugin/theme
+msgid "PWA — simple way to Progressive Web App"
+msgstr ""
+
 #. Plugin URI of the plugin/theme
 msgid "http://iworks.pl/iworks-pwa/"
 msgstr "http://iworks.pl/iworks-pwa/"
@@ -349,19 +431,19 @@ msgctxt "PWA settings"
 msgid "Browser"
 msgstr ""
 
-#: etc/options.php:159
+#: etc/options.php:233
 #, fuzzy
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr "http://iworks.pl/iworks-pwa/"
 
-#: etc/options.php:194
+#: etc/options.php:268
 #, fuzzy
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr "http://iworks.pl/iworks-pwa/"
 
-#: includes/iworks/class-iworks-pwa.php:124
+#: includes/iworks/class-iworks-pwa.php:182
 #, fuzzy
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
@@ -373,7 +455,7 @@ msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
 msgstr "http://iworks.pl/"
 
-#: includes/iworks/class-iworks-pwa.php:127
+#: includes/iworks/class-iworks-pwa.php:185
 #, fuzzy
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"

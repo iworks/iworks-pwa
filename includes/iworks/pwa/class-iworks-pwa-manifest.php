@@ -25,7 +25,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 * handle special requests
 		 */
 		add_action( 'parse_request', array( $this, 'parse_request' ) );
-		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX );
 		/**
 		 * js
 		 */
@@ -33,6 +32,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_filter( 'wp_localize_script_iworks_pwa_manifest', array( $this, 'add_pwa_data' ) );
+		/**
+		 * debug
+		 */
+		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 200 );
 	}
 
 	public function register_scripts() {
@@ -59,19 +62,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			'root' => $this->url . '/assets/pwa/',
 		);
 		return $data;
-	}
-
-	/**
-	 *
-	 * @since 1.0.0
-	 */
-	public function html_head() {
-		echo '<link rel="manifest" href="/manifest.json" />';
-		echo PHP_EOL;
-		printf( '<meta name="msapplication-TileColor" content="%s" />', $this->get_configuration_color_theme() );
-		echo PHP_EOL;
-		printf( '<meta name="theme-color" content="%s" />', $this->get_configuration_color_theme() );
-		echo PHP_EOL;
 	}
 
 	public function parse_request() {
@@ -107,7 +97,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 * title
 		 */
 		$data = preg_replace( '/%SORRY%/', apply_filters( 'iworks_pwa_offline_sorry', __( 'Sorry!', 'iworks-pwa' ) ), $data );
-		$data = preg_replace( '/%NAME%/', get_bloginfo( 'name' ), $data );
+		$data = preg_replace( '/%NAME%/', $this->get_configuration_name(), $data );
 		/**
 		 * content
 		 */
@@ -223,6 +213,27 @@ self.addEventListener('fetch', (event) => {
 		header( 'Content-Type: application/json' );
 		echo json_encode( $this->configuration );
 		exit;
+	}
+
+	public function filter_debug_info( $content ) {
+		$content .= sprintf( '<h2>%s</h2>', esc_html__( 'Icons', 'iworks-pwa' ) );
+		$icons    = $this->get_configuration_icons();
+		if ( empty( $icons ) ) {
+			$content .= sprintf( '<p>%s</p>', esc_html__( 'First you need to set some icons.', 'iworks-pwa' ) );
+		} else {
+			$content .= '<table>';
+			foreach ( $icons as $one ) {
+				$content .= '<tr>';
+				$content .= sprintf( '<td>%s - %s</td>', $one['sizes'], $one['type'] );
+				$content .= sprintf(
+					'<td><a href="%1$s" target="_blank"><img src="%1$s" width="64" height="64" /></a></td>',
+					$one['src']
+				);
+				$content .= '</tr>';
+			}
+			$content .= '</table>';
+		}
+		return $content;
 	}
 
 }
