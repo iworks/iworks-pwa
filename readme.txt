@@ -66,6 +66,9 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
+1.1.2
+* Changed plugin name into "PWA — easy way to Progressive Web App".
+
 = 1.1.1 (2022-01-23)
 * Added configuration for Apple Splash Screen Icons.
 * Added configuration for Apple Touch Icon.
