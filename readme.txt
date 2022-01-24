@@ -1,4 +1,4 @@
-=== PWA — simple way to Progressive Web App ===
+=== PWA — easy way to Progressive Web App ===
 Contributors: iworks
 Donate link: http://iworks.pl/donate/iworks-pwa.php
 Tags: PWA, Progressive Web Application
