@@ -1,6 +1,6 @@
 === PWA — easy way to Progressive Web App ===
 Contributors: iworks
-Donate link: http://iworks.pl/donate/iworks-pwa.php
+Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
 Tags: PWA, Progressive Web Application
 Requires at least: 5.6
 Tested up to: 5.9
@@ -65,6 +65,9 @@ As returned value you can return any valid color, but remember alpha value will 
 == Screenshots ==
 
 == Changelog ==
+
+= 1.1.3 (2022-01-24) =
+* Fixed class load order issue.
 
 = 1.1.2 (2022-01-24) =
 * Added `method_exists` to check iWorks Option Class has method `set_plugin`.

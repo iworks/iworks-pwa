@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-01-24 09:45:46+00:00\n"
+"POT-Creation-Date: 2022-01-24 10:16:45+00:00\n"
 "PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
@@ -237,8 +237,8 @@ msgid "WordPress Help Forum"
 msgstr ""
 
 #: includes/iworks/class-iworks-pwa.php:181
-#: includes/iworks/pwa/class-iworks-pwa-html-head.php:124
-#: includes/iworks/pwa/class-iworks-pwa-html-head.php:215 iworks-pwa.php:109
+#: includes/iworks/pwa/class-iworks-pwa-html-head.php:127
+#: includes/iworks/pwa/class-iworks-pwa-html-head.php:218 iworks-pwa.php:109
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
 

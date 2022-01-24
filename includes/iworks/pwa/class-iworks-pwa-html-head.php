@@ -13,6 +13,9 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 
 	public function __construct() {
 		parent::__construct();
+		if ( ! is_a( $this->options ) ) {
+			$this->options = get_iworks_pwa_options();
+		}
 		$option_name = $this->options->get_option_name( 'icon_apple' );
 		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX );
 		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
