@@ -1,4 +1,4 @@
-/*! PWA — easy way to Progressive Web App - v1.1.3
+/*! PWA — easy way to Progressive Web App - v1.1.4
  * https://iworks.pl/
  * Copyright (c) 2022; * Licensed GPLv2+
  */

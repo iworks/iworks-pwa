@@ -13,7 +13,7 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 
 	public function __construct() {
 		parent::__construct();
-		if ( ! is_a( $this->options ) ) {
+		if ( ! is_object( $this->options ) ) {
 			$this->options = get_iworks_pwa_options();
 		}
 		$option_name = $this->options->get_option_name( 'icon_apple' );

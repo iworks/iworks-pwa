@@ -66,6 +66,9 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
+= 1.1.4 (2022-01-24) =
+* Fixed typo.
+
 = 1.1.3 (2022-01-24) =
 * Fixed class load order issue.
 
