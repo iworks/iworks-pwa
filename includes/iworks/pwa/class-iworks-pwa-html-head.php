@@ -134,14 +134,27 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 			wp_make_link_relative( home_url( 'manifest.json' ) )
 		);
 		echo $this->eol;
-		printf( '<meta name="msapplication-TileColor" content="%s" />', $this->get_configuration_color_theme() );
-		echo $this->eol;
 		printf( '<meta name="theme-color" content="%s" />', $this->get_configuration_color_theme() );
 		echo $this->eol;
 		/**
 		 * Apple Touch Icon
 		 */
 		$this->print_apple_touch_icons();
+		/**
+		 * Apple Pinned Tab Icon
+		 */
+		$value = $this->options->get_option( 'apple_pti' );
+		if ( ! empty( $value ) ) {
+			$value = wp_get_attachment_url( $value );
+			if ( ! empty( $value ) ) {
+				printf(
+					'<link rel="mask-icon" href="%s" color="%s">%s',
+					wp_make_link_relative( $value ),
+					$this->options->get_option( 'apple_ptic' ),
+					$this->eol
+				);
+			}
+		}
 		/**
 		 *  apple-touch-startup-image
 		 */

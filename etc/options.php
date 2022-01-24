@@ -15,6 +15,13 @@ function iworks_pwa_options() {
 		'enqueue_styles'  => array(),
 		'options'         => array(
 			array(
+				'ame'      => 'last_used_tab',
+				'type'     => 'hidden',
+				'dynamic'  => true,
+				'autoload' => false,
+				'default'  => 0,
+			),
+			array(
 				'type'  => 'heading',
 				'label' => __( 'General', 'iworks-pwa' ),
 			),
@@ -131,6 +138,9 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 			),
+			/**
+			 * Apple
+			 */
 			array(
 				'type'  => 'subheading',
 				'label' => __( 'Apple', 'iworks-pwa' ),
@@ -147,7 +157,7 @@ function iworks_pwa_options() {
 				'name'              => 'splash_ipad_l',
 				'type'              => 'image',
 				'th'                => __( 'iPad landscape splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. 1024x748px.', 'iworks-pwa' ),
+				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 1024x748px.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'group'             => 'apple-touch-startup-image',
@@ -157,7 +167,7 @@ function iworks_pwa_options() {
 				'name'              => 'splash_ipad_p',
 				'type'              => 'image',
 				'th'                => __( 'iPad portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. 768x1004px.', 'iworks-pwa' ),
+				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 768x1004px.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'group'             => 'apple-touch-startup-image',
@@ -167,7 +177,7 @@ function iworks_pwa_options() {
 				'name'              => 'splash_hr_p',
 				'type'              => 'image',
 				'th'                => __( 'iPhone, iPod high resolution portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. 640x960px.', 'iworks-pwa' ),
+				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 640x960px.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'group'             => 'apple-touch-startup-image',
@@ -177,12 +187,29 @@ function iworks_pwa_options() {
 				'name'              => 'splash_sr_p',
 				'type'              => 'image',
 				'th'                => __( 'iPhone, iPod high resolution portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. 320x480px.', 'iworks-pwa' ),
+				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 320x480px.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'group'             => 'apple-touch-startup-image',
 				'sizes'             => '320x480',
 			),
+			array(
+				'name'              => 'apple_pti',
+				'type'              => 'image',
+				'th'                => __( 'Pinned Tab Icon', 'iworks-pwa' ),
+				'description'       => __( 'Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to "0 0 16 16".', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+			),
+			array(
+				'name'              => 'apple_ptic',
+				'type'              => 'wpColorPicker',
+				'th'                => __( 'Pinned Tab Icon Color', 'iworks-pwa' ),
+				'sanitize_callback' => 'esc_html',
+			),
+			/**
+			 * Microsoft
+			 */
 			array(
 				'type'  => 'subheading',
 				'label' => __( 'Microsoft', 'iworks-pwa' ),
@@ -201,7 +228,7 @@ function iworks_pwa_options() {
 				'th'                => __( 'Wide Tile Logo', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
-				'description'       => __( 'It must be a PNG image. It should by exactly 310x150px.', 'iworks-pwa' ),
+				'description'       => __( 'It must be a PNG image. It should be exactly 310x150px.', 'iworks-pwa' ),
 			),
 		),
 		'metaboxes'       => array(

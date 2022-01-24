@@ -67,6 +67,13 @@ require_once $includes . '/iworks/pwa/class-iworks-pwa-html-head.php';
 new iWorks_PWA_manifest;
 new iWorks_PWA_HTML_Head;
 /**
+ * SVG
+ */
+if ( ! class_exists( 'iWorks_SVG' ) ) {
+	require_once $includes . '/iworks/class-iworks-svg.php';
+	new iWorks_SVG;
+}
+/**
  * admin
  */
 if ( is_admin() ) {
