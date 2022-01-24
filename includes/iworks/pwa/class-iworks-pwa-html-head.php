@@ -123,19 +123,39 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 	public function html_head() {
 		if ( $this->debug ) {
 			printf(
-				'<!-- %s %s -->',
+				'<!-- %s %s -->%s',
 				esc_html__( 'iWorks PWA', 'iworks-pwa' ),
-				$this->version
+				$this->version,
+				$this->eol
 			);
-			echo $this->eol;
 		}
 		printf(
-			'<link rel="manifest" href="%s" />',
-			wp_make_link_relative( home_url( 'manifest.json' ) )
+			'<link rel="manifest" href="%s" />%s',
+			wp_make_link_relative( home_url( 'manifest.json' ) ),
+			$this->eol
 		);
-		echo $this->eol;
-		printf( '<meta name="theme-color" content="%s" />', $this->get_configuration_color_theme() );
-		echo $this->eol;
+		printf(
+			'<link rel="prefetch" href="%s" />%s',
+			wp_make_link_relative( home_url( 'manifest.json' ) ),
+			$this->eol
+		);
+		printf(
+			'<meta name="theme-color" content="%s" />%s',
+			$this->get_configuration_color_theme(),
+			$this->eol
+		);
+		/**
+		 * Apple
+		 */
+		if ( $this->debug ) {
+			echo '<!-- Apple -->';
+			echo PHP_EOL;
+		}
+		printf(
+			'<meta name="apple-mobile-web-app-title" content="%s" />%s',
+			esc_attr( $this->get_configuration_short_name() ),
+			$this->eol
+		);
 		/**
 		 * Apple Touch Icon
 		 */
@@ -184,6 +204,10 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 		/**
 		 * Microsoft
 		 */
+		if ( $this->debug ) {
+			echo '<!-- Microsoft -->';
+			echo PHP_EOL;
+		}
 		if ( $this->debug ) {
 			echo '<!-- Windows 8 Tiles -->';
 			echo PHP_EOL;
