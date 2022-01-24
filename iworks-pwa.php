@@ -91,7 +91,9 @@ function get_iworks_pwa_options() {
 	$iworks_pwa_options = new iworks_options();
 	$iworks_pwa_options->set_option_function_name( 'iworks_pwa_options' );
 	$iworks_pwa_options->set_option_prefix( 'iworks_pwa_' );
-	$iworks_pwa_options->set_plugin( basename( __FILE__ ) );
+	if ( method_exists( $iworks_pwa_options, 'set_plugin' ) ) {
+		$iworks_pwa_options->set_plugin( basename( __FILE__ ) );
+	}
 	return $iworks_pwa_options;
 }
 

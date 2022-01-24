@@ -208,8 +208,21 @@ self.addEventListener('fetch', (event) => {
 	 * @since 1.0.0
 	 */
 	private function print_manifest_json() {
+		$data          = $this->configuration;
+		$icons         = $data['icons'];
+		$data['icons'] = array();
+		$allowed_keys  = array( 'sizes', 'type', 'density', 'src', 'purpose' );
+		foreach ( $icons as $one ) {
+			foreach ( array_keys( $one ) as $key ) {
+				if ( in_array( $key, $allowed_keys ) ) {
+					continue;
+				}
+				unset( $one[ $key ] );
+			}
+			array_unshift( $data['icons'], $one );
+		}
 		header( 'Content-Type: application/json' );
-		echo json_encode( $this->configuration );
+		echo json_encode( $data );
 		exit;
 	}
 

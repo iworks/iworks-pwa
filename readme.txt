@@ -66,11 +66,13 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
-1.1.2
+= 1.1.2 (2022-01-24) =
+* Added `method_exists` to check iWorks Option Class has method `set_plugin`.
 * Changed plugin name into "PWA — easy way to Progressive Web App".
+* Cleared `manifest.json` from unwanted values.
 * Improved handle `/manifest.json`.
 
-= 1.1.1 (2022-01-23)
+= 1.1.1 (2022-01-23) =
 * Added configuration for Apple Splash Screen Icons.
 * Added configuration for Apple Touch Icon.
 * Added configuration for IE11.
