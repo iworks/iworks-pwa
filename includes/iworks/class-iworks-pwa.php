@@ -17,6 +17,8 @@ abstract class iWorks_PWA {
 
 	private $media_dir_name = 'pwa';
 
+	protected $icons_to_flush;
+
 	/**
 	 * iWorks Options object
 	 *
@@ -41,133 +43,13 @@ abstract class iWorks_PWA {
 		 */
 		$this->eol = $this->debug ? PHP_EOL : '';
 		/**
-		 * icons
-		 */
-		$this->icons = array(
-			36   => array(
-				'sizes'   => '36x36',
-				'type'    => 'image/png',
-				'density' => '0.75',
-				'group'   => array(
-					'manifest',
-				),
-			),
-			48   => array(
-				'sizes'   => '48x48',
-				'type'    => 'image/png',
-				'density' => '1.0',
-				'group'   => array(
-					'manifest',
-				),
-			),
-			70   => array(
-				'sizes'   => '70x70',
-				'type'    => 'image/png',
-				'density' => '1.5',
-				'group'   => array(
-					'ie11',
-				),
-			),
-			72   => array(
-				'sizes'   => '72x72',
-				'type'    => 'image/png',
-				'density' => '1.5',
-				'group'   => array(
-					'manifest',
-				),
-			),
-			96   => array(
-				'sizes'   => '96x96',
-				'type'    => 'image/png',
-				'density' => '2.0',
-				'group'   => array(
-					'manifest',
-				),
-			),
-			144  => array(
-				'sizes'   => '144x144',
-				'type'    => 'image/png',
-				'density' => '3.0',
-				'group'   => array(
-					'manifest',
-					'windows8',
-				),
-			),
-			150  => array(
-				'sizes'   => '150x150',
-				'type'    => 'image/png',
-				'density' => '1.5',
-				'group'   => array(
-					'ie11',
-				),
-			),
-			192  => array(
-				'sizes'   => '192x192',
-				'type'    => 'image/png',
-				'density' => '4.0',
-				'group'   => array(
-					'manifest',
-				),
-			),
-			310  => array(
-				'sizes'   => '310x310',
-				'type'    => 'image/png',
-				'density' => '1.5',
-				'group'   => array(
-					'ie11',
-				),
-			),
-			512  => array(
-				'sizes' => '512x512',
-				'type'  => 'image/png',
-				'group' => array(
-					'manifest',
-				),
-			),
-			1024 => array(
-				'sizes'   => '1024x1024',
-				'type'    => 'image/png',
-				'purpose' => 'any maskable',
-				'group'   => array(
-					'manifest',
-				),
-			),
-		);
-		/**
-		 * Show SSL warning for non debug and non SSL site
-		 */
-		if ( ! $this->debug && ! is_ssl() ) {
-			add_action( 'load-index.php', array( $this, 'load_no_ssl_warning' ) );
-			return;
-		}
-		add_action( 'init', array( $this, 'configuration' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-		/**
-		 * change logo for rate
-		 */
-		add_filter( 'iworks_rate_notice_logo_style', array( $this, 'filter_plugin_logo' ), 10, 2 );
-		/**
-		 * options
-		 *
-		 * @since 1.0.1
+		 * set options
 		 */
 		$this->options = get_iworks_pwa_options();
-		$option_name   = $this->options->get_option_name( 'icon_app' );
-		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
-	}
-
-	public function admin_init() {
-		$this->options->options_init();
-	}
-
-	/**
-	 * load no SSL warning
-	 *
-	 * @since 1.0.0
-	 */
-	public function load_no_ssl_warning() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
-		add_action( 'admin_notices', array( $this, 'show_no_ssl' ) );
+		/**
+		 * icons
+		 */
+		$this->icons = $this->options->get_group( 'icons' );
 	}
 
 	/**
@@ -209,7 +91,14 @@ abstract class iWorks_PWA {
 		);
 	}
 
-	public function configuration() {
+	protected function get_configuration() {
+		if ( empty( $this->configuration ) ) {
+			$this->_set_configuration();
+		}
+		return $this->configuration;
+	}
+
+	private function _set_configuration() {
 		$this->configuration = apply_filters(
 			'iworks_pwa_configuration',
 			array(
@@ -468,12 +357,6 @@ abstract class iWorks_PWA {
 	 */
 	private function get_logo_url() {
 		return plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/images/icon.svg';
-	}
-
-	public function action_flush_icons( $old_value, $value, $option ) {
-		delete_option( $this->options->get_option_name( 'icons_manifest' ) );
-		delete_option( $this->options->get_option_name( 'icons_ie11' ) );
-		delete_option( $this->options->get_option_name( 'icons_windows8' ) );
 	}
 
 }

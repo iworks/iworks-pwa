@@ -70,6 +70,7 @@ As returned value you can return any valid color, but remember alpha value will 
 * Added "Apple Pinned Tab Icon".
 * Added "Launch Icon Title".
 * Added HTML prefetch for `manifest.json`.
+* Refactored options.
 
 = 1.1.4 (2022-01-24) =
 * Fixed typo.

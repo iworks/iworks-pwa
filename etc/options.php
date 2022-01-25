@@ -93,7 +93,7 @@ function iworks_pwa_options() {
 			),
 			array(
 				'type'  => 'heading',
-				'label' => __( 'Colors', 'iworks-pwa' ),
+				'label' => __( 'Generic', 'iworks-pwa' ),
 			),
 			array(
 				'name'              => 'color_bg',
@@ -112,14 +112,6 @@ function iworks_pwa_options() {
 				'description'       => __( 'Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color.', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
-			),
-			array(
-				'type'  => 'heading',
-				'label' => __( 'Icons', 'iworks-pwa' ),
-			),
-			array(
-				'type'  => 'subheading',
-				'label' => __( 'Android/Generic', 'iworks-pwa' ),
 			),
 			array(
 				'name'              => 'icon_app',
@@ -142,13 +134,13 @@ function iworks_pwa_options() {
 			 * Apple
 			 */
 			array(
-				'type'  => 'subheading',
+				'type'  => 'heading',
 				'label' => __( 'Apple', 'iworks-pwa' ),
 			),
 			array(
 				'name'              => 'icon_apple',
 				'type'              => 'image',
-				'th'                => __( 'Apple Touch Icon', 'iworks-pwa' ),
+				'th'                => __( 'Touch Icon', 'iworks-pwa' ),
 				'description'       => __( 'For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
@@ -211,7 +203,7 @@ function iworks_pwa_options() {
 			 * Microsoft
 			 */
 			array(
-				'type'  => 'subheading',
+				'type'  => 'heading',
 				'label' => __( 'Microsoft', 'iworks-pwa' ),
 			),
 			array(
@@ -244,6 +236,129 @@ function iworks_pwa_options() {
 				'context'  => 'side',
 				'priority' => 'core',
 			),
+		),
+	);
+	/**
+	 * icons
+	 */
+	$options['icons'] = array(
+		36   => array(
+			'sizes'   => '36x36',
+			'type'    => 'image/png',
+			'density' => '0.75',
+			'group'   => array(
+				'manifest',
+			),
+		),
+		48   => array(
+			'sizes'   => '48x48',
+			'type'    => 'image/png',
+			'density' => '1.0',
+			'group'   => array(
+				'manifest',
+			),
+		),
+		70   => array(
+			'sizes'   => '70x70',
+			'type'    => 'image/png',
+			'density' => '1.5',
+			'group'   => array(
+				'ie11',
+			),
+		),
+		72   => array(
+			'sizes'   => '72x72',
+			'type'    => 'image/png',
+			'density' => '1.5',
+			'group'   => array(
+				'manifest',
+			),
+		),
+		96   => array(
+			'sizes'   => '96x96',
+			'type'    => 'image/png',
+			'density' => '2.0',
+			'group'   => array(
+				'manifest',
+			),
+		),
+		144  => array(
+			'sizes'   => '144x144',
+			'type'    => 'image/png',
+			'density' => '3.0',
+			'group'   => array(
+				'manifest',
+				'windows8',
+			),
+		),
+		150  => array(
+			'sizes'   => '150x150',
+			'type'    => 'image/png',
+			'density' => '1.5',
+			'group'   => array(
+				'ie11',
+			),
+		),
+		192  => array(
+			'sizes'   => '192x192',
+			'type'    => 'image/png',
+			'density' => '4.0',
+			'group'   => array(
+				'manifest',
+			),
+		),
+		310  => array(
+			'sizes'   => '310x310',
+			'type'    => 'image/png',
+			'density' => '1.5',
+			'group'   => array(
+				'ie11',
+			),
+		),
+		512  => array(
+			'sizes' => '512x512',
+			'type'  => 'image/png',
+			'group' => array(
+				'manifest',
+			),
+		),
+		1024 => array(
+			'sizes'   => '1024x1024',
+			'type'    => 'image/png',
+			'purpose' => 'any maskable',
+			'group'   => array(
+				'manifest',
+			),
+		),
+	);
+	/**
+	 * Apple Touch Icons
+	 */
+	$options['apple_touch_icons'] = array(
+		180 => array(
+			'sizes'   => '180x180',
+			'default' => true,
+		),
+		167 => array(
+			'sizes' => '167x167',
+		),
+		152 => array(
+			'sizes' => '152x152',
+		),
+		120 => array(
+			'sizes' => '120x120',
+		),
+		114 => array(
+			'sizes' => '114x114',
+		),
+		76  => array(
+			'sizes' => '76x76',
+		),
+		72  => array(
+			'sizes' => '72x72',
+		),
+		57  => array(
+			'sizes' => '57x57',
 		),
 	);
 	return $options;

@@ -33,6 +33,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 * debug
 		 */
 		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 200 );
+		/**
+		 * iWorks PWA hooks
+		 */
+		add_filter( 'iworks_pwa_flush_icons_list', array( $this, 'filter_iworks_pwa_flush_icons_list' ) );
 	}
 
 	public function register_scripts() {
@@ -122,7 +126,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		);
 	}
 
-
 	private function print_iworks_pwa_service_worker_js() {
 		header( 'Content-Type: text/javascript' );
 		$set = array(
@@ -208,7 +211,7 @@ self.addEventListener('fetch', (event) => {
 	 * @since 1.0.0
 	 */
 	private function print_manifest_json() {
-		$data          = $this->configuration;
+		$data          = $this->get_configuration();
 		$icons         = $data['icons'];
 		$data['icons'] = array();
 		$allowed_keys  = array( 'sizes', 'type', 'density', 'src', 'purpose' );
@@ -245,6 +248,11 @@ self.addEventListener('fetch', (event) => {
 			$content .= '</table>';
 		}
 		return $content;
+	}
+
+	public function filter_iworks_pwa_flush_icons_list( $list ) {
+		$list[] = 'icons_manifest';
+		return $list;
 	}
 
 }
