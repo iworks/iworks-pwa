@@ -197,6 +197,14 @@ function iworks_pwa_options() {
 				'name'              => 'apple_ptic',
 				'type'              => 'wpColorPicker',
 				'th'                => __( 'Pinned Tab Icon Color', 'iworks-pwa' ),
+				'default'           => '#d5e0eb',
+				'sanitize_callback' => 'esc_html',
+			),
+			array(
+				'name'              => 'apple_sbc',
+				'type'              => 'wpColorPicker',
+				'th'                => __( 'Status Bar Color', 'iworks-pwa' ),
+				'default'           => '#000',
 				'sanitize_callback' => 'esc_html',
 			),
 			/**
@@ -359,6 +367,20 @@ function iworks_pwa_options() {
 		),
 		57  => array(
 			'sizes' => '57x57',
+		),
+	);
+	/**
+	 * Microsoft Tile
+	 */
+	$options['ms_tile_square'] = array(
+		310 => array(
+			'sizes' => '310x310',
+		),
+		150 => array(
+			'sizes' => '150x150',
+		),
+		70  => array(
+			'sizes' => '70x70',
 		),
 	);
 	return $options;

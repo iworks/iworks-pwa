@@ -34,9 +34,12 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 */
 		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 200 );
 		/**
-		 * iWorks PWA hooks
+		 * Clear generated icons
+		 *
+		 * @since 1.0.1
 		 */
-		add_filter( 'iworks_pwa_flush_icons_list', array( $this, 'filter_iworks_pwa_flush_icons_list' ) );
+		$option_name = $this->options->get_option_name( 'icon_app' );
+		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 	}
 
 	public function register_scripts() {

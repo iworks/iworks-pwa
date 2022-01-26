@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: iWorks PWA 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-01-24 10:16:45+00:00\n"
+"POT-Creation-Date: 2022-01-26 17:02:04+00:00\n"
 "PO-Revision-Date: 2021-03-19 10:57+0100\n"
 "Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
 "Language-Team: \n"
@@ -53,192 +53,205 @@ msgstr ""
 msgid "PWA"
 msgstr ""
 
-#: etc/options.php:19
+#: etc/options.php:26
 msgid "General"
 msgstr ""
 
-#: etc/options.php:25
+#: etc/options.php:32
 msgid "Application Name"
 msgstr ""
 
-#: etc/options.php:33
+#: etc/options.php:40
 msgid "Application Short Name"
 msgstr ""
 
-#: etc/options.php:34
+#: etc/options.php:41
 msgid ""
 "Used when there is insufficient space to display the full name of the "
 "application. 15 characters or less."
 msgstr ""
 
-#: etc/options.php:43
+#: etc/options.php:50
 msgid "Description"
 msgstr ""
 
-#: etc/options.php:44
+#: etc/options.php:51
 msgid "A brief description of what your app is about."
 msgstr ""
 
-#: etc/options.php:51
+#: etc/options.php:58
 msgid "Orientation"
 msgstr ""
 
-#: etc/options.php:52
+#: etc/options.php:59
 msgid ""
 "Set the orientation of your app on devices. When set to &#8220;Follow Device "
 "Orientation&#8221; your app will rotate as the device is rotated."
 msgstr ""
 
-#: etc/options.php:69
+#: etc/options.php:76
 msgid "display"
 msgstr ""
 
-#: etc/options.php:70
+#: etc/options.php:77
 msgid ""
 "Display mode decides what browser UI is shown when your app is launched. "
 "Standalone is default."
 msgstr ""
 
-#: etc/options.php:89
-msgid "Colors"
+#: etc/options.php:96
+msgid "Generic"
 msgstr ""
 
-#: etc/options.php:95
+#: etc/options.php:102
 msgid "Background Color"
 msgstr ""
 
-#: etc/options.php:96
+#: etc/options.php:103
 msgid "Background color of the splash screen."
 msgstr ""
 
-#: etc/options.php:104
+#: etc/options.php:111
 msgid "Theme Color"
 msgstr ""
 
-#: etc/options.php:105
+#: etc/options.php:112
 msgid ""
 "Theme color is used on supported devices to tint the UI elements of the "
 "browser and app switcher. When in doubt, use the same color as Background "
 "Color."
 msgstr ""
 
-#: etc/options.php:111 includes/iworks/pwa/class-iworks-pwa-manifest.php:230
-msgid "Icons"
-msgstr ""
-
-#: etc/options.php:115
-msgid "Android/Generic"
-msgstr ""
-
-#: etc/options.php:120
+#: etc/options.php:119
 msgid "Application Icon"
 msgstr ""
 
-#: etc/options.php:121
+#: etc/options.php:120
 msgid ""
 "This will be the icon of your app when installed on the phone. It should be "
 "a PNG image."
 msgstr ""
 
-#: etc/options.php:129
+#: etc/options.php:128
 msgid "Splash Screen Icon"
 msgstr ""
 
-#: etc/options.php:130
+#: etc/options.php:129
 msgid ""
 "This icon will be displayed on the splash screen of your app on supported "
 "devices. It should be a PNG image."
 msgstr ""
 
-#: etc/options.php:136
+#: etc/options.php:138
 msgid "Apple"
 msgstr ""
 
-#: etc/options.php:141
-msgid "Apple Touch Icon"
+#: etc/options.php:143
+msgid "Touch Icon"
 msgstr ""
 
-#: etc/options.php:142
+#: etc/options.php:144
 msgid ""
 "For ideal appearance on iOS when users add a progressive web app to the home "
 "screen. It must point to a non-transparent 192px (or 180px) square PNG."
 msgstr ""
 
-#: etc/options.php:149
+#: etc/options.php:151
 msgid "iPad landscape splash screen"
 msgstr ""
 
-#: etc/options.php:150
-msgid "It must be a non-transparent PNG image. 1024x748px."
+#: etc/options.php:152
+msgid ""
+"It must be a non-transparent PNG image. It should be exactly 1024x748px."
 msgstr ""
 
-#: etc/options.php:159
+#: etc/options.php:161
 msgid "iPad portriat splash screen"
 msgstr ""
 
-#: etc/options.php:160
-msgid "It must be a non-transparent PNG image. 768x1004px."
+#: etc/options.php:162
+msgid ""
+"It must be a non-transparent PNG image. It should be exactly 768x1004px."
 msgstr ""
 
-#: etc/options.php:169 etc/options.php:179
+#: etc/options.php:171 etc/options.php:181
 msgid "iPhone, iPod high resolution portriat splash screen"
 msgstr ""
 
-#: etc/options.php:170
-msgid "It must be a non-transparent PNG image. 640x960px."
+#: etc/options.php:172
+msgid "It must be a non-transparent PNG image. It should be exactly 640x960px."
 msgstr ""
 
-#: etc/options.php:180
-msgid "It must be a non-transparent PNG image. 320x480px."
+#: etc/options.php:182
+msgid "It must be a non-transparent PNG image. It should be exactly 320x480px."
 msgstr ""
 
-#: etc/options.php:188
-msgid "Microsoft"
+#: etc/options.php:191
+msgid "Pinned Tab Icon"
 msgstr ""
 
-#: etc/options.php:193
-msgid "Square Tile Logo"
+#: etc/options.php:192
+msgid ""
+"Use 100% black for all vectors with a transparent background in SVG format "
+"and add the following markup to all webpages that the icon should represent. "
+"The SVG file must be a single layer and the viewBox attribute must be set to "
+"\"0 0 16 16\"."
 msgstr ""
 
-#: etc/options.php:196
-msgid "It must be a PNG image, at least 310x310px."
+#: etc/options.php:199
+msgid "Pinned Tab Icon Color"
 msgstr ""
 
-#: etc/options.php:201
-msgid "Wide Tile Logo"
-msgstr ""
-
-#: etc/options.php:204
-msgid "It must be a PNG image. It should by exactly 310x150px."
-msgstr ""
-
-#: etc/options.php:209 etc/options.php:268
-msgid "We are waiting for your message"
+#: etc/options.php:206
+msgid "Status Bar Color"
 msgstr ""
 
 #: etc/options.php:215
+msgid "Microsoft"
+msgstr ""
+
+#: etc/options.php:220
+msgid "Square Tile Logo"
+msgstr ""
+
+#: etc/options.php:223
+msgid "It must be a PNG image, at least 310x310px."
+msgstr ""
+
+#: etc/options.php:228
+msgid "Wide Tile Logo"
+msgstr ""
+
+#: etc/options.php:231
+msgid "It must be a PNG image. It should be exactly 310x150px."
+msgstr ""
+
+#: etc/options.php:236 etc/options.php:432
+msgid "We are waiting for your message"
+msgstr ""
+
+#: etc/options.php:242
 msgid "I love what I do!"
 msgstr ""
 
-#: etc/options.php:232
+#: etc/options.php:396
 msgid "Below are some links to help spread this plugin to other users"
 msgstr ""
 
-#: etc/options.php:234
+#: etc/options.php:398
 msgid "Give it a five stars on WordPress.org"
 msgstr ""
 
-#: etc/options.php:235
+#: etc/options.php:399
 msgid "Link to it so others can easily find it"
 msgstr ""
 
-#: etc/options.php:270
+#: etc/options.php:434
 msgid "WordPress Help Forum"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:181
-#: includes/iworks/pwa/class-iworks-pwa-html-head.php:127
-#: includes/iworks/pwa/class-iworks-pwa-html-head.php:218 iworks-pwa.php:109
+#: includes/iworks/class-iworks-pwa.php:63
+#: includes/iworks/pwa/class-iworks-pwa-html-head.php:31 iworks-pwa.php:120
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
 
@@ -283,39 +296,43 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:30
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:47
 msgid "Debug info"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:40
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:57
 msgid "Main files"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:43
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:60
 msgid "manifest.json"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:44
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:61
 msgid "Service Worker"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:45
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:62
 msgid "Offline page"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:97
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:104
 msgid "Sorry!"
 msgstr "Przepraszamy!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:103
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:110
 msgid "We were unable to load the page you requested."
 msgstr "Nie udało się załadować żądanej strony."
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:104
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:111
 msgid "Please check your network connection and try again."
 msgstr "Proszę sprawdzić połączenie sieciowe i spróbować ponownie."
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:233
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:236
+msgid "Icons"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:239
 msgid "First you need to set some icons."
 msgstr ""
 
@@ -410,54 +427,54 @@ msgstr "Marcin Pietrzak"
 msgid "http://iworks.pl/"
 msgstr "http://iworks.pl/"
 
-#: etc/options.php:55
+#: etc/options.php:62
 msgctxt "PWA settings"
 msgid "Follow Device Orientation"
 msgstr ""
 
-#: etc/options.php:58
+#: etc/options.php:65
 msgctxt "PWA settings"
 msgid "Portrait"
 msgstr ""
 
-#: etc/options.php:61
+#: etc/options.php:68
 msgctxt "PWA settings"
 msgid "Landscape"
 msgstr ""
 
-#: etc/options.php:73
+#: etc/options.php:80
 msgctxt "PWA settings"
 msgid "Full Screen"
 msgstr ""
 
-#: etc/options.php:76
+#: etc/options.php:83
 msgctxt "PWA settings"
 msgid "Standalone"
 msgstr ""
 
-#: etc/options.php:79
+#: etc/options.php:86
 msgctxt "PWA settings"
 msgid "Minimal UI"
 msgstr ""
 
-#: etc/options.php:82
+#: etc/options.php:89
 msgctxt "PWA settings"
 msgid "Browser"
 msgstr ""
 
-#: etc/options.php:235
+#: etc/options.php:399
 #, fuzzy
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr "http://iworks.pl/iworks-pwa/"
 
-#: etc/options.php:270
+#: etc/options.php:434
 #, fuzzy
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr "http://iworks.pl/iworks-pwa/"
 
-#: includes/iworks/class-iworks-pwa.php:182
+#: includes/iworks/class-iworks-pwa.php:64
 #, fuzzy
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
@@ -469,7 +486,7 @@ msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
 msgstr "http://iworks.pl/"
 
-#: includes/iworks/class-iworks-pwa.php:185
+#: includes/iworks/class-iworks-pwa.php:67
 #, fuzzy
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"

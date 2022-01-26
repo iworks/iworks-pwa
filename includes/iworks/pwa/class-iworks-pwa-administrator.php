@@ -29,13 +29,6 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_filter( 'iworks_pwa_options', array( $this, 'filter_add_debug_urls_to_config' ) );
 		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 100 );
 		/**
-		 * options
-		 *
-		 * @since 1.0.1
-		 */
-		$option_name = $this->options->get_option_name( 'icon_app' );
-		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
-		/**
 		 * WordPress Hooks
 		 */
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -86,12 +79,5 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	}
 
 
-	public function action_flush_icons( $old_value, $value, $option ) {
-		$icons = apply_filters( 'iworks_pwa_flush_icons_list', array() );
-		l( $icons );
-		foreach ( $icons as $key ) {
-			delete_option( $this->options->get_option_name( $key ) );
-		}
-	}
 }
 

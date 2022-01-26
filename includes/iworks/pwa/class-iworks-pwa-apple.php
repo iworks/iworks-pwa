@@ -5,7 +5,7 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_Apple extends iWorks_PWA {
 
-	private $option_name_touch_icons = 'ati';
+	private $option_name_icons = 'ati';
 
 	public function __construct() {
 		parent::__construct();
@@ -18,18 +18,14 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 		/**
 		 * WordPress Hooks
 		 */
-		$option_name = $this->options->get_option_name( 'icon_apple' );
 		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX );
-		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 		/**
-		 * iWorks PWA hooks
+		 * Clear generated icons
+		 *
+		 * @since 1.1.5
 		 */
-		add_filter( 'iworks_pwa_flush_icons_list', array( $this, 'filter_iworks_pwa_flush_icons_list' ) );
-	}
-
-	public function filter_iworks_pwa_flush_icons_list( $list ) {
-		$list[] = $this->option_name_touch_icons;
-		return $list;
+		$option_name = $this->options->get_option_name( 'icon_apple' );
+		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 	}
 
 	private function print_apple_touch_icons() {
@@ -52,7 +48,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 	}
 
 	private function get_apple_touch_icons() {
-		$icons = $this->options->get_option( $this->option_name_touch_icons );
+		$icons = $this->options->get_option( $this->option_name_icons );
 		if ( ! empty( $icons ) ) {
 			return apply_filters( 'iworks_pwa_configuration_apple_touch_icons', $icons );
 		}
@@ -89,13 +85,13 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			}
 		}
 		if ( ! empty( $icons ) ) {
-			$this->options->update_option( $this->option_name_touch_icons, $icons );
+			$this->options->update_option( $this->option_name_icons, $icons );
 			return $icons;
 		}
 	}
 
 	public function action_flush_icons( $old_value, $value, $option ) {
-		delete_option( $this->options->get_option_name( $this->option_name_touch_icons ) );
+		delete_option( $this->options->get_option_name( $this->option_name_icons ) );
 	}
 
 	/**
@@ -110,6 +106,11 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 		printf(
 			'<meta name="apple-mobile-web-app-title" content="%s" />%s',
 			esc_attr( $this->get_configuration_short_name() ),
+			$this->eol
+		);
+		printf(
+			'<meta name="apple-mobile-web-app-status-bar-style" content="%s" />%s',
+			$this->options->get_option( 'apple_sbc' ),
 			$this->eol
 		);
 		/**

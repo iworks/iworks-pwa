@@ -67,8 +67,10 @@ As returned value you can return any valid color, but remember alpha value will 
 == Changelog ==
 
 = 1.1.5 (2022-xx-xx) =
-* Added "Apple Pinned Tab Icon".
-* Added "Launch Icon Title".
+* Added Apple Pinned Tab Icon.
+* Added Apple Launch Icon Title.
+* Added Microsoft Pinned Site.
+* Added Microsoft Live Tile for IE11.
 * Added HTML prefetch for `manifest.json`.
 * Refactored options.
 
