@@ -65,11 +65,15 @@ As returned value you can return any valid color, but remember alpha value will 
 == Screenshots ==
 
 1. General configuration.
-1. Generic configuration.
-1. Apple configuration.
-1. Microsoft configuration.
+2. Generic configuration.
+3. Apple configuration.
+4. Microsoft configuration.
 
 == Changelog ==
+
+= 1.1.6 (2022-01-27) =
+* Added screenshots to `readme.txt`.
+* Removed debug functions.
 
 = 1.1.5 (2022-01-27) =
 * Added Apple Pinned Tab Icon.

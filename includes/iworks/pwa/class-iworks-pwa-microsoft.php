@@ -40,7 +40,6 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 
 	private function get_ms_tile_icons() {
 		$icons = $this->options->get_option( $this->option_name_icons );
-		l( $icons );
 		if ( ! empty( $icons ) ) {
 			return apply_filters( 'iworks_pwa_configuration_ms_tile_icons', $icons );
 		}
@@ -52,8 +51,6 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			$icons_configuration = $this->options->get_group( 'ms_tile_square' );
 			krsort( $icons_configuration );
 			foreach ( $icons_configuration as $width => $data ) {
-				l( $width );
-				l( $size );
 				if ( $width > $size ) {
 					continue;
 				}
@@ -110,7 +107,6 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		if ( ! empty( $value ) ) {
 			$value = wp_get_attachment_url( $value );
 			if ( ! empty( $value ) ) {
-
 				printf(
 					'<square310x310logo src="%s"/>',
 					esc_attr( wp_make_link_relative( $value ) )

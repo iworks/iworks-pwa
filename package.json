@@ -3,7 +3,7 @@
     "title": "PWA — easy way to Progressive Web App",
     "tagline": "Your easy way to Progressive Web Application",
     "homepage": "https://iworks.pl/",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "",
     "tagline": "PWA plugin, handle /manifest.json and basic offline worker.",
     "repository": {
