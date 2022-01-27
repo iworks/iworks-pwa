@@ -71,7 +71,7 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Changelog ==
 
-= 1.1.5 (2022-xx-xx) =
+= 1.1.5 (2022-01-27) =
 * Added Apple Pinned Tab Icon.
 * Added Apple Launch Icon Title.
 * Added Microsoft Pinned Site.
