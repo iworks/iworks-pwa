@@ -64,6 +64,11 @@ As returned value you can return any valid color, but remember alpha value will 
 
 == Screenshots ==
 
+1. General configuration.
+1. Generic configuration.
+1. Apple configuration.
+1. Microsoft configuration.
+
 == Changelog ==
 
 = 1.1.5 (2022-xx-xx) =
