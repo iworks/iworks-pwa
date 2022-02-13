@@ -73,7 +73,7 @@ function iworks_pwa_options() {
 			array(
 				'name'        => 'app_display',
 				'type'        => 'radio',
-				'th'          => __( 'display', 'iworks-pwa' ),
+				'th'          => __( 'Display', 'iworks-pwa' ),
 				'description' => __( 'Display mode decides what browser UI is shown when your app is launched. Standalone is default.', 'iworks-pwa' ),
 				'radio'       => array(
 					'fullscreen' => array(
@@ -90,6 +90,32 @@ function iworks_pwa_options() {
 					),
 				),
 				'default'     => 'standalone',
+			),
+			array(
+				'name'              => 'cache_version',
+				'type'              => 'number',
+				'th'                => __( 'Cache version', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'default'           => 1,
+				'class'             => 'small-text',
+			),
+			array(
+				'name'    => 'offline_content',
+				'type'    => 'textarea',
+				'th'      => __( 'Offline content page', 'iworks-pwa' ),
+				'default' => implode(
+					array(
+						__( 'We were unable to load the page you requested.', 'iworks-pwa' ),
+						PHP_EOL,
+						PHP_EOL,
+						__( 'Please check your network connection and try again.' ),
+					)
+				),
+				'classes' => array(
+					'large-text',
+					'code',
+				),
+				'rows'    => 10,
 			),
 			array(
 				'type'  => 'heading',

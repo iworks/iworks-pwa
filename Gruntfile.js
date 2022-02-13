@@ -57,7 +57,7 @@ module.exports = function(grunt) {
             patterns: [
                 { match: /BUILDTIME/g, replace: buildtime },
                 { match: /IWORKS_OPTIONS_TEXTDOMAIN/g, replace: '<%= pkg.name %>' },
-                { match: /IWORKS_RATE_TEXTDOMAIN/g, replace: '<%= pkg.name %>'},
+                { match: /IWORKS_RATE_TEXTDOMAIN/g, replace: '<%= pkg.name %>' },
                 { match: /PLUGIN_TAGLINE/g, replace: '<%= pkg.tagline %>' },
                 { match: /PLUGIN_TILL_YEAR/g, replace: buildyear },
                 { match: /PLUGIN_VERSION/g, replace: '<%= pkg.version %>' },
@@ -331,8 +331,6 @@ module.exports = function(grunt) {
                 src: ['**/*']
             }
         },
-
-
 
         // BUILD - update the translation index .po file.
         makepot: {

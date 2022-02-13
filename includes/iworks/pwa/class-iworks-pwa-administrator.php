@@ -32,6 +32,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * WordPress Hooks
 		 */
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer' ) );
 		/**
 		 * change logo for rate
 		 */
@@ -78,6 +79,61 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_action( 'admin_notices', array( $this, 'show_no_ssl' ) );
 	}
 
+	/**
+	 * Add pointer for fresh install
+	 */
+	public function print_admin_pointer() {
+		// Skip showing admin pointer if not relevant.
+		if (
+			'options-general' === get_current_screen()->id
+			|| 'settings_page_iworks_pwa_index' === get_current_screen()->id
+			|| ! current_user_can( 'manage_options' )
+		) {
+			return;
+		}
+		$pointer = 'iworks_pwa_browsing';
+		// Skip showing admin pointer if dismissed.
+		$dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
+		if ( in_array( $pointer, $dismissed_pointers, true ) ) {
+			return;
+		}
+		wp_print_scripts( array( 'wp-pointer' ) );
+		wp_print_styles( array( 'wp-pointer' ) );
+		$content  = '<h3>' . esc_html__( 'PWA', 'iworks-pwa' ) . '</h3>';
+		$content .= '<p>' . esc_html__( 'PWA settings are now available in Settings.', 'iworks-pwa' ) . '</p>';
+		$args     = array(
+			'content'  => $content,
+			'position' => array(
+				'align' => 'middle',
+				'edge'  => is_rtl() ? 'right' : 'left',
+			),
+		);
+
+		?>
+<script>
+jQuery( function( $ ) {
+	const menuSettingsItem = $( '#menu-settings' );
+	const readingSettingsItem = menuSettingsItem.find( 'li:has( a[href="options-general.php"] )' );
+	if ( readingSettingsItem.length === 0 ) {
+		return;
+	}
+	const options = $.extend( <?php echo wp_json_encode( $args ); ?>, {
+		close: function() {
+			$.post( ajaxurl, {
+			pointer: <?php echo wp_json_encode( $pointer ); ?>,
+				action: 'dismiss-wp-pointer'
+			});
+		}
+	});
+	let target = menuSettingsItem;
+	if ( menuSettingsItem.hasClass( 'wp-menu-open' ) ) {
+		target = readingSettingsItem;
+	}
+	target.pointer( options ).pointer( 'open' );
+} );
+</script>
+		<?php
+	}
 
 }
 

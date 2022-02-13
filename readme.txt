@@ -1,7 +1,7 @@
 === PWA — easy way to Progressive Web App ===
 Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
-Tags: PWA, Progressive Web Application
+Tags: PWA, Progressive Web Application, progressive web app, progressive
 Requires at least: 5.6
 Tested up to: 5.9
 Stable tag: PLUGIN_VERSION
@@ -70,6 +70,11 @@ As returned value you can return any valid color, but remember alpha value will 
 4. Microsoft configuration.
 
 == Changelog ==
+
+= 1.2.0 (2022-02-13) =
+* Added version to cache control.
+* Added ability to change text of offline page.
+* Moved worker JavaScript from PHP class to separate template.
 
 = 1.1.6 (2022-01-27) =
 * Added screenshots to `readme.txt`.

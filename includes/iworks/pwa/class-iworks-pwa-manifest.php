@@ -9,13 +9,6 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_manifest extends iWorks_PWA {
 
-	/**
-	 * OFFLINE_VERSION
-	 *
-	 * @since 1.0.0
-	 */
-	private $offline_version = 2;
-
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -106,10 +99,16 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		/**
 		 * content
 		 */
-		$content  = '';
-		$content .= wpautop( __( 'We were unable to load the page you requested.', 'iworks-pwa' ) );
-		$content .= wpautop( __( 'Please check your network connection and try again.', 'iworks-pwa' ) );
-		$data     = preg_replace( '/%CONTENT%/', apply_filters( 'iworks_pwa_offline_content', $content ), $data );
+		$content = $this->options->get_option( 'offline_content' );
+		if ( empty( $content ) ) {
+			$content  = '';
+			$content .= __( 'We were unable to load the page you requested.', 'iworks-pwa' );
+			$content .= PHP_EOL;
+			$content .= PHP_EOL;
+			$content .= __( 'Please check your network connection and try again.', 'iworks-pwa' );
+		}
+			$content = wpautop( $content );
+		$data        = preg_replace( '/%CONTENT%/', apply_filters( 'iworks_pwa_offline_content', $content ), $data );
 		/**
 		 * SVG
 		 */
@@ -144,67 +143,17 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		} else {
 			$set = implode( ', ', array_map( array( $this, 'helper_join_strings' ), $set ) );
 		}
-		?>
-const OFFLINE_VERSION = <?php echo intval( apply_filters( 'iworks_pwa_offline_version', $this->offline_version ) ); ?>;
-const CACHE_NAME = '<?php echo apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ); ?>';
-const OFFLINE_URL = 'iworks-pwa-offline';
-
-const OFFLINE_URLS_SET = [<?php echo $set; ?>];
-
-self.addEventListener('install', (event) => {
-  event.waitUntil((async () => {
-	const cache = await caches.open(CACHE_NAME);
-	await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
-	caches.open(CACHE_NAME).then(function(cache) {
-		return cache.addAll(OFFLINE_URLS_SET);
-	});
-  })());
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil((async () => {
-	if ('navigationPreload' in self.registration) {
-	  await self.registration.navigationPreload.enable();
-	}
-  })());
-  self.clients.claim();
-});
-
-self.addEventListener('activate', function(event) {
-  event.waitUntil(
-	caches.keys().then(function(cacheNames) {
-	  return Promise.all(
-		cacheNames.filter(function(cacheName) {
-		  return cacheName !== CACHE_NAME;
-		}).map(function(cacheName) {
-		  return caches.delete(cacheName);
-		})
-	  );
-	})
-  );
-});
-
-self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-	event.respondWith((async () => {
-	  try {
-		// First, try to use the navigation preload response if it's supported.
-		const preloadResponse = await event.preloadResponse;
-		if (preloadResponse) {
-		  return preloadResponse;
-		}
-		const networkResponse = await fetch(event.request);
-		return networkResponse;
-	  } catch (error) {
-		console.log('Fetch failed; returning offline page instead.', error);
-		const cache = await caches.open(CACHE_NAME);
-		const cachedResponse = await cache.match(OFFLINE_URL);
-		return cachedResponse;
-	  }
-	})());
-  }
-});
-		<?php
+		$file = $this->root . '/assets/templates/service-worker.js';
+		$args = array(
+			'cache_name'       => sprintf(
+				'%s-%d',
+				apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ),
+				apply_filters( 'iworks_pwa_offline_version', $this->options->get_option( 'cache_version' ) )
+			),
+			'offline_urls_set' => $set,
+			'offline_url'      => 'iworks-pwa-offline',
+		);
+		load_template( $file, true, $args );
 		exit;
 	}
 
