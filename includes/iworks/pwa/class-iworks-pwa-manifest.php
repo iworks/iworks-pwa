@@ -21,7 +21,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		add_action( 'init', array( $this, 'register_scripts' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
-		add_filter( 'wp_localize_script_iworks_pwa_manifest', array( $this, 'add_pwa_data' ) );
 		/**
 		 * debug
 		 */
@@ -43,6 +42,23 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			$this->version,
 			true
 		);
+		$data = array(
+			'serviceWorkerUri' => add_query_arg(
+				'version',
+				$this->options->get_option( 'cache_version' ),
+				wp_make_link_relative(
+					home_url(
+						apply_filters( 'iworks_pwa_service_worker_uri', $this->options->get_group( 'service-worker-handler' ) )
+					)
+				)
+			),
+			'root'             => $this->url . '/assets/pwa/',
+		);
+		wp_localize_script(
+			$this->get_name( __CLASS__ ),
+			'iworks_pwa',
+			apply_filters( 'wp_localize_script_iworks_pwa_manifest', $data )
+		);
 	}
 
 	/**
@@ -54,29 +70,32 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		wp_enqueue_script( $this->get_name( __CLASS__ ) );
 	}
 
-	public function add_pwa_data( $data ) {
-		$data['pwa'] = array(
-			'root' => $this->url . '/assets/pwa/',
-		);
-		return $data;
-	}
-
 	public function parse_request() {
 		if (
 			! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
 		$uri = remove_query_arg( array_keys( $_GET ), $_SERVER['REQUEST_URI'] );
-		switch ( $uri ) {
-			case '/manifest.json':
-				$this->print_manifest_json();
-				break;
-			case '/iworks-pwa-service-worker-js':
+		/**
+		 * manifest.json
+		 */
+		if ( $this->is_manifest_json_request( $uri ) ) {
+			$this->print_manifest_json();
+			return;
+		}
+		/**
+		 * service-worker
+		 */
+		if ( $this->is_service_worker_request( $uri ) ) {
 				$this->print_iworks_pwa_service_worker_js();
-				break;
-			case '/iworks-pwa-offline':
-				$this->print_iworks_pwa_offline();
-				break;
+			return;
+		}
+		/**
+		 * offline page
+		 */
+		if ( $this->is_offline_page_request( $uri ) ) {
+			$this->print_iworks_pwa_offline();
+			return;
 		}
 	}
 
@@ -99,16 +118,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		/**
 		 * content
 		 */
-		$content = $this->options->get_option( 'offline_content' );
-		if ( empty( $content ) ) {
-			$content  = '';
-			$content .= __( 'We were unable to load the page you requested.', 'iworks-pwa' );
-			$content .= PHP_EOL;
-			$content .= PHP_EOL;
-			$content .= __( 'Please check your network connection and try again.', 'iworks-pwa' );
-		}
-			$content = wpautop( $content );
-		$data        = preg_replace( '/%CONTENT%/', apply_filters( 'iworks_pwa_offline_content', $content ), $data );
+		$data = preg_replace( '/%CONTENT%/', $this->get_configuration_offline_page_content(), $data );
 		/**
 		 * SVG
 		 */
@@ -147,7 +157,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		$args = array(
 			'cache_name'       => sprintf(
 				'%s-%d',
-				apply_filters( 'iworks_pwa_offline_cache_name', 'iworks-pwa-offline-cache-name' ),
+				apply_filters( 'iworks_pwa_offline_cache_name', $this->options->get_group( 'cache-name' ) ),
 				apply_filters( 'iworks_pwa_offline_version', $this->options->get_option( 'cache_version' ) )
 			),
 			'offline_urls_set' => $set,
@@ -207,5 +217,25 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		return $list;
 	}
 
+	private function is_manifest_json_request( $uri ) {
+		if ( '/manifest.json' === $uri ) {
+			return true;
+		}
+		return apply_filters( 'iworks_pwa_manifest_is_manifest_json_request', false, $uri );
+	}
+
+	private function is_service_worker_request( $uri ) {
+		if ( '/' . $this->options->get_group( 'service-worker-handler' ) === $uri ) {
+			return true;
+		}
+		return apply_filters( 'iworks_pwa_manifest_is_service_worker_request', false, $uri );
+	}
+
+	private function is_offline_page_request( $uri ) {
+		if ( '/' . $this->options->get_group( 'offline-page' ) === $uri ) {
+			return true;
+		}
+		return apply_filters( 'iworks_pwa_manifest_is_offline_page_request', false, $uri );
+	}
 }
 

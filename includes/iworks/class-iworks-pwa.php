@@ -33,6 +33,8 @@ abstract class iWorks_PWA {
 	 */
 	protected $eol;
 
+	protected $current_lang;
+
 	protected function __construct() {
 		$file        = dirname( dirname( __FILE__ ) );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
@@ -43,6 +45,10 @@ abstract class iWorks_PWA {
 		 */
 		$this->eol = $this->debug ? PHP_EOL : '';
 		/**
+		 * Current language
+		 */
+		$this->current_lang = apply_filters( 'wpml_current_language', null );
+		/**
 		 * set options
 		 */
 		$this->options = get_iworks_pwa_options();
@@ -50,6 +56,12 @@ abstract class iWorks_PWA {
 		 * icons
 		 */
 		$this->icons = $this->options->get_group( 'icons' );
+		/**
+		 * integrations wiith external plugins
+		 *
+		 * @since 1.2.0
+		 */
+		add_action( 'plugins_loaded', array( $this, 'maybe_load_integrations' ) );
 	}
 
 	/**
@@ -276,6 +288,9 @@ abstract class iWorks_PWA {
 		return apply_filters( 'iworks_pwa_configuration_background_color', $color );
 	}
 
+	/**
+	 * get color theme
+	 */
 	protected function get_configuration_color_theme() {
 		$color = $this->options->get_option( 'color_theme' );
 		if ( empty( $color ) ) {
@@ -284,6 +299,9 @@ abstract class iWorks_PWA {
 		return apply_filters( 'iworks_pwa_configuration_theme_color', $color );
 	}
 
+	/**
+	 * get application name
+	 */
 	protected function get_configuration_name() {
 		$value = $this->options->get_option( 'app_name' );
 		if ( empty( $value ) ) {
@@ -292,6 +310,9 @@ abstract class iWorks_PWA {
 		return apply_filters( 'iworks_pwa_configuration_name', $value );
 	}
 
+	/**
+	 * get application short name
+	 */
 	protected function get_configuration_short_name() {
 		$value = $this->options->get_option( 'app_short_name' );
 		if ( empty( $value ) ) {
@@ -300,6 +321,9 @@ abstract class iWorks_PWA {
 		return apply_filters( 'iworks_pwa_configuration_short_name', $value );
 	}
 
+	/**
+	 * get application description
+	 */
 	protected function get_configuration_description() {
 		$value = $this->options->get_option( 'app_description' );
 		if ( empty( $value ) ) {
@@ -357,6 +381,49 @@ abstract class iWorks_PWA {
 	 */
 	private function get_logo_url() {
 		return plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/images/icon.svg';
+	}
+
+	/**
+	 * maybe load integrations
+	 *
+	 * @since 1.2.0
+	 */
+	public function maybe_load_integrations() {
+		$plugins = get_option( 'active_plugins' );
+		if ( empty( $plugins ) ) {
+			return;
+		}
+		$root = dirname( __file__ ) . '/pwa';
+		include_once $root . '/class-iworks-pwa-integrations.php';
+		$root .= '/integrations';
+		foreach ( $plugins as $plugin ) {
+			/**
+			 * WPML
+			 * https://wpml.org
+			 *
+			 * @since 1.2.0
+			 */
+			if ( preg_match( '/sitepress\.php$/', $plugin ) ) {
+				include_once $root . '/class-iworks-pwa-integrations-wpml.php';
+				new iWorks_PWA_Integrations_WPML( $this->options );
+			}
+		}
+	}
+
+	protected function get_configuration_offline_page_content() {
+		$content = apply_filters(
+			'iworks_pwa_configuration_offline_page_content',
+			$this->options->get_option( 'offline_content' )
+		);
+		if ( empty( $content ) ) {
+			$content  = '';
+			$content .= __( 'We were unable to load the page you requested.', 'iworks-pwa' );
+			$content .= PHP_EOL;
+			$content .= PHP_EOL;
+			$content .= __( 'Please check your network connection and try again.', 'iworks-pwa' );
+		}
+		$content = wpautop( $content );
+		return apply_filters( 'iworks_pwa_offline_content', $content );
 	}
 
 }

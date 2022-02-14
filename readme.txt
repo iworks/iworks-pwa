@@ -33,6 +33,7 @@ There are 3 ways to install this plugin:
 1. Search for `iWorks PWA`
 1. Click to install
 1. Activate the plugin
+1. A new menu `PWA` in `Settings` will appear in your Admin
 
 = 2. The easy way =
 1. Download the plugin (.zip file) on the right column of this page
@@ -40,28 +41,14 @@ There are 3 ways to install this plugin:
 1. Select button `Upload Plugin`
 1. Upload the .zip file you just downloaded
 1. Activate the plugin
+1. A new menu `PWA` in `Settings` will appear in your Admin
 
 = 3. The old and reliable way (FTP) =
 1. Upload `iworks-pwa` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+1. A new menu `PWA` in `Settings` will appear in your Admin
 
 == Frequently Asked Questions ==
-
-= How to change meta theme-color? =
-
-First plugin try to get `theme_mod` with default set to `f0f0f0`:
-
-`get_theme_mod( 'background_color', 'f0f0f0');`
-
-Please use `iworks_pwa_configuration_theme_color` filter to change this value:
-
-`
-add_filter( 'iworks_pwa_configuration_theme_color', function( $color ) {
-    return '#f20';
-}
-`
-As returned value you can return any valid color, but remember alpha value will be ignored (for rgba, hsla or hex with alpha).
-
 
 == Screenshots ==
 
@@ -73,8 +60,9 @@ As returned value you can return any valid color, but remember alpha value will 
 == Changelog ==
 
 = 1.2.0 (2022-02-13) =
-* Added version to cache control.
 * Added ability to change text of offline page.
+* Added version to cache control.
+* Added WPML integration.
 * Moved worker JavaScript from PHP class to separate template.
 
 = 1.1.6 (2022-01-27) =

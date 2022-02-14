@@ -15,13 +15,6 @@ function iworks_pwa_options() {
 		'enqueue_styles'  => array(),
 		'options'         => array(
 			array(
-				'ame'      => 'last_used_tab',
-				'type'     => 'hidden',
-				'dynamic'  => true,
-				'autoload' => false,
-				'default'  => 0,
-			),
-			array(
 				'type'  => 'heading',
 				'label' => __( 'General', 'iworks-pwa' ),
 			),
@@ -409,6 +402,25 @@ function iworks_pwa_options() {
 			'sizes' => '70x70',
 		),
 	);
+	/**
+	 * service worker handler
+	 */
+	$options['service-worker-handler'] = 'iworks-pwa-service-worker-js';
+	/**
+	 * cache name
+	 */
+	$options['cache-name'] = 'iworks-pwa-offline-cache';
+	/**
+	 * offline page
+	 */
+	$options['offline-page'] = 'iworks-pwa-offline';
+	/**
+	 * manifest.json
+	 */
+	$options['manifest.json'] = 'manifest.json';
+	/**
+	 * return
+	 */
 	return $options;
 }
 

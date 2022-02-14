@@ -43,6 +43,12 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		if ( ! $this->debug ) {
 			return $options;
 		}
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			return $options;
+		}
+		if ( ! is_admin() ) {
+			return $options;
+		}
 		$options['options'][] = array(
 			'type'  => 'heading',
 			'label' => __( 'Debug info', 'iworks-pwa' ),
