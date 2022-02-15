@@ -50,6 +50,16 @@ There are 3 ways to install this plugin:
 
 == Frequently Asked Questions ==
 
+= How can I translate manifest.json values?
+
+It is only possible with WPML package.
+
+1. Install and activate `WPML Multilingual CMS` and `WPML String Translation` plugins.
+1. Save `manifest.json` data on `WP Admin` -> `Settings` -> `WPA`.
+1. Open `WP Admin` -> `WPML` -> String translation`.
+1. Select domain `iworks-pwa`.
+1. Translate strings.
+
 == Screenshots ==
 
 1. General configuration.
@@ -59,7 +69,7 @@ There are 3 ways to install this plugin:
 
 == Changelog ==
 
-= 1.2.0 (2022-02-13) =
+= 1.2.0 (2022-02-15) =
 * Added ability to change text of offline page.
 * Added version to cache control.
 * Added WPML integration.
