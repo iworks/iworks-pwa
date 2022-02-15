@@ -39,7 +39,10 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_filter( 'iworks_rate_notice_logo_style', array( $this, 'filter_plugin_logo' ), 10, 2 );
 	}
 
-	public function filter_add_debug_urls_to_config( $options ) {
+    public function filter_add_debug_urls_to_config( $options ) {
+        if ( ! is_array( $options ) ) {
+            return $options;
+        }
 		if ( ! $this->debug ) {
 			return $options;
 		}
