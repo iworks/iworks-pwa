@@ -33,16 +33,17 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 */
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer' ) );
+		add_action( 'admin_notices', array( $this, 'check_permalinks' ) );
 		/**
 		 * change logo for rate
 		 */
 		add_filter( 'iworks_rate_notice_logo_style', array( $this, 'filter_plugin_logo' ), 10, 2 );
 	}
 
-    public function filter_add_debug_urls_to_config( $options ) {
-        if ( ! is_array( $options ) ) {
-            return $options;
-        }
+	public function filter_add_debug_urls_to_config( $options ) {
+		if ( ! is_array( $options ) ) {
+			return $options;
+		}
 		if ( ! $this->debug ) {
 			return $options;
 		}
@@ -142,6 +143,26 @@ jQuery( function( $ ) {
 } );
 </script>
 		<?php
+	}
+
+	/**
+	 * add messsage when permalinks area "plain"
+	 *
+	 * @since 1.2.1
+	 */
+	public function check_permalinks() {
+		$permalink_structure = get_option( 'permalink_structure' );
+		if ( ! empty( $permalink_structure ) ) {
+			return;
+		}
+		echo '<div class="notice notice-error">';
+		echo wpautop(
+			sprintf(
+				__( 'PWA plugin uses WordPress does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
+				admin_url( 'options-permalink.php' )
+			)
+		);
+		echo '</div>';
 	}
 
 }

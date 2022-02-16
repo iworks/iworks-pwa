@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PWA — simple way to Progressive Web App PLUGIN_VERSION\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-02-15 10:55:46+00:00\n"
+"POT-Creation-Date: 2022-02-16 11:21:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgid "Progressive Web Application - Configuration"
 msgstr ""
 
 #: etc/options.php:12
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:111
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:112
 msgid "PWA"
 msgstr ""
 
@@ -275,65 +275,72 @@ msgstr ""
 msgid "An error occurred while getting the configuration."
 msgstr ""
 
-#: includes/iworks/options/options.php:752
-#: includes/iworks/options/options.php:1753
+#: includes/iworks/options/options.php:754
+#: includes/iworks/options/options.php:1755
 msgid "Select Image"
 msgstr ""
 
-#: includes/iworks/options/options.php:757
+#: includes/iworks/options/options.php:759
 msgid "Delete image"
 msgstr ""
 
-#: includes/iworks/options/options.php:843
+#: includes/iworks/options/options.php:845
 msgid "Save Changes"
 msgstr ""
 
-#: includes/iworks/options/options.php:1647
+#: includes/iworks/options/options.php:1649
 msgid "Country"
 msgstr ""
 
-#: includes/iworks/options/options.php:1648
+#: includes/iworks/options/options.php:1650
 msgid "City"
 msgstr ""
 
-#: includes/iworks/options/options.php:1649
+#: includes/iworks/options/options.php:1651
 msgid "Street"
 msgstr ""
 
-#: includes/iworks/options/options.php:1650
+#: includes/iworks/options/options.php:1652
 msgid "ZIP code"
 msgstr ""
 
-#: includes/iworks/options/options.php:1806
+#: includes/iworks/options/options.php:1808
 msgid "OFF"
 msgstr ""
 
-#: includes/iworks/options/options.php:1807
+#: includes/iworks/options/options.php:1809
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:57
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:58
 msgid "Debug info"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:67
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:68
 msgid "Main files"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:70
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:71
 msgid "manifest.json"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:71
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:72
 msgid "Service Worker"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:72
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:73
 msgid "Offline page"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:112
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:113
 msgid "PWA settings are now available in Settings."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:161
+msgid ""
+"PWA plugin uses WordPress does not support the plain permalink structure. "
+"<a href=\"%s\">Please change your permalinks settings</a> to other "
+"structure to use PWA plugin."
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-manifest.php:116

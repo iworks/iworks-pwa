@@ -2,7 +2,6 @@
 Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
 Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json, installable, add to homescreen, offline, service worker, https
-
 Requires at least: 5.6
 Tested up to: 5.9
 Stable tag: PLUGIN_VERSION
@@ -68,6 +67,10 @@ It is only possible with WPML package.
 4. Microsoft configuration.
 
 == Changelog ==
+
+= 1.2.1 (2022-02-16) =
+* Added message when site permalink is "plain" - plugin does not support it.
+* Updated iWorks Options to 2.8.1.
 
 = 1.2.0 (2022-02-15) =
 * Added ability to change text of offline page.
