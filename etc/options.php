@@ -101,7 +101,7 @@ function iworks_pwa_options() {
 						__( 'We were unable to load the page you requested.', 'iworks-pwa' ),
 						PHP_EOL,
 						PHP_EOL,
-						__( 'Please check your network connection and try again.' ),
+						__( 'Please check your network connection and try again.', 'iworks-pwa' ),
 					)
 				),
 				'classes' => array(
@@ -421,7 +421,7 @@ function iworks_pwa_options() {
 	/**
 	 * return
 	 */
-	return $options;
+	return apply_filters( 'iworks_plugin_get_options', $options, 'iworks-pwa' );
 }
 
 function iworks_pwa_options_loved_this_plugin( $iworks_iworks_seo_improvements ) {
