@@ -35,6 +35,13 @@ abstract class iWorks_PWA {
 
 	protected $current_lang;
 
+	/**
+	 * Check for OG plugin: https://wordpress.org/plugins/og/
+	 *
+	 * @since 1.2.2
+	 */
+	protected $is_og_installed = null;
+
 	protected function __construct() {
 		$file        = dirname( dirname( __FILE__ ) );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
@@ -114,6 +121,7 @@ abstract class iWorks_PWA {
 		$this->configuration = apply_filters(
 			'iworks_pwa_configuration',
 			array(
+				'plugin'           => 'PLUGIN_TITLE - PLUGIN_VERSION',
 				'name'             => $this->get_configuration_name(),
 				'short_name'       => $this->get_configuration_short_name(),
 				'description'      => $this->get_configuration_description(),
@@ -170,6 +178,7 @@ abstract class iWorks_PWA {
 		$icons             = $this->options->get_option( $icons_option_name );
 		$root              = $this->get_icons_directory();
 		if ( ! empty( $icons ) ) {
+			$icons = $this->maybe_add_purpose_maskable( $icons );
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
 		$value = intval( $this->options->get_option( 'icon_app' ) );
@@ -204,6 +213,7 @@ abstract class iWorks_PWA {
 			}
 		}
 		if ( ! empty( $icons ) ) {
+			$icons = $this->maybe_add_purpose_maskable( $icons );
 			$this->options->update_option( $icons_option_name, $icons );
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
@@ -407,6 +417,16 @@ abstract class iWorks_PWA {
 				include_once $root . '/class-iworks-pwa-integrations-wpml.php';
 				new iWorks_PWA_Integrations_WPML( $this->options );
 			}
+			/**
+			 * OG — Better Share on Social Media
+			 * https://wordpress.org/plugins/og/
+			 *
+			 * @since 1.2.2
+			 */
+			if ( preg_match( '/og\.php$/', $plugin ) ) {
+				include_once $root . '/class-iworks-pwa-integrations-og.php';
+				new iWorks_PWA_Integrations_OG( $this->options );
+			}
 		}
 	}
 
@@ -424,6 +444,53 @@ abstract class iWorks_PWA {
 		}
 		$content = wpautop( $content );
 		return apply_filters( 'iworks_pwa_offline_content', $content );
+	}
+
+	/**
+	 * check for OG plugin
+	 *
+	 * @since 1.2.2
+	 */
+	public function check_og_plugin() {
+		if ( null !== $this->is_og_installed ) {
+			return;
+		}
+		$this->is_og_installed = false;
+		$plugins               = get_option( 'active_plugins' );
+		if ( empty( $plugins ) ) {
+			return;
+		}
+		foreach ( $plugins as $plugin ) {
+			if ( preg_match( '/og\.php$/', $plugin ) ) {
+				$this->is_og_installed = true;
+				return;
+			}
+		}
+	}
+
+	public function action_flush_icons( $old_value, $value, $option ) {
+		delete_option( $this->options->get_option_name( $this->option_name_icons ) );
+	}
+
+	/**
+	 * Try to add purpose "any maskable" if it is not present
+	 *
+	 * @since 1.2.2
+	 */
+	private function maybe_add_purpose_maskable( $icons ) {
+		$max = 0;
+		foreach ( $icons as $size => $icon ) {
+			if ( isset( $icon['purpose'] ) && preg_match( '/maskable/', $icon['purpose'] ) ) {
+				return $icons;
+			}
+			if ( $size > $max ) {
+				$max = $size;
+			}
+		}
+		if ( 0 < $max ) {
+			$icons[ $max ]['purpose'] = 'any maskable';
+		}
+		return $icons;
 	}
 
 }
