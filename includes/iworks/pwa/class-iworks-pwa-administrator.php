@@ -28,6 +28,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 */
 		add_filter( 'iworks_pwa_options', array( $this, 'filter_add_debug_urls_to_config' ) );
 		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 100 );
+		add_filter( 'iworks_plugin_get_options', array( $this, 'filter_maybe_add_advertising' ), 10, 2 );
 		/**
 		 * WordPress Hooks
 		 */
@@ -38,6 +39,12 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * change logo for rate
 		 */
 		add_filter( 'iworks_rate_notice_logo_style', array( $this, 'filter_plugin_logo' ), 10, 2 );
+		/**
+		 * check for OG plugin & integrate
+		 *
+		 * @since 1.1.0
+		 */
+		$this->check_og_plugin();
 	}
 
 	public function filter_add_debug_urls_to_config( $options ) {
@@ -163,6 +170,27 @@ jQuery( function( $ ) {
 			)
 		);
 		echo '</div>';
+	}
+
+	/**
+	 * Filter options for some advertising
+	 *
+	 * @since 1.2.2
+	 */
+	public function filter_maybe_add_advertising( $options, $plugin ) {
+		if ( 'iworks-pwa' !== $plugin ) {
+			return $options;
+		}
+		if ( ! isset( $options['index']['metaboxes'] ) ) {
+			$options['index']['metaboxes'] = array();
+		}
+		if ( ! $this->is_og_installed ) {
+			$data = apply_filters( 'iworks_rate_advertising_og', array() );
+			if ( ! empty( $data ) ) {
+				$options['index']['metaboxes'] = array_merge( $options['index']['metaboxes'], $data );
+			}
+		}
+		return $options;
 	}
 
 }

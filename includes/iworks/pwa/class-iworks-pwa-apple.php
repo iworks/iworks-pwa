@@ -90,10 +90,6 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 		}
 	}
 
-	public function action_flush_icons( $old_value, $value, $option ) {
-		delete_option( $this->options->get_option_name( $this->option_name_icons ) );
-	}
-
 	/**
 	 *
 	 * @since 1.0.5

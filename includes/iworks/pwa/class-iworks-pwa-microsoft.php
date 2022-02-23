@@ -191,9 +191,5 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		}
 	}
 
-	public function action_flush_icons( $old_value, $value, $option ) {
-		delete_option( $this->options->get_option_name( $this->option_name_icons ) );
-	}
-
 }
 
