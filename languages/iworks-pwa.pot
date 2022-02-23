@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PWA — simple way to Progressive Web App PLUGIN_VERSION\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-02-16 11:21:34+00:00\n"
+"POT-Creation-Date: 2022-02-21 10:28:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgid "Progressive Web Application - Configuration"
 msgstr ""
 
 #: etc/options.php:12
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:112
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:119
 msgid "PWA"
 msgstr ""
 
@@ -109,11 +109,11 @@ msgstr ""
 msgid "Offline content page"
 msgstr ""
 
-#: etc/options.php:101 includes/iworks/class-iworks-pwa.php:420
+#: etc/options.php:101 includes/iworks/class-iworks-pwa.php:440
 msgid "We were unable to load the page you requested."
 msgstr ""
 
-#: etc/options.php:104 includes/iworks/class-iworks-pwa.php:423
+#: etc/options.php:104 includes/iworks/class-iworks-pwa.php:443
 msgid "Please check your network connection and try again."
 msgstr ""
 
@@ -266,7 +266,7 @@ msgstr ""
 msgid "WordPress Help Forum"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:75
+#: includes/iworks/class-iworks-pwa.php:82
 #: includes/iworks/pwa/class-iworks-pwa-html-head.php:31 iworks-pwa.php:120
 msgid "iWorks PWA"
 msgstr ""
@@ -276,7 +276,7 @@ msgid "An error occurred while getting the configuration."
 msgstr ""
 
 #: includes/iworks/options/options.php:754
-#: includes/iworks/options/options.php:1755
+#: includes/iworks/options/options.php:1751
 msgid "Select Image"
 msgstr ""
 
@@ -288,55 +288,55 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: includes/iworks/options/options.php:1649
+#: includes/iworks/options/options.php:1645
 msgid "Country"
 msgstr ""
 
-#: includes/iworks/options/options.php:1650
+#: includes/iworks/options/options.php:1646
 msgid "City"
 msgstr ""
 
-#: includes/iworks/options/options.php:1651
+#: includes/iworks/options/options.php:1647
 msgid "Street"
 msgstr ""
 
-#: includes/iworks/options/options.php:1652
+#: includes/iworks/options/options.php:1648
 msgid "ZIP code"
 msgstr ""
 
-#: includes/iworks/options/options.php:1808
+#: includes/iworks/options/options.php:1804
 msgid "OFF"
 msgstr ""
 
-#: includes/iworks/options/options.php:1809
+#: includes/iworks/options/options.php:1805
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:58
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:65
 msgid "Debug info"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:68
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:75
 msgid "Main files"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:71
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:78
 msgid "manifest.json"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:72
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:79
 msgid "Service Worker"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:73
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:80
 msgid "Offline page"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:113
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:120
 msgid "PWA settings are now available in Settings."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:161
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:168
 msgid ""
 "PWA plugin uses WordPress does not support the plain permalink structure. "
 "<a href=\"%s\">Please change your permalinks settings</a> to other "
@@ -355,13 +355,37 @@ msgstr ""
 msgid "First you need to set some icons."
 msgstr ""
 
-#: includes/iworks/rate/rate.php:118
+#: includes/iworks/rate/rate.php:124
 msgid "Settings"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:124
+#: includes/iworks/rate/rate.php:130
 #: includes/iworks/rate/templates/thanks.php:28
 msgid "Provide us a coffee"
+msgstr ""
+
+#: includes/iworks/rate/rate.php:474
+msgid "OpenGraph"
+msgstr ""
+
+#: includes/iworks/rate/rate.php:490
+msgid "OG — Better Share on Social Media"
+msgstr ""
+
+#: includes/iworks/rate/rate.php:491
+msgid "https://wordpress.org/plugins/og/"
+msgstr ""
+
+#: includes/iworks/rate/templates/plugins/og.php:2
+msgid "Would you like to boost your website sharing abilities?"
+msgstr ""
+
+#: includes/iworks/rate/templates/plugins/og.php:7
+msgid "Don't wait, install plugin %s!"
+msgstr ""
+
+#: includes/iworks/rate/templates/plugins/og.php:17
+msgid "Install"
 msgstr ""
 
 #: includes/iworks/rate/templates/thanks.php:17
@@ -491,22 +515,22 @@ msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:76
+#: includes/iworks/class-iworks-pwa.php:83
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:399
+#: includes/iworks/rate/rate.php:405
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:79
+#: includes/iworks/class-iworks-pwa.php:86
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:405
+#: includes/iworks/rate/rate.php:411
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/%s"
 msgstr ""

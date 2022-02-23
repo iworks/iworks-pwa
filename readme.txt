@@ -70,6 +70,9 @@ It is only possible with WPML package.
 
 * Fixed missed translation domain in few strings.
 
+= 1.2.3 (2022-02-23) =
+* Removed `console.log` from JavaScript files.
+
 = 1.2.2 (2022-02-21) =
 * Added filter `iworks_plugin_get_options' to allow filtering plugin core configuration.
 * Added [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin integration.

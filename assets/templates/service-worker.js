@@ -1,3 +1,6 @@
+/**
+ * PLUGIN_TITLE - PLUGIN_VERSION
+ */
 self.addEventListener('install', (event) => {
     event.waitUntil((async () => {
         const cache = await caches.open('<?php echo $args['cache_name']; ?>');
@@ -45,7 +48,7 @@ self.addEventListener('fetch', (event) => {
                 const networkResponse = await fetch(event.request);
                 return networkResponse;
             } catch (error) {
-                console.log('Fetch failed; returning offline page instead.', error);
+                // console.log('Fetch failed; returning offline page instead.', error);
                 const cache = await caches.open('<?php echo $args['cache_name']; ?>');
                 const cachedResponse = await cache.match('<?php echo $args['offline_url']; ?>');
                 return cachedResponse;

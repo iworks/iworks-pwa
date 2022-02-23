@@ -54,7 +54,7 @@ module.exports = function( grunt ) {
         concat: {
             options: {
                 stripBanners: true,
-                banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
+                banner: '/**\n * <%= pkg.title %> - v<%= pkg.version %>\n' +
                 ' * <%= pkg.homepage %>\n' +
                 ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
                 ' * Licensed GPLv2+' +
@@ -94,13 +94,13 @@ module.exports = function( grunt ) {
                 files: [{
                     expand: true,
                     src: ['*.js', '!*.min.js', '!shared*' ],
-                    cwd: 'assets/js/',
-                    dest: 'assets/js/',
+                    cwd: 'assets/scripts/',
+                    dest: 'assets/scripts/',
                     ext: '.min.js',
                     extDot: 'last'
                 }],
                 options: {
-                    banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
+                    banner: '/**\n * <%= pkg.title %> - v<%= pkg.version %>\n' +
                     ' * <%= pkg.homepage %>\n' +
                     ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
                     ' * Licensed GPLv2+' +
@@ -175,7 +175,7 @@ module.exports = function( grunt ) {
                 }
             },
             scripts: {
-                files: ['assets/js/src/**/*.js', 'assets/js/vendor/**/*.js'],
+                files: ['assets/scripts/src/**/*.js', 'assets/scripts/vendor/**/*.js'],
                 tasks: ['jshint', 'concat', 'uglify'],
                 options: {
                     debounceDelay: 500
