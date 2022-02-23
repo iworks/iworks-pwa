@@ -68,6 +68,16 @@ It is only possible with WPML package.
 
 == Changelog ==
 
+* Fixed missed translation domain in few strings.
+
+= 1.2.2 (2022-02-21) =
+* Added filter `iworks_plugin_get_options' to allow filtering plugin core configuration.
+* Added [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin integration.
+* Added plugin information into PWA scripts elements.
+* Added purpose "any maskable" to the biggest icon. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/).
+* Updated iWorks Options to 2.8.2.
+* Updated iWorks Rate to 2.1.0.
+
 = 1.2.1 (2022-02-16) =
 * Added message when site permalink is "plain" - plugin does not support it.
 * Updated iWorks Options to 2.8.1.
@@ -75,7 +85,7 @@ It is only possible with WPML package.
 = 1.2.0 (2022-02-15) =
 * Added ability to change text of offline page.
 * Added version to cache control.
-* Added WPML integration.
+* Added WPML plugin integration.
 * Moved worker JavaScript from PHP class to separate template.
 
 = 1.1.6 (2022-01-27) =
