@@ -37,8 +37,6 @@ abstract class iWorks_PWA {
 	 */
 	protected $eol;
 
-	protected $current_lang;
-
 	/**
 	 * Check for OG plugin: https://wordpress.org/plugins/og/
 	 *
@@ -55,10 +53,6 @@ abstract class iWorks_PWA {
 		 * End of line
 		 */
 		$this->eol = $this->debug ? PHP_EOL : '';
-		/**
-		 * Current language
-		 */
-		$this->current_lang = apply_filters( '', null );
 		/**
 		 * set options
 		 */
