@@ -5,7 +5,7 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_Apple extends iWorks_PWA {
 
-	private $option_name_icons = 'ati';
+	protected $option_name_icons = 'ati';
 
 	public function __construct() {
 		parent::__construct();

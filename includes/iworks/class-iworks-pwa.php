@@ -19,6 +19,10 @@ abstract class iWorks_PWA {
 
 	protected $icons_to_flush;
 
+	protected $option_name_icons;
+
+	protected $memcache_name_configuration = 'iworks_pwa_configuration';
+
 	/**
 	 * iWorks Options object
 	 *
@@ -54,7 +58,7 @@ abstract class iWorks_PWA {
 		/**
 		 * Current language
 		 */
-		$this->current_lang = apply_filters( 'wpml_current_language', null );
+		$this->current_lang = apply_filters( '', null );
 		/**
 		 * set options
 		 */
@@ -69,6 +73,12 @@ abstract class iWorks_PWA {
 		 * @since 1.2.0
 		 */
 		add_action( 'plugins_loaded', array( $this, 'maybe_load_integrations' ) );
+		/**
+		 * clear cache
+		 *
+		 * @since 1.3.0
+		 */
+		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'action_cache_clear' ) );
 	}
 
 	/**
@@ -118,6 +128,16 @@ abstract class iWorks_PWA {
 	}
 
 	private function _set_configuration() {
+		if ( function_exists( 'wp_cache_get' ) ) {
+			$configuration = wp_cache_get( $this->memcache_name_configuration );
+			if ( 0 && ! empty( $configuration ) ) {
+				$this->configuration = apply_filters(
+					'iworks_pwa_configuration',
+					$configuration
+				);
+				return;
+			}
+		}
 		$this->configuration = apply_filters(
 			'iworks_pwa_configuration',
 			array(
@@ -135,6 +155,9 @@ abstract class iWorks_PWA {
 				'icons'            => $this->get_configuration_icons(),
 			)
 		);
+		if ( function_exists( 'wp_cache_add' ) ) {
+			wp_cache_add( $this->memcache_name_configuration, $this->configuration );
+		}
 	}
 
 	protected function get_icons_base_url() {
@@ -174,11 +197,35 @@ abstract class iWorks_PWA {
 	}
 
 	protected function get_configuration_icons( $group = 'manifest' ) {
+		/**
+		 * Handle cache
+		 *
+		 * @since 1.3.0
+		 */
+		$cache_key = sprintf(
+			'%s_%s',
+			$this->memcache_name_configuration,
+			$group
+		);
+		if ( function_exists( 'wp_cache_get' ) ) {
+			$icons = wp_cache_get( $cache_key );
+			if ( ! empty( $icons ) ) {
+				return apply_filters( 'iworks_pwa_configuration_icons', $icons );
+			}
+		}
 		$icons_option_name = 'icons_' . $group;
 		$icons             = $this->options->get_option( $icons_option_name );
 		$root              = $this->get_icons_directory();
 		if ( ! empty( $icons ) ) {
 			$icons = $this->maybe_add_purpose_maskable( $icons );
+			/**
+			 * Handle cache
+			 *
+			 * @since 1.3.0
+			 */
+			if ( function_exists( 'wp_cache_add' ) ) {
+				wp_cache_add( $cache_key, $icons );
+			}
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
 		$value = intval( $this->options->get_option( 'icon_app' ) );
@@ -215,6 +262,14 @@ abstract class iWorks_PWA {
 		if ( ! empty( $icons ) ) {
 			$icons = $this->maybe_add_purpose_maskable( $icons );
 			$this->options->update_option( $icons_option_name, $icons );
+			/**
+			 * Handle cache
+			 *
+			 * @since 1.3.0
+			 */
+			if ( function_exists( 'wp_cache_add' ) ) {
+				wp_cache_add( $cache_key, $icons );
+			}
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
 		/**
@@ -223,8 +278,8 @@ abstract class iWorks_PWA {
 		if ( 'manifest' !== $group ) {
 			return apply_filters( 'iworks_pwa_configuration_icons', array() );
 		}
-		$root = sprintf( '%s/assets/images/icons/favicon', $this->url );
-		return apply_filters(
+		$root  = sprintf( '%s/assets/images/icons/favicon', $this->url );
+		$icons = apply_filters(
 			'iworks_pwa_configuration_icons',
 			array(
 				array(
@@ -276,6 +331,15 @@ abstract class iWorks_PWA {
 				),
 			)
 		);
+		/**
+		 * Handle cache
+		 *
+		 * @since 1.3.0
+		 */
+		if ( function_exists( 'wp_cache_add' ) ) {
+			wp_cache_add( $cache_key, $icons );
+		}
+		return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 	}
 
 	protected function get_name( $name ) {
@@ -491,6 +555,25 @@ abstract class iWorks_PWA {
 			$icons[ $max ]['purpose'] = 'any maskable';
 		}
 		return $icons;
+	}
+
+	/**
+	 * clear cache
+	 *
+	 * @since 1.3.0
+	 */
+	public function action_cache_clear() {
+		if ( function_exists( 'wp_cache_delete' ) ) {
+			$keys = array(
+				$this->memcache_name_configuration,
+				$this->memcache_name_configuration . '_manifest',
+				$this->memcache_name_configuration . '_widnows8',
+				$this->memcache_name_configuration . '_ie11',
+			);
+			foreach ( $keys as $cache_key ) {
+				wp_cache_delete( $cache_key );
+			}
+		}
 	}
 
 }

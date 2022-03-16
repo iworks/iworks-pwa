@@ -25,14 +25,12 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 	 * @since 1.0.0
 	 */
 	public function html_head() {
-		if ( $this->debug ) {
-			printf(
-				'<!-- %s %s -->%s',
-				esc_html__( 'iWorks PWA', 'iworks-pwa' ),
-				$this->version,
-				$this->eol
-			);
-		}
+		printf(
+			'<!-- %s %s -->%s',
+			esc_html__( 'iWorks PWA', 'iworks-pwa' ),
+			$this->version,
+			$this->eol
+		);
 		printf(
 			'<link rel="manifest" href="%s" />%s',
 			wp_make_link_relative( home_url( 'manifest.json' ) ),

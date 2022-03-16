@@ -17,7 +17,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 	 *
 	 * @since 1.1.5
 	 */
-	private $option_name_icons = 'icons_ie11';
+	protected $option_name_icons = 'icons_ie11';
 
 	public function __construct() {
 		parent::__construct();
@@ -73,6 +73,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			$this->options->update_option( $this->option_name_icons, $icons );
 			return $icons;
 		}
+		return array();
 	}
 
 	/**

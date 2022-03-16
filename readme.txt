@@ -68,6 +68,9 @@ It is only possible with WPML package.
 
 == Changelog ==
 
+= 1.3.0 (2022-03-16) =
+* Added object cache for settings.
+* Fixed `protected $option_name_icons` warning.
 * Fixed missed translation domain in few strings.
 
 = 1.2.3 (2022-02-23) =
