@@ -183,7 +183,11 @@ abstract class iWorks_PWA {
 
 	protected function get_wp_image_object_from_attachement_id( $attachement_id ) {
 		$path  = wp_get_original_image_path( $attachement_id );
-		$image = wp_get_image_editor( $path );
+		$args  = array(
+			'path'      => $path,
+			'mime_type' => get_post_mime_type( $attachement_id ),
+		);
+		$image = wp_get_image_editor( $path, $args );
 		if ( ! is_wp_error( $image ) ) {
 			$size = min( $image->get_size() );
 			$image->resize( $size, $size, true );
@@ -191,88 +195,12 @@ abstract class iWorks_PWA {
 		return $image;
 	}
 
-	protected function get_configuration_icons( $group = 'manifest' ) {
-		/**
-		 * Handle cache
-		 *
-		 * @since 1.3.0
-		 */
-		$cache_key = sprintf(
-			'%s_%s',
-			$this->settings_cache_option_name,
-			$group
-		);
-		if ( function_exists( 'wp_cache_get' ) ) {
-			$icons = wp_cache_get( $cache_key );
-			if ( ! empty( $icons ) ) {
-				return apply_filters( 'iworks_pwa_configuration_icons', $icons );
-			}
-		}
-		$icons_option_name = 'icons_' . $group;
-		$icons             = $this->options->get_option( $icons_option_name );
-		$root              = $this->get_icons_directory();
-		if ( ! empty( $icons ) ) {
-			$icons = $this->maybe_add_purpose_maskable( $icons );
-			/**
-			 * Handle cache
-			 *
-			 * @since 1.3.0
-			 */
-			if ( function_exists( 'wp_cache_add' ) ) {
-				wp_cache_add( $cache_key, $icons );
-			}
-			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
-		}
-		$value = intval( $this->options->get_option( 'icon_app' ) );
-		if ( 0 < $value ) {
-			$image = $this->get_wp_image_object_from_attachement_id( $value );
-			if ( ! is_wp_error( $image ) ) {
-				$size = min( $image->get_size() );
-				$ext  = $this->get_image_ext_from_attachement_id( $value );
-				krsort( $this->icons );
-				foreach ( $this->icons as $width => $data ) {
-					$width = intval( $width );
-					if ( $width > $size ) {
-						continue;
-					}
-					if ( ! in_array( $group, $data['group'] ) ) {
-						continue;
-					}
-					$name         = sprintf( 'icon-pwa-%s.%s', $width, $ext );
-					$destfilename = $this->get_icons_directory() . '/' . $name;
-					$result       = $this->image_resize_and_save( $image, $width, $destfilename );
-					if ( ! is_wp_error( $result ) ) {
-						$one             = $data;
-						$one['src']      = sprintf(
-							'%s/%s?v=%s',
-							$this->get_icons_base_url(),
-							$name,
-							time()
-						);
-						$icons[ $width ] = $one;
-					}
-				}
-			}
-		}
-		if ( ! empty( $icons ) ) {
-			$icons = $this->maybe_add_purpose_maskable( $icons );
-			$this->options->update_option( $icons_option_name, $icons );
-			/**
-			 * Handle cache
-			 *
-			 * @since 1.3.0
-			 */
-			if ( function_exists( 'wp_cache_add' ) ) {
-				wp_cache_add( $cache_key, $icons );
-			}
-			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
-		}
-		/**
-		 * defaults for empty, only for basic
-		 */
-		if ( 'manifest' !== $group ) {
-			return apply_filters( 'iworks_pwa_configuration_icons', array() );
-		}
+	/**
+	 * Defaults icon set
+	 *
+	 * @since 1.3.3
+	 */
+	private function get_defaults_icons() {
 		$root  = sprintf( '%s/assets/images/icons/favicon', $this->url );
 		$icons = apply_filters(
 			'iworks_pwa_configuration_icons',
@@ -326,14 +254,98 @@ abstract class iWorks_PWA {
 				),
 			)
 		);
+		return $icons;
+	}
+
+	protected function get_configuration_icons( $group = 'manifest' ) {
+		$value = intval( $this->options->get_option( 'icon_app' ) );
+		if ( empty( $value ) ) {
+			return $this->get_defaults_icons();
+		}
 		/**
 		 * Handle cache
 		 *
 		 * @since 1.3.0
 		 */
-		if ( function_exists( 'wp_cache_add' ) ) {
-			wp_cache_add( $cache_key, $icons );
+		$cache_key = sprintf(
+			'%s_%s',
+			$this->settings_cache_option_name,
+			$group
+		);
+		/**
+		 * cache get
+		 */
+		$icons = get_transient( $cache_key );
+		if ( ! empty( $icons ) ) {
+			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
+		$icons_option_name = 'icons_' . $group;
+		$icons             = $this->options->get_option( $icons_option_name );
+		$root              = $this->get_icons_directory();
+		if ( ! empty( $icons ) ) {
+			$icons = $this->maybe_add_purpose_maskable( $icons );
+			/**
+			 * Handle cache
+			 *
+			 * @since 1.3.0
+			 */
+			set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
+		}
+		if ( 0 < $value ) {
+			$image = $this->get_wp_image_object_from_attachement_id( $value );
+			if ( ! is_wp_error( $image ) ) {
+				$size = min( $image->get_size() );
+				$ext  = $this->get_image_ext_from_attachement_id( $value );
+				krsort( $this->icons );
+				foreach ( $this->icons as $width => $data ) {
+					$width = intval( $width );
+					if ( $width > $size ) {
+						continue;
+					}
+					if ( ! in_array( $group, $data['group'] ) ) {
+						continue;
+					}
+					$name         = sprintf( 'icon-pwa-%s.%s', $width, $ext );
+					$destfilename = $this->get_icons_directory() . '/' . $name;
+					$result       = $this->image_resize_and_save( $image, $width, $destfilename );
+					if ( ! is_wp_error( $result ) ) {
+						$one             = $data;
+						$one['src']      = sprintf(
+							'%s/%s?v=%s',
+							$this->get_icons_base_url(),
+							$name,
+							time()
+						);
+						$icons[ $width ] = $one;
+					}
+				}
+			}
+		}
+		if ( ! empty( $icons ) ) {
+			$icons = $this->maybe_add_purpose_maskable( $icons );
+			$this->options->update_option( $icons_option_name, $icons );
+			/**
+			 * Handle cache
+			 *
+			 * @since 1.3.0
+			 */
+			set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
+		}
+		/**
+		 * defaults for empty, only for basic
+		 */
+		if ( 'manifest' !== $group ) {
+			return apply_filters( 'iworks_pwa_configuration_icons', array() );
+		}
+		$icons = $this->get_defaults_icons();
+		/**
+		 * Handle cache
+		 *
+		 * @since 1.3.0
+		 */
+		set_transient( $cache_key, $icons, MINUTE_IN_SECONDS );
 		return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 	}
 
@@ -558,16 +570,14 @@ abstract class iWorks_PWA {
 	 * @since 1.3.0
 	 */
 	public function action_cache_clear() {
-		if ( function_exists( 'wp_cache_delete' ) ) {
-			$keys = array(
-				$this->settings_cache_option_name,
-				$this->settings_cache_option_name . '_manifest',
-				$this->settings_cache_option_name . '_widnows8',
-				$this->settings_cache_option_name . '_ie11',
-			);
-			foreach ( $keys as $cache_key ) {
-				wp_cache_delete( $cache_key );
-			}
+		$keys = array(
+			$this->settings_cache_option_name,
+			$this->settings_cache_option_name . '_manifest',
+			$this->settings_cache_option_name . '_widnows8',
+			$this->settings_cache_option_name . '_ie11',
+		);
+		foreach ( $keys as $cache_key ) {
+			delete_transient( $cache_key );
 		}
 	}
 

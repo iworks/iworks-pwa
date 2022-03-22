@@ -18,7 +18,7 @@ Users can come back to your website by launching the app from their home screen 
 
 iWorks PWA makes it easy for you to convert your WordPress website into a Progressive Web App instantly!
 
-Once this plugin is installed, users browsing your website from a supported mobile device will see a “Add To Home Screen” notice (from the bottom of the screen) and will be able to ‘install your website’ on the home screen of their device. Every page visited is stored locally on their device and will be available to read even when they are offline!
+Once this plugin is installed, users browsing your website from a supported mobile device will see a “Add To Home Screen” notice (from the bottom of the screen) and will be able to ‘install your website’ on the home screen of their device.
 
 iWorks PWA is easy to configure, it takes less than a minute to set-up your Progressive Web App!
 
@@ -67,6 +67,10 @@ It is only possible with WPML package.
 4. Microsoft configuration.
 
 == Changelog ==
+
+= 1.3.3 (2022-03-22) =
+* Replaced cache function o proper one.
+* Fixed problem with deleting general icon.
 
 = 1.3.2 (2022-03-22) =
 * Fixed wrong option name.
