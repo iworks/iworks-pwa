@@ -1,5 +1,5 @@
 /**
- * PWA — easy way to Progressive Web App - v1.3.1
+ * PWA — easy way to Progressive Web App - v1.3.2
  * http://iworks.pl/en/plugins/iworks-pwa/
  * Copyright (c) 2022; * Licensed GPLv2+ */
 if ('serviceWorker' in navigator) {
