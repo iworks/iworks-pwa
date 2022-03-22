@@ -68,6 +68,9 @@ It is only possible with WPML package.
 
 == Changelog ==
 
+= 1.3.2 (2022-03-22) =
+* Fixed wrong option name.
+
 = 1.3.1 (2022-03-22) =
 * Added `/ieconfig.xml` link on debug tab.
 * Fixed long site title on offline page. Props for [tanohex](https://wordpress.org/support/users/tanohex/).

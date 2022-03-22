@@ -199,7 +199,7 @@ abstract class iWorks_PWA {
 		 */
 		$cache_key = sprintf(
 			'%s_%s',
-			$this->memcache_name_configuration,
+			$this->settings_cache_option_name,
 			$group
 		);
 		if ( function_exists( 'wp_cache_get' ) ) {
@@ -560,10 +560,10 @@ abstract class iWorks_PWA {
 	public function action_cache_clear() {
 		if ( function_exists( 'wp_cache_delete' ) ) {
 			$keys = array(
-				$this->memcache_name_configuration,
-				$this->memcache_name_configuration . '_manifest',
-				$this->memcache_name_configuration . '_widnows8',
-				$this->memcache_name_configuration . '_ie11',
+				$this->settings_cache_option_name,
+				$this->settings_cache_option_name . '_manifest',
+				$this->settings_cache_option_name . '_widnows8',
+				$this->settings_cache_option_name . '_ie11',
 			);
 			foreach ( $keys as $cache_key ) {
 				wp_cache_delete( $cache_key );
