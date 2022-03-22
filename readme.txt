@@ -28,24 +28,24 @@ iWorks PWA is easy to configure, it takes less than a minute to set-up your Prog
 There are 3 ways to install this plugin:
 
 = 1. The super easy way =
-1. In your Admin, go to menu Plugins > Add
-1. Search for `iWorks PWA`
-1. Click to install
-1. Activate the plugin
-1. A new menu `PWA` in `Settings` will appear in your Admin
+1. In your Admin, go to menu Plugins > Add.
+1. Search for `iWorks PWA`.
+1. Click to install.
+1. Activate the plugin.
+1. A new menu `PWA` in `Settings` will appear in your Admin.
 
 = 2. The easy way =
-1. Download the plugin (.zip file) on the right column of this page
-1. In your Admin, go to menu Plugins > Add
-1. Select button `Upload Plugin`
-1. Upload the .zip file you just downloaded
-1. Activate the plugin
-1. A new menu `PWA` in `Settings` will appear in your Admin
+1. Download the plugin (.zip file) on the right column of this page.
+1. In your Admin, go to menu Plugins > Add.
+1. Select button `Upload Plugin`.
+1. Upload the .zip file you just downloaded.
+1. Activate the plugin.
+1. A new menu `PWA` in `Settings` will appear in your Admin.
 
 = 3. The old and reliable way (FTP) =
-1. Upload `iworks-pwa` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. A new menu `PWA` in `Settings` will appear in your Admin
+1. Upload `iworks-pwa` folder to the `/wp-content/plugins/` directory.
+1. Activate the plugin through the 'Plugins' menu in WordPress.
+1. A new menu `PWA` in `Settings` will appear in your Admin.
 
 == Frequently Asked Questions ==
 
@@ -68,10 +68,16 @@ It is only possible with WPML package.
 
 == Changelog ==
 
+= 1.3.1 (2022-03-22) =
+* Added `/ieconfig.xml` link on debug tab.
+* Fixed long site title on offline page. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
+* Fixed missed translation domain in few strings.
+* Improved usage of transient cache. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
+* Removed images from debug tab.
+
 = 1.3.0 (2022-03-16) =
 * Added object cache for settings.
 * Fixed `protected $option_name_icons` warning.
-* Fixed missed translation domain in few strings.
 
 = 1.2.3 (2022-02-23) =
 * Removed `console.log` from JavaScript files.

@@ -97,12 +97,14 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		echo '<msapplication>';
 		echo '<tile>';
 		$icons = $this->get_ms_tile_icons();
-		foreach ( $icons as $one ) {
-			printf(
-				'<square%1$dx%1$dlogo src="%2$s"/>',
-				esc_attr( $one['sizes'] ),
-				esc_attr( wp_make_link_relative( $one['src'] ) )
-			);
+		if ( is_array( $icons ) ) {
+			foreach ( $icons as $one ) {
+				printf(
+					'<square%1$dx%1$dlogo src="%2$s"/>',
+					esc_attr( $one['sizes'] ),
+					esc_attr( wp_make_link_relative( $one['src'] ) )
+				);
+			}
 		}
 		$value = $this->options->get_option( 'ms_wide' );
 		if ( ! empty( $value ) ) {
@@ -114,7 +116,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 				);
 			}
 		}
-		printf( '<TileColor>%s</TileColor>', $this->get_configuration_color_theme() );
+		printf( '<TileColor>%s</TileColor>', $this->configuration['theme_color'] );
 		echo '</tile>';
 		echo '</msapplication>';
 		echo '</browserconfig>';
@@ -136,12 +138,12 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		);
 		printf(
 			'<meta name="application-name" content="%s" />%s',
-			esc_attr( $this->get_configuration_name() ),
+			esc_attr( $this->configuration['name'] ),
 			$this->eol
 		);
 		printf(
 			'<meta name="msapplication-tooltip" content="%s" />%s',
-			esc_attr( $this->get_configuration_description() ),
+			esc_attr( $this->configuration['description'] ),
 			$this->eol
 		);
 		printf(
@@ -151,7 +153,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		);
 		printf(
 			'<meta name="msapplication-navbutton-color" content="%s" />%s',
-			$this->get_configuration_color_theme(),
+			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
 		if ( $this->debug ) {
@@ -172,7 +174,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		}
 		printf(
 			'<meta name="msapplication-TileColor" content="%s" />%s',
-			esc_attr( $this->get_configuration_color_theme() ),
+			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
 		$icons = $this->get_configuration_icons( 'ie11' );

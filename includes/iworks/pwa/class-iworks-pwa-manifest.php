@@ -22,10 +22,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		/**
-		 * debug
-		 */
-		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 200 );
-		/**
 		 * Clear generated icons
 		 *
 		 * @since 1.0.1
@@ -114,7 +110,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 * title
 		 */
 		$data = preg_replace( '/%SORRY%/', apply_filters( 'iworks_pwa_offline_sorry', __( 'Sorry!', 'iworks-pwa' ) ), $data );
-		$data = preg_replace( '/%NAME%/', $this->get_configuration_name(), $data );
+		$data = preg_replace( '/%NAME%/', $this->configuration['name'], $data );
 		/**
 		 * content
 		 */
@@ -189,27 +185,6 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		header( 'Content-Type: application/json' );
 		echo json_encode( $data );
 		exit;
-	}
-
-	public function filter_debug_info( $content ) {
-		$content .= sprintf( '<h2>%s</h2>', esc_html__( 'Icons', 'iworks-pwa' ) );
-		$icons    = $this->get_configuration_icons();
-		if ( empty( $icons ) ) {
-			$content .= sprintf( '<p>%s</p>', esc_html__( 'First you need to set some icons.', 'iworks-pwa' ) );
-		} else {
-			$content .= '<table>';
-			foreach ( $icons as $one ) {
-				$content .= '<tr>';
-				$content .= sprintf( '<td>%s - %s</td>', $one['sizes'], $one['type'] );
-				$content .= sprintf(
-					'<td><a href="%1$s" target="_blank"><img src="%1$s" width="64" height="64" /></a></td>',
-					$one['src']
-				);
-				$content .= '</tr>';
-			}
-			$content .= '</table>';
-		}
-		return $content;
 	}
 
 	public function filter_iworks_pwa_flush_icons_list( $list ) {

@@ -45,6 +45,25 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * @since 1.1.0
 		 */
 		$this->check_og_plugin();
+		/**
+		 * Clear cache
+		 *
+		 * @since 1.3.0
+		 */
+		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'clear_cache' ) );
+		add_action( 'save_post', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_active_plugins', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_blogdescription', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_blogname', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_db_version', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_home', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_page_for_posts', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_page_on_front', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_permalink_structure', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_show_on_front', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_site_icon', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_siteurl', array( $this, 'clear_cache' ) );
+		add_action( 'update_option_stylesheet', array( $this, 'clear_cache' ) );
 	}
 
 	public function filter_add_debug_urls_to_config( $options ) {
@@ -78,6 +97,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		$content .= sprintf( $row, '/manifest.json', esc_html__( 'manifest.json', 'iworks-pwa' ) );
 		$content .= sprintf( $row, '/iworks-pwa-service-worker-js', esc_html__( 'Service Worker', 'iworks-pwa' ) );
 		$content .= sprintf( $row, '/iworks-pwa-offline', esc_html__( 'Offline page', 'iworks-pwa' ) );
+		$content .= sprintf( $row, '/ieconfig.xml', esc_html__( 'IE config xml', 'iworks-pwa' ) );
 		$content .= '</ul>';
 		return $content;
 	}
@@ -193,5 +213,14 @@ jQuery( function( $ ) {
 		return $options;
 	}
 
+	/**
+	 * Clear cache
+	 *
+	 * @since 1.3.0
+	 */
+	public function clear_cache() {
+		$key = $this->options->get_option_name( $this->settings_cache_option_name );
+		delete_transient( $key );
+	}
 }
 

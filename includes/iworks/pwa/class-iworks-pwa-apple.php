@@ -101,7 +101,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 		}
 		printf(
 			'<meta name="apple-mobile-web-app-title" content="%s" />%s',
-			esc_attr( $this->get_configuration_short_name() ),
+			esc_attr( $this->configuration['short_name'] ),
 			$this->eol
 		);
 		printf(

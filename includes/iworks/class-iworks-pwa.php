@@ -21,8 +21,6 @@ abstract class iWorks_PWA {
 
 	protected $option_name_icons;
 
-	protected $memcache_name_configuration = 'iworks_pwa_configuration';
-
 	/**
 	 * iWorks Options object
 	 *
@@ -44,6 +42,13 @@ abstract class iWorks_PWA {
 	 */
 	protected $is_og_installed = null;
 
+	/**
+	 * Settigs cache option name
+	 *
+	 * @since 1.3.0
+	 */
+	protected $settings_cache_option_name = 'cache';
+
 	protected function __construct() {
 		$file        = dirname( dirname( __FILE__ ) );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
@@ -57,6 +62,7 @@ abstract class iWorks_PWA {
 		 * set options
 		 */
 		$this->options = get_iworks_pwa_options();
+		$this->_set_configuration();
 		/**
 		 * icons
 		 */
@@ -122,36 +128,31 @@ abstract class iWorks_PWA {
 	}
 
 	private function _set_configuration() {
-		if ( function_exists( 'wp_cache_get' ) ) {
-			$configuration = wp_cache_get( $this->memcache_name_configuration );
-			if ( 0 && ! empty( $configuration ) ) {
-				$this->configuration = apply_filters(
-					'iworks_pwa_configuration',
-					$configuration
-				);
-				return;
+		$key   = $this->options->get_option_name( $this->settings_cache_option_name );
+		$value = get_transient( $key );
+		if ( empty( $value ) ) {
+			$value = apply_filters(
+				'iworks_pwa_configuration',
+				array(
+					'plugin'           => 'PLUGIN_TITLE - PLUGIN_VERSION',
+					'name'             => $this->get_configuration_name(),
+					'short_name'       => $this->get_configuration_short_name(),
+					'description'      => $this->get_configuration_description(),
+					'theme_color'      => $this->get_configuration_color_theme(),
+					'background_color' => $this->get_configuration_color_background(),
+					'orientation'      => $this->get_configuration_orientation(),
+					'display'          => $this->get_configuration_display(),
+					'Scope'            => apply_filters( 'iworks_pwa_configuration_Scope', '/' ),
+					'start_url'        => apply_filters( 'iworks_pwa_configuration_start_url', '/' ),
+					'splash_pages'     => apply_filters( 'iworks_pwa_configuration_splash_pages', null ),
+					'icons'            => $this->get_configuration_icons(),
+				)
+			);
+			if ( ! is_admin() ) {
+				set_transient( $key, $value, DAY_IN_SECONDS );
 			}
 		}
-		$this->configuration = apply_filters(
-			'iworks_pwa_configuration',
-			array(
-				'plugin'           => 'PLUGIN_TITLE - PLUGIN_VERSION',
-				'name'             => $this->get_configuration_name(),
-				'short_name'       => $this->get_configuration_short_name(),
-				'description'      => $this->get_configuration_description(),
-				'theme_color'      => $this->get_configuration_color_theme(),
-				'background_color' => $this->get_configuration_color_background(),
-				'orientation'      => $this->get_configuration_orientation(),
-				'display'          => $this->get_configuration_display(),
-				'Scope'            => apply_filters( 'iworks_pwa_configuration_Scope', '/' ),
-				'start_url'        => apply_filters( 'iworks_pwa_configuration_start_url', '/' ),
-				'splash_pages'     => apply_filters( 'iworks_pwa_configuration_splash_pages', null ),
-				'icons'            => $this->get_configuration_icons(),
-			)
-		);
-		if ( function_exists( 'wp_cache_add' ) ) {
-			wp_cache_add( $this->memcache_name_configuration, $this->configuration );
-		}
+		$this->configuration = apply_filters( 'iworks_pwa_configuration_raw', $value );
 	}
 
 	protected function get_icons_base_url() {

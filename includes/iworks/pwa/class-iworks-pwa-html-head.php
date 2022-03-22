@@ -43,7 +43,7 @@ class iWorks_PWA_HTML_Head extends iWorks_PWA {
 		);
 		printf(
 			'<meta name="theme-color" content="%s" />%s',
-			$this->get_configuration_color_theme(),
+			$this->configuration['theme_color'],
 			$this->eol
 		);
 	}
