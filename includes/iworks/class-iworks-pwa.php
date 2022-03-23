@@ -13,8 +13,6 @@ abstract class iWorks_PWA {
 
 	protected $root = '';
 
-	private $icons = array();
-
 	private $media_dir_name = 'pwa';
 
 	protected $icons_to_flush;
@@ -47,7 +45,7 @@ abstract class iWorks_PWA {
 	 *
 	 * @since 1.3.0
 	 */
-	protected $settings_cache_option_name = 'cache';
+	protected $settings_cache_option_name = 'ipwac_';
 
 	protected function __construct() {
 		$file        = dirname( dirname( __FILE__ ) );
@@ -64,10 +62,6 @@ abstract class iWorks_PWA {
 		$this->options = get_iworks_pwa_options();
 		$this->_set_configuration();
 		/**
-		 * icons
-		 */
-		$this->icons = $this->options->get_group( 'icons' );
-		/**
 		 * integrations wiith external plugins
 		 *
 		 * @since 1.2.0
@@ -79,6 +73,10 @@ abstract class iWorks_PWA {
 		 * @since 1.3.0
 		 */
 		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'action_cache_clear' ) );
+		add_action( 'update_option_' . $this->options->get_option_name( 'icon_app' ), array( $this, 'action_cache_clear_icons_manifest' ) );
+		add_action( 'update_option_' . $this->options->get_option_name( 'icon_splash' ), array( $this, 'action_cache_clear_icons_manifest' ) );
+		add_action( 'update_option_' . $this->options->get_option_name( 'ms_square' ), array( $this, 'action_cache_clear_icons_ms' ) );
+		add_action( 'wp_update_nav_menu', array( $this, 'action_cache_clear' ) );
 	}
 
 	/**
@@ -128,8 +126,8 @@ abstract class iWorks_PWA {
 	}
 
 	private function _set_configuration() {
-		$key   = $this->options->get_option_name( $this->settings_cache_option_name );
-		$value = get_transient( $key );
+		$cache_key = $this->settings_cache_option_name . 'cfg';
+		$value     = get_transient( $cache_key );
 		if ( empty( $value ) ) {
 			$value = apply_filters(
 				'iworks_pwa_configuration',
@@ -149,7 +147,7 @@ abstract class iWorks_PWA {
 				)
 			);
 			if ( ! is_admin() ) {
-				set_transient( $key, $value, DAY_IN_SECONDS );
+				set_transient( $cache_key, $value, DAY_IN_SECONDS );
 			}
 		}
 		$this->configuration = apply_filters( 'iworks_pwa_configuration_raw', $value );
@@ -267,11 +265,7 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.3.0
 		 */
-		$cache_key = sprintf(
-			'%s_%s',
-			$this->settings_cache_option_name,
-			$group
-		);
+		$cache_key = $this->settings_cache_option_name . $group;
 		/**
 		 * cache get
 		 */
@@ -295,10 +289,11 @@ abstract class iWorks_PWA {
 		if ( 0 < $value ) {
 			$image = $this->get_wp_image_object_from_attachement_id( $value );
 			if ( ! is_wp_error( $image ) ) {
-				$size = min( $image->get_size() );
-				$ext  = $this->get_image_ext_from_attachement_id( $value );
-				krsort( $this->icons );
-				foreach ( $this->icons as $width => $data ) {
+				$size         = min( $image->get_size() );
+				$ext          = $this->get_image_ext_from_attachement_id( $value );
+				$config_icons = $this->options->get_group( 'icons' );
+				krsort( $config_icons );
+				foreach ( $config_icons as $width => $data ) {
 					$width = intval( $width );
 					if ( $width > $size ) {
 						continue;
@@ -315,14 +310,16 @@ abstract class iWorks_PWA {
 							'%s/%s?v=%s',
 							$this->get_icons_base_url(),
 							$name,
-							time()
+							$value
 						);
 						$icons[ $width ] = $one;
 					}
 				}
 			}
 		}
-		if ( ! empty( $icons ) ) {
+		if ( empty( $icons ) ) {
+			delete_transient( $cache_key );
+		} else {
 			$icons = $this->maybe_add_purpose_maskable( $icons );
 			$this->options->update_option( $icons_option_name, $icons );
 			/**
@@ -544,11 +541,25 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * Try to add purpose "any maskable" if it is not present
+	 * Try to add purpose "any maskable" if it is not present.
 	 *
 	 * @since 1.2.2
 	 */
 	private function maybe_add_purpose_maskable( $icons ) {
+		$attachement_id = intval( $this->options->get_option( 'icon_splash' ) );
+		if ( ! empty( $attachement_id ) ) {
+			$value = wp_get_attachment_image_src( $attachement_id, 'full' );
+			if ( is_array( $value ) ) {
+				$icons[ $attachement_id ] = array(
+					'sizes'   => sprintf( '%dx%d', $value[1], $value[2] ),
+					'type'    => get_post_mime_type( $attachement_id ),
+					'group'   => array( 'manifest' ),
+					'src'     => $value[0],
+					'purpose' => 'any maskable',
+				);
+				return $icons;
+			}
+		}
 		$max = 0;
 		foreach ( $icons as $size => $icon ) {
 			if ( isset( $icon['purpose'] ) && preg_match( '/maskable/', $icon['purpose'] ) ) {
@@ -571,14 +582,40 @@ abstract class iWorks_PWA {
 	 */
 	public function action_cache_clear() {
 		$keys = array(
-			$this->settings_cache_option_name,
-			$this->settings_cache_option_name . '_manifest',
-			$this->settings_cache_option_name . '_widnows8',
-			$this->settings_cache_option_name . '_ie11',
+			'cfg',
 		);
-		foreach ( $keys as $cache_key ) {
+		foreach ( $keys as $key ) {
+			$cache_key = $this->settings_cache_option_name . $key;
 			delete_transient( $cache_key );
 		}
+	}
+
+	private function clear_icon_cache( $key ) {
+		/**
+		 * general configuration cache
+		 */
+		$cache_key = $this->settings_cache_option_name . 'cfg';
+		delete_transient( $cache_key );
+		/**
+		 * cache for key
+		 */
+		$cache_key = $this->settings_cache_option_name . $key;
+		delete_transient( $cache_key );
+		/**
+		 * option
+		 */
+		$cache_key = $this->options->get_option_name( 'icons_' . $key );
+		delete_transient( $cache_key );
+		delete_option( $cache_key );
+	}
+
+	public function action_cache_clear_icons_manifest() {
+		$this->clear_icon_cache( 'manifest' );
+	}
+
+	public function action_cache_clear_icons_ms() {
+		$this->clear_icon_cache( 'windows8' );
+		$this->clear_icon_cache( 'ie11' );
 	}
 
 }

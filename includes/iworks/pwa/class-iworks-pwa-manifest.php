@@ -9,6 +9,8 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_manifest extends iWorks_PWA {
 
+	private $menu_location_id = 'iworks-pwa-shortcuts';
+
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -21,6 +23,8 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		add_action( 'init', array( $this, 'register_scripts' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
+		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme_register_menu' ), PHP_INT_MAX );
+		add_action( 'wp_update_nav_menu', array( $this, 'action_wp_update_nav_menu_create_pwa_shortcuts' ), 10, 2 );
 		/**
 		 * Clear generated icons
 		 *
@@ -182,6 +186,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			}
 			array_unshift( $data['icons'], $one );
 		}
+		$data['shortcuts'] = $this->get_shortcuts();
 		header( 'Content-Type: application/json' );
 		echo json_encode( $data );
 		exit;
@@ -211,6 +216,59 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			return true;
 		}
 		return apply_filters( 'iworks_pwa_manifest_is_offline_page_request', false, $uri );
+	}
+
+	/**
+	 * Register menu for manifest shortcuts
+	 *
+	 * @since 1.4.0
+	 */
+	public function action_after_setup_theme_register_menu() {
+		register_nav_menu( $this->menu_location_id, __( 'PWA Shortcuts Menu', 'iworks-pwa' ) );
+	}
+
+	/**
+	 * get shortcuts for manifest.json
+	 *
+	 * @since 1.4.0
+	 */
+	private function get_shortcuts() {
+		return $this->options->get_option( $this->menu_location_id );
+	}
+
+	public function action_wp_update_nav_menu_create_pwa_shortcuts( $menu_id, $menu_data = array() ) {
+		$this->options->update_option( $this->menu_location_id, array() );
+		$locations = get_nav_menu_locations( $menu_id );
+		if ( empty( $locations ) ) {
+			return;
+		}
+		if ( ! array_key_exists( $this->menu_location_id, $locations ) ) {
+			return;
+		}
+		$items = wp_get_nav_menu_items( $menu_id );
+		if ( empty( $items ) ) {
+			return;
+		}
+		$shortcuts = array();
+		foreach ( $items as $one ) {
+			$element = array(
+				'name' => $one->title,
+				'url'  => $one->url,
+			);
+			if ( ! empty( $one->description ) ) {
+				$element['description'] = $one->description;
+			}
+			if ( 'post_type_archive' === $one->type ) {
+				$el = get_post_type_object( $one->object );
+				if ( ! empty( $el->menu_icon ) && wp_http_validate_url( $el->menu_icon ) ) {
+					$element['icons'] = array(
+						'src' => $el->menu_icon,
+					);
+				}
+			}
+			$shortcuts[] = $element;
+		}
+		$this->options->update_option( $this->menu_location_id, $shortcuts );
 	}
 }
 

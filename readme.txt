@@ -68,6 +68,9 @@ It is only possible with WPML package.
 
 == Changelog ==
 
+= 1.4.0 (2022-03-22) =
+* Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
+
 = 1.3.3 (2022-03-22) =
 * Replaced cache function o proper one.
 * Fixed problem with deleting general icon.
