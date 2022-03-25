@@ -20,6 +20,8 @@ iWorks PWA makes it easy for you to convert your WordPress website into a Progre
 
 Once this plugin is installed, users browsing your website from a supported mobile device will see a “Add To Home Screen” notice (from the bottom of the screen) and will be able to ‘install your website’ on the home screen of their device.
 
+iWorks PWA allow to add shortcuts for context menu to be displayed by the operating system when a user engages with the web app's icon.
+
 iWorks PWA is easy to configure, it takes less than a minute to set-up your Progressive Web App!
 
 
@@ -59,6 +61,19 @@ It is only possible with WPML package.
 1. Select domain `iworks-pwa`.
 1. Translate strings.
 
+= How can I add context menu? =
+
+The shortcuts member defines an array of shortcuts or links to key tasks or pages within a web app. A user agent can use these values to assemble a context menu to be displayed by the operating system when a user engages with the web app's icon.
+
+1. Install [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin.
+1. Go to WPA -> Appearance -> Menu.
+1. Open "Menu Icon Setting" from "Add menu items" column (it should be on the bottom).
+1. Be sure you have "Image" checked.
+1. Create custom menu and set "Display location" to "PWA Shortcuts Menu".
+1. Add item.
+1. Select icon - it is recommended that you use a single 192x192 pixel icon.
+1. Save menu.
+
 == Screenshots ==
 
 1. General configuration.
@@ -68,8 +83,9 @@ It is only possible with WPML package.
 
 == Changelog ==
 
-= 1.4.0 (2022-03-22) =
+= 1.4.0 (2022-03-xx) =
 * Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
+* Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
 
 = 1.3.3 (2022-03-22) =
 * Replaced cache function o proper one.

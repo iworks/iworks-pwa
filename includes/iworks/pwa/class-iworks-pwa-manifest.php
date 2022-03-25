@@ -9,7 +9,19 @@ require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
 
 class iWorks_PWA_manifest extends iWorks_PWA {
 
+	/**
+	 * Menu ID used in `manifest.json` as `shortcuts`.
+	 *
+	 * @since 1.4.0
+	 */
 	private $menu_location_id = 'iworks-pwa-shortcuts';
+
+	/**
+	 * Meta name for `manifest.json` short_name value.
+	 *
+	 * @since 1.4.0
+	 */
+	private $meta_option_name_sort_menu_name = 'iworks-pwa-short-name';
 
 	public function __construct() {
 		parent::__construct();
@@ -20,11 +32,13 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		/**
 		 * js
 		 */
+		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme_register_menu' ), PHP_INT_MAX );
 		add_action( 'init', array( $this, 'register_scripts' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
-		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme_register_menu' ), PHP_INT_MAX );
+		add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'action_wp_nav_menu_item_custom_fields_add_short_name' ), 10, 5 );
 		add_action( 'wp_update_nav_menu', array( $this, 'action_wp_update_nav_menu_create_pwa_shortcuts' ), 10, 2 );
+		add_action( 'wp_update_nav_menu', array( $this, 'action_wp_update_nav_menu_save' ), 10, 2 );
 		/**
 		 * Clear generated icons
 		 *
@@ -253,22 +267,85 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		foreach ( $items as $one ) {
 			$element = array(
 				'name' => $one->title,
-				'url'  => $one->url,
+				'url'  => add_query_arg(
+					'utm',
+					'app',
+					wp_make_link_relative( $one->url )
+				),
 			);
 			if ( ! empty( $one->description ) ) {
 				$element['description'] = $one->description;
+			}
+			$value = get_post_meta( $one->ID, $this->meta_option_name_sort_menu_name, true );
+			if ( ! empty( $value ) ) {
+				$element['short_name'] = $value;
 			}
 			if ( 'post_type_archive' === $one->type ) {
 				$el = get_post_type_object( $one->object );
 				if ( ! empty( $el->menu_icon ) && wp_http_validate_url( $el->menu_icon ) ) {
 					$element['icons'] = array(
-						'src' => $el->menu_icon,
+						array(
+							'src' => $el->menu_icon,
+						),
 					);
 				}
 			}
-			$shortcuts[] = $element;
+			$shortcuts[] = apply_filters( 'iworks_pwa_manifest_shortcut_element', $element, $one );
 		}
 		$this->options->update_option( $this->menu_location_id, $shortcuts );
+	}
+
+	/**
+	 * Add field short_name form `manifest.json` shortcuts.
+	 *
+	 * @since 1.4.0
+	 */
+	public function action_wp_nav_menu_item_custom_fields_add_short_name( $item_id, $menu_item, $depth, $args, $current_object_id ) {
+		global $nav_menu_selected_id;
+		global $menu_locations;
+		if ( ! is_array( $menu_locations ) ) {
+			return;
+		}
+		if ( ! isset( $menu_locations[ $this->menu_location_id ] ) ) {
+			return;
+		}
+		if ( $nav_menu_selected_id !== $menu_locations[ $this->menu_location_id ] ) {
+			return;
+		}
+		$value = get_post_meta( $item_id, $this->meta_option_name_sort_menu_name, true );
+		?>
+<p class="field-short-name description description-wide">
+	<label for="edit-menu-item-short-name-<?php echo $item_id; ?>">
+		<?php _e( 'Short Name (PWA)', 'iworks-pwa' ); ?><br />
+		<input type="text" id="edit-menu-item-a-short-name-<?php echo $item_id; ?>" class="widefat code edit-menu-item-short-name" name="menu-item-short-name[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $value ); ?>" />
+	</label>
+</p>
+		<?php
+	}
+
+	/**
+	 * save short_name form `manifest.json` shortcuts.
+	 *
+	 * @since 1.4.0
+	 */
+	public function action_wp_update_nav_menu_save( $menu_id, $menu_data = array() ) {
+		if ( ! isset( $_POST['menu-item-short-name'] ) ) {
+			return;
+		}
+		if ( ! is_array( $_POST['menu-item-short-name'] ) ) {
+			return;
+		}
+		foreach ( $_POST['menu-item-short-name'] as $post_id => $value ) {
+			$value = esc_html( $value );
+			if ( empty( $value ) ) {
+				delete_post_meta( $post_id, $this->meta_option_name_sort_menu_name );
+				continue;
+			}
+			if ( update_post_meta( $post_id, $this->meta_option_name_sort_menu_name, $value ) ) {
+				continue;
+			}
+			add_post_meta( $post_id, $this->meta_option_name_sort_menu_name, $value, true );
+		}
 	}
 }
 

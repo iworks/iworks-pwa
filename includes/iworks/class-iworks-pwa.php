@@ -495,6 +495,16 @@ abstract class iWorks_PWA {
 				include_once $root . '/class-iworks-pwa-integrations-og.php';
 				new iWorks_PWA_Integrations_OG( $this->options );
 			}
+			/**
+			 * Menu Icons by ThemeIsle
+			 * https://wordpress.org/plugins/menu-icons/
+			 *
+			 * @since 1.4.0
+			 */
+			if ( preg_match( '/menu-icons\.php$/', $plugin ) ) {
+				include_once $root . '/class-iworks-pwa-integrations-menu-icons.php';
+				new iWorks_PWA_Integrations_Menu_Icons( $this->options );
+			}
 		}
 	}
 
