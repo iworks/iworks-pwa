@@ -3,7 +3,7 @@ Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
 Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json, installable, add to homescreen, offline, service worker, https
 Requires at least: 5.6
-Tested up to: 5.9
+Tested up to: 6.0
 Stable tag: PLUGIN_VERSION
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,6 +35,7 @@ There are 3 ways to install this plugin:
 1. Click to install.
 1. Activate the plugin.
 1. A new menu `PWA` in `Settings` will appear in your Admin.
+1. A new location `PWA Shortcuts Menu` in `Display location` will appear in Appearance -> Menu.
 
 = 2. The easy way =
 1. Download the plugin (.zip file) on the right column of this page.
@@ -43,11 +44,13 @@ There are 3 ways to install this plugin:
 1. Upload the .zip file you just downloaded.
 1. Activate the plugin.
 1. A new menu `PWA` in `Settings` will appear in your Admin.
+1. A new location `PWA Shortcuts Menu` in `Display location` will appear in Appearance -> Menu.
 
 = 3. The old and reliable way (FTP) =
 1. Upload `iworks-pwa` folder to the `/wp-content/plugins/` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
 1. A new menu `PWA` in `Settings` will appear in your Admin.
+1. A new location `PWA Shortcuts Menu` in `Display location` will appear in Appearance -> Menu.
 
 == Frequently Asked Questions ==
 
@@ -83,9 +86,11 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 
 == Changelog ==
 
-= 1.4.0 (2022-03-xx) =
-* Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
+= 1.4.0 (2022-04-04) =
 * Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
+* Added a message when site permalink is installed in a sub-directory - this plugin does not support it.
+* Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
+* Updated iWorks Options to 2.8.3.
 
 = 1.3.3 (2022-03-22) =
 * Replaced cache function o proper one.
@@ -117,7 +122,7 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 * Updated iWorks Rate to 2.1.0.
 
 = 1.2.1 (2022-02-16) =
-* Added message when site permalink is "plain" - plugin does not support it.
+* Added a message when site permalink is "plain" - this plugin does not support it.
 * Updated iWorks Options to 2.8.1.
 
 = 1.2.0 (2022-02-15) =

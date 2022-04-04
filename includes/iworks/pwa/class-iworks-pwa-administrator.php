@@ -35,6 +35,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer' ) );
 		add_action( 'admin_notices', array( $this, 'check_permalinks' ) );
+		add_action( 'admin_notices', array( $this, 'check_subdirectory' ) );
 		/**
 		 * change logo for rate
 		 */
@@ -94,10 +95,10 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		$content .= sprintf( '<h2>%s</h2>', esc_html__( 'Main files', 'iworks-pwa' ) );
 		$row      = '<li><a href="%1$s" target="_blank">%2$s</a></li>';
 		$content .= '<ul>';
-		$content .= sprintf( $row, '/manifest.json', esc_html__( 'manifest.json', 'iworks-pwa' ) );
-		$content .= sprintf( $row, '/iworks-pwa-service-worker-js', esc_html__( 'Service Worker', 'iworks-pwa' ) );
-		$content .= sprintf( $row, '/iworks-pwa-offline', esc_html__( 'Offline page', 'iworks-pwa' ) );
-		$content .= sprintf( $row, '/ieconfig.xml', esc_html__( 'IE config xml', 'iworks-pwa' ) );
+		$content .= sprintf( $row, site_url( '/manifest.json' ), esc_html__( 'manifest.json', 'iworks-pwa' ) );
+		$content .= sprintf( $row, site_url( '/iworks-pwa-service-worker-js' ), esc_html__( 'Service Worker', 'iworks-pwa' ) );
+		$content .= sprintf( $row, site_url( '/iworks-pwa-offline' ), esc_html__( 'Offline page', 'iworks-pwa' ) );
+		$content .= sprintf( $row, site_url( '/ieconfig.xml' ), esc_html__( 'IE config xml', 'iworks-pwa' ) );
 		$content .= '</ul>';
 		return $content;
 	}
@@ -183,11 +184,33 @@ jQuery( function( $ ) {
 			return;
 		}
 		echo '<div class="notice notice-error">';
+		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
 		echo wpautop(
 			sprintf(
-				__( 'PWA plugin uses WordPress does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
+				__( 'This plugin does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
 				admin_url( 'options-permalink.php' )
 			)
+		);
+		echo '</div>';
+	}
+
+	/**
+	 * add messsage when site is in directory
+	 *
+	 * @since 1.4.0
+	 */
+	public function check_subdirectory() {
+		$components = parse_url( get_site_url() );
+		if ( ! isset( $components['path'] ) ) {
+			return;
+		}
+		if ( empty( $components['path'] ) ) {
+			return;
+		}
+		echo '<div class="notice notice-error">';
+		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
+		echo wpautop(
+			__( 'This plugin does not support installation in a subdirectory and will not work properly.', 'iworks-pwa' )
 		);
 		echo '</div>';
 	}
