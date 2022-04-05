@@ -89,7 +89,7 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 == Changelog ==
 
 = 1.4.1 (2022-04-05) =
-* Updated iWorks Options to 2.8.3. (PHP 7.x compatibility).
+* Updated iWorks Options to 2.8.3. (Fixed PHP 7.x compatibility).
 
 = 1.4.0 (2022-04-05) =
 * Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
