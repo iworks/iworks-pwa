@@ -80,13 +80,18 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 == Screenshots ==
 
 1. General configuration.
-2. Generic configuration.
-3. Apple configuration.
-4. Microsoft configuration.
+1. Generic configuration.
+1. Apple configuration.
+1. Microsoft configuration.
+1. Installation app on Android.
+1. Shortcuts menu on Android.
 
 == Changelog ==
 
-= 1.4.0 (2022-04-04) =
+= 1.4.1 (2022-04-05) =
+* Updated iWorks Options to 2.8.3. (PHP 7.x compatibility).
+
+= 1.4.0 (2022-04-05) =
 * Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
 * Added a message when site permalink is installed in a sub-directory - this plugin does not support it.
 * Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
