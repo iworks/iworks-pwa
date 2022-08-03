@@ -15,6 +15,13 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	 * @since 1.0.0
 	 */
 
+	/**
+	 * Pointer name
+	 *
+	 * @since 1.4.2
+	 */
+	private $pointer_name = 'iworks_pwa_browsing';
+
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -52,6 +59,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * @since 1.3.0
 		 */
 		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'clear_cache' ) );
+		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'close_pointer' ) );
 		add_action( 'save_post', array( $this, 'clear_cache' ) );
 		add_action( 'update_option_active_plugins', array( $this, 'clear_cache' ) );
 		add_action( 'update_option_blogdescription', array( $this, 'clear_cache' ) );
@@ -129,10 +137,9 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		) {
 			return;
 		}
-		$pointer = 'iworks_pwa_browsing';
 		// Skip showing admin pointer if dismissed.
 		$dismissed_pointers = explode( ',', (string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true ) );
-		if ( in_array( $pointer, $dismissed_pointers, true ) ) {
+		if ( in_array( $this->pointer_name, $dismissed_pointers, true ) ) {
 			return;
 		}
 		wp_print_scripts( array( 'wp-pointer' ) );
@@ -158,7 +165,7 @@ jQuery( function( $ ) {
 	const options = $.extend( <?php echo wp_json_encode( $args ); ?>, {
 		close: function() {
 			$.post( ajaxurl, {
-			pointer: <?php echo wp_json_encode( $pointer ); ?>,
+			pointer: <?php echo wp_json_encode( $this->pointer_name ); ?>,
 				action: 'dismiss-wp-pointer'
 			});
 		}
@@ -244,6 +251,25 @@ jQuery( function( $ ) {
 	public function clear_cache() {
 		$key = $this->options->get_option_name( $this->settings_cache_option_name );
 		delete_transient( $key );
+	}
+
+	/**
+	 * After user enter settings page, there is no sens to show pointer
+	 *
+	 * @since 1.4.2
+	 */
+	public function close_pointer() {
+		$dismissed_pointers = array_filter(
+			explode(
+				',',
+				(string) get_user_meta( get_current_user_id(), 'dismissed_wp_pointers', true )
+			)
+		);
+		if ( in_array( $this->pointer_name, $dismissed_pointers, true ) ) {
+			return;
+		}
+		$dismissed_pointers[] = $this->pointer_name;
+		update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', implode( ',', $dismissed_pointers ) );
 	}
 }
 

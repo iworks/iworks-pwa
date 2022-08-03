@@ -125,46 +125,79 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 
 	public function html_head() {
 		/**
+		 * Handle cache
+		 *
+		 * @since 1.4.3
+		 */
+		$cache_key = $this->settings_cache_option_name . 'head_microsoft';
+		$value     = get_transient( $cache_key );
+		if ( ! empty( $value ) ) {
+			echo $value;
+			return;
+		}
+		/**
 		 * Microsoft
 		 */
+		$content = '';
 		if ( $this->debug ) {
-			echo '<!-- Microsoft -->';
-			echo PHP_EOL;
+			$content .= '<!-- Microsoft -->';
+			$content .= PHP_EOL;
 		}
-		printf(
+		$content .= sprintf(
 			'<meta name="msapplication-config" content="%s" />%s',
 			esc_attr( $this->ieconfig_filename ),
 			$this->eol
 		);
-		printf(
+		$content .= sprintf(
 			'<meta name="application-name" content="%s" />%s',
 			esc_attr( $this->configuration['name'] ),
 			$this->eol
 		);
-		printf(
+		$content .= sprintf(
 			'<meta name="msapplication-tooltip" content="%s" />%s',
 			esc_attr( $this->configuration['description'] ),
 			$this->eol
 		);
-		printf(
+		$content .= sprintf(
 			'<meta name="msapplication-starturl" content="%s" />%s',
 			get_home_url(),
 			$this->eol
 		);
-		printf(
+		$content .= sprintf(
 			'<meta name="msapplication-navbutton-color" content="%s" />%s',
 			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
 		if ( $this->debug ) {
-			echo '<!-- Windows 8 Tiles -->';
-			echo PHP_EOL;
+			$content .= '<!-- Windows 8 Tiles -->';
+			$content .= PHP_EOL;
 		}
-		$icons = $this->get_configuration_icons( 'windows8' );
+		/**
+		 * msapplication-TileImage
+		 */
+		$icons = array();
+		/**
+		 * get dedicated icon
+		 *
+		 * @since 1.4.3
+		 */
+		$attachement_id = $this->options->get_option( 'ms_square' );
+		if ( ! empty( $attachement_id ) ) {
+			$image = $this->get_wp_image_object_from_attachement_id( $attachement_id );
+			$value = wp_get_attachment_image_src( $attachement_id, 'full' );
+			if ( is_array( $value ) ) {
+				$value['sizes'] = '144x144';
+				$value['src']   = $value[0];
+				$icons[]        = $value;
+			}
+		}
+		if ( empty( $icons ) ) {
+			$icons = $this->get_configuration_icons( 'windows8' );
+		}
 		if ( is_array( $icons ) ) {
 			foreach ( $icons as $one ) {
 				if ( '144x144' === $one['sizes'] ) {
-					printf(
+					$content .= sprintf(
 						'<meta name="msapplication-TileImage" content="%s" />%s',
 						esc_attr( wp_make_link_relative( $one['src'] ) ),
 						$this->eol
@@ -172,19 +205,19 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 				}
 			}
 		}
-		printf(
+		$content .= sprintf(
 			'<meta name="msapplication-TileColor" content="%s" />%s',
 			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
-		$icons = $this->get_configuration_icons( 'ie11' );
+		$icons    = $this->get_configuration_icons( 'ie11' );
 		if ( is_array( $icons ) ) {
 			if ( $this->debug ) {
-				echo '<!-- Internet Explorer 11 Tiles -->';
-				echo PHP_EOL;
+				$content .= '<!-- Internet Explorer 11 Tiles -->';
+				$content .= PHP_EOL;
 			}
 			foreach ( $icons as $data ) {
-				printf(
+				$content .= sprintf(
 					'<meta name="msapplication-square%slogo" content="%s" />%s',
 					esc_attr( $data['sizes'] ),
 					esc_attr( wp_make_link_relative( $data['src'] ) ),
@@ -192,6 +225,13 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 				);
 			}
 		}
+		/**
+		 * Handle cache
+		 *
+		 * @since 1.4.3
+		 */
+		set_transient( $cache_key, $content, DAY_IN_SECONDS );
+		echo $content;
 	}
 
 }

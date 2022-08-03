@@ -93,8 +93,19 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 1. Shortcuts menu on Android.
 
 == Changelog ==
+
 = 1.5.0 (2022-08-03) =
 * Added `Add to Home screen` button to show browser prompt to install "app". Check [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
+* Added google campaign track to "start_url" in `manifest.json` file.
+
+= 1.4.3 (2022-05-06) =
+* Fixed issue with Microsoft Square Icon. Props for [chickendipper](https://wordpress.org/support/users/chickendipper/).
+* Fixed issue lower than 8 PHP. Props for [bamsik001](https://wordpress.org/support/users/bamsik001/).
+* Added cache for html head with Microsoft data.
+
+= 1.4.2 (2022-04-08) =
+* Added params defaults to function called in action `wp_nav_menu_item_custom_fields` to avoid PHP warning for improper call. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/)
+* Added permanent hide for menu pointer when user visit PWA Settings page.
 
 = 1.4.1 (2022-04-05) =
 * Updated iWorks Options to 2.8.3. (Fixed PHP 7.x compatibility).

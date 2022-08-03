@@ -141,7 +141,17 @@ abstract class iWorks_PWA {
 					'orientation'      => $this->get_configuration_orientation(),
 					'display'          => $this->get_configuration_display(),
 					'Scope'            => apply_filters( 'iworks_pwa_configuration_Scope', '/' ),
-					'start_url'        => apply_filters( 'iworks_pwa_configuration_start_url', '/' ),
+					'start_url'        => apply_filters(
+						'iworks_pwa_configuration_start_url',
+						add_query_arg(
+							array(
+								'utm_source'   => 'manifest.json',
+								'utm_medium'   => 'plugin',
+								'utm_campaign' => 'iworks-pwa',
+							),
+							'/'
+						)
+					),
 					'splash_pages'     => apply_filters( 'iworks_pwa_configuration_splash_pages', null ),
 					'icons'            => $this->get_configuration_icons(),
 				)
@@ -593,6 +603,7 @@ abstract class iWorks_PWA {
 	public function action_cache_clear() {
 		$keys = array(
 			'cfg',
+			'head_microsoft',
 		);
 		foreach ( $keys as $key ) {
 			$cache_key = $this->settings_cache_option_name . $key;
@@ -626,6 +637,13 @@ abstract class iWorks_PWA {
 	public function action_cache_clear_icons_ms() {
 		$this->clear_icon_cache( 'windows8' );
 		$this->clear_icon_cache( 'ie11' );
+		/**
+		 * Clear cache for html head microsoft
+		 *
+		 * @since 1.4.3
+		 */
+		$cache_key = $this->settings_cache_option_name . 'head_microsoft';
+		delete_transient( $cache_key );
 	}
 
 }

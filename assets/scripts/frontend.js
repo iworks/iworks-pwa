@@ -6,7 +6,6 @@ window.addEventListener('load', function(event) {
     var iworks_pwa_deferred_prompt;
     const iworks_pwa_add_button = document.querySelector('#iworks-pwa-add-button');
     const iworks_pwa_add_button_container = document.querySelector('#iworks-pwa-add-button-container');
-    console.log(iworks_pwa_add_button);
     if (iworks_pwa_add_button) {
         window.addEventListener('beforeinstallprompt', function(event) {
             // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -33,6 +32,7 @@ window.addEventListener('load', function(event) {
         });
     }
 });
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register(window.iworks_pwa.serviceWorkerUri)
         .then(function(reg) {})

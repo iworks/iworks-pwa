@@ -300,7 +300,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 	 *
 	 * @since 1.4.0
 	 */
-	public function action_wp_nav_menu_item_custom_fields_add_short_name( $item_id, $menu_item, $depth, $args, $current_object_id ) {
+	public function action_wp_nav_menu_item_custom_fields_add_short_name( $item_id, $menu_item, $depth = 0, $args = null, $current_object_id = 0 ) {
 		global $nav_menu_selected_id;
 		global $menu_locations;
 		if ( ! is_array( $menu_locations ) ) {
