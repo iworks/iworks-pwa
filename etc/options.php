@@ -110,6 +110,56 @@ function iworks_pwa_options() {
 				),
 				'rows'    => 10,
 			),
+			/**
+			 * Section "Add to Home screen"
+			 *
+			 * @since 1.5.0
+			 */
+			array(
+				'type'        => 'heading',
+				'label'       => __( 'A2HS', 'iworks-pwa' ),
+				'description' => __( 'Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to "install" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap. This guide explains how A2HS is used, and what you need to do as a developer to allow your users to take advantage of it.', 'iworks-pwa' ),
+				'since'       => '1.5.0',
+			),
+			array(
+				'name'        => 'button_a2hs_position',
+				'type'        => 'radio',
+				'th'          => __( 'Position', 'iworks-pwa' ),
+				'description' => __( '', 'iworks-pwa' ),
+				'radio'       => array(
+					'hide'         => array(
+						'label'       => _x( 'Hide (recommended)', 'PWA settings', 'iworks-pwa' ),
+						'description' => __( 'Browser will show A2HS prompt automatically if it is needed.', 'iworks-pwa' ),
+					),
+					'wp_body_open' => array(
+						'label'       => _x( 'After &lt;body&gt; tag', 'PWA settings', 'iworks-pwa' ),
+						'description' => __( 'This option doesn\'t work for "block themes".', 'iworks-pwa' ),
+					),
+					'wp_footer'    => array(
+						'label' => _x( 'Footer', 'PWA settings', 'iworks-pwa' ),
+					),
+				),
+				'default'     => 'hide',
+				'since'       => '1.5.0',
+			),
+			array(
+				'name'              => 'button_a2hs_text',
+				'type'              => 'text',
+				'class'             => 'regular-text',
+				'th'                => __( 'Button text', 'iworks-pwa' ),
+				'sanitize_callback' => 'esc_html',
+				'default'           => __( 'Add to home screen', 'iworks-pwa' ),
+				'since'             => '1.5.0',
+			),
+			array(
+				'name'              => 'button_a2hs_css',
+				'type'              => 'checkbox',
+				'th'                => __( 'Load CSS', 'fleet' ),
+				'default'           => 1,
+				'sanitize_callback' => 'absint',
+				'classes'           => array( 'switch-button' ),
+				'since'             => '1.5.0',
+			),
 			array(
 				'type'  => 'heading',
 				'label' => __( 'Generic', 'iworks-pwa' ),

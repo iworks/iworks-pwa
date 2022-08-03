@@ -21,11 +21,12 @@ module.exports = function( grunt ) {
     var conf = {
         js_files_concat: {
             'assets/scripts/frontend.js': [
-                'assets/scripts/src/frontend/service-worker-loader.js'
+                'assets/scripts/src/frontend/*.js'
             ]
         },
 
         css_files_compile: {
+            'assets/styles/frontend/add-to-home-screen.css': 'assets/sass/frontend/add-to-home-screen.scss',
         },
 
         plugin_dir: '',

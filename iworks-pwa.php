@@ -60,14 +60,14 @@ load_plugin_textdomain( 'iworks-pwa', false, plugin_basename( dirname( __FILE__ 
  * load
  */
 require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
-require_once $includes . '/iworks/pwa/class-iworks-pwa-html-head.php';
+require_once $includes . '/iworks/pwa/class-iworks-pwa-frontend.php';
 require_once $includes . '/iworks/pwa/class-iworks-pwa-apple.php';
 require_once $includes . '/iworks/pwa/class-iworks-pwa-microsoft.php';
 /**
  * run
  */
 new iWorks_PWA_manifest;
-new iWorks_PWA_HTML_Head;
+new iWorks_PWA_Frontend;
 new iWorks_PWA_Apple;
 new iWorks_PWA_Microsoft;
 /**

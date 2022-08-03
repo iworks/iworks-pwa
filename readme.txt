@@ -77,6 +77,12 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 1. Select icon - it is recommended that you use a single 192x192 pixel icon.
 1. Save menu.
 
+= What is "Add to Home screen"? =
+
+Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to "install" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap. This guide explains how A2HS is used, and what you need to do as a developer to allow your users to take advantage of it.
+
+A2HS is supported in all mobile browsers, except iOS webview. It's also supported in some Chromium desktop browsers.
+
 == Screenshots ==
 
 1. General configuration.
@@ -87,6 +93,8 @@ The shortcuts member defines an array of shortcuts or links to key tasks or page
 1. Shortcuts menu on Android.
 
 == Changelog ==
+= 1.5.0 (2022-08-03) =
+* Added `Add to Home screen` button to show browser prompt to install "app". Check [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
 
 = 1.4.1 (2022-04-05) =
 * Updated iWorks Options to 2.8.3. (Fixed PHP 7.x compatibility).
