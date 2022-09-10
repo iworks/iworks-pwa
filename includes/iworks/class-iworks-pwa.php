@@ -47,6 +47,13 @@ abstract class iWorks_PWA {
 	 */
 	protected $settings_cache_option_name = 'ipwac_';
 
+	/**
+	 * option to check meta viewport
+	 *
+	 * @since 1.5.1
+	 */
+	protected $option_name_check_meta_viewport = 'iworks_pwa_meta_viewport';
+
 	protected function __construct() {
 		$file        = dirname( dirname( __FILE__ ) );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );

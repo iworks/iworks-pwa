@@ -29,7 +29,7 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	}
 
 	private function add( $action ) {
-			add_action( $action, array( $this, 'add_to_home_screen' ) );
+		add_action( $action, array( $this, 'add_to_home_screen' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 	}
@@ -74,6 +74,20 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	 */
 	public function html_head() {
 		$this->before();
+		/**
+		 * add meta viewport - on wp_head
+		 *
+		 * @since 1.5.1
+		 */
+		if ( 'missing' === get_option( $this->option_name_check_meta_viewport ) ) {
+			printf(
+				'<meta name="viewport" content="width=device-width, initial-scale=1" />%s',
+				$this->eol
+			);
+		}
+		/**
+		 * manifest.json
+		 */
 		printf(
 			'<link rel="manifest" href="%s" />%s',
 			wp_make_link_relative( home_url( 'manifest.json' ) ),
@@ -84,6 +98,9 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 			wp_make_link_relative( home_url( 'manifest.json' ) ),
 			$this->eol
 		);
+		/**
+		 * theme color
+		 */
 		printf(
 			'<meta name="theme-color" content="%s" />%s',
 			$this->configuration['theme_color'],

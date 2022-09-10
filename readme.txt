@@ -94,6 +94,10 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 
 == Changelog ==
 
+= 1.5.1 (2022-09-10) =
+* Added checking for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
+* Changed [iWorks Rate Module](https://github.com/iworks/iworks-rate) repository to GitHub.
+
 = 1.5.0 (2022-08-03) =
 * Added `Add to Home screen` button to show browser prompt to install "app". Check [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
 * Added google campaign track to "start_url" in `manifest.json` file.

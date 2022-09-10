@@ -73,6 +73,13 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_action( 'update_option_site_icon', array( $this, 'clear_cache' ) );
 		add_action( 'update_option_siteurl', array( $this, 'clear_cache' ) );
 		add_action( 'update_option_stylesheet', array( $this, 'clear_cache' ) );
+		/**
+		 * check meta viewport actions
+		 *
+		 * @since 1.5.1
+		 */
+		add_action( 'shutdown', array( $this, 'meta_viewport_check' ) );
+		add_action( 'after_switch_theme', array( $this, 'meta_viewport_delete' ) );
 	}
 
 	public function filter_add_debug_urls_to_config( $options ) {
@@ -271,5 +278,57 @@ jQuery( function( $ ) {
 		$dismissed_pointers[] = $this->pointer_name;
 		update_user_meta( get_current_user_id(), 'dismissed_wp_pointers', implode( ',', $dismissed_pointers ) );
 	}
+
+	/**
+	 * check meta viewport - on shutdown
+	 *
+	 * @since 1.5.1
+	 */
+	public function meta_viewport_check() {
+		if ( ! is_admin() ) {
+			return;
+		}
+		$value = get_option( $this->option_name_check_meta_viewport );
+		if ( ! empty( $value ) ) {
+			return;
+		}
+		if ( isset( $_GET[ $this->option_name_check_meta_viewport ] ) ) {
+			return;
+		}
+		$url      = add_query_arg(
+			array(
+				$this->option_name_check_meta_viewport => 'checking',
+				'timestamp'                            => time(),
+			),
+			home_url()
+		);
+		$response = wp_remote_get( $url, array( 'sslverify' => false ) );
+		if ( is_wp_error( $response ) ) {
+			return;
+		}
+		$html = wp_remote_retrieve_body( $response );
+		if ( preg_match_all( '/<meta[^>]+/', $html, $matches ) ) {
+			foreach ( $matches[0] as $one ) {
+				if (
+					preg_match( '/name=["\']viewport["\']/', $one )
+					&& preg_match( '/initial-scale/', $one )
+				) {
+					update_option( $this->option_name_check_meta_viewport, 'valid' );
+					return;
+				}
+			}
+		}
+		update_option( $this->option_name_check_meta_viewport, 'missing' );
+	}
+
+	/**
+	 * delete meta viewport - on after_switch_theme
+	 *
+	 * @since 1.5.1
+	 */
+	public function meta_viewport_delete() {
+		delete_option( $this->option_name_check_meta_viewport );
+	}
+
 }
 
