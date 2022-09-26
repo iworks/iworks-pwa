@@ -94,6 +94,9 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 
 == Changelog ==
 
+= 1.5.2 (2023-09-26) =
+* Fixed issue with "apple-touch-icon" - it wasn't used even defined.
+
 = 1.5.1 (2022-09-10) =
 * Added checking for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
 * Changed [iWorks Rate Module](https://github.com/iworks/iworks-rate) repository to GitHub.

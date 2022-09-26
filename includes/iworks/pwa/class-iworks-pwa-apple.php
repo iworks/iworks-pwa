@@ -53,7 +53,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			return apply_filters( 'iworks_pwa_configuration_apple_touch_icons', $icons );
 		}
 		$value = intval( $this->options->get_option( 'icon_apple' ) );
-		if ( 0 < $value ) {
+		if ( 1 > $value ) {
 			$value = intval( $this->options->get_option( 'icon_app' ) );
 		}
 		if ( 1 > $value ) {
