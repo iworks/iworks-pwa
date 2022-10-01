@@ -154,7 +154,7 @@ function iworks_pwa_options() {
 			array(
 				'name'              => 'button_a2hs_css',
 				'type'              => 'checkbox',
-				'th'                => __( 'Load CSS', 'fleet' ),
+				'th'                => __( 'Load CSS', 'iworks-pwa' ),
 				'default'           => 1,
 				'sanitize_callback' => 'absint',
 				'classes'           => array( 'switch-button' ),

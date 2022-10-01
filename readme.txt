@@ -94,6 +94,8 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 
 == Changelog ==
 
+* Fixed translation string.
+
 = 1.5.2 (2023-09-26) =
 * Fixed issue with "apple-touch-icon" - it wasn't used even defined.
 * Updated iWorks Rate to 2.1.1.
