@@ -401,7 +401,7 @@ abstract class iWorks_PWA {
 	protected function get_configuration_name() {
 		$value = $this->options->get_option( 'app_name' );
 		if ( empty( $value ) ) {
-			$value = substr( 0, 45, get_bloginfo( 'name' ), 0, 45 );
+			$value = substr( get_bloginfo( 'name' ), 0, 45 );
 		}
 		return apply_filters( 'iworks_pwa_configuration_name', $value );
 	}
