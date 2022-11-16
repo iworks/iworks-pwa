@@ -64,24 +64,24 @@ It is only possible with WPML package.
 1. Select domain `iworks-pwa`.
 1. Translate strings.
 
-= How can I add context menu? =
+= How can I add a context menu? =
 
 The shortcuts member defines an array of shortcuts or links to key tasks or pages within a web app. A user agent can use these values to assemble a context menu to be displayed by the operating system when a user engages with the web app's icon.
 
 1. Install [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin.
 1. Go to WPA -> Appearance -> Menu.
-1. Open "Menu Icon Setting" from "Add menu items" column (it should be on the bottom).
+1. Open "Menu Icon Setting" from the "Add menu items" column (it should be on the bottom).
 1. Be sure you have "Image" checked.
-1. Create custom menu and set "Display location" to "PWA Shortcuts Menu".
+1. Create a custom menu and set "Display location" to "PWA Shortcuts Menu".
 1. Add item.
 1. Select icon - it is recommended that you use a single 192x192 pixel icon.
-1. Save menu.
+1. Save the menu.
 
 = What is "Add to Home screen"? =
 
-Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to "install" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap.
+Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to "install" a web app, ie. add a shortcut to their Home screen representing their favourite web app (or site) so they can subsequently access it with a single tap.
 
-A2HS is supported in all mobile browsers, except iOS webview. It's also supported in some Chromium desktop browsers.
+A2HS is supported in all mobile browsers, except iOS web view. It's also supported in some Chromium desktop browsers.
 
 == Screenshots ==
 
@@ -94,35 +94,39 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 
 == Changelog ==
 
+= 1.5.3 (2022-11-16) =
 * Fixed translation string.
+* Added id property to manifest.json. [Read more](https://developer.chrome.com/blog/pwa-manifest-id/).
+* Added manifest.json property `name` limit on plugin install to 45 characters.
+* Added manifest.json property `short_name` limit on plugin install to 15 characters.
 
-= 1.5.2 (2023-09-26) =
+= 1.5.2 (2022-09-26) =
 * Fixed issue with "apple-touch-icon" - it wasn't used even defined.
 * Updated iWorks Rate to 2.1.1.
 
 = 1.5.1 (2022-09-10) =
-* Added checking for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
+* Added check for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
 * Changed [iWorks Rate Module](https://github.com/iworks/iworks-rate) repository to GitHub.
 
 = 1.5.0 (2022-08-03) =
 * Added `Add to Home screen` button to show browser prompt to install "app". Check [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
-* Added google campaign track to "start_url" in `manifest.json` file.
+* Added google campaign track to "start_url" in the `manifest.json` file.
 
 = 1.4.3 (2022-05-06) =
 * Fixed issue with Microsoft Square Icon. Props for [chickendipper](https://wordpress.org/support/users/chickendipper/).
-* Fixed issue lower than 8 PHP. Props for [bamsik001](https://wordpress.org/support/users/bamsik001/).
-* Added cache for html head with Microsoft data.
+* Fixed issues lower than 8 PHP. Props for [bamsik001](https://wordpress.org/support/users/bamsik001/).
+* Added cache for HTML head with Microsoft data.
 
 = 1.4.2 (2022-04-08) =
-* Added params defaults to function called in action `wp_nav_menu_item_custom_fields` to avoid PHP warning for improper call. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/)
-* Added permanent hide for menu pointer when user visit PWA Settings page.
+* Added params defaults to function called in action `wp_nav_menu_item_custom_fields` to avoid PHP warning for an improper call. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/)
+* Added permanent hide for menu pointer when a user visits the PWA Settings page.
 
 = 1.4.1 (2022-04-05) =
 * Updated iWorks Options to 2.8.3. (Fixed PHP 7.x compatibility).
 
 = 1.4.0 (2022-04-05) =
 * Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
-* Added a message when site permalink is installed in a sub-directory - this plugin does not support it.
+* Added a message when the site permalink is installed in a sub-directory - this plugin does not support it.
 * Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
 * Updated iWorks Options to 2.8.3.
 
@@ -135,9 +139,9 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 
 = 1.3.1 (2022-03-22) =
 * Added `/ieconfig.xml` link on debug tab.
-* Fixed long site title on offline page. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
-* Fixed missed translation domain in few strings.
-* Improved usage of transient cache. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
+* Fixed long site title on the offline page. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
+* Fixed missed translation domain in a few strings.
+* Improved usage of the transient cache. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
 * Removed images from debug tab.
 
 = 1.3.0 (2022-03-16) =
@@ -150,17 +154,17 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 = 1.2.2 (2022-02-21) =
 * Added filter `iworks_plugin_get_options' to allow filtering plugin core configuration.
 * Added [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin integration.
-* Added plugin information into PWA scripts elements.
+* Added plugin information into PWA script elements.
 * Added purpose "any maskable" to the biggest icon. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/).
 * Updated iWorks Options to 2.8.2.
 * Updated iWorks Rate to 2.1.0.
 
 = 1.2.1 (2022-02-16) =
-* Added a message when site permalink is "plain" - this plugin does not support it.
+* Added a message when the site permalink is "plain" - this plugin does not support it.
 * Updated iWorks Options to 2.8.1.
 
 = 1.2.0 (2022-02-15) =
-* Added ability to change text of offline page.
+* Added the ability to change the text of the offline page.
 * Added version to cache control.
 * Added WPML plugin integration.
 * Moved worker JavaScript from PHP class to separate template.
@@ -196,22 +200,22 @@ A2HS is supported in all mobile browsers, except iOS webview. It's also supporte
 * Added configuration for Microsoft Tile Icons.
 
 = 1.1.0 (2022-01-21) =
-* Added configuration for application name.
-* Added configuration fot application colors.
-* Added configuration fot application description.
-* Added configuration fot application display.
-* Added configuration fot application icons.
-* Added configuration fot application orientation.
-* Added configuration fot application short name.
-* Changed plugin name from "iWorks PWA" into "PWA — simple way to Progressive Web App".
+* Added configuration for the application name.
+* Added configuration for application colours.
+* Added configuration for application description.
+* Added configuration for application display.
+* Added configuration for application icons.
+* Added configuration for application orientation.
+* Added configuration for application short name.
+* Changed plugin name from "iWorks PWA" to "PWA — simple way to Progressive Web App".
 * Updated iWorks Options to 2.8.0.
 * Updated iWorks Rate to 2.0.6.
 
 = 1.0.0 (2022-01-04) =
 * First stable release.
-* Added check for non SSL site - SSL is required for PWA.
+* Added check for the non-SSL site - SSL is required for PWA.
 * Added "Rate" module.
-* Fixed duplicates in offline urls set.
+* Fixed duplicates in offline URLs set.
 * Bumped offline version to 2.
 
 = 0.0.2 (2021-04-26) =
