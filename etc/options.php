@@ -24,7 +24,7 @@ function iworks_pwa_options() {
 				'class'             => 'regular-text',
 				'th'                => __( 'Application Name', 'iworks-pwa' ),
 				'sanitize_callback' => 'esc_html',
-				'default'           => get_bloginfo( 'name' ),
+				'default'           => substr( get_bloginfo( 'name' ), 0, 45 ),
 			),
 			array(
 				'name'              => 'app_short_name',
@@ -34,7 +34,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'Used when there is insufficient space to display the full name of the application. 15 characters or less.', 'iworks-pwa' ),
 				'sanitize_callback' => 'esc_html',
 				'maxlength'         => 15,
-				'default'           => get_bloginfo( 'name' ),
+				'default'           => substr( get_bloginfo( 'name' ), 0, 15 ),
 			),
 			array(
 				'name'              => 'app_description',
