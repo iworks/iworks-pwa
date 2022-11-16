@@ -140,6 +140,7 @@ abstract class iWorks_PWA {
 				'iworks_pwa_configuration',
 				array(
 					'plugin'           => 'PLUGIN_TITLE - PLUGIN_VERSION',
+					'id'               => $this->get_configuration_app_id(),
 					'name'             => $this->get_configuration_name(),
 					'short_name'       => $this->get_configuration_short_name(),
 					'description'      => $this->get_configuration_description(),
@@ -400,7 +401,7 @@ abstract class iWorks_PWA {
 	protected function get_configuration_name() {
 		$value = $this->options->get_option( 'app_name' );
 		if ( empty( $value ) ) {
-			$value = get_bloginfo( 'name' );
+			$value = substr( 0, 45, get_bloginfo( 'name' ), 0, 45 );
 		}
 		return apply_filters( 'iworks_pwa_configuration_name', $value );
 	}
@@ -411,7 +412,7 @@ abstract class iWorks_PWA {
 	protected function get_configuration_short_name() {
 		$value = $this->options->get_option( 'app_short_name' );
 		if ( empty( $value ) ) {
-			$value = get_bloginfo( 'name' );
+			$value = substr( get_bloginfo( 'name' ), 0, 15 );
 		}
 		return apply_filters( 'iworks_pwa_configuration_short_name', $value );
 	}
@@ -651,6 +652,21 @@ abstract class iWorks_PWA {
 		 */
 		$cache_key = $this->settings_cache_option_name . 'head_microsoft';
 		delete_transient( $cache_key );
+	}
+
+	/**
+	 * get configuration application ID
+	 *
+	 * @since 1.5.3
+	 */
+	protected function get_configuration_app_id() {
+		$app_id = '';
+		if ( empty( $this->configuration ) ) {
+			$app_id = md5( __CLASS__ );
+		} else {
+			$app_id = md5( serialize( $this->configuration ) );
+		}
+		return add_query_arg( 'app_id', $app_id, home_url() );
 	}
 
 }

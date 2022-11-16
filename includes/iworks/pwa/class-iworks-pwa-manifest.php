@@ -201,6 +201,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			array_unshift( $data['icons'], $one );
 		}
 		$data['shortcuts'] = $this->get_shortcuts();
+		$data['id']        = $this->get_configuration_app_id();
 		header( 'Content-Type: application/json' );
 		echo json_encode( $data );
 		exit;
