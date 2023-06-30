@@ -1,14 +1,14 @@
-# Copyright (C) 2022 Marcin Pietrzak
+# Copyright (C) 2023 Marcin Pietrzak
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: PWA — simple way to Progressive Web App PLUGIN_VERSION\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/iworks-pwa\n"
-"POT-Creation-Date: 2022-02-21 10:28:13+00:00\n"
+"POT-Creation-Date: 2023-06-30 09:47:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2023-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -51,7 +51,7 @@ msgid "Progressive Web Application - Configuration"
 msgstr ""
 
 #: etc/options.php:12
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:119
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:154
 msgid "PWA"
 msgstr ""
 
@@ -109,104 +109,116 @@ msgstr ""
 msgid "Offline content page"
 msgstr ""
 
-#: etc/options.php:101 includes/iworks/class-iworks-pwa.php:440
+#: etc/options.php:101 includes/iworks/class-iworks-pwa.php:536
 msgid "We were unable to load the page you requested."
 msgstr ""
 
-#: etc/options.php:104 includes/iworks/class-iworks-pwa.php:443
+#: etc/options.php:104 includes/iworks/class-iworks-pwa.php:539
 msgid "Please check your network connection and try again."
 msgstr ""
 
-#: etc/options.php:115
-msgid "Generic"
+#: etc/options.php:120
+msgid "A2HS"
 msgstr ""
 
 #: etc/options.php:121
+msgid ""
+"Add to Home screen (or A2HS for short) is a feature available in modern "
+"browsers that allows a user to \"install\" a web app, ie. add a shortcut to "
+"their Home screen representing their favorite web app (or site) so they can "
+"subsequently access it with a single tap."
+msgstr ""
+
+#: etc/options.php:127
+msgid "Position"
+msgstr ""
+
+#: etc/options.php:132
+msgid "Browser will show A2HS prompt automatically if it is needed."
+msgstr ""
+
+#: etc/options.php:136
+msgid "This option doesn't work for \"block themes\"."
+msgstr ""
+
+#: etc/options.php:149
+msgid "Button text"
+msgstr ""
+
+#: etc/options.php:151 includes/iworks/pwa/class-iworks-pwa-frontend.php:119
+msgid "Add to home screen"
+msgstr ""
+
+#: etc/options.php:157
+msgid "Load CSS"
+msgstr ""
+
+#: etc/options.php:165
+msgid "Generic"
+msgstr ""
+
+#: etc/options.php:171
 msgid "Background Color"
 msgstr ""
 
-#: etc/options.php:122
+#: etc/options.php:172
 msgid "Background color of the splash screen."
 msgstr ""
 
-#: etc/options.php:130
+#: etc/options.php:180
 msgid "Theme Color"
 msgstr ""
 
-#: etc/options.php:131
+#: etc/options.php:181
 msgid ""
 "Theme color is used on supported devices to tint the UI elements of the "
 "browser and app switcher. When in doubt, use the same color as Background "
 "Color."
 msgstr ""
 
-#: etc/options.php:138
+#: etc/options.php:188
 msgid "Application Icon"
 msgstr ""
 
-#: etc/options.php:139
+#: etc/options.php:189
 msgid ""
 "This will be the icon of your app when installed on the phone. It should be "
 "a PNG image."
 msgstr ""
 
-#: etc/options.php:147
+#: etc/options.php:197
 msgid "Splash Screen Icon"
 msgstr ""
 
-#: etc/options.php:148
+#: etc/options.php:198
 msgid ""
 "This icon will be displayed on the splash screen of your app on supported "
 "devices. It should be a PNG image."
 msgstr ""
 
-#: etc/options.php:157
+#: etc/options.php:207
 msgid "Apple"
 msgstr ""
 
-#: etc/options.php:162
+#: etc/options.php:212
 msgid "Touch Icon"
 msgstr ""
 
-#: etc/options.php:163
+#: etc/options.php:213
 msgid ""
 "For ideal appearance on iOS when users add a progressive web app to the "
 "home screen. It must point to a non-transparent 192px (or 180px) square PNG."
 msgstr ""
 
-#: etc/options.php:170
-msgid "iPad landscape splash screen"
-msgstr ""
-
-#: etc/options.php:171
-msgid "It must be a non-transparent PNG image. It should be exactly 1024x748px."
-msgstr ""
-
-#: etc/options.php:180
-msgid "iPad portriat splash screen"
-msgstr ""
-
-#: etc/options.php:181
-msgid "It must be a non-transparent PNG image. It should be exactly 768x1004px."
-msgstr ""
-
-#: etc/options.php:190 etc/options.php:200
-msgid "iPhone, iPod high resolution portriat splash screen"
-msgstr ""
-
-#: etc/options.php:191
-msgid "It must be a non-transparent PNG image. It should be exactly 640x960px."
-msgstr ""
-
-#: etc/options.php:201
-msgid "It must be a non-transparent PNG image. It should be exactly 320x480px."
-msgstr ""
-
-#: etc/options.php:210
+#: etc/options.php:222
 msgid "Pinned Tab Icon"
 msgstr ""
 
-#: etc/options.php:211
+#: etc/options.php:227
+msgid "Icon"
+msgstr ""
+
+#: etc/options.php:228
 msgid ""
 "Use 100% black for all vectors with a transparent background in SVG format "
 "and add the following markup to all webpages that the icon should "
@@ -214,60 +226,168 @@ msgid ""
 "must be set to \"0 0 16 16\"."
 msgstr ""
 
-#: etc/options.php:218
-msgid "Pinned Tab Icon Color"
+#: etc/options.php:235
+msgid "Color"
 msgstr ""
 
-#: etc/options.php:225
-msgid "Status Bar Color"
+#: etc/options.php:244
+msgid "Status Bar"
 msgstr ""
 
-#: etc/options.php:234
-msgid "Microsoft"
-msgstr ""
-
-#: etc/options.php:239
-msgid "Square Tile Logo"
-msgstr ""
-
-#: etc/options.php:242
-msgid "It must be a PNG image, at least 310x310px."
-msgstr ""
-
-#: etc/options.php:247
-msgid "Wide Tile Logo"
+#: etc/options.php:249
+msgid "Style"
 msgstr ""
 
 #: etc/options.php:250
+msgid ""
+"Customize the iOS status bar (the area along the upper edge of the screen "
+"displaying the time and battery status) of your PWA."
+msgstr ""
+
+#: etc/options.php:269
+msgid "Custom Splash Screen"
+msgstr ""
+
+#: etc/options.php:273
+msgid ""
+"Add the following elements to support custom splash screens for the "
+"different iOS devices."
+msgstr ""
+
+#: etc/options.php:274
+msgid "It must be a non-transparent PNG image."
+msgstr ""
+
+#: etc/options.php:286
+msgid "Default"
+msgstr ""
+
+#: etc/options.php:301
+msgid "iPhone Xs Max"
+msgstr ""
+
+#: etc/options.php:302
+msgid "1242px &#10005; 2688px"
+msgstr ""
+
+#: etc/options.php:317
+msgid "iPhone Xr"
+msgstr ""
+
+#: etc/options.php:318
+msgid "828px &#10005; 1792px"
+msgstr ""
+
+#: etc/options.php:333
+msgid "iPhone X, Xs"
+msgstr ""
+
+#: etc/options.php:334
+msgid "1125px &#10005; 2436px"
+msgstr ""
+
+#: etc/options.php:349
+msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
+msgstr ""
+
+#: etc/options.php:350
+msgid "1242px &#10005; 2208px"
+msgstr ""
+
+#: etc/options.php:365
+msgid "iPhone 8, 7, 6s, 6"
+msgstr ""
+
+#: etc/options.php:366
+msgid "750px &#10005; 1334px"
+msgstr ""
+
+#: etc/options.php:381
+msgid "iPad Pro 12.9\""
+msgstr ""
+
+#: etc/options.php:382
+msgid "2048px &#10005; 2732px"
+msgstr ""
+
+#: etc/options.php:397
+msgid "iPad Pro 11”"
+msgstr ""
+
+#: etc/options.php:398
+msgid "1668px &#10005; 2388px"
+msgstr ""
+
+#: etc/options.php:413
+msgid "iPad Pro 10.5\""
+msgstr ""
+
+#: etc/options.php:414
+msgid "1668px &#10005; 2224px"
+msgstr ""
+
+#: etc/options.php:429
+msgid "iPad Mini, Air"
+msgstr ""
+
+#: etc/options.php:430
+msgid "1536px &#10005; 2048px"
+msgstr ""
+
+#: etc/options.php:445
+msgid "iPhone 5"
+msgstr ""
+
+#: etc/options.php:446
+msgid "640px &#10005; 1136px"
+msgstr ""
+
+#: etc/options.php:458
+msgid "Microsoft"
+msgstr ""
+
+#: etc/options.php:463
+msgid "Square Tile Logo"
+msgstr ""
+
+#: etc/options.php:466
+msgid "It must be a PNG image, at least 310x310px."
+msgstr ""
+
+#: etc/options.php:471
+msgid "Wide Tile Logo"
+msgstr ""
+
+#: etc/options.php:474
 msgid "It must be a PNG image. It should be exactly 310x150px."
 msgstr ""
 
-#: etc/options.php:255 etc/options.php:470
+#: etc/options.php:479 etc/options.php:694
 msgid "We are waiting for your message"
 msgstr ""
 
-#: etc/options.php:261
+#: etc/options.php:485
 msgid "I love what I do!"
 msgstr ""
 
-#: etc/options.php:434
+#: etc/options.php:658
 msgid "Below are some links to help spread this plugin to other users"
 msgstr ""
 
-#: etc/options.php:436
+#: etc/options.php:660
 msgid "Give it a five stars on WordPress.org"
 msgstr ""
 
-#: etc/options.php:437
+#: etc/options.php:661
 msgid "Link to it so others can easily find it"
 msgstr ""
 
-#: etc/options.php:472
+#: etc/options.php:696
 msgid "WordPress Help Forum"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:82
-#: includes/iworks/pwa/class-iworks-pwa-html-head.php:31 iworks-pwa.php:120
+#: includes/iworks/class-iworks-pwa.php:97
+#: includes/iworks/pwa/class-iworks-pwa-frontend.php:65 iworks-pwa.php:120
 msgid "iWorks PWA"
 msgstr ""
 
@@ -312,47 +432,61 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:65
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:100
 msgid "Debug info"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:75
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:110
 msgid "Main files"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:78
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:113
 msgid "manifest.json"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:79
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:114
 msgid "Service Worker"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:80
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:115
 msgid "Offline page"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:120
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:116
+msgid "IE config xml"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:155
 msgid "PWA settings are now available in Settings."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:168
-msgid ""
-"PWA plugin uses WordPress does not support the plain permalink structure. "
-"<a href=\"%s\">Please change your permalinks settings</a> to other "
-"structure to use PWA plugin."
+#. Plugin Name of the plugin/theme
+msgid "PWA — simple way to Progressive Web App"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:116
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:204
+msgid ""
+"This plugin does not support the plain permalink structure. <a "
+"href=\"%s\">Please change your permalinks settings</a> to other structure "
+"to use PWA plugin."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:227
+msgid ""
+"This plugin does not support installation in a subdirectory and will not "
+"work properly."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:130
 msgid "Sorry!"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:195
-msgid "Icons"
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:242
+msgid "PWA Shortcuts Menu"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:198
-msgid "First you need to set some icons."
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:320
+msgid "Short Name (PWA)"
 msgstr ""
 
 #: includes/iworks/rate/rate.php:124
@@ -450,10 +584,6 @@ msgid ""
 "Thank you for all the ratings, reviews and donates."
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "PWA — simple way to Progressive Web App"
-msgstr ""
-
 #. Plugin URI of the plugin/theme
 msgid "http://iworks.pl/iworks-pwa/"
 msgstr ""
@@ -505,17 +635,51 @@ msgctxt "PWA settings"
 msgid "Browser"
 msgstr ""
 
-#: etc/options.php:437
+#: etc/options.php:131
+msgctxt "PWA settings"
+msgid "Hide (recommended)"
+msgstr ""
+
+#: etc/options.php:135
+msgctxt "PWA settings"
+msgid "After &lt;body&gt; tag"
+msgstr ""
+
+#: etc/options.php:139
+msgctxt "PWA settings"
+msgid "Footer"
+msgstr ""
+
+#: etc/options.php:253
+msgctxt "PWA settings"
+msgid "White status bar with black text and symbols."
+msgstr ""
+
+#: etc/options.php:256
+msgctxt "PWA settings"
+msgid ""
+"Black status bar and black text and symbols, making it appear completely "
+"black."
+msgstr ""
+
+#: etc/options.php:259
+msgctxt "PWA settings"
+msgid ""
+"White text and symbols, and the status bar will take the same background "
+"color as the body element of your web app."
+msgstr ""
+
+#: etc/options.php:661
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr ""
 
-#: etc/options.php:472
+#: etc/options.php:696
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:83
+#: includes/iworks/class-iworks-pwa.php:98
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
 msgstr ""
@@ -525,7 +689,7 @@ msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:86
+#: includes/iworks/class-iworks-pwa.php:101
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"
 msgstr ""
