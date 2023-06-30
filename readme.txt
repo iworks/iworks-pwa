@@ -94,6 +94,11 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.5.4 (2023-06-30) =
+* The meta tag `apple-mobile-web-app-capable` has been added.
+* Trailing slashes from `link` and `meta` tags have been removed.
+* The Apple-related PWA has been completely rewritten. Props for [James](https://wordpress.org/support/users/glidem/).
+
 = 1.5.3 (2022-11-16) =
 * Fixed translation string.
 * Added id property to manifest.json. [Read more](https://developer.chrome.com/blog/pwa-manifest-id/).

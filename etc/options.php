@@ -214,50 +214,17 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 			),
+			/**
+			 * Pinned Tab Icon
+			 */
 			array(
-				'name'              => 'splash_ipad_l',
-				'type'              => 'image',
-				'th'                => __( 'iPad landscape splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 1024x748px.', 'iworks-pwa' ),
-				'sanitize_callback' => 'intval',
-				'max-width'         => 64,
-				'group'             => 'apple-touch-startup-image',
-				'sizes'             => '1024x748',
-			),
-			array(
-				'name'              => 'splash_ipad_p',
-				'type'              => 'image',
-				'th'                => __( 'iPad portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 768x1004px.', 'iworks-pwa' ),
-				'sanitize_callback' => 'intval',
-				'max-width'         => 64,
-				'group'             => 'apple-touch-startup-image',
-				'sizes'             => '768x1004',
-			),
-			array(
-				'name'              => 'splash_hr_p',
-				'type'              => 'image',
-				'th'                => __( 'iPhone, iPod high resolution portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 640x960px.', 'iworks-pwa' ),
-				'sanitize_callback' => 'intval',
-				'max-width'         => 64,
-				'group'             => 'apple-touch-startup-image',
-				'sizes'             => '640x960',
-			),
-			array(
-				'name'              => 'splash_sr_p',
-				'type'              => 'image',
-				'th'                => __( 'iPhone, iPod high resolution portriat splash screen', 'iworks-pwa' ),
-				'description'       => __( 'It must be a non-transparent PNG image. It should be exactly 320x480px.', 'iworks-pwa' ),
-				'sanitize_callback' => 'intval',
-				'max-width'         => 64,
-				'group'             => 'apple-touch-startup-image',
-				'sizes'             => '320x480',
+				'type'  => 'subheading',
+				'label' => __( 'Pinned Tab Icon', 'iworks-pwa' ),
 			),
 			array(
 				'name'              => 'apple_pti',
 				'type'              => 'image',
-				'th'                => __( 'Pinned Tab Icon', 'iworks-pwa' ),
+				'th'                => __( 'Icon', 'iworks-pwa' ),
 				'description'       => __( 'Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to "0 0 16 16".', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
@@ -265,16 +232,223 @@ function iworks_pwa_options() {
 			array(
 				'name'              => 'apple_ptic',
 				'type'              => 'wpColorPicker',
-				'th'                => __( 'Pinned Tab Icon Color', 'iworks-pwa' ),
+				'th'                => __( 'Color', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
 			),
+			/**
+			 * Status Bar
+			 */
 			array(
-				'name'              => 'apple_sbc',
-				'type'              => 'wpColorPicker',
-				'th'                => __( 'Status Bar Color', 'iworks-pwa' ),
-				'default'           => '#000',
-				'sanitize_callback' => 'esc_html',
+				'type'  => 'subheading',
+				'label' => __( 'Status Bar', 'iworks-pwa' ),
+			),
+			array(
+				'name'        => 'apple_status_bar_style',
+				'type'        => 'radio',
+				'th'          => __( 'Style', 'iworks-pwa' ),
+				'description' => __( 'Customize the iOS status bar (the area along the upper edge of the screen displaying the time and battery status) of your PWA.', 'iworks-pwa' ),
+				'radio'       => array(
+					'default'           => array(
+						'label' => _x( 'White status bar with black text and symbols.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'black'             => array(
+						'label' => _x( 'Black status bar and black text and symbols, making it appear completely black.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'black-translucent' => array(
+						'label' => _x( 'White text and symbols, and the status bar will take the same background color as the body element of your web app.', 'PWA settings', 'iworks-pwa' ),
+					),
+				),
+				'default'     => 'default',
+			),
+			/**
+			 * Custom Splash Screen
+			 */
+			array(
+				'type'        => 'subheading',
+				'label'       => __( 'Custom Splash Screen', 'iworks-pwa' ),
+				'description' => implode(
+					PHP_EOL . PHP_EOL,
+					array(
+						__( 'Add the following elements to support custom splash screens for the different iOS devices.', 'iworks-pwa' ),
+						__( 'It must be a non-transparent PNG image.', 'iworks-pwa' ),
+					)
+				),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * default
+			 */
+			array(
+				'name'              => 'splash_image',
+				'type'              => 'image',
+				'th'                => __( 'Default', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 0, 0, 0 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone Xs Max (1242px x 2688px)
+			 */
+			array(
+				'name'              => 'splash_iphone_xs_max',
+				'type'              => 'image',
+				'th'                => __( 'iPhone Xs Max', 'iworks-pwa' ),
+				'description'       => __( '1242px &#10005; 2688px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 414, 896, 3 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone Xr (828px x 1792px)
+			 */
+			array(
+				'name'              => 'splash_iphone_xr',
+				'type'              => 'image',
+				'th'                => __( 'iPhone Xr', 'iworks-pwa' ),
+				'description'       => __( '828px &#10005; 1792px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 414, 896, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone X, Xs (1125px x 2436px)
+			 */
+			array(
+				'name'              => 'splash_iphone_x_xs',
+				'type'              => 'image',
+				'th'                => __( 'iPhone X, Xs', 'iworks-pwa' ),
+				'description'       => __( '1125px &#10005; 2436px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 375, 812, 3 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px)
+			 */
+			array(
+				'name'              => 'splash_iphone_8p_7p_6sp_6p',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus', 'iworks-pwa' ),
+				'description'       => __( '1242px &#10005; 2208px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 414, 736, 3 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone 8, 7, 6s, 6 (750px x 1334px)
+			 */
+			array(
+				'name'              => 'splash_iphone_8_7_6s_6',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 8, 7, 6s, 6', 'iworks-pwa' ),
+				'description'       => __( '750px &#10005; 1334px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 375, 667, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPad Pro 12.9" (2048px x 2732px)
+			 */
+			array(
+				'name'              => 'splash_ipad_pro_12_9',
+				'type'              => 'image',
+				'th'                => __( 'iPad Pro 12.9"', 'iworks-pwa' ),
+				'description'       => __( '2048px &#10005; 2732px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 1024, 1366, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPad Pro 11” (1668px x 2388px)
+			 */
+			array(
+				'name'              => 'splash_ipad_pro_11',
+				'type'              => 'image',
+				'th'                => __( 'iPad Pro 11”', 'iworks-pwa' ),
+				'description'       => __( '1668px &#10005; 2388px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 834, 1194, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPad Pro 10.5" (1668px x 2224px)
+			 */
+			array(
+				'name'              => 'splash_ipad_pro_10_5',
+				'type'              => 'image',
+				'th'                => __( 'iPad Pro 10.5"', 'iworks-pwa' ),
+				'description'       => __( '1668px &#10005; 2224px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 834, 1112, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPad Mini, Air (1536px x 2048px)
+			 */
+			array(
+				'name'              => 'splash_ipad_mini_air',
+				'type'              => 'image',
+				'th'                => __( 'iPad Mini, Air', 'iworks-pwa' ),
+				'description'       => __( '1536px &#10005; 2048px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 768, 1024, 2 ),
+			),
+			/**
+			 * @since 1.5.4
+			 *
+			 * iPhone 5 (640px x 1136px)
+			 */
+			array(
+				'name'              => 'splash_iphone_5',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 5', 'iworks-pwa' ),
+				'description'       => __( '640px &#10005; 1136px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.4',
+				'media'             => array( 320, 568, 2 ),
 			),
 			/**
 			 * Microsoft

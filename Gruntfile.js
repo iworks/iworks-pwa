@@ -58,7 +58,7 @@ module.exports = function( grunt ) {
                 banner: '/**\n * <%= pkg.title %> - v<%= pkg.version %>\n' +
                 ' * <%= pkg.homepage %>\n' +
                 ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-                ' * Licensed GPLv2+' +
+                ' * Licensed GPLv3+' +
                 ' */\n'
             },
             scripts: {
@@ -104,7 +104,7 @@ module.exports = function( grunt ) {
                     banner: '/**\n * <%= pkg.title %> - v<%= pkg.version %>\n' +
                     ' * <%= pkg.homepage %>\n' +
                     ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-                    ' * Licensed GPLv2+' +
+                    ' * Licensed GPLv3+' +
                     ' */\n',
                     mangle: {
                         reserved: ['jQuery']
@@ -149,7 +149,7 @@ module.exports = function( grunt ) {
                 banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
                 ' * <%= pkg.homepage %>\n' +
                 ' * Copyright (c) <%= grunt.template.today("yyyy") %>;' +
-                ' * Licensed GPLv2+' +
+                ' * Licensed GPLv3+' +
                 ' */\n',
                 mergeIntoShorthands: false
             },

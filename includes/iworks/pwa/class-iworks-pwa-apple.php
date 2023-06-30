@@ -100,13 +100,17 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			echo PHP_EOL;
 		}
 		printf(
-			'<meta name="apple-mobile-web-app-title" content="%s" />%s',
+			'<meta name="apple-mobile-web-app-capable" content="yes">%s',
+			$this->eol
+		);
+		printf(
+			'<meta name="apple-mobile-web-app-title" content="%s">%s',
 			esc_attr( $this->configuration['short_name'] ),
 			$this->eol
 		);
 		printf(
-			'<meta name="apple-mobile-web-app-status-bar-style" content="%s" />%s',
-			$this->options->get_option( 'apple_sbc' ),
+			'<meta name="apple-mobile-web-app-status-bar-style" content="%s">%s',
+			$this->options->get_option( 'apple_status_bar_style' ),
 			$this->eol
 		);
 		/**
@@ -132,6 +136,25 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 		 *  apple-touch-startup-image
 		 */
 		$icons = $this->options->get_options_by_group( 'apple-touch-startup-image' );
+		/**
+		 * sort icons
+		 *
+		 * @since 1.5.4
+		 */
+		foreach ( $icons as &$icon ) {
+			$icon['sort_width']  = $icon['media'][0];
+			$icon['sort_height'] = $icon['media'][1];
+			$icon['sort_ratio']  = $icon['media'][2];
+		}
+		array_multisort(
+			array_column( $icons, 'sort_width' ),
+			SORT_NUMERIC,
+			array_column( $icons, 'sort_height' ),
+			SORT_NUMERIC,
+			array_column( $icons, 'sort_ratio' ),
+			SORT_NUMERIC,
+			$icons
+		);
 		if ( is_array( $icons ) && ! empty( $icons ) ) {
 			if ( $this->debug ) {
 				echo '<!-- Apple Splash Screen -->';
@@ -146,14 +169,27 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 				if ( empty( $value ) ) {
 					continue;
 				}
+				$media = '';
+				if (
+					isset( $one['media'] )
+					&& is_array( $one['media'] )
+					&& $one['media'][0]
+				) {
+					$media = sprintf(
+						'(device-width: %dpx) and (device-height: %dpx) and (-webkit-device-pixel-ratio: %d)',
+						$one['media'][0],
+						$one['media'][1],
+						$one['media'][2]
+					);
+				}
 				printf(
-					'<link rel="apple-touch-startup-image" sizes="%s" href="%s"/>%s',
-					$one['sizes'],
+					'<link rel="apple-touch-startup-image" %shref="%s">%s',
+					$media ? sprintf( 'media="%s" ', $media ) : '',
 					wp_make_link_relative( $value ),
 					$this->eol
 				);
 			}
 		}
 	}
-}
 
+}

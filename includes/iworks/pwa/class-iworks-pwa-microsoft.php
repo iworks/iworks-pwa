@@ -144,27 +144,27 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			$content .= PHP_EOL;
 		}
 		$content .= sprintf(
-			'<meta name="msapplication-config" content="%s" />%s',
+			'<meta name="msapplication-config" content="%s">%s',
 			esc_attr( $this->ieconfig_filename ),
 			$this->eol
 		);
 		$content .= sprintf(
-			'<meta name="application-name" content="%s" />%s',
+			'<meta name="application-name" content="%s">%s',
 			esc_attr( $this->configuration['name'] ),
 			$this->eol
 		);
 		$content .= sprintf(
-			'<meta name="msapplication-tooltip" content="%s" />%s',
+			'<meta name="msapplication-tooltip" content="%s">%s',
 			esc_attr( $this->configuration['description'] ),
 			$this->eol
 		);
 		$content .= sprintf(
-			'<meta name="msapplication-starturl" content="%s" />%s',
+			'<meta name="msapplication-starturl" content="%s">%s',
 			get_home_url(),
 			$this->eol
 		);
 		$content .= sprintf(
-			'<meta name="msapplication-navbutton-color" content="%s" />%s',
+			'<meta name="msapplication-navbutton-color" content="%s">%s',
 			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
@@ -198,7 +198,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			foreach ( $icons as $one ) {
 				if ( '144x144' === $one['sizes'] ) {
 					$content .= sprintf(
-						'<meta name="msapplication-TileImage" content="%s" />%s',
+						'<meta name="msapplication-TileImage" content="%s">%s',
 						esc_attr( wp_make_link_relative( $one['src'] ) ),
 						$this->eol
 					);
@@ -206,7 +206,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			}
 		}
 		$content .= sprintf(
-			'<meta name="msapplication-TileColor" content="%s" />%s',
+			'<meta name="msapplication-TileColor" content="%s">%s',
 			esc_attr( $this->configuration['theme_color'] ),
 			$this->eol
 		);
@@ -218,7 +218,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			}
 			foreach ( $icons as $data ) {
 				$content .= sprintf(
-					'<meta name="msapplication-square%slogo" content="%s" />%s',
+					'<meta name="msapplication-square%slogo" content="%s">%s',
 					esc_attr( $data['sizes'] ),
 					esc_attr( wp_make_link_relative( $data['src'] ) ),
 					$this->eol

@@ -81,7 +81,7 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		 */
 		if ( 'missing' === get_option( $this->option_name_check_meta_viewport ) ) {
 			printf(
-				'<meta name="viewport" content="width=device-width, initial-scale=1" />%s',
+				'<meta name="viewport" content="width=device-width, initial-scale=1">%s',
 				$this->eol
 			);
 		}
@@ -89,12 +89,12 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		 * manifest.json
 		 */
 		printf(
-			'<link rel="manifest" href="%s" />%s',
+			'<link rel="manifest" href="%s">%s',
 			wp_make_link_relative( home_url( 'manifest.json' ) ),
 			$this->eol
 		);
 		printf(
-			'<link rel="prefetch" href="%s" />%s',
+			'<link rel="prefetch" href="%s">%s',
 			wp_make_link_relative( home_url( 'manifest.json' ) ),
 			$this->eol
 		);
@@ -102,7 +102,7 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		 * theme color
 		 */
 		printf(
-			'<meta name="theme-color" content="%s" />%s',
+			'<meta name="theme-color" content="%s">%s',
 			$this->configuration['theme_color'],
 			$this->eol
 		);
