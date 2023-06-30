@@ -2,9 +2,10 @@
 Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
 Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json, installable, add to homescreen, offline, service worker, https
-Requires at least: 5.6
-Tested up to: 6.1
+Requires at least: PLUGIN_REQUIRES_WORDPRESS
+Tested up to: PLUGIN_TESTED_WORDPRESS
 Stable tag: PLUGIN_VERSION
+Requires PHP: PLUGIN_REQUIRES_PHP
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
