@@ -22,6 +22,13 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	 */
 	private $pointer_name = 'iworks_pwa_browsing';
 
+	/**
+	 * Need check URLS option name
+	 *
+	 * @since 1.5.5
+	 */
+	private $option_name_check_plugin_urls = 'check_urls';
+
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -33,16 +40,18 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		/**
 		 * iWorks PWA
 		 */
-		add_filter( 'iworks_pwa_options', array( $this, 'filter_add_debug_urls_to_config' ) );
-		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 100 );
 		add_filter( 'iworks_plugin_get_options', array( $this, 'filter_maybe_add_advertising' ), 10, 2 );
+		add_filter( 'iworks_pwa_administrator_debug_info', array( $this, 'filter_debug_info' ), 100 );
+		add_filter( 'iworks_pwa_options', array( $this, 'filter_add_debug_urls_to_config' ) );
 		/**
 		 * WordPress Hooks
 		 */
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_notices', array( $this, 'action_admin_notices_check_permalinks' ) );
+		add_action( 'admin_notices', array( $this, 'action_admin_notices_check_subdirectory' ) );
+		add_action( 'admin_notices', array( $this, 'action_admin_notices_maybe_show_check_url_error' ) );
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer' ) );
-		add_action( 'admin_notices', array( $this, 'check_permalinks' ) );
-		add_action( 'admin_notices', array( $this, 'check_subdirectory' ) );
+		add_action( 'update_option_rewrite_rules', array( $this, 'action_update_option_rewrite_rules_set_to_check_urls' ), PHP_INT_MAX );
 		/**
 		 * change logo for rate
 		 */
@@ -78,8 +87,14 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 *
 		 * @since 1.5.1
 		 */
-		add_action( 'shutdown', array( $this, 'meta_viewport_check' ) );
 		add_action( 'after_switch_theme', array( $this, 'meta_viewport_delete' ) );
+		add_action( 'shutdown', array( $this, 'meta_viewport_check' ) );
+		/**
+		 * A check for required PWA files (URLs)
+		 *
+		 * @since 1.5.5
+		 */
+		add_action( 'shutdown', array( $this, 'action_shutdown_maybe_check_requested_files' ) );
 	}
 
 	public function filter_add_debug_urls_to_config( $options ) {
@@ -192,7 +207,7 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.2.1
 	 */
-	public function check_permalinks() {
+	public function action_admin_notices_check_permalinks() {
 		$permalink_structure = get_option( 'permalink_structure' );
 		if ( ! empty( $permalink_structure ) ) {
 			return;
@@ -213,7 +228,7 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.4.0
 	 */
-	public function check_subdirectory() {
+	public function action_admin_notices_check_subdirectory() {
 		$components = parse_url( get_site_url() );
 		if ( ! isset( $components['path'] ) ) {
 			return;
@@ -330,5 +345,113 @@ jQuery( function( $ ) {
 		delete_option( $this->option_name_check_meta_viewport );
 	}
 
+	/**
+	 * Check single URL
+	 *
+	 * @since 1.5.5
+	 */
+	private function check_url( $request ) {
+		$success = true;
+		if ( $success ) {
+			add_filter( 'https_ssl_verify', '__return_false' );
+			$response = wp_remote_get( site_url( '/' . $request ) );
+			if ( is_wp_error( $response ) ) {
+				return false;
+			}
+		}
+		if ( $success ) {
+			$success = 200 === wp_remote_retrieve_response_code( $response );
+		}
+		if ( ! $success ) {
+			$this->options->update_option( $this->option_name_check_plugin_urls, 'error' );
+			$this->options->update_option( $this->option_name_check_plugin_urls . '_error', $request );
+		}
+		return $success;
+	}
+
+
+	/**
+	 * Check URLS
+	 *
+	 * @since 1.5.5
+	 */
+	public function action_shutdown_maybe_check_requested_files() {
+		if ( ! is_admin() ) {
+			return;
+		}
+		switch ( $this->options->get_option( $this->option_name_check_plugin_urls ) ) {
+			case 'need-to-check';
+				$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check-manifest-json' );
+			break;
+			case 'need-to-check-manifest-json':
+				$file = 'manifest.json';
+				if ( $this->check_url( $file ) ) {
+					$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check-iworks-pwa-service-worker-js' );
+				}
+				break;
+			case 'need-to-check-iworks-pwa-service-worker-js':
+				$file = 'iworks-pwa-service-worker-js';
+				if ( $this->check_url( $file ) ) {
+					$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check-iworks-pwa-offline' );
+				}
+				break;
+			case 'need-to-check-iworks-pwa-offline':
+				$file = 'iworks-pwa-service-worker-js';
+				if ( $this->check_url( $file ) ) {
+					$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check-ieconfig-xml' );
+				}
+				break;
+			case 'need-to-check-ieconfig-xml':
+				$file = 'ieconfig.xml';
+				if ( $this->check_url( $file ) ) {
+					$this->options->update_option( $this->option_name_check_plugin_urls, 'done' );
+				}
+				break;
+			case 'error':
+				break;
+			default:
+				$this->options->add_option( $this->option_name_check_plugin_urls, 'need-to-check', false );
+		}
+	}
+
+	/**
+	 * Re-Check URLS after rewrite_rules
+	 *
+	 * @since 1.5.5
+	 */
+	public function action_update_option_rewrite_rules_set_to_check_urls() {
+		$this->options->update_option( $this->option_name_check_plugin_urls, null );
+	}
+
+	/**
+	 * add messsage when check URLs failed
+	 *
+	 * @since 1.5.5
+	 */
+	public function action_admin_notices_maybe_show_check_url_error() {
+		if ( 'error' !== $this->options->get_option( $this->option_name_check_plugin_urls ) ) {
+			return;
+		}
+		$request = $this->options->get_option( $this->option_name_check_plugin_urls . '_error' );
+		echo '<div class="notice notice-error">';
+		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
+		echo wpautop(
+			sprintf(
+				__( 'The "%s" file is no reachable.', 'iworks-pwa' ),
+				sprintf(
+					'<a href="%s" target="_blank">%s</a>',
+					site_url( '/' . $request ),
+					$request
+				)
+			)
+		);
+		echo wpautop(
+			sprintf(
+				__( '<a href="%s">Please change your permalinks settings</a> or server rewrite rules.', 'iworks-pwa' ),
+				admin_url( 'options-permalink.php' )
+			)
+		);
+		echo '</div>';
+	}
 }
 

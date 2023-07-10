@@ -95,6 +95,11 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.5.5 (2023-07-10) =
+* A check for PWA files required to work has been added.
+* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.5.
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.2.
+
 = 1.5.4 (2023-06-30) =
 * The meta tag `apple-mobile-web-app-capable` has been added.
 * Trailing slashes from `link` and `meta` tags have been removed.
