@@ -390,7 +390,7 @@ abstract class iWorks_PWA {
 	protected function get_configuration_color_theme() {
 		$color = $this->options->get_option( 'color_theme' );
 		if ( empty( $color ) ) {
-			$color = $this->get_color_background();
+			$color = $this->get_configuration_color_background();
 		}
 		return apply_filters( 'iworks_pwa_configuration_theme_color', $color );
 	}
