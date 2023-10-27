@@ -1,5 +1,5 @@
 /**
- * PWA — easy way to Progressive Web App - v1.5.5
+ * PWA — easy way to Progressive Web App - v1.5.6
  * http://iworks.pl/en/plugins/iworks-pwa/
  * Copyright (c) 2023; * Licensed GPLv3+ */
 window.addEventListener('load', function(event) {
