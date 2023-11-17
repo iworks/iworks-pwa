@@ -99,7 +99,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 * [Empty shortcuts in the `manifest.json` file have been fixed](https://github.com/iworks/iworks-pwa/issues/4). Props for [elmando111](https://wordpress.org/support/users/elmando111/).
 * The filter `iworks-pwa/manifest/shortcuts` has been added. It's allowed to modify the shortcuts array in the `manifest.json` file.
 * The filter `iworks-pwa/manifest/shortcuts/element/url/campain` has been added. It's allowed to modify the campaign in shortcuts urls.
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.7.
+* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.8.
 
 = 1.5.6 (2023-10-27) =
 * Wrong function name `get_color_background()` has been fixed. Props for [bodhisattvac](https://wordpress.org/support/users/bodhisattvac/).
