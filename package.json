@@ -3,7 +3,7 @@
     "title": "PWA — easy way to Progressive Web App",
     "tagline": "Your easy way to Progressive Web Application.",
     "description": "Progressive Web Apps (PWA) is a technology that combines the best of mobile web and the best of mobile apps to create a superior mobile web experience. They are installed on the phone like a normal app (web app) and can be accessed from the home screen.",
-    "version": "1.5.6",
+    "version": "1.5.7",
     "homepage": "http://iworks.pl/en/plugins/iworks-pwa/",
     "author": [
         {
@@ -14,10 +14,10 @@
     ],
     "requires": {
         "WordPress": "6.0",
-        "PHP": "7.4"
+        "PHP": "8.0"
     },
     "tested": {
-        "WordPress": "6.3"
+        "WordPress": "6.4"
     },
     "devDependencies": {
         "ajv-keywords": "^3.2.0",
