@@ -200,8 +200,19 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			}
 			array_unshift( $data['icons'], $one );
 		}
-		$data['shortcuts'] = $this->get_shortcuts();
-		$data['id']        = $this->get_configuration_app_id();
+		/**
+		 * Check shortcuts and use it obnly when not empty.
+		 *
+		 * @since 1.5.7
+		 */
+		$shortcuts = $this->get_shortcuts();
+		if ( ! empty( $shortcuts ) && is_array( $shortcuts ) ) {
+			$data['shortcuts'] = $shortcuts;
+		}
+		/**
+		 * app id
+		 */
+		$data['id'] = $this->get_configuration_app_id();
 		header( 'Content-Type: application/json' );
 		echo json_encode( $data );
 		exit;
