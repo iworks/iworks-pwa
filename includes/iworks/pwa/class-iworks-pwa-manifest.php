@@ -259,7 +259,17 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 	 * @since 1.4.0
 	 */
 	private function get_shortcuts() {
-		return $this->options->get_option( $this->menu_location_id );
+		return apply_filters(
+			/**
+			 * aloow to change shortcuts array
+			 *
+			 * @since 1.5.7
+			 *
+			 * @param array
+			 */
+			'iworks-pwa/manifest/shortcuts',
+			$this->options->get_option( $this->menu_location_id )
+		);
 	}
 
 	public function action_wp_update_nav_menu_create_pwa_shortcuts( $menu_id, $menu_data = array() ) {
@@ -280,8 +290,21 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			$element = array(
 				'name' => $one->title,
 				'url'  => add_query_arg(
-					'utm',
-					'app',
+					apply_filters(
+						/**
+						 * aloow to change shortcut url campain
+						 *
+						 * @since 1.5.7
+						 *
+						 * @param array
+						 */
+						'iworks-pwa/manifest/shortcuts/element/url/campain',
+						array(
+							'utm_source'   => 'manifest.json',
+							'utm_medium'   => 'application',
+							'utm_campaign' => 'iworks-pwa',
+						)
+					),
 					wp_make_link_relative( $one->url )
 				),
 			);
