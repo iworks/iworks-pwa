@@ -108,7 +108,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 * The dynamic property has been fixed.
 * The function `parse_url()` has been replaced by the function `wp_parse_url()`.
 * The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.0.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.4.
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.6.
 * The nonce check has been added to check "viewport" feature.
 
 = 1.5.7 (2023-11-17) =
