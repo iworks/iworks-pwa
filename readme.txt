@@ -7,7 +7,6 @@ Tested up to: PLUGIN_TESTED_WORDPRESS
 Stable tag: PLUGIN_VERSION
 Requires PHP: PLUGIN_REQUIRES_PHP
 License: GPLv3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 PLUGIN_TAGLINE
 
@@ -94,6 +93,14 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 1. Shortcuts menu on Android.
 
 == Changelog ==
+
+= 1.5.8 (2023-12-27) =
+* The check for a tag meta with the "viewport" value has been added after changes in plugins activations.
+* The dynamic property has been fixed.
+* The function `parse_url()` has been replaced by the function `wp_parse_url()`.
+* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.0.
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.4.
+* The nonce check has been added to check "viewport" feature.
 
 = 1.5.7 (2023-11-17) =
 * [Empty shortcuts in the `manifest.json` file have been fixed](https://github.com/iworks/iworks-pwa/issues/4). Props for [elmando111](https://wordpress.org/support/users/elmando111/).

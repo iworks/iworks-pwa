@@ -88,7 +88,13 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * @since 1.5.1
 		 */
 		add_action( 'after_switch_theme', array( $this, 'meta_viewport_delete' ) );
-		add_action( 'shutdown', array( $this, 'meta_viewport_check' ) );
+        add_action( 'shutdown', array( $this, 'meta_viewport_check' ) );
+        /**
+         * check viewport again if plugins where been changed.
+         *
+         * @since 1.5.8
+         */
+		add_action( 'update_option_active_plugins', array( $this, 'meta_viewport_delete' ) );
 		/**
 		 * A check for required PWA files (URLs)
 		 *
@@ -229,7 +235,7 @@ jQuery( function( $ ) {
 	 * @since 1.4.0
 	 */
 	public function action_admin_notices_check_subdirectory() {
-		$components = parse_url( get_site_url() );
+		$components = wp_parse_url( get_site_url() );
 		if ( ! isset( $components['path'] ) ) {
 			return;
 		}
@@ -306,18 +312,31 @@ jQuery( function( $ ) {
 		$value = get_option( $this->option_name_check_meta_viewport );
 		if ( ! empty( $value ) ) {
 			return;
-		}
-		if ( isset( $_GET[ $this->option_name_check_meta_viewport ] ) ) {
-			return;
-		}
-		$url      = add_query_arg(
-			array(
-				$this->option_name_check_meta_viewport => 'checking',
-				'timestamp'                            => time(),
-			),
-			home_url()
-		);
-		$response = wp_remote_get( $url, array( 'sslverify' => false ) );
+        }
+        /**
+         * verify nonce if is true, then leave it, do not check!
+         *
+         * @since 1.5.8
+         */
+        if ( isset( $_GET['_wpnonce' ] ) ) {
+            if ( wp_verify_nonce($_GET['_wpnonce'], 'iworks-pwa-viewport')) {
+                return;
+            }
+        }
+        /**
+         * build check viewport url
+         */
+        $url      = wp_nonce_url(
+            add_query_arg(
+                array(
+                    $this->option_name_check_meta_viewport => 'checking',
+                    'timestamp'                            => time(),
+                ),
+                home_url(),
+            ),
+            'iworks-pwa-viewport'
+        );
+        $response = wp_remote_get( $url, array( 'sslverify' => false ) );
 		if ( is_wp_error( $response ) ) {
 			return;
 		}

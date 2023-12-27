@@ -8,7 +8,6 @@
 class iWorks_PWA_Integrations_WPML extends iWorks_PWA_Integrations {
 
 	private $languages = array();
-	private $options;
 	private $current_lang;
 	private $codes = array();
 
