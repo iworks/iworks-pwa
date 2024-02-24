@@ -451,6 +451,106 @@ function iworks_pwa_options() {
 				'media'             => array( 320, 568, 2 ),
 			),
 			/**
+			 * @since 1.5.9
+			 *
+			 * iPhone 14 Pro 1179×2556
+			 */
+			array(
+				'name'              => 'splash_i_248805b0',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 14 Pro', 'iworks-pwa' ),
+				'description'       => __( '1179px &#10005; 2556px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1179, 2556, 2 ),
+			),
+			/**
+			 * @since 1.5.9
+			 *
+			 * iPhone 14 Pro Max (1290×2796)
+			 */
+			array(
+				'name'              => 'splash_i_0fecb7ba',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 14 Pro', 'iworks-pwa' ),
+				'description'       => __( '1290px &#10005; 2796px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1290, 2796, 2 ),
+			),
+			/**
+			 * @since 1.5.9
+			 *
+			 * iPhone 14 Plus, 13 Pro Max, 12 Pro Max (1284×2778)
+			 *
+			 */
+			array(
+				'name'              => 'splash_i_6d71bfc3',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 14 Plus, 13 Pro Max, 12 Pro Max', 'iworks-pwa' ),
+				'description'       => __( '1284px &#10005; 2778px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1284, 2778, 2 ),
+			),
+			/**
+			 * @since 1.5.9
+			 *
+			 * iPhone 14, 13 Pro, 13, 12 Pro, 12 (1170×2532)
+			 *
+			 */
+			array(
+				'name'              => 'splash_i_4ced6cf1',
+				'type'              => 'image',
+				'th'                => __( 'iPhone 14, 13 Pro, 13, 12 Pro, 12', 'iworks-pwa' ),
+				'description'       => __( '1170px &#10005; 2532px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1170, 2532, 2 ),
+			),
+			/**
+			 * @since 1.5.9
+			 *
+			 * iPad Air 10.9″ (1640×2360)
+			 *
+			 */
+			array(
+				'name'              => 'splash_i_6697b877',
+				'type'              => 'image',
+				'th'                => __( 'iPad Air 10.9″', 'iworks-pwa' ),
+				'description'       => __( '1640px &#10005; 2360px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1640, 2360, 2 ),
+			),
+			/**
+			 * @since 1.5.9
+			 *
+			 * iPad 10.2″ (1620×2160)
+			 *
+			 */
+			array(
+				'name'              => 'splash_i_9d7ce6d5',
+				'type'              => 'image',
+				'th'                => __( 'iPad 10.2″', 'iworks-pwa' ),
+				'description'       => __( '1620px &#10005; 2160px', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'group'             => 'apple-touch-startup-image',
+				'since'             => '1.5.9',
+				'media'             => array( 1620, 2160, 2 ),
+			),
+			/**
 			 * Microsoft
 			 */
 			array(
