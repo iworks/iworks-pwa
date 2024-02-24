@@ -1,7 +1,7 @@
 === PWA — easy way to Progressive Web App ===
 Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
-Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json, installable, add to homescreen, offline, service worker, https
+Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json
 Requires at least: PLUGIN_REQUIRES_WORDPRESS
 Tested up to: PLUGIN_TESTED_WORDPRESS
 Stable tag: PLUGIN_VERSION
@@ -105,6 +105,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 = 1.5.9 (2024-02-24) =
 * A few sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
+* The plugin URL has been changed to [github](https://github.com/iworks/iworks-pwa).
 * The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.2.
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.8.
 
