@@ -2,7 +2,7 @@
 /*
 Plugin Name: PWA — simple way to Progressive Web App
 Text Domain: iworks-pwa
-Plugin URI: http://iworks.pl/iworks-pwa/
+Plugin URI: PLUGIN_URI
 Description: PLUGIN_TAGLINE
 Version: PLUGIN_VERSION
 Author: Marcin Pietrzak
