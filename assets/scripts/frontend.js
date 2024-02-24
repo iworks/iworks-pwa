@@ -1,7 +1,7 @@
 /**
- * PWA — easy way to Progressive Web App - v1.5.8
- * http://iworks.pl/en/plugins/iworks-pwa/
- * Copyright (c) 2023; * Licensed GPLv3+ */
+ * PWA — easy way to Progressive Web App - v1.5.9
+ * https://github.com/iworks/iworks-pwa
+ * Copyright (c) 2024; * Licensed GPLv3+ */
 window.addEventListener('load', function(event) {
     var iworks_pwa_deferred_prompt;
     const iworks_pwa_add_button = document.querySelector('#iworks-pwa-add-button');

@@ -103,10 +103,10 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
-= 1.5.9 (2024-02-21) =
+= 1.5.9 (2024-02-24) =
+* A few sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
 * The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.2.
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.8.
-* Few Apple sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
 
 = 1.5.8 (2023-12-27) =
 * The check for a tag meta with the "viewport" value has been added after changes in plugins activations.
