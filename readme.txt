@@ -103,6 +103,11 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.0 (2024-07-04) =
+* The filter `iworks-pwa/manifest/data` has been added. It's allowed to modify entire content of the `manifest.json` file. Props for [jdwf0658](https://wordpress.org/support/users/jdwf0658/).
+* The `.editorconfig` file has been added.
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.9.
+
 = 1.5.9 (2024-02-24) =
 * A few sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
 * The plugin URL has been changed to [github](https://github.com/iworks/iworks-pwa).

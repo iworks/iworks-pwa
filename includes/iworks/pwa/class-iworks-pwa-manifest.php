@@ -214,6 +214,20 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 */
 		$data['id'] = $this->get_configuration_app_id();
 		header( 'Content-Type: application/json' );
+		/**
+		 * filter manifest data
+		 */
+		$data = apply_filters(
+			/**
+			 * Allow to change manifest.json data.
+			 *
+			 * @since 1.6.0
+			 *
+			 * @param array
+			 */
+			'iworks-pwa/manifest/data',
+			$data
+		);
 		echo json_encode( $data );
 		exit;
 	}
