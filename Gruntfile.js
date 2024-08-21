@@ -237,6 +237,7 @@ module.exports = function(grunt) {
                     '**',
                     '!.git/**',
                     '!.git*',
+                    '!.editorconfig',
                     '!assets/sass/**',
                     '!assets/scss/**',
                     '!node_modules/**',
@@ -364,7 +365,7 @@ module.exports = function(grunt) {
                 ]
             },
             files: {
-                src: ['<%= pkg.name %>.php', 'vendor/**/*.php'], //all php 
+                src: ['<%= pkg.name %>.php', 'vendor/**/*.php'], //all php
                 expand: true,
             },
         },

@@ -103,6 +103,11 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.1 (2024-08-20) =
+* The meta viewport check request has been limited to one per day. Props for [skyfly024](https://wordpress.org/support/users/skyfly024/).
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.0.
+
+
 = 1.6.0 (2024-07-04) =
 * The filter `iworks-pwa/manifest/data` has been added. It's allowed to modify entire content of the `manifest.json` file. Props for [jdwf0658](https://wordpress.org/support/users/jdwf0658/).
 * The `.editorconfig` file has been added.
