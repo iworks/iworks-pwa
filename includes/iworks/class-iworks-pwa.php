@@ -45,7 +45,7 @@ abstract class iWorks_PWA {
 	 *
 	 * @since 1.3.0
 	 */
-	protected $settings_cache_option_name = 'ipwac_';
+	protected $settings_cache_option_name = 'ipwac';
 
 	/**
 	 * option to check meta viewport
@@ -59,6 +59,12 @@ abstract class iWorks_PWA {
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
 		$this->root  = rtrim( plugin_dir_path( $file ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		/**
+		 * version filter
+		 *
+		 * @since 1.6.2
+		 */
+		$this->version = apply_filters( 'iworks/pwa/version/', $this->version );
 		/**
 		 * End of line
 		 */
@@ -133,7 +139,7 @@ abstract class iWorks_PWA {
 	}
 
 	private function _set_configuration() {
-		$cache_key = $this->settings_cache_option_name . 'cfg';
+		$cache_key = $this->get_cache_name( 'cfg' );
 		$value     = get_transient( $cache_key );
 		if ( empty( $value ) ) {
 			$value = apply_filters(
@@ -148,7 +154,7 @@ abstract class iWorks_PWA {
 					'background_color' => $this->get_configuration_color_background(),
 					'orientation'      => $this->get_configuration_orientation(),
 					'display'          => $this->get_configuration_display(),
-					'Scope'            => apply_filters( 'iworks_pwa_configuration_Scope', '/' ),
+					'scope'            => $this->get_configuration_scope(),
 					'start_url'        => apply_filters(
 						'iworks_pwa_configuration_start_url',
 						add_query_arg(
@@ -283,7 +289,7 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.3.0
 		 */
-		$cache_key = $this->settings_cache_option_name . $group;
+		$cache_key = $this->get_cache_name( $group );
 		/**
 		 * cache get
 		 */
@@ -614,8 +620,7 @@ abstract class iWorks_PWA {
 			'head_microsoft',
 		);
 		foreach ( $keys as $key ) {
-			$cache_key = $this->settings_cache_option_name . $key;
-			delete_transient( $cache_key );
+			delete_transient( $this->get_cache_name( $key ) );
 		}
 	}
 
@@ -623,13 +628,11 @@ abstract class iWorks_PWA {
 		/**
 		 * general configuration cache
 		 */
-		$cache_key = $this->settings_cache_option_name . 'cfg';
-		delete_transient( $cache_key );
+		delete_transient( $this->get_cache_name( 'cfg' ) );
 		/**
 		 * cache for key
 		 */
-		$cache_key = $this->settings_cache_option_name . $key;
-		delete_transient( $cache_key );
+		delete_transient( $this->get_cache_name( $key ) );
 		/**
 		 * option
 		 */
@@ -650,8 +653,7 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.4.3
 		 */
-		$cache_key = $this->settings_cache_option_name . 'head_microsoft';
-		delete_transient( $cache_key );
+		delete_transient( $this->get_cache_name( 'head_microsoft' ) );
 	}
 
 	/**
@@ -668,5 +670,33 @@ abstract class iWorks_PWA {
 		}
 		return add_query_arg( 'app_id', $app_id, home_url() );
 	}
+
+	/**
+	 * get cache key, depent of version
+	 *
+	 * @since 1.6.2
+	 */
+	private function get_cache_name( $name ) {
+		return sprintf(
+			'%s/%s/%s',
+			$this->settings_cache_option_name,
+			$name,
+			'PLUGIN_VERSION' === $this->version ? crc32( time() ) : $this->version
+		);
+	}
+
+	/**
+	 * get configuration scope
+	 *
+	 * @since 1.6.2
+	 */
+	protected function get_configuration_scope() {
+		$value = $this->options->get_option( 'app_scope' );
+		if ( 'current-site' === $value ) {
+			return apply_filters( 'iworks_pwa_configuration_scope', get_home_url() . '/' );
+		}
+		return apply_filters( 'iworks_pwa_configuration_scope', '/' );
+	}
+
 
 }

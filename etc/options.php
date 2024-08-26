@@ -46,6 +46,24 @@ function iworks_pwa_options() {
 				'default'           => get_bloginfo( 'description' ),
 			),
 			array(
+				'name'        => 'app_scope',
+				'type'        => 'radio',
+				'th'          => __( 'Scope', 'iworks-pwa' ),
+				'description' => __( 'The scope defines the navigation scope of this web application\'s application context. It restricts what web pages can be viewed while the manifest is applied. If the user navigates outside the scope, it reverts to a normal web page inside a browser tab or window.', 'iworks-pwa' ),
+				'radio'       => array(
+					'relative'     => array(
+						'label'       => _x( 'Relative to the base URL.', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'If the scope is relative, the manifest URL is used as a base URL.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'current-site' => array(
+						'label'       => _x( 'Current site', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'If the scope is limited to current site the following scope limits navigation to the current site.', 'PWA settings', 'iworks-pwa' ),
+					),
+				),
+				'default'     => 'relative',
+				'since'       => '1.6.2',
+			),
+			array(
 				'name'        => 'app_orientation',
 				'type'        => 'radio',
 				'th'          => __( 'Orientation', 'iworks-pwa' ),

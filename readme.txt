@@ -103,6 +103,10 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.2 (2024-08-26) =
+* The scope value is now relative to or limited to the site URL. Props for [leighcc](https://wordpress.org/support/users/leighcc/). Check configuration screen for new option.
+* The plugin version has been added to cache key, to force refresh data after plugin update.
+
 = 1.6.1 (2024-08-20) =
 * The meta viewport check request has been limited to one per day. Props for [skyfly024](https://wordpress.org/support/users/skyfly024/).
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.0.
