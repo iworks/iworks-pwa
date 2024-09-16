@@ -129,6 +129,53 @@ function iworks_pwa_options() {
 				'rows'    => 10,
 			),
 			/**
+			 * Section "Categories"
+			 *
+			 * @since 1.6.3
+			 */
+			array(
+				'type'        => 'heading',
+				'label'       => __( 'Categories', 'iworks-pwa' ),
+				'description' => esc_html__(
+					'The categories member is an array of strings defining the names of categories that the application supposedly belongs to.',
+					'iworks-pwa'
+				),
+			),
+			array(
+				'name'    => 'categories',
+				'type'    => 'checkbox_group',
+				'options' => array(
+					'books'           => esc_html__( 'Books', 'iworks-pwa' ),
+					'business'        => esc_html__( 'Business', 'iworks-pwa' ),
+					'education'       => esc_html__( 'Education', 'iworks-pwa' ),
+					'entertainment'   => esc_html__( 'Entertainment', 'iworks-pwa' ),
+					'finance'         => esc_html__( 'Finance', 'iworks-pwa' ),
+					'fitness'         => esc_html__( 'Fitness', 'iworks-pwa' ),
+					'food'            => esc_html__( 'Food', 'iworks-pwa' ),
+					'games'           => esc_html__( 'Games', 'iworks-pwa' ),
+					'government'      => esc_html__( 'Government', 'iworks-pwa' ),
+					'health'          => esc_html__( 'Health', 'iworks-pwa' ),
+					'kids'            => esc_html__( 'Kids', 'iworks-pwa' ),
+					'lifestyle'       => esc_html__( 'Lifestyle', 'iworks-pwa' ),
+					'magazines'       => esc_html__( 'Magazines', 'iworks-pwa' ),
+					'medical'         => esc_html__( 'Medical', 'iworks-pwa' ),
+					'music'           => esc_html__( 'Music', 'iworks-pwa' ),
+					'navigation'      => esc_html__( 'Navigation', 'iworks-pwa' ),
+					'news'            => esc_html__( 'News', 'iworks-pwa' ),
+					'personalization' => esc_html__( 'Personalization', 'iworks-pwa' ),
+					'photo'           => esc_html__( 'Photo', 'iworks-pwa' ),
+					'politics'        => esc_html__( 'Politics', 'iworks-pwa' ),
+					'productivity'    => esc_html__( 'Productivity', 'iworks-pwa' ),
+					'security'        => esc_html__( 'Security', 'iworks-pwa' ),
+					'shopping'        => esc_html__( 'Shopping', 'iworks-pwa' ),
+					'social'          => esc_html__( 'Social', 'iworks-pwa' ),
+					'sports'          => esc_html__( 'Sports', 'iworks-pwa' ),
+					'travel'          => esc_html__( 'Travel', 'iworks-pwa' ),
+					'utilities'       => esc_html__( 'Utilities', 'iworks-pwa' ),
+					'weather'         => esc_html__( 'Weather', 'iworks-pwa' ),
+				),
+			),
+			/**
 			 * Section "Add to Home screen"
 			 *
 			 * @since 1.5.0

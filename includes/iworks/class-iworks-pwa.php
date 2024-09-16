@@ -31,7 +31,7 @@ abstract class iWorks_PWA {
 	 *
 	 * @since 1.1.1
 	 */
-	protected $eol;
+	protected $eol = PHP_EOL;
 
 	/**
 	 * Check for OG plugin: https://wordpress.org/plugins/og/
@@ -68,7 +68,7 @@ abstract class iWorks_PWA {
 		/**
 		 * End of line
 		 */
-		$this->eol = $this->debug ? PHP_EOL : '';
+		$this->eol = apply_filters( 'iworks/pwa/eol', $this->eol );
 		/**
 		 * set options
 		 */
@@ -168,6 +168,7 @@ abstract class iWorks_PWA {
 					),
 					'splash_pages'     => apply_filters( 'iworks_pwa_configuration_splash_pages', null ),
 					'icons'            => $this->get_configuration_icons(),
+					'categories'       => $this->get_configuration_categories(),
 				)
 			);
 			if ( ! is_admin() ) {
@@ -698,5 +699,22 @@ abstract class iWorks_PWA {
 		return apply_filters( 'iworks_pwa_configuration_scope', '/' );
 	}
 
+	/**
+	 * get configuration categories
+	 *
+	 * @since 1.6.3
+	 */
+	protected function get_configuration_categories() {
+		$value = $this->options->get_option( 'categories' );
+		if ( is_array( $value ) ) {
+			$value = array_values( $value );
+		} else {
+			$value = null;
+		}
+		return apply_filters(
+			'iworks/pwa/configuration/categories',
+			$value
+		);
+	}
 
 }

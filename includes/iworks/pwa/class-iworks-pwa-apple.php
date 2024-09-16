@@ -100,7 +100,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			echo PHP_EOL;
 		}
 		printf(
-			'<meta name="apple-mobile-web-app-capable" content="yes">%s',
+			'<meta name="mobile-web-app-capable" content="yes">%s',
 			$this->eol
 		);
 		printf(

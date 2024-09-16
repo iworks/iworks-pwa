@@ -103,6 +103,11 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.3 (2024-09-16) =
+* All empty values where been removed from `manifest.json`.
+* The categories element has been added into `manifest.json`.
+* The deprecated key `apple-mobile-web-app-capable` has been changed into `mobile-web-app-capable`.
+
 = 1.6.2 (2024-08-26) =
 * The scope value is now relative to or limited to the site URL. Props for [leighcc](https://wordpress.org/support/users/leighcc/). Check configuration screen for new option.
 * The plugin version has been added to cache key, to force refresh data after plugin update.

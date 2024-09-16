@@ -215,6 +215,16 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		$data['id'] = $this->get_configuration_app_id();
 		header( 'Content-Type: application/json' );
 		/**
+		 * remove empty values
+		 *
+		 * @since 1.6.3
+		 */
+		foreach ( $data as $key => $value ) {
+			if ( empty( $value ) ) {
+				unset( $data[ $key ] );
+			}
+		}
+		/**
 		 * filter manifest data
 		 */
 		$data = apply_filters(
