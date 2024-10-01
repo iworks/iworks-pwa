@@ -71,13 +71,6 @@ new iWorks_PWA_Frontend;
 new iWorks_PWA_Apple;
 new iWorks_PWA_Microsoft;
 /**
- * SVG
- */
-if ( ! class_exists( 'iWorks_SVG' ) ) {
-	require_once $includes . '/iworks/class-iworks-svg.php';
-	new iWorks_SVG;
-}
-/**
  * admin
  */
 if ( is_admin() ) {

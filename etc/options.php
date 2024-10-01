@@ -286,7 +286,7 @@ function iworks_pwa_options() {
 				'type'  => 'subheading',
 				'label' => __( 'Pinned Tab Icon', 'iworks-pwa' ),
 			),
-			array(
+			'apple_pti' => array(
 				'name'              => 'apple_pti',
 				'type'              => 'image',
 				'th'                => __( 'Icon', 'iworks-pwa' ),

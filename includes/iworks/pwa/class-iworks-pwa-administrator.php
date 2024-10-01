@@ -101,6 +101,52 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		 * @since 1.5.5
 		 */
 		add_action( 'shutdown', array( $this, 'action_shutdown_maybe_check_requested_files' ) );
+		/**
+		 * check SAFE_SVG_VERSION
+		 */
+		add_filter( 'iworks_plugin_get_options', array( $this, 'filter_options_check_safe_svg' ), 10, 2 );
+	}
+
+	/**
+	 * add inffo about Safe SVG plugin
+	 *
+	 * @since 1.6.4
+	 */
+	public function filter_options_check_safe_svg( $options, $slug ) {
+		if ( 'iworks-pwa' !== $slug ) {
+			return $options;
+		}
+		if ( ! defined( 'SAFE_SVG_VERSION' ) ) {
+			$action                                   = 'install-plugin';
+			$slug                                     = 'safe-svg';
+			$url                                      = wp_nonce_url(
+				add_query_arg(
+					array(
+						'action' => $action,
+						'plugin' => $slug,
+					),
+					admin_url( 'update.php' )
+				),
+				$action . '_' . $slug
+			);
+			$options['index']['options']['apple_pti'] = wp_parse_args(
+				array(
+					'value'       => sprintf(
+						esc_html__( 'This field requires an SVG file. To securely upload SVG files, please install the %s plugin.', 'iworks-pwa' ),
+						sprintf(
+							'<a href="%s">%s</a>',
+							esc_url( $url ),
+							esc_html__( 'Safe SVG', 'iworks-pwa' )
+						)
+					),
+					'type'        => 'info',
+					'description' => false,
+				),
+				$options['index']['options']['apple_pti']
+			);
+		}
+
+		return $options;
 	}
 
 	public function filter_add_debug_urls_to_config( $options ) {

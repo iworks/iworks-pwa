@@ -103,6 +103,9 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.4 (2024-10-01) =
+* Ability to upload SVG file has been removed due to Stored Cross-Site Scripting vulnerability. We recommended to install [Safe SVG](https://wordpress.org/plugins/safe-svg/) to allow upload SVG files. Props for discovering and reporting to [Francesco Carlucci](https://francescocarlucci.com/).
+
 = 1.6.3 (2024-09-16) =
 * All empty values where been removed from `manifest.json`.
 * The categories element has been added into `manifest.json`.
