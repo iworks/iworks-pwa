@@ -52,6 +52,8 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		add_action( 'admin_notices', array( $this, 'action_admin_notices_maybe_show_check_url_error' ) );
 		add_action( 'admin_print_footer_scripts', array( $this, 'print_admin_pointer' ) );
 		add_action( 'update_option_rewrite_rules', array( $this, 'action_update_option_rewrite_rules_set_to_check_urls' ), PHP_INT_MAX );
+		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue_scripts' ) );
+		add_action( 'wp_ajax_iworks_pwa_notice_check_url_hide', array( $this, 'action_wp_ajax_close_for_3_months' ) );
 		/**
 		 * change logo for rate
 		 */
@@ -195,7 +197,6 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	 * @since 1.0.0
 	 */
 	public function load_no_ssl_warning() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
 		add_action( 'admin_notices', array( $this, 'show_no_ssl' ) );
 	}
 
@@ -436,7 +437,7 @@ jQuery( function( $ ) {
 		$success = true;
 		if ( $success ) {
 			add_filter( 'https_ssl_verify', '__return_false' );
-			$response = wp_remote_get( site_url( '/' . $request ) );
+			$response = wp_remote_get( site_url( '/' . $request, array( 'sslverify' => false ) ) );
 			if ( is_wp_error( $response ) ) {
 				return false;
 			}
@@ -461,7 +462,14 @@ jQuery( function( $ ) {
 		if ( ! is_admin() ) {
 			return;
 		}
-		switch ( $this->options->get_option( $this->option_name_check_plugin_urls ) ) {
+		$value = $this->options->get_option( $this->option_name_check_plugin_urls );
+		if ( ! empty( $value ) && preg_match( '/^timestamp:(\d+)$/', $value, $matches ) ) {
+			if ( time() > $matches[1] ) {
+				$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check', false );
+			}
+			return;
+		}
+		switch ( $value ) {
 			case 'need-to-check';
 				$this->options->update_option( $this->option_name_check_plugin_urls, 'need-to-check-manifest-json' );
 			break;
@@ -486,7 +494,7 @@ jQuery( function( $ ) {
 			case 'need-to-check-ieconfig-xml':
 				$file = 'ieconfig.xml';
 				if ( $this->check_url( $file ) ) {
-					$this->options->update_option( $this->option_name_check_plugin_urls, 'done' );
+					$this->freeze_check_for_3_months();
 				}
 				break;
 			case 'error':
@@ -515,7 +523,10 @@ jQuery( function( $ ) {
 			return;
 		}
 		$request = $this->options->get_option( $this->option_name_check_plugin_urls . '_error' );
-		echo '<div class="notice notice-error">';
+		printf(
+			'<div class="iworks-pwa-notice-check-url notice notice-error is-dismissible" data-nonce="%s" data-action="iworks_pwa_notice_check_url_hide">',
+			wp_create_nonce( 'iworks-pwa', 'iworks-pwa' )
+		);
 		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
 		echo wpautop(
 			sprintf(
@@ -533,7 +544,85 @@ jQuery( function( $ ) {
 				admin_url( 'options-permalink.php' )
 			)
 		);
+		switch ( $request ) {
+			case 'ieconfig.xml':
+				printf(
+					'<h3>%s</h3>',
+					sprintf(
+						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
+						$request
+					)
+				);
+				echo '<dl>';
+				echo '<dt>apache</dt>';
+				echo '<dd><pre class="code">';
+				echo 'RewriteEngine on',PHP_EOL;
+				echo 'RewriteCond %{QUERY_STRING} ^$',PHP_EOL;
+				echo 'RewriteRule ^ieconfig\.xml$ /index.php?/ieconfig.xml [L]';
+				echo '</pre></code></dd>';
+				echo '<dl>';
+				echo '<dt>nginx</dt>';
+				echo '<dd><code>';
+				echo 'rewrite ^/ieconfig.xml$ /index.php?/ieconfig.xml last;';
+				echo '</code></dd>';
+				echo '</dl>';
+				break;
+			case 'manifest.json':
+				printf(
+					'<h3>%s</h3>',
+					sprintf(
+						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
+						$request
+					)
+				);
+				echo '<dl>';
+				echo '<dt>apache</dt>';
+				echo '<dd><pre class="code">';
+				echo 'RewriteEngine on',PHP_EOL;
+				echo 'RewriteCond %{QUERY_STRING} ^$',PHP_EOL;
+				echo 'RewriteRule ^manifest\.json$ /index.php?/manifest.json [L]';
+				echo '</pre></code></dd>';
+				echo '<dl>';
+				echo '<dt>nginx</dt>';
+				echo '<dd><code>';
+				echo 'rewrite ^/manifest.json$ /index.php?/manifest.json last;';
+				echo '</code></dd>';
+				echo '</dl>';
+				break;
+		}
 		echo '</div>';
+	}
+
+	/**
+	 * Equeue script to handle closing notice.
+	 *
+	 * @since 1.6.5
+	 */
+	public function action_admin_enqueue_scripts() {
+		if ( 'error' === $this->options->get_option( $this->option_name_check_plugin_urls ) ) {
+			$this->admin_enqueue();
+		}
+	}
+
+	/**
+	 * Close notice for 3 months.
+	 *
+	 * @since 1.6.5
+	 */
+	public function action_wp_ajax_close_for_3_months() {
+		if ( wp_verify_nonce( filter_input( INPUT_POST, 'nonce' ), 'iworks-pwa' ) ) {
+			$this->freeze_check_for_3_months();
+		}
+	}
+
+	/**
+	 * Value to stop checking for 3 months.
+	 *
+	 * @since 1.6.5
+	 */
+	private function freeze_check_for_3_months() {
+		$value = 'timestamp:' . ( time() + 3 * MONTH_IN_SECONDS );
+		$this->options->update_option( $this->option_name_check_plugin_urls, $value );
 	}
 }
 
