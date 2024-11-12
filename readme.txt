@@ -103,6 +103,10 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.5 (2024-11-12) =
+* Detailed explanation for missing `manifest.json` and `ieconfig.xml` requests where been added. [#2](https://github.com/iworks/iworks-pwa/issues/2)
+* Wrong `purpose` value has been fixed. Props for [vitalii-work](https://github.com/vitalii-work). [#6](https://github.com/iworks/iworks-pwa/issues/6)
+
 = 1.6.4 (2024-10-01) =
 * Ability to upload SVG file has been removed due to Stored Cross-Site Scripting vulnerability. We recommended to install [Safe SVG](https://wordpress.org/plugins/safe-svg/) to allow upload SVG files. Props for discovering and reporting for [Francesco Carlucci](https://francescocarlucci.com/).
 

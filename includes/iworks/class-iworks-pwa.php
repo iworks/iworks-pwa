@@ -129,6 +129,12 @@ abstract class iWorks_PWA {
 			array(),
 			$this->version
 		);
+		wp_enqueue_script(
+			__CLASS__,
+			$this->url . '/assets/scripts/admin.js',
+			array(),
+			$this->version
+		);
 	}
 
 	protected function get_configuration() {
@@ -223,67 +229,77 @@ abstract class iWorks_PWA {
 	 *
 	 * @since 1.3.3
 	 */
-	private function get_defaults_icons() {
+	private function get_defaults_icons( $maskable ) {
 		$root  = sprintf( '%s/assets/images/icons/favicon', $this->url );
-		$icons = apply_filters(
-			'iworks_pwa_configuration_icons',
+		$icons = array(
 			array(
-				array(
-					'src'     => sprintf( '%s/android-icon-36x36.png', $root ),
-					'sizes'   => '36x36',
-					'type'    => 'image/png',
-					'density' => '0.75',
-				),
-				array(
-					'src'     => sprintf( '%s/android-icon-48x48.png', $root ),
-					'sizes'   => '48x48',
-					'type'    => 'image/png',
-					'density' => '1.0',
-				),
-				array(
-					'src'     => sprintf( '%s/android-icon-72x72.png', $root ),
-					'sizes'   => '72x72',
-					'type'    => 'image/png',
-					'density' => '1.5',
-				),
-				array(
-					'src'     => sprintf( '%s/android-icon-96x96.png', $root ),
-					'sizes'   => '96x96',
-					'type'    => 'image/png',
-					'density' => '2.0',
-				),
-				array(
-					'src'     => sprintf( '%s/android-icon-144x144.png', $root ),
-					'sizes'   => '144x144',
-					'type'    => 'image/png',
-					'density' => '3.0',
-				),
-				array(
-					'src'     => sprintf( '%s/android-icon-192x192.png', $root ),
-					'sizes'   => '192x192',
-					'type'    => 'image/png',
-					'density' => '4.0',
-				),
-				array(
-					'src'   => sprintf( '%s/android-icon-512x512.png', $root ),
-					'sizes' => '512x512',
-					'type'  => 'image/png',
-				),
-				array(
-					'src'     => sprintf( '%s/maskable.png', $root ),
-					'sizes'   => '1024x1024',
-					'type'    => 'image/png',
-					'purpose' => 'any maskable',
-				),
-			)
+				'src'     => sprintf( '%s/android-icon-36x36.png', $root ),
+				'sizes'   => '36x36',
+				'type'    => 'image/png',
+				'density' => '0.75',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-48x48.png', $root ),
+				'sizes'   => '48x48',
+				'type'    => 'image/png',
+				'density' => '1.0',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-72x72.png', $root ),
+				'sizes'   => '72x72',
+				'type'    => 'image/png',
+				'density' => '1.5',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-96x96.png', $root ),
+				'sizes'   => '96x96',
+				'type'    => 'image/png',
+				'density' => '2.0',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-144x144.png', $root ),
+				'sizes'   => '144x144',
+				'type'    => 'image/png',
+				'density' => '3.0',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-192x192.png', $root ),
+				'sizes'   => '192x192',
+				'type'    => 'image/png',
+				'density' => '4.0',
+			),
+			array(
+				'src'     => sprintf( '%s/android-icon-512x512.png', $root ),
+				'sizes'   => '512x512',
+				'type'    => 'image/png',
+				'purpose' => 'any',
+			),
 		);
-		return $icons;
+		/**
+		 * maskable
+		 */
+		$purpose_maskable_has_been_added = false;
+		if ( $maskable ) {
+			l( $maskable );
+		}
+		if ( ! $purpose_maskable_has_been_added ) {
+			$icons[] = array(
+				'src'   => sprintf( '%s/maskable.png', $root ),
+				'sizes' => '1024x1024',
+				'type'  => 'image/png',
+			);
+		}
+		return apply_filters(
+			'iworks_pwa_configuration_icons',
+			$icons
+		);
 	}
 
 	protected function get_configuration_icons( $group = 'manifest' ) {
-		$value = intval( $this->options->get_option( 'icon_app' ) );
+		$value    = intval( $this->options->get_option( 'icon_app' ) );
+		$maskable = intval( $this->options->get_option( 'icon_maskable' ) );
 		if ( empty( $value ) ) {
-			return $this->get_defaults_icons();
+			return $this->get_defaults_icons( $maskable );
 		}
 		/**
 		 * Handle cache
@@ -302,7 +318,7 @@ abstract class iWorks_PWA {
 		$icons             = $this->options->get_option( $icons_option_name );
 		$root              = $this->get_icons_directory();
 		if ( ! empty( $icons ) ) {
-			$icons = $this->maybe_add_purpose_maskable( $icons );
+			$icons = $this->maybe_add_purpose_maskable( $icons, $maskable );
 			/**
 			 * Handle cache
 			 *
@@ -345,7 +361,7 @@ abstract class iWorks_PWA {
 		if ( empty( $icons ) ) {
 			delete_transient( $cache_key );
 		} else {
-			$icons = $this->maybe_add_purpose_maskable( $icons );
+			$icons = $this->maybe_add_purpose_maskable( $icons, $maskable );
 			$this->options->update_option( $icons_option_name, $icons );
 			/**
 			 * Handle cache
@@ -361,7 +377,7 @@ abstract class iWorks_PWA {
 		if ( 'manifest' !== $group ) {
 			return apply_filters( 'iworks_pwa_configuration_icons', array() );
 		}
-		$icons = $this->get_defaults_icons();
+		$icons = $this->get_defaults_icons( $maskable );
 		/**
 		 * Handle cache
 		 *
@@ -576,36 +592,92 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * Try to add purpose "any maskable" if it is not present.
+	 * Try to add purpose if it is not present.
 	 *
 	 * @since 1.2.2
 	 */
-	private function maybe_add_purpose_maskable( $icons ) {
-		$attachement_id = intval( $this->options->get_option( 'icon_splash' ) );
-		if ( ! empty( $attachement_id ) ) {
-			$value = wp_get_attachment_image_src( $attachement_id, 'full' );
+	private function maybe_add_purpose_maskable( $icons, $maskable ) {
+		/**
+		 * handle maskable
+		 */
+		$purpose_maskable_has_been_added = false;
+		if ( ! empty( $maskable ) ) {
+			$attachement_id = $maskable;
+			$value          = wp_get_attachment_image_src( $attachement_id, 'full' );
 			if ( is_array( $value ) ) {
-				$icons[ $attachement_id ] = array(
+				$icons[]                    = array(
 					'sizes'   => sprintf( '%dx%d', $value[1], $value[2] ),
 					'type'    => get_post_mime_type( $attachement_id ),
 					'group'   => array( 'manifest' ),
 					'src'     => $value[0],
-					'purpose' => 'any maskable',
+					'purpose' => 'maskable',
 				);
-				return $icons;
+				$purpose_any_has_been_added = true;
 			}
 		}
-		$max = 0;
+		/**
+		 * handle splash as any
+		 */
+		$purpose_any_has_been_added = false;
+		$attachement_id             = intval( $this->options->get_option( 'icon_splash' ) );
+		if ( ! empty( $attachement_id ) ) {
+			$value = wp_get_attachment_image_src( $attachement_id, 'full' );
+			if ( is_array( $value ) ) {
+				$icons[ $attachement_id ]   = array(
+					'sizes'   => sprintf( '%dx%d', $value[1], $value[2] ),
+					'type'    => get_post_mime_type( $attachement_id ),
+					'group'   => array( 'manifest' ),
+					'src'     => $value[0],
+					'purpose' => 'any',
+				);
+				$purpose_any_has_been_added = true;
+			}
+		}
+		/**
+		 * check
+		 */
 		foreach ( $icons as $size => $icon ) {
-			if ( isset( $icon['purpose'] ) && preg_match( '/maskable/', $icon['purpose'] ) ) {
-				return $icons;
-			}
-			if ( $size > $max ) {
-				$max = $size;
+			if ( isset( $icon['purpose'] ) ) {
+				switch ( $icon['purpose'] ) {
+					case 'maskable':
+						$purpose_maskable_has_been_added = true;
+						break;
+					case 'any':
+						$purpose_any_has_been_added = true;
+						break;
+				}
 			}
 		}
-		if ( 0 < $max ) {
-			$icons[ $max ]['purpose'] = 'any maskable';
+		/**
+		 * maskable
+		 */
+		if ( ! $purpose_maskable_has_been_added ) {
+			$max = 0;
+			foreach ( $icons as $size => $icon ) {
+				if ( $size > $max ) {
+					$max = $size;
+				}
+			}
+			if ( 0 < $max ) {
+				$icons[ $max ]['purpose'] = 'maskable';
+			}
+		}
+		/**
+		 * any
+		 */
+		if ( ! $purpose_any_has_been_added ) {
+			$max = 0;
+			foreach ( $icons as $size => $icon ) {
+				if ( isset( $icon['purpose'] ) && preg_match( '/maskable/', $icon['purpose'] ) ) {
+					continue;
+				}
+				if ( $size > $max ) {
+					$max = $size;
+				}
+			}
+			if ( 0 < $max ) {
+				$icons[ $max ]['purpose'] = 'any';
+			}
 		}
 		return $icons;
 	}

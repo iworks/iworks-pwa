@@ -256,6 +256,14 @@ function iworks_pwa_options() {
 				'max-width'         => 64,
 			),
 			array(
+				'name'              => 'icon_maskable',
+				'type'              => 'image',
+				'th'                => __( 'Maskable Icon', 'iworks-pwa' ),
+				'description'       => __( 'Maskable icon is adaptive icon that can be displayed in a variety of shapes that operating systems provide. For example, on Android, app icons can have a circular mask. Your PWA app icon should specifically support masking to look well integrated with operating systems that apply masks.', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+			),
+			array(
 				'name'              => 'icon_splash',
 				'type'              => 'image',
 				'type'              => 'special',
@@ -739,10 +747,9 @@ function iworks_pwa_options() {
 			),
 		),
 		1024 => array(
-			'sizes'   => '1024x1024',
-			'type'    => 'image/png',
-			'purpose' => 'any maskable',
-			'group'   => array(
+			'sizes' => '1024x1024',
+			'type'  => 'image/png',
+			'group' => array(
 				'manifest',
 			),
 		),
