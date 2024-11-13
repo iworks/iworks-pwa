@@ -134,6 +134,7 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 			$options['index']['options']['apple_pti'] = wp_parse_args(
 				array(
 					'value'       => sprintf(
+						/* translators: %s: "Safe SVG" plugin name with link */
 						esc_html__( 'This field requires an SVG file. To securely upload SVG files, please install the %s plugin.', 'iworks-pwa' ),
 						sprintf(
 							'<a href="%s">%s</a>',
@@ -269,6 +270,7 @@ jQuery( function( $ ) {
 		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
 		echo wpautop(
 			sprintf(
+				/* translators: %s; url to permalinks settings */
 				__( 'This plugin does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
 				admin_url( 'options-permalink.php' )
 			)
@@ -408,8 +410,8 @@ jQuery( function( $ ) {
 		if ( preg_match_all( '/<meta[^>]+/', $html, $matches ) ) {
 			foreach ( $matches[0] as $one ) {
 				if (
-					preg_match( '/name=["\']viewport["\']/', $one )
-					&& preg_match( '/initial-scale/', $one )
+				preg_match( '/name=["\']viewport["\']/', $one )
+				&& preg_match( '/initial-scale/', $one )
 				) {
 					update_option( $this->option_name_check_meta_viewport, 'valid' );
 					return;
@@ -530,6 +532,7 @@ jQuery( function( $ ) {
 		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
 		echo wpautop(
 			sprintf(
+			/* translators: %s: filename as link */
 				__( 'The "%s" file is no reachable.', 'iworks-pwa' ),
 				sprintf(
 					'<a href="%s" target="_blank">%s</a>',
@@ -540,6 +543,7 @@ jQuery( function( $ ) {
 		);
 		echo wpautop(
 			sprintf(
+			/* translators: %s: link to permalinks settings */
 				__( '<a href="%s">Please change your permalinks settings</a> or server rewrite rules.', 'iworks-pwa' ),
 				admin_url( 'options-permalink.php' )
 			)
@@ -549,6 +553,7 @@ jQuery( function( $ ) {
 				printf(
 					'<h3>%s</h3>',
 					sprintf(
+					/* translators: %s: current request */
 						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
 						$request
 					)
@@ -571,6 +576,7 @@ jQuery( function( $ ) {
 				printf(
 					'<h3>%s</h3>',
 					sprintf(
+					/* translators: %s: request */
 						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
 						$request
 					)

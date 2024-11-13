@@ -32,7 +32,10 @@ if ( current_user_can( 'deactivate_plugin', $plugin_file ) ) {
 		'deactivate-plugin_' . $plugin_file,
 	);
 	$content   .= sprintf(
-		wpautop( __( 'We recommend <a href="%s">deactivate</a> this plugin and activate it again after this site will use SSL.', 'iworks-pwa' ) ),
+		wpautop(
+			/* translators: %s: url to deactivate plugin */
+			__( 'We recommend <a href="%s">deactivate</a> this plugin and activate it again after this site will use SSL.', 'iworks-pwa' )
+		),
 		$deactivate
 	);
 }

@@ -103,6 +103,9 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.6 (2024-11-xx) =
+* Few "translators" comments where been added.
+
 = 1.6.5 (2024-11-12) =
 * Detailed explanation for missing `manifest.json` and `ieconfig.xml` requests where been added. [#2](https://github.com/iworks/iworks-pwa/issues/2)
 * Wrong `purpose` value has been fixed. Props for [vitalii-work](https://github.com/vitalii-work). [#6](https://github.com/iworks/iworks-pwa/issues/6)

@@ -187,11 +187,10 @@ function iworks_pwa_options() {
 				'since'       => '1.5.0',
 			),
 			array(
-				'name'        => 'button_a2hs_position',
-				'type'        => 'radio',
-				'th'          => __( 'Position', 'iworks-pwa' ),
-				'description' => __( '', 'iworks-pwa' ),
-				'radio'       => array(
+				'name'    => 'button_a2hs_position',
+				'type'    => 'radio',
+				'th'      => __( 'Position', 'iworks-pwa' ),
+				'radio'   => array(
 					'hide'         => array(
 						'label'       => _x( 'Hide (recommended)', 'PWA settings', 'iworks-pwa' ),
 						'description' => __( 'Browser will show A2HS prompt automatically if it is needed.', 'iworks-pwa' ),
@@ -204,8 +203,8 @@ function iworks_pwa_options() {
 						'label' => _x( 'Footer', 'PWA settings', 'iworks-pwa' ),
 					),
 				),
-				'default'     => 'hide',
-				'since'       => '1.5.0',
+				'default' => 'hide',
+				'since'   => '1.5.0',
 			),
 			array(
 				'name'              => 'button_a2hs_text',
@@ -262,6 +261,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'Maskable icon is adaptive icon that can be displayed in a variety of shapes that operating systems provide. For example, on Android, app icons can have a circular mask. Your PWA app icon should specifically support masking to look well integrated with operating systems that apply masks.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'since'             => '1.6.5',
 			),
 			array(
 				'name'              => 'icon_splash',

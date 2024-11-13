@@ -184,9 +184,9 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 				}
 				printf(
 					'<link rel="apple-touch-startup-image" %shref="%s">%s',
-					$media ? sprintf( 'media="%s" ', $media ) : '',
+					$media ? sprintf( 'media="%s" ', esc_attr( $media ) ) : '',
 					wp_make_link_relative( $value ),
-					$this->eol
+					esc_html( $this->eol )
 				);
 			}
 		}
