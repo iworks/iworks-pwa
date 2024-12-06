@@ -64,22 +64,44 @@ function iworks_pwa_options() {
 				'since'       => '1.6.2',
 			),
 			array(
-				'name'        => 'app_orientation',
-				'type'        => 'radio',
-				'th'          => __( 'Orientation', 'iworks-pwa' ),
-				'description' => __( 'Set the orientation of your app on devices. When set to &#8220;Follow Device Orientation&#8221; your app will rotate as the device is rotated.', 'iworks-pwa' ),
-				'radio'       => array(
-					'any'       => array(
-						'label' => _x( 'Follow Device Orientation', 'PWA settings', 'iworks-pwa' ),
+				'name'    => 'app_orientation',
+				'type'    => 'radio',
+				'th'      => __( 'Orientation', 'iworks-pwa' ),
+				'radio'   => array(
+					'any'                 => array(
+						'label'       => _x( 'Follow Device Orientation', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in any orientation allowed by the device\'s operating system or user settings. It allows the app to rotate freely to match the orientation of the device when it is rotated.', 'PWA settings', 'iworks-pwa' ),
 					),
-					'portrait'  => array(
-						'label' => _x( 'Portrait', 'PWA settings', 'iworks-pwa' ),
+					'natural'             => array(
+						'label'       => _x( 'Natural', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in the orientation considered most natural for the device, as determined by the browser, operating system, user settings, or the screen itself.', 'PWA settings', 'iworks-pwa' ),
 					),
-					'landscape' => array(
-						'label' => _x( 'Landscape', 'PWA settings', 'iworks-pwa' ),
+					'portrait'            => array(
+						'label'       => _x( 'Portrait', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app with height greater than width. It allows the app to switch between portrait-primary and portrait-secondary orientations when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'portrait-primary'    => array(
+						'label'       => _x( 'Portrait Primary', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in portrait mode, typically with the device held upright. This is usually the default app orientation on devices that are naturally portrait. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'portrait-secondary'  => array(
+						'label'       => _x( 'Portrait Secondary', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in inverted portrait mode, which is portrait-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'landscape'           => array(
+						'label'       => _x( 'Landscape', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app with width greater than height. It allows the app to switch between landscape-primary and landscape-secondary orientations when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'landscape-primary'   => array(
+						'label'       => _x( 'Landscape Primary', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in landscape mode, typically with the device held in its standard horizontal position. This is usually the default app orientation on devices that are naturally landscape. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
+					),
+					'landscape-secondary' => array(
+						'label'       => _x( 'Landscape Secondary', 'PWA settings', 'iworks-pwa' ),
+						'description' => _x( 'Displays the web app in inverted landscape mode, which is landscape-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated.', 'PWA settings', 'iworks-pwa' ),
 					),
 				),
-				'default'     => 'portrait',
+				'default' => 'portrait',
 			),
 			array(
 				'name'        => 'app_display',

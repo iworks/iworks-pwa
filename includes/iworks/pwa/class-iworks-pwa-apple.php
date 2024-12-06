@@ -10,20 +10,18 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 	public function __construct() {
 		parent::__construct();
 		/**
-		 * Check & set options object
-		 */
-		if ( ! is_object( $this->options ) ) {
-			$this->options = get_iworks_pwa_options();
-		}
-		/**
 		 * WordPress Hooks
 		 */
 		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX );
-		/**
-		 * Clear generated icons
-		 *
-		 * @since 1.1.5
-		 */
+		add_action( 'init', array( $this, 'action_init_setup_local' ) );
+	}
+
+	/**
+	 * Clear generated icons
+	 *
+	 * @since 1.1.5
+	 */
+	public function action_init_setup_local() {
 		$option_name = $this->options->get_option_name( 'icon_apple' );
 		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 	}
