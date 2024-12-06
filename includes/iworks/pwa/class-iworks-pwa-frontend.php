@@ -11,13 +11,19 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 
 	public function __construct() {
 		parent::__construct();
-		if ( ! is_object( $this->options ) ) {
-			$this->options = get_iworks_pwa_options();
-		}
 		/**
 		 * WordPress Hooks
 		 */
 		add_action( 'wp_head', array( $this, 'html_head' ), PHP_INT_MAX - 10 );
+		add_action( 'init', array( $this, 'action_init_setup_local' ) );
+	}
+
+	/**
+	 * Load scripts
+	 *
+	 * @since 1.0.1
+	 */
+	public function action_init_setup_local() {
 		switch ( $this->options->get_option( 'button_a2hs_position' ) ) {
 			case 'wp_footer':
 				$this->add( 'wp_footer' );

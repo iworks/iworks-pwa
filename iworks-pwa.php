@@ -52,11 +52,6 @@ if ( ! class_exists( 'iworks_options' ) ) {
 }
 
 /**
- * i18n
- */
-load_plugin_textdomain( 'iworks-pwa', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
-
-/**
  * load
  */
 require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
@@ -100,17 +95,4 @@ function get_iworks_pwa_options() {
 	}
 	return $iworks_pwa_options;
 }
-
-/**
- * Ask for vote
- *
- * @since 1.0.0
- */
-include_once $includes . '/iworks/rate/rate.php';
-do_action(
-	'iworks-register-plugin',
-	plugin_basename( __FILE__ ),
-	__( 'iWorks PWA', 'iworks-pwa' ),
-	'iworks-pwa'
-);
 

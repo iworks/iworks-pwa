@@ -1,5 +1,25 @@
 <?php
 
+/*
+Copyright 2021-PLUGIN_TILL_YEAR Marcin Pietrzak (marcin@iworks.pl)
+
+this program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+ */
+
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly
+
 
 abstract class iWorks_PWA {
 
@@ -54,11 +74,29 @@ abstract class iWorks_PWA {
 	 */
 	protected $option_name_check_meta_viewport = 'iworks_pwa_meta_viewport';
 
+	/**
+	 * plugin file
+	 *
+	 * @since 1.6.6
+	 */
+	private $plugin_file;
+
 	protected function __construct() {
+		/**
+		 * basic settings
+		 *
+		 * @since 1.0.0
+		 */
 		$file        = dirname( dirname( __FILE__ ) );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
 		$this->root  = rtrim( plugin_dir_path( $file ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
+		/**
+		 * plugin ID
+		 *
+		 * @since 1.1.6
+		 */
+		$this->plugin_file = plugin_basename( $this->root ) . '/iworks-pwa.php';
 		/**
 		 * version filter
 		 *
@@ -70,26 +108,42 @@ abstract class iWorks_PWA {
 		 */
 		$this->eol = apply_filters( 'iworks/pwa/eol', $this->eol );
 		/**
-		 * set options
-		 */
-		$this->options = get_iworks_pwa_options();
-		$this->_set_configuration();
-		/**
 		 * integrations wiith external plugins
 		 *
 		 * @since 1.2.0
 		 */
 		add_action( 'plugins_loaded', array( $this, 'maybe_load_integrations' ) );
+		add_action( 'init', array( $this, 'action_load_plugin_textdomain' ), 0 );
+		add_action( 'init', array( $this, 'action_init_setup' ) );
+		add_action( 'init', array( $this, 'action_init_register_iworks_rate' ), PHP_INT_MAX );
 		/**
 		 * clear cache
 		 *
 		 * @since 1.3.0
 		 */
 		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'action_cache_clear' ) );
+		add_action( 'wp_update_nav_menu', array( $this, 'action_cache_clear' ) );
+	}
+
+	/**
+	 * setup
+	 *
+	 * @since 1.6.6
+	 */
+	public function action_init_setup() {
+		/**
+		 * set options
+		 */
+		$this->options = get_iworks_pwa_options();
+		$this->_set_configuration();
+		/**
+		 * clear cache
+		 *
+		 * @since 1.3.0
+		 */
 		add_action( 'update_option_' . $this->options->get_option_name( 'icon_app' ), array( $this, 'action_cache_clear_icons_manifest' ) );
 		add_action( 'update_option_' . $this->options->get_option_name( 'icon_splash' ), array( $this, 'action_cache_clear_icons_manifest' ) );
 		add_action( 'update_option_' . $this->options->get_option_name( 'ms_square' ), array( $this, 'action_cache_clear_icons_ms' ) );
-		add_action( 'wp_update_nav_menu', array( $this, 'action_cache_clear' ) );
 	}
 
 	/**
@@ -789,4 +843,33 @@ abstract class iWorks_PWA {
 		);
 	}
 
+	/**
+	 * register plugin to iWorks Rate Helper
+	 *
+	 * @since 1.6.6
+	 */
+	public function action_init_register_iworks_rate() {
+		if ( ! class_exists( 'iworks_rate' ) ) {
+			include_once dirname( __FILE__ ) . '/rate/rate.php';
+		}
+		do_action(
+			'iworks-register-plugin',
+			plugin_basename( $this->plugin_file ),
+			__( 'iWorks PWA', 'iworks-pwa' ),
+			'iworks-pwa'
+		);
+	}
+
+	/**
+	 * i18n
+	 *
+	 * @since 1.6.6
+	 */
+	public function action_load_plugin_textdomain() {
+		load_plugin_textdomain(
+			'iworks-pwa',
+			false,
+			plugin_basename( $this->root ) . '/languages'
+		);
+	}
 }

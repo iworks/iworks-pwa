@@ -34,16 +34,20 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		 */
 		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme_register_menu' ), PHP_INT_MAX );
 		add_action( 'init', array( $this, 'register_scripts' ) );
+		add_action( 'init', array( $this, 'action_init_setup_local' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ), PHP_INT_MAX );
 		add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'action_wp_nav_menu_item_custom_fields_add_short_name' ), 10, 5 );
 		add_action( 'wp_update_nav_menu', array( $this, 'action_wp_update_nav_menu_create_pwa_shortcuts' ), 10, 2 );
 		add_action( 'wp_update_nav_menu', array( $this, 'action_wp_update_nav_menu_save' ), 10, 2 );
-		/**
-		 * Clear generated icons
-		 *
-		 * @since 1.0.1
-		 */
+	}
+
+	/**
+	 * Clear generated icons
+	 *
+	 * @since 1.0.1
+	 */
+	public function action_init_setup_local() {
 		$option_name = $this->options->get_option_name( 'icon_app' );
 		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 	}
