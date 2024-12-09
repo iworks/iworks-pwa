@@ -103,6 +103,9 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.7 (2024-12-09) =
+* Loading integrations action has been fixed.
+
 = 1.6.6 (2024-12-06) =
 * Few "translators" comments where been added.[#9](https://github.com/iworks/iworks-pwa/issues/9)
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.1.

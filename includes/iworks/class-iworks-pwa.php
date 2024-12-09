@@ -112,10 +112,10 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.2.0
 		 */
-		add_action( 'plugins_loaded', array( $this, 'maybe_load_integrations' ) );
 		add_action( 'init', array( $this, 'action_load_plugin_textdomain' ), 0 );
 		add_action( 'init', array( $this, 'action_init_setup' ) );
 		add_action( 'init', array( $this, 'action_init_register_iworks_rate' ), PHP_INT_MAX );
+		add_action( 'init', array( $this, 'maybe_load_integrations' ), 117 );
 		/**
 		 * clear cache
 		 *
