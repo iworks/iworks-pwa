@@ -326,6 +326,12 @@ jQuery( function( $ ) {
 	 * @since 1.6.8
 	 */
 	private function can_i_run() {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return false;
+		}
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			return false;
+		}
 		if ( is_admin() ) {
 			return 'settings_page_iworks_pwa_index' === get_current_screen()->base;
 		}

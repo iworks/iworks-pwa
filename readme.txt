@@ -103,6 +103,9 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
+= 1.6.9 (2025-01-xx) =
+* Warnings during AJAX calls has been fixed.
+
 = 1.6.8 (2024-12-31) =
 * An error occurred during activation has been fixed. [#11](https://github.com/iworks/iworks-pwa/issues/11) Props for [carameldavid](https://wordpress.org/support/users/carameldavid/).
 
