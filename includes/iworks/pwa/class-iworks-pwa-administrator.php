@@ -321,11 +321,26 @@ jQuery( function( $ ) {
 	}
 
 	/**
+	 * Limit usage of some methods.
+	 *
+	 * @since 1.6.8
+	 */
+	private function can_i_run() {
+		if ( is_admin() ) {
+			return 'settings_page_iworks_pwa_index' === get_current_screen()->base;
+		}
+		return false;
+	}
+
+	/**
 	 * Clear cache
 	 *
 	 * @since 1.3.0
 	 */
 	public function clear_cache() {
+		if ( ! $this->can_i_run() ) {
+			return;
+		}
 		$key = $this->options->get_option_name( $this->settings_cache_option_name );
 		delete_transient( $key );
 	}
@@ -461,7 +476,7 @@ jQuery( function( $ ) {
 	 * @since 1.5.5
 	 */
 	public function action_shutdown_maybe_check_requested_files() {
-		if ( ! is_admin() ) {
+		if ( ! $this->can_i_run() ) {
 			return;
 		}
 		$value = $this->options->get_option( $this->option_name_check_plugin_urls );
