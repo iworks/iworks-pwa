@@ -1,0 +1,13 @@
+#iworks-pwa-add-button-container {
+  text-align: center;
+}
+
+#iworks-pwa-add-button {
+  margin: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  background-color: #fff;
+  color: #000;
+}
+#iworks-pwa-add-button:hover {
+  background-color: #ddd;
+}

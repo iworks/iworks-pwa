@@ -1,41 +1,31 @@
-# Copyright (C) 2025 Marcin Pietrzak
-# This file is distributed under the GPLv2 or later.
+# Translation of Plugins - PWA — easy way to Progressive Web App - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.6.9\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
+"(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-02-12 15:06:22+00:00\n"
+"POT-Creation-Date: 2025-02-12 15:06:13+00:00\n"
+"PO-Revision-Date: 2024-03-26 23:15:29+0000\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Marcin Pietrzak <marcin@iworks.pl>\n"
-"Language-Team: iWorks <support@iworks.pl>\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
-"X-Textdomain-Support: yes\n"
-"X-Generator: grunt-wp-i18n 1.0.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
 
-#: assets/templates/no-ssl.php:16
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: assets/templates/no-ssl.php:16
 msgid ""
-"The PWA needs to be hosted on a secure server! Please use HTTPS on your "
-"site before activate this plugin."
+"The PWA needs to be hosted on a secure server! Please use HTTPS on your site "
+"before activate this plugin."
 msgstr ""
 
-#: assets/templates/no-ssl.php:37
 #. translators: %s: url to deactivate plugin
+#: assets/templates/no-ssl.php:37
 msgid ""
-"We recommend <a href=\"%s\">deactivate</a> this plugin and activate it "
-"again after this site will use SSL."
+"We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again "
+"after this site will use SSL."
 msgstr ""
 
 #: assets/templates/no-ssl.php:45
@@ -88,10 +78,10 @@ msgstr ""
 
 #: etc/options.php:52
 msgid ""
-"The scope defines the navigation scope of this web application's "
-"application context. It restricts what web pages can be viewed while the "
-"manifest is applied. If the user navigates outside the scope, it reverts to "
-"a normal web page inside a browser tab or window."
+"The scope defines the navigation scope of this web application's application "
+"context. It restricts what web pages can be viewed while the manifest is "
+"applied. If the user navigates outside the scope, it reverts to a normal web "
+"page inside a browser tab or window."
 msgstr ""
 
 #: etc/options.php:69
@@ -118,11 +108,11 @@ msgstr ""
 
 #: etc/options.php:141 includes/iworks/class-iworks-pwa.php:620
 msgid "We were unable to load the page you requested."
-msgstr ""
+msgstr "We konden de pagina die je hebt aangevraagd niet laden."
 
 #: etc/options.php:144 includes/iworks/class-iworks-pwa.php:623
 msgid "Please check your network connection and try again."
-msgstr ""
+msgstr "Controleer je verbinding en probeer het nogmaals."
 
 #: etc/options.php:160
 msgid "Categories"
@@ -248,7 +238,7 @@ msgstr ""
 
 #: etc/options.php:207
 msgid "A2HS"
-msgstr ""
+msgstr "A2HS"
 
 #: etc/options.php:208
 msgid ""
@@ -260,7 +250,7 @@ msgstr ""
 
 #: etc/options.php:214
 msgid "Position"
-msgstr ""
+msgstr "Positie"
 
 #: etc/options.php:218
 msgid "Browser will show A2HS prompt automatically if it is needed."
@@ -272,7 +262,7 @@ msgstr ""
 
 #: etc/options.php:235
 msgid "Button text"
-msgstr ""
+msgstr "Knoptekst"
 
 #: etc/options.php:237 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
 msgid "Add to home screen"
@@ -284,7 +274,7 @@ msgstr ""
 
 #: etc/options.php:251
 msgid "Generic"
-msgstr ""
+msgstr "Algemeen"
 
 #: etc/options.php:257
 msgid "Background Color"
@@ -339,7 +329,7 @@ msgstr ""
 
 #: etc/options.php:302
 msgid "Apple"
-msgstr ""
+msgstr "Apple"
 
 #: etc/options.php:307
 msgid "Touch Icon"
@@ -347,8 +337,8 @@ msgstr ""
 
 #: etc/options.php:308
 msgid ""
-"For ideal appearance on iOS when users add a progressive web app to the "
-"home screen. It must point to a non-transparent 192px (or 180px) square PNG."
+"For ideal appearance on iOS when users add a progressive web app to the home "
+"screen. It must point to a non-transparent 192px (or 180px) square PNG."
 msgstr ""
 
 #: etc/options.php:317
@@ -357,14 +347,14 @@ msgstr ""
 
 #: etc/options.php:322
 msgid "Icon"
-msgstr ""
+msgstr "Pictogram"
 
 #: etc/options.php:323
 msgid ""
 "Use 100% black for all vectors with a transparent background in SVG format "
-"and add the following markup to all webpages that the icon should "
-"represent. The SVG file must be a single layer and the viewBox attribute "
-"must be set to \"0 0 16 16\"."
+"and add the following markup to all webpages that the icon should represent. "
+"The SVG file must be a single layer and the viewBox attribute must be set to "
+"\"0 0 16 16\"."
 msgstr ""
 
 #: etc/options.php:330
@@ -373,11 +363,11 @@ msgstr ""
 
 #: etc/options.php:339
 msgid "Status Bar"
-msgstr ""
+msgstr "Statusbalk"
 
 #: etc/options.php:344
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 #: etc/options.php:345
 msgid ""
@@ -401,135 +391,135 @@ msgstr ""
 
 #: etc/options.php:381
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: etc/options.php:396
 msgid "iPhone Xs Max"
-msgstr ""
+msgstr "iPhone Xs Max"
 
 #: etc/options.php:397
 msgid "1242px &#10005; 2688px"
-msgstr ""
+msgstr "1242px &#10005; 2688px"
 
 #: etc/options.php:412
 msgid "iPhone Xr"
-msgstr ""
+msgstr "iPhone Xr"
 
 #: etc/options.php:413
 msgid "828px &#10005; 1792px"
-msgstr ""
+msgstr "828px &#10005; 1792px"
 
 #: etc/options.php:428
 msgid "iPhone X, Xs"
-msgstr ""
+msgstr "iPhone X, Xs"
 
 #: etc/options.php:429
 msgid "1125px &#10005; 2436px"
-msgstr ""
+msgstr "1125px &#10005; 2436px"
 
 #: etc/options.php:444
 msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
-msgstr ""
+msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
 
 #: etc/options.php:445
 msgid "1242px &#10005; 2208px"
-msgstr ""
+msgstr "1242px &#10005; 2208px"
 
 #: etc/options.php:460
 msgid "iPhone 8, 7, 6s, 6"
-msgstr ""
+msgstr "iPhone 8, 7, 6s, 6"
 
 #: etc/options.php:461
 msgid "750px &#10005; 1334px"
-msgstr ""
+msgstr "750px &#10005; 1334px"
 
 #: etc/options.php:476
 msgid "iPad Pro 12.9\""
-msgstr ""
+msgstr "iPad Pro 12.9\""
 
 #: etc/options.php:477
 msgid "2048px &#10005; 2732px"
-msgstr ""
+msgstr "2048px &#10005; 2732px"
 
 #: etc/options.php:492
 msgid "iPad Pro 11”"
-msgstr ""
+msgstr "iPad Pro 11”"
 
 #: etc/options.php:493
 msgid "1668px &#10005; 2388px"
-msgstr ""
+msgstr "1668px &#10005; 2388px"
 
 #: etc/options.php:508
 msgid "iPad Pro 10.5\""
-msgstr ""
+msgstr "iPad Pro 10.5\""
 
 #: etc/options.php:509
 msgid "1668px &#10005; 2224px"
-msgstr ""
+msgstr "1668px &#10005; 2224px"
 
 #: etc/options.php:524
 msgid "iPad Mini, Air"
-msgstr ""
+msgstr "iPad Mini, Air"
 
 #: etc/options.php:525
 msgid "1536px &#10005; 2048px"
-msgstr ""
+msgstr "1536px &#10005; 2048px"
 
 #: etc/options.php:540
 msgid "iPhone 5"
-msgstr ""
+msgstr "iPhone 5"
 
 #: etc/options.php:541
 msgid "640px &#10005; 1136px"
-msgstr ""
+msgstr "640px &#10005; 1136px"
 
 #: etc/options.php:556 etc/options.php:572
 msgid "iPhone 14 Pro"
-msgstr ""
+msgstr "iPhone 14 Pro"
 
 #: etc/options.php:557
 msgid "1179px &#10005; 2556px"
-msgstr ""
+msgstr "1179px &#10005; 2556px"
 
 #: etc/options.php:573
 msgid "1290px &#10005; 2796px"
-msgstr ""
+msgstr "1290px &#10005; 2796px"
 
 #: etc/options.php:589
 msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
-msgstr ""
+msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
 
 #: etc/options.php:590
 msgid "1284px &#10005; 2778px"
-msgstr ""
+msgstr "1284px &#10005; 2778px"
 
 #: etc/options.php:606
 msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
-msgstr ""
+msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
 
 #: etc/options.php:607
 msgid "1170px &#10005; 2532px"
-msgstr ""
+msgstr "1170px &#10005; 2532px"
 
 #: etc/options.php:623
 msgid "iPad Air 10.9″"
-msgstr ""
+msgstr "iPad Air 10.9″"
 
 #: etc/options.php:624
 msgid "1640px &#10005; 2360px"
-msgstr ""
+msgstr "1640px &#10005; 2360px"
 
 #: etc/options.php:640
 msgid "iPad 10.2″"
-msgstr ""
+msgstr "iPad 10.2″"
 
 #: etc/options.php:641
 msgid "1620px &#10005; 2160px"
-msgstr ""
+msgstr "1620px &#10005; 2160px"
 
 #: etc/options.php:653
 msgid "Microsoft"
-msgstr ""
+msgstr "Microsoft"
 
 #: etc/options.php:658
 msgid "Square Tile Logo"
@@ -575,7 +565,7 @@ msgstr ""
 #: includes/iworks/class-iworks-pwa.php:865
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:71
 msgid "iWorks PWA"
-msgstr ""
+msgstr "iWorks PWA"
 
 #: includes/iworks/options/options.php:263
 msgid "An error occurred while getting the configuration."
@@ -584,23 +574,23 @@ msgstr ""
 #: includes/iworks/options/options.php:816
 #: includes/iworks/options/options.php:1910
 msgid "Select Image"
-msgstr ""
+msgstr "Afbeelding selecteren"
 
 #: includes/iworks/options/options.php:821
 msgid "Delete image"
-msgstr ""
+msgstr "Afbeelding verwijderen"
 
 #: includes/iworks/options/options.php:927
 msgid "Save Changes"
-msgstr ""
+msgstr "Wijzigingen opslaan"
 
 #: includes/iworks/options/options.php:1804
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #: includes/iworks/options/options.php:1805
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: includes/iworks/options/options.php:1806
 msgid "Street"
@@ -622,8 +612,8 @@ msgstr ""
 msgid "Failed Security Check"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:138
 #. translators: %s: "Safe SVG" plugin name with link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:138
 msgid ""
 "This field requires an SVG file. To securely upload SVG files, please "
 "install the %s plugin."
@@ -635,7 +625,7 @@ msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:170
 msgid "Debug info"
-msgstr ""
+msgstr "Debug info"
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:180
 msgid "Main files"
@@ -665,12 +655,12 @@ msgstr ""
 msgid "PWA — simple way to Progressive Web App"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:274
 #. translators: %s; url to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:274
 msgid ""
 "This plugin does not support the plain permalink structure. <a "
-"href=\"%s\">Please change your permalinks settings</a> to other structure "
-"to use PWA plugin."
+"href=\"%s\">Please change your permalinks settings</a> to other structure to "
+"use PWA plugin."
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:297
@@ -683,28 +673,28 @@ msgstr ""
 msgid "ERROR: PWA — simple way to Progressive Web App"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
 #. translators: %s: filename as link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
 msgid "The \"%s\" file is no reachable."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:568
 #. translators: %s: link to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:568
 msgid ""
 "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite "
 "rules."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:578
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:601
 #. translators: %s: current request
 #. translators: %s: request
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:578
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:601
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-manifest.php:134
 msgid "Sorry!"
-msgstr ""
+msgstr "Sorry!"
 
 #: includes/iworks/pwa/class-iworks-pwa-manifest.php:281
 msgid "PWA Shortcuts Menu"
@@ -712,25 +702,25 @@ msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-manifest.php:382
 msgid "Short Name (PWA)"
-msgstr ""
+msgstr "Korte naam (PWA)"
 
 #: includes/iworks/rate/rate.php:133
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 #: includes/iworks/rate/rate.php:147
 #: includes/iworks/rate/templates/thanks.php:39
 msgid "Provide us a coffee"
-msgstr ""
+msgstr "Voorzie ons van een kop koffie"
 
-#: includes/iworks/rate/rate.php:446
 #. translators: %s: plugin id
+#: includes/iworks/rate/rate.php:446
 msgid "There is no plugin with id: %s."
 msgstr ""
 
 #: includes/iworks/rate/rate.php:563
 msgid "OpenGraph"
-msgstr ""
+msgstr "OpenGraph"
 
 #: includes/iworks/rate/rate.php:579
 msgid "OG — Better Share on Social Media"
@@ -738,29 +728,29 @@ msgstr ""
 
 #: includes/iworks/rate/rate.php:580
 msgid "https://wordpress.org/plugins/og/"
-msgstr ""
+msgstr "https://wordpress.org/plugins/og/"
 
 #: includes/iworks/rate/templates/plugins/og.php:4
 msgid "Would you like to boost your website sharing abilities?"
 msgstr ""
 
-#: includes/iworks/rate/templates/plugins/og.php:9
 #. translators: %s is a plugin name with url
+#: includes/iworks/rate/templates/plugins/og.php:9
 msgid "Don't wait, install plugin %s!"
-msgstr ""
+msgstr "Wacht niet, installeer plugin %s!"
 
-#: includes/iworks/rate/templates/plugins/og.php:20
 #. translators: %s is a plugin wp home name, %s plugin name
+#: includes/iworks/rate/templates/plugins/og.php:20
 msgid "Install"
-msgstr ""
+msgstr "Installeren"
 
-#: includes/iworks/rate/templates/thanks.php:23
 #. translators: %s is a plugin name wrapped by strong html tag
+#: includes/iworks/rate/templates/thanks.php:23
 msgid "Thank you for using our plugin %s!"
-msgstr ""
+msgstr "Bedankt voor het gebruik van onze plugin %s!"
 
-#: includes/iworks/rate/templates/thanks.php:31
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: includes/iworks/rate/templates/thanks.php:31
 msgid ""
 "Please let us know what you think about our plugin. It is important that we "
 "can develop this tool. Thank you for all the ratings, reviews and donates. "
@@ -796,14 +786,14 @@ msgstr ""
 
 #: includes/iworks/rate/templates/widgets/support.php:4
 msgid ""
-"Do you have a technical problem? Please contact us. We will be happy to "
-"help you. Or maybe you have an idea for a new feature? Please let us know "
-"about it by filling the support form. We will try to add it!"
+"Do you have a technical problem? Please contact us. We will be happy to help "
+"you. Or maybe you have an idea for a new feature? Please let us know about "
+"it by filling the support form. We will try to add it!"
 msgstr ""
 
-#: includes/iworks/rate/templates/widgets/support.php:11
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag, %3$s: open
 #. anchor tag, %4$s: close anchor tag
+#: includes/iworks/rate/templates/widgets/support.php:11
 msgid ""
 "Please %1$scheck our FAQ%2$s before adding a thread with technical problem. "
 "If you do not find help there, %3$scheck support forum%4$s for similar "
@@ -813,8 +803,8 @@ msgstr ""
 #: includes/iworks/rate/templates/widgets/support.php:26
 msgid ""
 "Do you like our plugin? Could you rate him? Please let us know what you "
-"think about our plugin. It is important that we can develop this tool. "
-"Thank you for all the ratings, reviews and donates."
+"think about our plugin. It is important that we can develop this tool. Thank "
+"you for all the ratings, reviews and donates."
 msgstr ""
 
 #. Plugin URI of the plugin/theme
@@ -827,11 +817,11 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "Marcin Pietrzak"
-msgstr ""
+msgstr "Marcin Pietrzak"
 
 #. Author URI of the plugin/theme
 msgid "http://iworks.pl/"
-msgstr ""
+msgstr "http://iworks.pl/"
 
 #: etc/options.php:55
 msgctxt "PWA settings"
@@ -890,8 +880,8 @@ msgstr ""
 msgctxt "PWA settings"
 msgid ""
 "Displays the web app with height greater than width. It allows the app to "
-"switch between portrait-primary and portrait-secondary orientations when "
-"the device is rotated."
+"switch between portrait-primary and portrait-secondary orientations when the "
+"device is rotated."
 msgstr ""
 
 #: etc/options.php:84
@@ -905,8 +895,7 @@ msgid ""
 "Displays the web app in portrait mode, typically with the device held "
 "upright. This is usually the default app orientation on devices that are "
 "naturally portrait. Depending on the device and browser implementation, the "
-"app will typically maintain this orientation even when the device is "
-"rotated."
+"app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
 #: etc/options.php:88
@@ -918,9 +907,8 @@ msgstr ""
 msgctxt "PWA settings"
 msgid ""
 "Displays the web app in inverted portrait mode, which is portrait-primary "
-"rotated 180 degrees. Depending on the device and browser implementation, "
-"the app will typically maintain this orientation even when the device is "
-"rotated."
+"rotated 180 degrees. Depending on the device and browser implementation, the "
+"app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
 #: etc/options.php:92
@@ -946,9 +934,9 @@ msgctxt "PWA settings"
 msgid ""
 "Displays the web app in landscape mode, typically with the device held in "
 "its standard horizontal position. This is usually the default app "
-"orientation on devices that are naturally landscape. Depending on the "
-"device and browser implementation, the app will typically maintain this "
-"orientation even when the device is rotated."
+"orientation on devices that are naturally landscape. Depending on the device "
+"and browser implementation, the app will typically maintain this orientation "
+"even when the device is rotated."
 msgstr ""
 
 #: etc/options.php:100
@@ -960,9 +948,8 @@ msgstr ""
 msgctxt "PWA settings"
 msgid ""
 "Displays the web app in inverted landscape mode, which is landscape-primary "
-"rotated 180 degrees. Depending on the device and browser implementation, "
-"the app will typically maintain this orientation even when the device is "
-"rotated."
+"rotated 180 degrees. Depending on the device and browser implementation, the "
+"app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
 #: etc/options.php:113
@@ -1032,21 +1019,24 @@ msgstr ""
 #: includes/iworks/class-iworks-pwa.php:165
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/iworks-pwa"
-msgstr ""
+msgstr "https://wordpress.org/plugins/iworks-pwa"
 
-#: includes/iworks/rate/rate.php:469
 #. translators: %s: plugin slug
+#: includes/iworks/rate/rate.php:469
 msgctxt "plugins home"
 msgid "https://wordpress.org/plugins/%s"
-msgstr ""
+msgstr "https://wordpress.org/plugins/%s"
 
 #: includes/iworks/class-iworks-pwa.php:168
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/iworks-pwa"
-msgstr ""
+msgstr "https://wordpress.org/support/plugin/iworks-pwa"
 
-#: includes/iworks/rate/rate.php:476
 #. translators: %s: plugin slug
+#: includes/iworks/rate/rate.php:476
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/%s"
-msgstr ""
+msgstr "https://wordpress.org/support/plugin/%s"
+
+#~ msgid "https://github.com/iworks/iworks-pwa"
+#~ msgstr "https://github.com/iworks/iworks-pwa"

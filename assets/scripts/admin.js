@@ -1,7 +1,6 @@
-/**
- * PWA — easy way to Progressive Web App - v1.6.8
+/*! PWA — easy way to Progressive Web App - 1.6.9
  * https://github.com/iworks/iworks-pwa
- * Copyright (c) 2024; * Licensed GPLv3+ */
+ * Copyright (c) 2025; * Licensed GPL-3.0 */
 jQuery( document ).ready(function($) {
 	window.setTimeout( function() {
 		$('.iworks-pwa-notice-check-url .notice-dismiss').on( 'click', function() {
