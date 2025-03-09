@@ -845,14 +845,14 @@ function iworks_pwa_options() {
 function iworks_pwa_options_loved_this_plugin( $iworks_iworks_seo_improvements ) {
 	$content = apply_filters( 'iworks_rate_love', '', 'iworks-pwa' );
 	if ( ! empty( $content ) ) {
-		echo $content;
+		echo wp_kses_post( $content );
 		return;
 	}
 	?>
-<p><?php _e( 'Below are some links to help spread this plugin to other users', 'iworks-pwa' ); ?></p>
+<p><?php esc_html_e( 'Below are some links to help spread this plugin to other users', 'iworks-pwa' ); ?></p>
 <ul>
-	<li><a href="https://wordpress.org/support/plugin/iworks-pwa/reviews/#new-post"><?php _e( 'Give it a five stars on WordPress.org', 'iworks-pwa' ); ?></a></li>
-	<li><a href="<?php _ex( 'https://wordpress.org/plugins/iworks-pwa/', 'plugin home page on WordPress.org', 'iworks-pwa' ); ?>"><?php _e( 'Link to it so others can easily find it', 'iworks-pwa' ); ?></a></li>
+	<li><a href="https://wordpress.org/support/plugin/iworks-pwa/reviews/#new-post"><?php esc_html_e( 'Give it a five stars on WordPress.org', 'iworks-pwa' ); ?></a></li>
+	<li><a href="<?php echo esc_url( _x( 'https://wordpress.org/plugins/iworks-pwa/', 'plugin home page on WordPress.org', 'iworks-pwa' ) ); ?>"><?php esc_html_e( 'Link to it so others can easily find it', 'iworks-pwa' ); ?></a></li>
 </ul>
 	<?php
 }
@@ -880,14 +880,14 @@ function iworks_pwa_post_types() {
 function iworks_pwa_options_need_assistance( $iworks_iworks_seo_improvementss ) {
 	$content = apply_filters( 'iworks_rate_assistance', '', 'iworks-pwa' );
 	if ( ! empty( $content ) ) {
-		echo $content;
+		echo wp_kses_post( $content );
 		return;
 	}
 
 	?>
-<p><?php _e( 'We are waiting for your message', 'iworks-pwa' ); ?></p>
+<p><?php esc_html_e( 'We are waiting for your message', 'iworks-pwa' ); ?></p>
 <ul>
-	<li><a href="<?php _ex( 'https://wordpress.org/support/plugin/iworks-pwa/', 'link to support forum on WordPress.org', 'iworks-pwa' ); ?>"><?php _e( 'WordPress Help Forum', 'iworks-pwa' ); ?></a></li>
+	<li><a href="<?php echo esc_url( _x( 'https://wordpress.org/support/plugin/iworks-pwa/', 'link to support forum on WordPress.org', 'iworks-pwa' ) ); ?>"><?php esc_html_e( 'WordPress Help Forum', 'iworks-pwa' ); ?></a></li>
 </ul>
 	<?php
 }

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-02-12 15:06:13+00:00\n"
+"POT-Creation-Date: 2025-03-09 17:25:12+00:00\n"
 "PO-Revision-Date: 2024-03-26 23:15:29+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -106,11 +106,11 @@ msgstr ""
 msgid "Offline content page"
 msgstr ""
 
-#: etc/options.php:141 includes/iworks/class-iworks-pwa.php:620
+#: etc/options.php:141 includes/iworks/class-iworks-pwa.php:623
 msgid "We were unable to load the page you requested."
 msgstr "We konden de pagina die je hebt aangevraagd niet laden."
 
-#: etc/options.php:144 includes/iworks/class-iworks-pwa.php:623
+#: etc/options.php:144 includes/iworks/class-iworks-pwa.php:626
 msgid "Please check your network connection and try again."
 msgstr "Controleer je verbinding en probeer het nogmaals."
 
@@ -562,7 +562,7 @@ msgid "WordPress Help Forum"
 msgstr ""
 
 #: includes/iworks/class-iworks-pwa.php:164
-#: includes/iworks/class-iworks-pwa.php:865
+#: includes/iworks/class-iworks-pwa.php:868
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:71
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
@@ -571,44 +571,44 @@ msgstr "iWorks PWA"
 msgid "An error occurred while getting the configuration."
 msgstr ""
 
-#: includes/iworks/options/options.php:816
-#: includes/iworks/options/options.php:1910
+#: includes/iworks/options/options.php:842
+#: includes/iworks/options/options.php:1950
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
-#: includes/iworks/options/options.php:821
+#: includes/iworks/options/options.php:847
 msgid "Delete image"
 msgstr "Afbeelding verwijderen"
 
-#: includes/iworks/options/options.php:927
+#: includes/iworks/options/options.php:955
 msgid "Save Changes"
 msgstr "Wijzigingen opslaan"
 
-#: includes/iworks/options/options.php:1804
+#: includes/iworks/options/options.php:1844
 msgid "Country"
 msgstr "Land"
 
-#: includes/iworks/options/options.php:1805
+#: includes/iworks/options/options.php:1845
 msgid "City"
 msgstr "Stad"
 
-#: includes/iworks/options/options.php:1806
+#: includes/iworks/options/options.php:1846
 msgid "Street"
 msgstr ""
 
-#: includes/iworks/options/options.php:1807
+#: includes/iworks/options/options.php:1847
 msgid "ZIP code"
 msgstr ""
 
-#: includes/iworks/options/options.php:1963
+#: includes/iworks/options/options.php:2003
 msgid "OFF"
 msgstr ""
 
-#: includes/iworks/options/options.php:1964
+#: includes/iworks/options/options.php:2004
 msgid "ON"
 msgstr ""
 
-#: includes/iworks/options/options.php:2029
+#: includes/iworks/options/options.php:2069
 msgid "Failed Security Check"
 msgstr ""
 
@@ -656,30 +656,30 @@ msgid "PWA — simple way to Progressive Web App"
 msgstr ""
 
 #. translators: %s; url to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:274
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:275
 msgid ""
 "This plugin does not support the plain permalink structure. <a "
 "href=\"%s\">Please change your permalinks settings</a> to other structure to "
 "use PWA plugin."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:297
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:300
 msgid ""
 "This plugin does not support installation in a subdirectory and will not "
 "work properly."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:553
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
 msgid "ERROR: PWA — simple way to Progressive Web App"
 msgstr ""
 
 #. translators: %s: filename as link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:562
 msgid "The \"%s\" file is no reachable."
 msgstr ""
 
 #. translators: %s: link to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:568
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:575
 msgid ""
 "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite "
 "rules."
@@ -687,8 +687,8 @@ msgstr ""
 
 #. translators: %s: current request
 #. translators: %s: request
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:578
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:601
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:586
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:609
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 

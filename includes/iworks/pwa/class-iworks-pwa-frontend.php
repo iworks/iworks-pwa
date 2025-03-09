@@ -69,8 +69,8 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		printf(
 			'<!-- %s %s -->%s',
 			esc_html__( 'iWorks PWA', 'iworks-pwa' ),
-			$this->version,
-			$this->eol
+			esc_html( $this->version ),
+			esc_html( $this->eol )
 		);
 	}
 
@@ -88,7 +88,7 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		if ( 'missing' === get_option( $this->option_name_check_meta_viewport ) ) {
 			printf(
 				'<meta name="viewport" content="width=device-width, initial-scale=1">%s',
-				$this->eol
+				esc_html( $this->eol )
 			);
 		}
 		/**
@@ -96,21 +96,21 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 		 */
 		printf(
 			'<link rel="manifest" href="%s">%s',
-			wp_make_link_relative( home_url( 'manifest.json' ) ),
-			$this->eol
+			esc_attr( wp_make_link_relative( home_url( 'manifest.json' ) ) ),
+			esc_html( $this->eol )
 		);
 		printf(
 			'<link rel="prefetch" href="%s">%s',
-			wp_make_link_relative( home_url( 'manifest.json' ) ),
-			$this->eol
+			esc_attr( wp_make_link_relative( home_url( 'manifest.json' ) ) ),
+			esc_html( $this->eol )
 		);
 		/**
 		 * theme color
 		 */
 		printf(
 			'<meta name="theme-color" content="%s">%s',
-			$this->configuration['theme_color'],
-			$this->eol
+			esc_attr( $this->configuration['theme_color'] ),
+			esc_html( $this->eol )
 		);
 	}
 

@@ -194,7 +194,10 @@ abstract class iWorks_PWA {
 			__CLASS__,
 			$this->url . '/assets/scripts/admin.js',
 			array(),
-			$this->version
+			$this->version,
+			array(
+				'in_footer' => true,
+			),
 		);
 	}
 

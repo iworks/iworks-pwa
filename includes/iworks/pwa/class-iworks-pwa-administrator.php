@@ -268,11 +268,13 @@ jQuery( function( $ ) {
 		}
 		echo '<div class="notice notice-error">';
 		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
-		echo wpautop(
-			sprintf(
-				/* translators: %s; url to permalinks settings */
-				__( 'This plugin does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
-				admin_url( 'options-permalink.php' )
+		echo wp_kses_post(
+			wpautop(
+				sprintf(
+					/* translators: %s; url to permalinks settings */
+					__( 'This plugin does not support the plain permalink structure. <a href="%s">Please change your permalinks settings</a> to other structure to use PWA plugin.', 'iworks-pwa' ),
+					admin_url( 'options-permalink.php' )
+				)
 			)
 		);
 		echo '</div>';
@@ -293,8 +295,10 @@ jQuery( function( $ ) {
 		}
 		echo '<div class="notice notice-error">';
 		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
-		echo wpautop(
-			__( 'This plugin does not support installation in a subdirectory and will not work properly.', 'iworks-pwa' )
+		echo wp_kses_post(
+			wpautop(
+				esc_html__( 'This plugin does not support installation in a subdirectory and will not work properly.', 'iworks-pwa' )
+			)
 		);
 		echo '</div>';
 	}
@@ -400,7 +404,7 @@ jQuery( function( $ ) {
 		 * @since 1.5.8
 		 */
 		if ( isset( $_GET['_wpnonce'] ) ) {
-			if ( wp_verify_nonce( $_GET['_wpnonce'], 'iworks-pwa-viewport' ) ) {
+			if ( wp_verify_nonce( filter_input( 'INPUT_GET', '_wpnonce' ), 'iworks-pwa-viewport' ) ) {
 				return;
 			}
 		}
@@ -548,25 +552,29 @@ jQuery( function( $ ) {
 		$request = $this->options->get_option( $this->option_name_check_plugin_urls . '_error' );
 		printf(
 			'<div class="iworks-pwa-notice-check-url notice notice-error is-dismissible" data-nonce="%s" data-action="iworks_pwa_notice_check_url_hide">',
-			wp_create_nonce( 'iworks-pwa', 'iworks-pwa' )
+			esc_attr( wp_create_nonce( 'iworks-pwa', 'iworks-pwa' ) )
 		);
 		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
-		echo wpautop(
-			sprintf(
-			/* translators: %s: filename as link */
-				__( 'The "%s" file is no reachable.', 'iworks-pwa' ),
+		echo wp_kses_post(
+			wpautop(
 				sprintf(
-					'<a href="%s" target="_blank">%s</a>',
-					site_url( '/' . $request ),
-					$request
+					/* translators: %s: filename as link */
+					__( 'The "%s" file is no reachable.', 'iworks-pwa' ),
+					sprintf(
+						'<a href="%s" target="_blank">%s</a>',
+						site_url( '/' . $request ),
+						$request
+					)
 				)
 			)
 		);
-		echo wpautop(
-			sprintf(
-			/* translators: %s: link to permalinks settings */
-				__( '<a href="%s">Please change your permalinks settings</a> or server rewrite rules.', 'iworks-pwa' ),
-				admin_url( 'options-permalink.php' )
+		echo wp_kses_post(
+			wpautop(
+				sprintf(
+					/* translators: %s: link to permalinks settings */
+					__( '<a href="%s">Please change your permalinks settings</a> or server rewrite rules.', 'iworks-pwa' ),
+					admin_url( 'options-permalink.php' )
+				)
 			)
 		);
 		switch ( $request ) {
@@ -576,7 +584,7 @@ jQuery( function( $ ) {
 					sprintf(
 					/* translators: %s: current request */
 						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
-						$request
+						esc_url( $request )
 					)
 				);
 				echo '<dl>';
@@ -599,7 +607,7 @@ jQuery( function( $ ) {
 					sprintf(
 					/* translators: %s: request */
 						esc_html__( 'Server rewrite rule for "%s" request', 'iworks-pwa' ),
-						$request
+						esc_url( $request )
 					)
 				);
 				echo '<dl>';
