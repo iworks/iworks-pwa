@@ -1,7 +1,7 @@
 === PWA — easy way to Progressive Web App ===
 Contributors: iworks
 Donate link: https://ko-fi.com/iworks?utm_source=iworks-pwa&utm_medium=readme-donate
-Tags: PWA, Progressive Web Application, progressive web app, progressive, manifest.json
+Tags: PLUGIN_TAGS
 Requires at least: PLUGIN_REQUIRES_WORDPRESS
 Tested up to: PLUGIN_TESTED_WORDPRESS
 Stable tag: PLUGIN_VERSION
@@ -33,6 +33,8 @@ Great! There are several ways you can get involved to help make PWA — easy way
 3. **Issue Pull Requests:** If you're a developer, the easiest way to get involved is to help out on [issues already reported](https://github.com/iworks/iworks-pwa/issues) in GitHub. Be sure to check out the [contributing guide](https://github.com/iworks/iworks-pwa/blob/master/contributing.md) for developers.
 
 Thank you for wanting to make PWA — easy way to Progressive Web App better for everyone!
+i
+The "PWA — easy way to Progressive Web App" plugin is available also on [GitHub - Orphans](https://github.com/iworks/iworks-pwa).
 
 == Installation ==
 
@@ -103,8 +105,15 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
-= 1.6.9 (2025-01-xx) =
+Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
+
+= 1.6.9 (2025-02-xx) =
+* A extra check for the `get_current_screen()` function has been added. [#12](https://github.com/iworks/iworks-pwa/issues/12)
+* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.7.
+* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.3.
+* The `load_plugin_texdomain()` function has been removed.
 * Warnings during AJAX calls has been fixed.
+* Updating plugin from GitHub releases has been improved.
 
 = 1.6.8 (2024-12-31) =
 * An error occurred during activation has been fixed. [#11](https://github.com/iworks/iworks-pwa/issues/11) Props for [carameldavid](https://wordpress.org/support/users/carameldavid/).
@@ -113,7 +122,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 * Loading integrations action has been fixed.
 
 = 1.6.6 (2024-12-06) =
-* Few "translators" comments where been added.[#9](https://github.com/iworks/iworks-pwa/issues/9)
+* Few "translators" comments where been added. [#9](https://github.com/iworks/iworks-pwa/issues/9)
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.1.
 * Translation loading time has been fixed. [#10](https://github.com/iworks/iworks-pwa/issues/10)
 * The "orientation" field has been updated. [#8](https://github.com/iworks/iworks-pwa/issues/8)
