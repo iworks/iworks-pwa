@@ -108,7 +108,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
 = 1.6.9 (2025-02-xx) =
-* A extra check for the `get_current_screen()` function has been added. [#12](https://github.com/iworks/iworks-pwa/issues/12)
+* A extra check for the `get_current_screen()` function has been added. [#12](https://github.com/iworks/iworks-pwa/issues/12). Props for [inmyopinion202](https://github.com/inmyopinion202).
 * The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.7.
 * The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.3.
 * The `load_plugin_texdomain()` function has been removed.
@@ -116,7 +116,7 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 * Updating plugin from GitHub releases has been improved.
 
 = 1.6.8 (2024-12-31) =
-* An error occurred during activation has been fixed. [#11](https://github.com/iworks/iworks-pwa/issues/11) Props for [carameldavid](https://wordpress.org/support/users/carameldavid/).
+* An error occurred during activation has been fixed. [#11](https://github.com/iworks/iworks-pwa/issues/11). Props for [carameldavid](https://wordpress.org/support/users/carameldavid/).
 
 = 1.6.7 (2024-12-09) =
 * Loading integrations action has been fixed.

@@ -332,7 +332,7 @@ jQuery( function( $ ) {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return false;
 		}
-		if ( is_admin() ) {
+		if ( is_admin() && function_exists( 'get_current_screen' ) ) {
 			return 'settings_page_iworks_pwa_index' === get_current_screen()->base;
 		}
 		return false;

@@ -112,7 +112,6 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.2.0
 		 */
-		add_action( 'init', array( $this, 'action_load_plugin_textdomain' ), 0 );
 		add_action( 'init', array( $this, 'action_init_setup' ) );
 		add_action( 'init', array( $this, 'action_init_register_iworks_rate' ), PHP_INT_MAX );
 		add_action( 'init', array( $this, 'maybe_load_integrations' ), 117 );
@@ -123,6 +122,14 @@ abstract class iWorks_PWA {
 		 */
 		add_action( 'load-settings_page_iworks_pwa_index', array( $this, 'action_cache_clear' ) );
 		add_action( 'wp_update_nav_menu', array( $this, 'action_cache_clear' ) );
+		/**
+		 * load github class
+		 */
+		$filename = __DIR__ . '/pwa/class-iworks-pwa-github.php';
+		if ( is_file( $filename ) ) {
+			include_once $filename;
+			new iworks_pwa_github();
+		}
 	}
 
 	/**
@@ -134,7 +141,7 @@ abstract class iWorks_PWA {
 		/**
 		 * set options
 		 */
-		$this->options = get_iworks_pwa_options();
+		$this->options = iworks_pwa_get_options();
 		$this->_set_configuration();
 		/**
 		 * clear cache
@@ -860,16 +867,4 @@ abstract class iWorks_PWA {
 		);
 	}
 
-	/**
-	 * i18n
-	 *
-	 * @since 1.6.6
-	 */
-	public function action_load_plugin_textdomain() {
-		load_plugin_textdomain(
-			'iworks-pwa',
-			false,
-			plugin_basename( $this->root ) . '/languages'
-		);
-	}
 }

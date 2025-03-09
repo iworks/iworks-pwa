@@ -82,7 +82,7 @@ if ( is_admin() ) {
 global $iworks_pwa_options;
 $iworks_pwa_options = null;
 
-function get_iworks_pwa_options() {
+function iworks_pwa_get_options() {
 	global $iworks_pwa_options;
 	if ( is_object( $iworks_pwa_options ) ) {
 		return $iworks_pwa_options;
