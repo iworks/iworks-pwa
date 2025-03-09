@@ -3,8 +3,14 @@
     "title": "PWA — easy way to Progressive Web App",
     "tagline": "Your easy way to Progressive Web Application.",
     "description": "Progressive Web Apps (PWA) is a technology that combines the best of mobile web and the best of mobile apps to create a superior mobile web experience. They are installed on the phone like a normal app (web app) and can be accessed from the home screen.",
-    "version": "1.6.8",
+    "version": "1.6.9",
     "homepage": "https://github.com/iworks/iworks-pwa",
+    "tags": [
+        "PWA",
+        "Progressive Web Application",
+        "manifest.json",
+        "offline"
+    ],
     "author": [
         {
             "name": "Marcin Pietrzak",
@@ -12,6 +18,10 @@
             "uri": "http://iworks.pl/"
         }
     ],
+    "translator": {
+        "name": "Marcin Pietrzak",
+        "email": "marcin@iworks.pl"
+    },
     "requires": {
         "WordPress": "6.0",
         "PHP": "8.0"
@@ -20,16 +30,8 @@
         "WordPress": "6.7"
     },
     "devDependencies": {
-        "ajv-keywords": "^3.2.0",
-        "autoprefixer": "^7.2.6",
-        "babel-core": "^6.26.3",
-        "babel-loader": "^7.1.5",
-        "babel-preset-env": "^1.7.0",
-        "css-loader": "^0.28.11",
-        "es6-promise": "^4.2.4",
-        "extract-text-webpack-plugin": "^4.0.0-beta.0",
-        "file-loader": "^1.1.11",
         "grunt": "^1",
+        "load-grunt-tasks": "^0",
         "grunt-checktextdomain": "^1",
         "grunt-contrib-clean": "^1",
         "grunt-contrib-compass": "^1",
@@ -42,29 +44,17 @@
         "grunt-contrib-sass": "^1",
         "grunt-contrib-uglify": "^1",
         "grunt-contrib-watch": "^1",
+        "grunt-concat-css": "^0",
         "grunt-phpunit": "^0",
         "grunt-potomo": "^3",
         "grunt-replace": "^1",
-        "grunt-wp-i18n": "^1",
-        "jquery": "^3.3.1",
-        "load-grunt-tasks": "^0",
-        "lodash": "^4.17.10",
-        "mocha": "^2.3.3",
-        "node-sass": "^4.9.0",
-        "path": "^0.12.7",
-        "postcss-loader": "^2.1.6",
-        "resolve-url-loader": "^2.3.0",
-        "sass-loader": "^6.0.7",
-        "style-loader": "^0.20.3",
-        "system-bell-webpack-plugin": "^1.0.0",
-        "webpack": "^4.16.3",
-        "webpack-cli": "^3.1.0",
-        "whatwg-fetch": "^2.0.4"
+        "grunt-wp-i18n": "^1"
     },
     "keywords": [],
     "repository": {
         "type": "git",
-        "url": "git@github.com:iworks/iworks-pwa.git"
+        "url": "git@github.com:iworks/iworks-pwa.git",
+        "website": "https://github.com/iworks/iworks-pwa"
     },
     "license": "GPL-3.0"
 }
