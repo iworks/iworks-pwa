@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 			'!assets/scripts/src/**',
 			'!assets/scss/**',
 			'!assets/styles/frontend/**',
-			'!includes/iworks/iworks-pwa/class-iworks-iworks-pwa-github.php',
+			'!includes/iworks/pwa/class-iworks-pwa-github.php',
 			'!includes/pro/**',
 			'!languages/*.mo',
 			'!languages/*.po',
