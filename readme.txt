@@ -105,13 +105,16 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 == Changelog ==
 
-Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
+Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
+
+= 1.7.0 (2025-03-13) =
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.8.
 
 = 1.6.9 (2025-03-09) =
 * A extra check for the `get_current_screen()` function has been added. [#12](https://github.com/iworks/iworks-pwa/issues/12). Props for [inmyopinion202](https://github.com/inmyopinion202).
 * Data sanitization has been added in several places.
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.7.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.3.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.7.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.2.3.
 * The `load_plugin_texdomain()` function has been removed.
 * Warnings during AJAX calls has been fixed.
 * Updating plugin from GitHub releases has been improved.
@@ -124,7 +127,7 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 
 = 1.6.6 (2024-12-06) =
 * Few "translators" comments where been added. [#9](https://github.com/iworks/iworks-pwa/issues/9)
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.1.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.2.1.
 * Translation loading time has been fixed. [#10](https://github.com/iworks/iworks-pwa/issues/10)
 * The "orientation" field has been updated. [#8](https://github.com/iworks/iworks-pwa/issues/8)
 
@@ -146,43 +149,42 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 
 = 1.6.1 (2024-08-20) =
 * The meta viewport check request has been limited to one per day. Props for [skyfly024](https://wordpress.org/support/users/skyfly024/).
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.2.0.
-
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.2.0.
 
 = 1.6.0 (2024-07-04) =
 * The filter `iworks-pwa/manifest/data` has been added. It's allowed to modify entire content of the `manifest.json` file. Props for [jdwf0658](https://wordpress.org/support/users/jdwf0658/).
 * The `.editorconfig` file has been added.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.9.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.9.
 
 = 1.5.9 (2024-02-24) =
 * A few sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
 * The plugin URL has been changed to [github](https://github.com/iworks/iworks-pwa).
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.2.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.8.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.2.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.8.
 
 = 1.5.8 (2023-12-27) =
 * The check for a tag meta with the "viewport" value has been added after changes in plugins activations.
 * The dynamic property has been fixed.
 * The function `parse_url()` has been replaced by the function `wp_parse_url()`.
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.9.0.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.6.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.0.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.6.
 * The nonce check has been added to check "viewport" feature.
 
 = 1.5.7 (2023-11-17) =
 * [Empty shortcuts in the `manifest.json` file have been fixed](https://github.com/iworks/iworks-pwa/issues/4). Props for [elmando111](https://wordpress.org/support/users/elmando111/).
 * The filter `iworks-pwa/manifest/shortcuts` has been added. It's allowed to modify the shortcuts array in the `manifest.json` file.
 * The filter `iworks-pwa/manifest/shortcuts/element/url/campain` has been added. It's allowed to modify the campaign in shortcuts urls.
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.8.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.8.
 
 = 1.5.6 (2023-10-27) =
 * Wrong function name `get_color_background()` has been fixed. Props for [bodhisattvac](https://wordpress.org/support/users/bodhisattvac/).
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.7.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.3.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.7.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.3.
 
 = 1.5.5 (2023-07-10) =
 * A check for PWA files required to work has been added.
-* The [iWorks Options](https://github.com/iworks/wordpress-options-class) module has been updated to 2.8.5.
-* The [iWorks Rate](https://github.com/iworks/iworks-rate) module has been updated to 2.1.2.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.5.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.2.
 
 = 1.5.4 (2023-06-30) =
 * The meta tag `apple-mobile-web-app-capable` has been added.
@@ -197,7 +199,7 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 
 = 1.5.2 (2022-09-26) =
 * Fixed issue with "apple-touch-icon" - it wasn't used even defined.
-* Updated iWorks Rate to 2.1.1.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.1.
 
 = 1.5.1 (2022-09-10) =
 * Added check for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
@@ -217,13 +219,13 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 * Added permanent hide for menu pointer when a user visits the PWA Settings page.
 
 = 1.4.1 (2022-04-05) =
-* Updated iWorks Options to 2.8.3. (Fixed PHP 7.x compatibility).
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.4.
 
 = 1.4.0 (2022-04-05) =
 * Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
 * Added a message when the site permalink is installed in a sub-directory - this plugin does not support it.
 * Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
-* Updated iWorks Options to 2.8.3.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.3.
 
 = 1.3.3 (2022-03-22) =
 * Replaced cache function o proper one.
@@ -251,12 +253,12 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 * Added [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin integration.
 * Added plugin information into PWA script elements.
 * Added purpose "any maskable" to the biggest icon. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/).
-* Updated iWorks Options to 2.8.2.
-* Updated iWorks Rate to 2.1.0.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.2.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.0.
 
 = 1.2.1 (2022-02-16) =
 * Added a message when the site permalink is "plain" - this plugin does not support it.
-* Updated iWorks Options to 2.8.1.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.1.
 
 = 1.2.0 (2022-02-15) =
 * Added the ability to change the text of the offline page.
@@ -303,8 +305,8 @@ Project maintained on github at [iworks/iworks-pwa](https://github.com/iworks/iw
 * Added configuration for application orientation.
 * Added configuration for application short name.
 * Changed plugin name from "iWorks PWA" to "PWA — simple way to Progressive Web App".
-* Updated iWorks Options to 2.8.0.
-* Updated iWorks Rate to 2.0.6.
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.0.
+* Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.0.6.
 
 = 1.0.0 (2022-01-04) =
 * First stable release.
