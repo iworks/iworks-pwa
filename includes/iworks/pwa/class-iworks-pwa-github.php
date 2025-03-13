@@ -199,7 +199,7 @@ class iworks_pwa_github {
 			'id'          => $repo_info['html_url'],
 			'url'         => $repo_info['html_url'],
 			'slug'        => current( explode( '/', $this->basename ) ),
-			'package'     => $repo_info['zipball_url'],
+			'package'     => $repo['assets'][0]['browser_download_url'],
 			'new_version' => $repo_info['tag_name'],
 		);
 
