@@ -267,7 +267,7 @@ jQuery( function( $ ) {
 			return;
 		}
 		echo '<div class="notice notice-error">';
-		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
+		printf( '<h2>%s</h2>', esc_html__( 'PWA — easy way to Progressive Web App', 'iworks-pwa' ) );
 		echo wp_kses_post(
 			wpautop(
 				sprintf(
@@ -294,7 +294,7 @@ jQuery( function( $ ) {
 			return;
 		}
 		echo '<div class="notice notice-error">';
-		printf( '<h2>%s</h2>', esc_html__( 'PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
+		printf( '<h2>%s</h2>', esc_html__( 'PWA — easy way to Progressive Web App', 'iworks-pwa' ) );
 		echo wp_kses_post(
 			wpautop(
 				esc_html__( 'This plugin does not support installation in a subdirectory and will not work properly.', 'iworks-pwa' )
@@ -554,7 +554,7 @@ jQuery( function( $ ) {
 			'<div class="iworks-pwa-notice-check-url notice notice-error is-dismissible" data-nonce="%s" data-action="iworks_pwa_notice_check_url_hide">',
 			esc_attr( wp_create_nonce( 'iworks-pwa', 'iworks-pwa' ) )
 		);
-		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — simple way to Progressive Web App', 'iworks-pwa' ) );
+		printf( '<h2>%s</h2>', esc_html__( 'ERROR: PWA — easy way to Progressive Web App', 'iworks-pwa' ) );
 		echo wp_kses_post(
 			wpautop(
 				sprintf(

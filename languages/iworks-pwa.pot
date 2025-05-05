@@ -662,7 +662,7 @@ msgid "PWA settings are now available in Settings."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "PWA — simple way to Progressive Web App"
+msgid "PWA — easy way to Progressive Web App"
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:275
@@ -680,7 +680,7 @@ msgid ""
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
-msgid "ERROR: PWA — simple way to Progressive Web App"
+msgid "ERROR: PWA — easy way to Progressive Web App"
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:562

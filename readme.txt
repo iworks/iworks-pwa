@@ -310,7 +310,7 @@ Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iw
 * Added configuration for application icons.
 * Added configuration for application orientation.
 * Added configuration for application short name.
-* Changed plugin name from "iWorks PWA" to "PWA — simple way to Progressive Web App".
+* Changed plugin name from "iWorks PWA" to "PWA — easy way to Progressive Web App".
 * Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.0.
 * Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.0.6.
 

@@ -317,7 +317,7 @@ msgid "The \"%s\" file is no reachable."
 msgstr ""
 
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
-msgid "ERROR: PWA — simple way to Progressive Web App"
+msgid "ERROR: PWA — easy way to Progressive Web App"
 msgstr ""
 
 #: etc/options.php:541
@@ -624,7 +624,7 @@ msgstr "Apple"
 #. Plugin Name of the plugin
 #: iworks-pwa.php includes/iworks/pwa/class-iworks-pwa-administrator.php:270
 #: includes/iworks/pwa/class-iworks-pwa-administrator.php:297
-msgid "PWA — simple way to Progressive Web App"
+msgid "PWA — easy way to Progressive Web App"
 msgstr ""
 
 #: includes/iworks/options/options.php:2004
