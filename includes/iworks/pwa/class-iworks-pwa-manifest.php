@@ -93,7 +93,7 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
-		$uri = remove_query_arg( array_keys( $_GET ), $_SERVER['REQUEST_URI'] );
+		$uri = remove_query_arg( array_keys( $_GET ), esc_url( $_SERVER['REQUEST_URI'] ) );
 		/**
 		 * manifest.json
 		 */
@@ -378,9 +378,9 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		$value = get_post_meta( $item_id, $this->meta_option_name_sort_menu_name, true );
 		?>
 <p class="field-short-name description description-wide">
-	<label for="edit-menu-item-short-name-<?php echo $item_id; ?>">
+	<label for="edit-menu-item-short-name-<?php echo esc_attr( $item_id ); ?>">
 		<?php _e( 'Short Name (PWA)', 'iworks-pwa' ); ?><br />
-		<input type="text" id="edit-menu-item-a-short-name-<?php echo $item_id; ?>" class="widefat code edit-menu-item-short-name" name="menu-item-short-name[<?php echo $item_id; ?>]" value="<?php echo esc_attr( $value ); ?>" />
+		<input type="text" id="edit-menu-item-a-short-name-<?php echo esc_attr( $item_id ); ?>" class="widefat code edit-menu-item-short-name" name="menu-item-short-name[<?php echo esc_attr( $item_id ); ?>]" value="<?php echo esc_attr( $value ); ?>" />
 	</label>
 </p>
 		<?php
@@ -392,6 +392,9 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 	 * @since 1.4.0
 	 */
 	public function action_wp_update_nav_menu_save( $menu_id, $menu_data = array() ) {
+		if ( ! wp_verify_nonce( filter_input( INPUT_POST, 'update-nav-menu-nonce' ), 'update-nav_menu' ) ) {
+			return;
+		}
 		if ( ! isset( $_POST['menu-item-short-name'] ) ) {
 			return;
 		}
@@ -399,6 +402,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			return;
 		}
 		foreach ( $_POST['menu-item-short-name'] as $post_id => $value ) {
+			$post_id = intval( $post_id );
+			if ( 1 > $post_id ) {
+				continue;
+			}
 			$value = esc_html( $value );
 			if ( empty( $value ) ) {
 				delete_post_meta( $post_id, $this->meta_option_name_sort_menu_name );

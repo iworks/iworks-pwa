@@ -265,7 +265,7 @@ abstract class iWorks_PWA {
 	protected function image_resize_and_save( $image, $width, $destfilename ) {
 		$image->resize( $width, $width );
 		if ( is_file( $destfilename ) ) {
-			unlink( $destfilename );
+			wp_delete_file( $destfilename );
 		}
 		return $image->save( $destfilename );
 	}

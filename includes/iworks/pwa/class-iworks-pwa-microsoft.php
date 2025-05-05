@@ -103,7 +103,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 				printf(
 					'<square%1$dx%1$dlogo src="%2$s"/>',
 					esc_attr( $one['sizes'] ),
-					esc_attr( wp_make_link_relative( $one['src'] ) )
+					esc_attr( wp_make_link_relative( esc_url( $one['src'] ) ) )
 				);
 			}
 		}
@@ -113,11 +113,11 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			if ( ! empty( $value ) ) {
 				printf(
 					'<square310x310logo src="%s"/>',
-					esc_attr( wp_make_link_relative( $value ) )
+					esc_attr( wp_make_link_relative( esc_url( $value ) ) )
 				);
 			}
 		}
-		printf( '<TileColor>%s</TileColor>', $this->configuration['theme_color'] );
+		printf( '<TileColor>%s</TileColor>', esc_html( $this->configuration['theme_color'] ) );
 		echo '</tile>';
 		echo '</msapplication>';
 		echo '</browserconfig>';
@@ -147,27 +147,27 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		$content .= sprintf(
 			'<meta name="msapplication-config" content="%s">%s',
 			esc_attr( $this->ieconfig_filename ),
-			$this->eol
+			esc_html( $this->eol )
 		);
 		$content .= sprintf(
 			'<meta name="application-name" content="%s">%s',
 			esc_attr( $this->configuration['name'] ),
-			$this->eol
+			esc_html( $this->eol )
 		);
 		$content .= sprintf(
 			'<meta name="msapplication-tooltip" content="%s">%s',
 			esc_attr( $this->configuration['description'] ),
-			$this->eol
+			esc_html( $this->eol )
 		);
 		$content .= sprintf(
 			'<meta name="msapplication-starturl" content="%s">%s',
-			get_home_url(),
-			$this->eol
+			esc_url( get_home_url() ),
+			esc_html( $this->eol )
 		);
 		$content .= sprintf(
 			'<meta name="msapplication-navbutton-color" content="%s">%s',
 			esc_attr( $this->configuration['theme_color'] ),
-			$this->eol
+			esc_html( $this->eol )
 		);
 		if ( $this->debug ) {
 			$content .= '<!-- Windows 8 Tiles -->';
@@ -201,7 +201,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 					$content .= sprintf(
 						'<meta name="msapplication-TileImage" content="%s">%s',
 						esc_attr( wp_make_link_relative( $one['src'] ) ),
-						$this->eol
+						esc_html( $this->eol )
 					);
 				}
 			}
@@ -209,7 +209,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		$content .= sprintf(
 			'<meta name="msapplication-TileColor" content="%s">%s',
 			esc_attr( $this->configuration['theme_color'] ),
-			$this->eol
+			esc_html( $this->eol )
 		);
 		$icons    = $this->get_configuration_icons( 'ie11' );
 		if ( is_array( $icons ) ) {
@@ -222,7 +222,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 					'<meta name="msapplication-square%slogo" content="%s">%s',
 					esc_attr( $data['sizes'] ),
 					esc_attr( wp_make_link_relative( $data['src'] ) ),
-					$this->eol
+					esc_html( $this->eol )
 				);
 			}
 		}

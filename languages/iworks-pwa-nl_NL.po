@@ -2,687 +2,83 @@
 # This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
-"(latest release)\n"
-"Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-03-09 17:25:12+00:00\n"
-"PO-Revision-Date: 2024-03-26 23:15:29+0000\n"
-"Language: nl\n"
+"PO-Revision-Date: 2025-03-19 21:58:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/4.0.1\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable (latest release)\n"
 
-#. translators: %1$s: open anchor tag, %2$s: close anchor tag
-#: assets/templates/no-ssl.php:16
-msgid ""
-"The PWA needs to be hosted on a secure server! Please use HTTPS on your site "
-"before activate this plugin."
+#. translators: %s: plugin id
+#: includes/iworks/rate/rate.php:446
+msgid "There is no plugin with id: %s."
 msgstr ""
 
-#. translators: %s: url to deactivate plugin
-#: assets/templates/no-ssl.php:37
-msgid ""
-"We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again "
-"after this site will use SSL."
+#: etc/options.php:101
+msgctxt "PWA settings"
+msgid "Displays the web app in inverted landscape mode, which is landscape-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
-#: assets/templates/no-ssl.php:45
-msgid "FAQ"
+#: etc/options.php:100
+msgctxt "PWA settings"
+msgid "Landscape Secondary"
 msgstr ""
 
-#: assets/templates/no-ssl.php:46 includes/iworks/rate/templates/thanks.php:35
-#: includes/iworks/rate/templates/widgets/support.php:21
-msgid "Get help"
+#: etc/options.php:97
+msgctxt "PWA settings"
+msgid "Displays the web app in landscape mode, typically with the device held in its standard horizontal position. This is usually the default app orientation on devices that are naturally landscape. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
-#: etc/options.php:11
-msgid "Progressive Web Application - Configuration"
+#: etc/options.php:96
+msgctxt "PWA settings"
+msgid "Landscape Primary"
 msgstr ""
 
-#: etc/options.php:12
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:223
-msgid "PWA"
+#: etc/options.php:93
+msgctxt "PWA settings"
+msgid "Displays the web app with width greater than height. It allows the app to switch between landscape-primary and landscape-secondary orientations when the device is rotated."
 msgstr ""
 
-#: etc/options.php:19
-msgid "General"
+#: etc/options.php:89
+msgctxt "PWA settings"
+msgid "Displays the web app in inverted portrait mode, which is portrait-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
-#: etc/options.php:25
-msgid "Application Name"
+#: etc/options.php:88
+msgctxt "PWA settings"
+msgid "Portrait Secondary"
 msgstr ""
 
-#: etc/options.php:33
-msgid "Application Short Name"
+#: etc/options.php:85
+msgctxt "PWA settings"
+msgid "Displays the web app in portrait mode, typically with the device held upright. This is usually the default app orientation on devices that are naturally portrait. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
 msgstr ""
 
-#: etc/options.php:34
-msgid ""
-"Used when there is insufficient space to display the full name of the "
-"application. 15 characters or less."
+#: etc/options.php:84
+msgctxt "PWA settings"
+msgid "Portrait Primary"
 msgstr ""
 
-#: etc/options.php:43
-msgid "Description"
+#: etc/options.php:81
+msgctxt "PWA settings"
+msgid "Displays the web app with height greater than width. It allows the app to switch between portrait-primary and portrait-secondary orientations when the device is rotated."
 msgstr ""
 
-#: etc/options.php:44
-msgid "A brief description of what your app is about."
+#: etc/options.php:77
+msgctxt "PWA settings"
+msgid "Displays the web app in the orientation considered most natural for the device, as determined by the browser, operating system, user settings, or the screen itself."
 msgstr ""
 
-#: etc/options.php:51
-msgid "Scope"
-msgstr ""
-
-#: etc/options.php:52
-msgid ""
-"The scope defines the navigation scope of this web application's application "
-"context. It restricts what web pages can be viewed while the manifest is "
-"applied. If the user navigates outside the scope, it reverts to a normal web "
-"page inside a browser tab or window."
-msgstr ""
-
-#: etc/options.php:69
-msgid "Orientation"
-msgstr ""
-
-#: etc/options.php:109
-msgid "Display"
-msgstr ""
-
-#: etc/options.php:110
-msgid ""
-"Display mode decides what browser UI is shown when your app is launched. "
-"Standalone is default."
-msgstr ""
-
-#: etc/options.php:130
-msgid "Cache version"
-msgstr ""
-
-#: etc/options.php:138
-msgid "Offline content page"
-msgstr ""
-
-#: etc/options.php:141 includes/iworks/class-iworks-pwa.php:623
-msgid "We were unable to load the page you requested."
-msgstr "We konden de pagina die je hebt aangevraagd niet laden."
-
-#: etc/options.php:144 includes/iworks/class-iworks-pwa.php:626
-msgid "Please check your network connection and try again."
-msgstr "Controleer je verbinding en probeer het nogmaals."
-
-#: etc/options.php:160
-msgid "Categories"
-msgstr ""
-
-#: etc/options.php:161
-msgid ""
-"The categories member is an array of strings defining the names of "
-"categories that the application supposedly belongs to."
-msgstr ""
-
-#: etc/options.php:170
-msgid "Books"
-msgstr ""
-
-#: etc/options.php:171
-msgid "Business"
-msgstr ""
-
-#: etc/options.php:172
-msgid "Education"
-msgstr ""
-
-#: etc/options.php:173
-msgid "Entertainment"
-msgstr ""
-
-#: etc/options.php:174
-msgid "Finance"
-msgstr ""
-
-#: etc/options.php:175
-msgid "Fitness"
-msgstr ""
-
-#: etc/options.php:176
-msgid "Food"
-msgstr ""
-
-#: etc/options.php:177
-msgid "Games"
-msgstr ""
-
-#: etc/options.php:178
-msgid "Government"
-msgstr ""
-
-#: etc/options.php:179
-msgid "Health"
-msgstr ""
-
-#: etc/options.php:180
-msgid "Kids"
-msgstr ""
-
-#: etc/options.php:181
-msgid "Lifestyle"
-msgstr ""
-
-#: etc/options.php:182
-msgid "Magazines"
-msgstr ""
-
-#: etc/options.php:183
-msgid "Medical"
-msgstr ""
-
-#: etc/options.php:184
-msgid "Music"
-msgstr ""
-
-#: etc/options.php:185
-msgid "Navigation"
-msgstr ""
-
-#: etc/options.php:186
-msgid "News"
-msgstr ""
-
-#: etc/options.php:187
-msgid "Personalization"
-msgstr ""
-
-#: etc/options.php:188
-msgid "Photo"
-msgstr ""
-
-#: etc/options.php:189
-msgid "Politics"
-msgstr ""
-
-#: etc/options.php:190
-msgid "Productivity"
-msgstr ""
-
-#: etc/options.php:191
-msgid "Security"
-msgstr ""
-
-#: etc/options.php:192
-msgid "Shopping"
-msgstr ""
-
-#: etc/options.php:193
-msgid "Social"
-msgstr ""
-
-#: etc/options.php:194
-msgid "Sports"
-msgstr ""
-
-#: etc/options.php:195
-msgid "Travel"
-msgstr ""
-
-#: etc/options.php:196
-msgid "Utilities"
-msgstr ""
-
-#: etc/options.php:197
-msgid "Weather"
-msgstr ""
-
-#: etc/options.php:207
-msgid "A2HS"
-msgstr "A2HS"
-
-#: etc/options.php:208
-msgid ""
-"Add to Home screen (or A2HS for short) is a feature available in modern "
-"browsers that allows a user to \"install\" a web app, ie. add a shortcut to "
-"their Home screen representing their favorite web app (or site) so they can "
-"subsequently access it with a single tap."
-msgstr ""
-
-#: etc/options.php:214
-msgid "Position"
-msgstr "Positie"
-
-#: etc/options.php:218
-msgid "Browser will show A2HS prompt automatically if it is needed."
-msgstr ""
-
-#: etc/options.php:222
-msgid "This option doesn't work for \"block themes\"."
-msgstr ""
-
-#: etc/options.php:235
-msgid "Button text"
-msgstr "Knoptekst"
-
-#: etc/options.php:237 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
-msgid "Add to home screen"
-msgstr ""
-
-#: etc/options.php:243
-msgid "Load CSS"
-msgstr ""
-
-#: etc/options.php:251
-msgid "Generic"
-msgstr "Algemeen"
-
-#: etc/options.php:257
-msgid "Background Color"
-msgstr ""
-
-#: etc/options.php:258
-msgid "Background color of the splash screen."
-msgstr ""
-
-#: etc/options.php:266
-msgid "Theme Color"
-msgstr ""
-
-#: etc/options.php:267
-msgid ""
-"Theme color is used on supported devices to tint the UI elements of the "
-"browser and app switcher. When in doubt, use the same color as Background "
-"Color."
-msgstr ""
-
-#: etc/options.php:274
-msgid "Application Icon"
-msgstr ""
-
-#: etc/options.php:275
-msgid ""
-"This will be the icon of your app when installed on the phone. It should be "
-"a PNG image."
-msgstr ""
-
-#: etc/options.php:282
-msgid "Maskable Icon"
-msgstr ""
-
-#: etc/options.php:283
-msgid ""
-"Maskable icon is adaptive icon that can be displayed in a variety of shapes "
-"that operating systems provide. For example, on Android, app icons can have "
-"a circular mask. Your PWA app icon should specifically support masking to "
-"look well integrated with operating systems that apply masks."
-msgstr ""
-
-#: etc/options.php:292
-msgid "Splash Screen Icon"
-msgstr ""
-
-#: etc/options.php:293
-msgid ""
-"This icon will be displayed on the splash screen of your app on supported "
-"devices. It should be a PNG image."
-msgstr ""
-
-#: etc/options.php:302
-msgid "Apple"
-msgstr "Apple"
-
-#: etc/options.php:307
-msgid "Touch Icon"
-msgstr ""
-
-#: etc/options.php:308
-msgid ""
-"For ideal appearance on iOS when users add a progressive web app to the home "
-"screen. It must point to a non-transparent 192px (or 180px) square PNG."
-msgstr ""
-
-#: etc/options.php:317
-msgid "Pinned Tab Icon"
-msgstr ""
-
-#: etc/options.php:322
-msgid "Icon"
-msgstr "Pictogram"
-
-#: etc/options.php:323
-msgid ""
-"Use 100% black for all vectors with a transparent background in SVG format "
-"and add the following markup to all webpages that the icon should represent. "
-"The SVG file must be a single layer and the viewBox attribute must be set to "
-"\"0 0 16 16\"."
-msgstr ""
-
-#: etc/options.php:330
-msgid "Color"
-msgstr ""
-
-#: etc/options.php:339
-msgid "Status Bar"
-msgstr "Statusbalk"
-
-#: etc/options.php:344
-msgid "Style"
-msgstr "Stijl"
-
-#: etc/options.php:345
-msgid ""
-"Customize the iOS status bar (the area along the upper edge of the screen "
-"displaying the time and battery status) of your PWA."
-msgstr ""
-
-#: etc/options.php:364
-msgid "Custom Splash Screen"
-msgstr ""
-
-#: etc/options.php:368
-msgid ""
-"Add the following elements to support custom splash screens for the "
-"different iOS devices."
-msgstr ""
-
-#: etc/options.php:369
-msgid "It must be a non-transparent PNG image."
-msgstr ""
-
-#: etc/options.php:381
-msgid "Default"
-msgstr "Standaard"
-
-#: etc/options.php:396
-msgid "iPhone Xs Max"
-msgstr "iPhone Xs Max"
-
-#: etc/options.php:397
-msgid "1242px &#10005; 2688px"
-msgstr "1242px &#10005; 2688px"
-
-#: etc/options.php:412
-msgid "iPhone Xr"
-msgstr "iPhone Xr"
-
-#: etc/options.php:413
-msgid "828px &#10005; 1792px"
-msgstr "828px &#10005; 1792px"
-
-#: etc/options.php:428
-msgid "iPhone X, Xs"
-msgstr "iPhone X, Xs"
-
-#: etc/options.php:429
-msgid "1125px &#10005; 2436px"
-msgstr "1125px &#10005; 2436px"
-
-#: etc/options.php:444
-msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
-msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
-
-#: etc/options.php:445
-msgid "1242px &#10005; 2208px"
-msgstr "1242px &#10005; 2208px"
-
-#: etc/options.php:460
-msgid "iPhone 8, 7, 6s, 6"
-msgstr "iPhone 8, 7, 6s, 6"
-
-#: etc/options.php:461
-msgid "750px &#10005; 1334px"
-msgstr "750px &#10005; 1334px"
-
-#: etc/options.php:476
-msgid "iPad Pro 12.9\""
-msgstr "iPad Pro 12.9\""
-
-#: etc/options.php:477
-msgid "2048px &#10005; 2732px"
-msgstr "2048px &#10005; 2732px"
-
-#: etc/options.php:492
-msgid "iPad Pro 11”"
-msgstr "iPad Pro 11”"
-
-#: etc/options.php:493
-msgid "1668px &#10005; 2388px"
-msgstr "1668px &#10005; 2388px"
-
-#: etc/options.php:508
-msgid "iPad Pro 10.5\""
-msgstr "iPad Pro 10.5\""
-
-#: etc/options.php:509
-msgid "1668px &#10005; 2224px"
-msgstr "1668px &#10005; 2224px"
-
-#: etc/options.php:524
-msgid "iPad Mini, Air"
-msgstr "iPad Mini, Air"
-
-#: etc/options.php:525
-msgid "1536px &#10005; 2048px"
-msgstr "1536px &#10005; 2048px"
-
-#: etc/options.php:540
-msgid "iPhone 5"
-msgstr "iPhone 5"
-
-#: etc/options.php:541
-msgid "640px &#10005; 1136px"
-msgstr "640px &#10005; 1136px"
-
-#: etc/options.php:556 etc/options.php:572
-msgid "iPhone 14 Pro"
-msgstr "iPhone 14 Pro"
-
-#: etc/options.php:557
-msgid "1179px &#10005; 2556px"
-msgstr "1179px &#10005; 2556px"
-
-#: etc/options.php:573
-msgid "1290px &#10005; 2796px"
-msgstr "1290px &#10005; 2796px"
-
-#: etc/options.php:589
-msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
-msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
-
-#: etc/options.php:590
-msgid "1284px &#10005; 2778px"
-msgstr "1284px &#10005; 2778px"
-
-#: etc/options.php:606
-msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
-msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
-
-#: etc/options.php:607
-msgid "1170px &#10005; 2532px"
-msgstr "1170px &#10005; 2532px"
-
-#: etc/options.php:623
-msgid "iPad Air 10.9″"
-msgstr "iPad Air 10.9″"
-
-#: etc/options.php:624
-msgid "1640px &#10005; 2360px"
-msgstr "1640px &#10005; 2360px"
-
-#: etc/options.php:640
-msgid "iPad 10.2″"
-msgstr "iPad 10.2″"
-
-#: etc/options.php:641
-msgid "1620px &#10005; 2160px"
-msgstr "1620px &#10005; 2160px"
-
-#: etc/options.php:653
-msgid "Microsoft"
-msgstr "Microsoft"
-
-#: etc/options.php:658
-msgid "Square Tile Logo"
-msgstr ""
-
-#: etc/options.php:661
-msgid "It must be a PNG image, at least 310x310px."
-msgstr ""
-
-#: etc/options.php:666
-msgid "Wide Tile Logo"
-msgstr ""
-
-#: etc/options.php:669
-msgid "It must be a PNG image. It should be exactly 310x150px."
-msgstr ""
-
-#: etc/options.php:674 etc/options.php:888
-msgid "We are waiting for your message"
-msgstr ""
-
-#: etc/options.php:680
-msgid "I love what I do!"
-msgstr ""
-
-#: etc/options.php:852
-msgid "Below are some links to help spread this plugin to other users"
-msgstr ""
-
-#: etc/options.php:854
-msgid "Give it a five stars on WordPress.org"
-msgstr ""
-
-#: etc/options.php:855
-msgid "Link to it so others can easily find it"
-msgstr ""
-
-#: etc/options.php:890
-msgid "WordPress Help Forum"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:164
-#: includes/iworks/class-iworks-pwa.php:868
-#: includes/iworks/pwa/class-iworks-pwa-frontend.php:71
-msgid "iWorks PWA"
-msgstr "iWorks PWA"
-
-#: includes/iworks/options/options.php:263
-msgid "An error occurred while getting the configuration."
-msgstr ""
-
-#: includes/iworks/options/options.php:842
-#: includes/iworks/options/options.php:1950
-msgid "Select Image"
-msgstr "Afbeelding selecteren"
-
-#: includes/iworks/options/options.php:847
-msgid "Delete image"
-msgstr "Afbeelding verwijderen"
-
-#: includes/iworks/options/options.php:955
-msgid "Save Changes"
-msgstr "Wijzigingen opslaan"
-
-#: includes/iworks/options/options.php:1844
-msgid "Country"
-msgstr "Land"
-
-#: includes/iworks/options/options.php:1845
-msgid "City"
-msgstr "Stad"
-
-#: includes/iworks/options/options.php:1846
-msgid "Street"
-msgstr ""
-
-#: includes/iworks/options/options.php:1847
-msgid "ZIP code"
-msgstr ""
-
-#: includes/iworks/options/options.php:2003
-msgid "OFF"
-msgstr ""
-
-#: includes/iworks/options/options.php:2004
-msgid "ON"
-msgstr ""
-
-#: includes/iworks/options/options.php:2069
-msgid "Failed Security Check"
-msgstr ""
-
-#. translators: %s: "Safe SVG" plugin name with link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:138
-msgid ""
-"This field requires an SVG file. To securely upload SVG files, please "
-"install the %s plugin."
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:142
-msgid "Safe SVG"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:170
-msgid "Debug info"
-msgstr "Debug info"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:180
-msgid "Main files"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:183
-msgid "manifest.json"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:184
-msgid "Service Worker"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:185
-msgid "Offline page"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:186
-msgid "IE config xml"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:224
-msgid "PWA settings are now available in Settings."
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "PWA — simple way to Progressive Web App"
-msgstr ""
-
-#. translators: %s; url to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:275
-msgid ""
-"This plugin does not support the plain permalink structure. <a "
-"href=\"%s\">Please change your permalinks settings</a> to other structure to "
-"use PWA plugin."
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:300
-msgid ""
-"This plugin does not support installation in a subdirectory and will not "
-"work properly."
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
-msgid "ERROR: PWA — simple way to Progressive Web App"
-msgstr ""
-
-#. translators: %s: filename as link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:562
-msgid "The \"%s\" file is no reachable."
-msgstr ""
+#: etc/options.php:76
+msgctxt "PWA settings"
+msgid "Natural"
+msgstr "Natuurlijk"
 
-#. translators: %s: link to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:575
-msgid ""
-"<a href=\"%s\">Please change your permalinks settings</a> or server rewrite "
-"rules."
+#: etc/options.php:73
+msgctxt "PWA settings"
+msgid "Displays the web app in any orientation allowed by the device's operating system or user settings. It allows the app to rotate freely to match the orientation of the device when it is rotated."
 msgstr ""
 
 #. translators: %s: current request
@@ -692,145 +88,146 @@ msgstr ""
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:134
-msgid "Sorry!"
-msgstr "Sorry!"
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:281
-msgid "PWA Shortcuts Menu"
+#: etc/options.php:283
+msgid "Maskable icon is adaptive icon that can be displayed in a variety of shapes that operating systems provide. For example, on Android, app icons can have a circular mask. Your PWA app icon should specifically support masking to look well integrated with operating systems that apply masks."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:382
-msgid "Short Name (PWA)"
-msgstr "Korte naam (PWA)"
-
-#: includes/iworks/rate/rate.php:133
-msgid "Settings"
-msgstr "Instellingen"
-
-#: includes/iworks/rate/rate.php:147
-#: includes/iworks/rate/templates/thanks.php:39
-msgid "Provide us a coffee"
-msgstr "Voorzie ons van een kop koffie"
-
-#. translators: %s: plugin id
-#: includes/iworks/rate/rate.php:446
-msgid "There is no plugin with id: %s."
+#: etc/options.php:282
+msgid "Maskable Icon"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:563
-msgid "OpenGraph"
-msgstr "OpenGraph"
-
-#: includes/iworks/rate/rate.php:579
-msgid "OG — Better Share on Social Media"
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:142
+msgid "Safe SVG"
 msgstr ""
 
-#: includes/iworks/rate/rate.php:580
-msgid "https://wordpress.org/plugins/og/"
-msgstr "https://wordpress.org/plugins/og/"
-
-#: includes/iworks/rate/templates/plugins/og.php:4
-msgid "Would you like to boost your website sharing abilities?"
+#. translators: %s: "Safe SVG" plugin name with link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:138
+msgid "This field requires an SVG file. To securely upload SVG files, please install the %s plugin."
 msgstr ""
 
-#. translators: %s is a plugin name with url
-#: includes/iworks/rate/templates/plugins/og.php:9
-msgid "Don't wait, install plugin %s!"
-msgstr "Wacht niet, installeer plugin %s!"
+#: etc/options.php:197
+msgid "Weather"
+msgstr "Weer"
 
-#. translators: %s is a plugin wp home name, %s plugin name
-#: includes/iworks/rate/templates/plugins/og.php:20
-msgid "Install"
-msgstr "Installeren"
+#: etc/options.php:196
+msgid "Utilities"
+msgstr "Utilities"
 
-#. translators: %s is a plugin name wrapped by strong html tag
-#: includes/iworks/rate/templates/thanks.php:23
-msgid "Thank you for using our plugin %s!"
-msgstr "Bedankt voor het gebruik van onze plugin %s!"
+#: etc/options.php:195
+msgid "Travel"
+msgstr "Reizen"
 
-#. translators: %1$s: open anchor tag, %2$s: close anchor tag
-#: includes/iworks/rate/templates/thanks.php:31
-msgid ""
-"Please let us know what you think about our plugin. It is important that we "
-"can develop this tool. Thank you for all the ratings, reviews and donates. "
-"If you have a technical problem, please before you add a review %1$scheck "
-"our FAQ%2$s or contact us if you did not find help there. We will try to "
-"help you!"
+#: etc/options.php:194
+msgid "Sports"
+msgstr "Sporten"
+
+#: etc/options.php:193
+msgid "Social"
+msgstr "Sociaal"
+
+#: etc/options.php:192
+msgid "Shopping"
+msgstr "Winkelen"
+
+#: etc/options.php:191
+msgid "Security"
+msgstr "Beveiliging"
+
+#: etc/options.php:190
+msgid "Productivity"
+msgstr "Productiviteit"
+
+#: etc/options.php:189
+msgid "Politics"
+msgstr "Politiek"
+
+#: etc/options.php:188
+msgid "Photo"
+msgstr "Foto"
+
+#: etc/options.php:187
+msgid "Personalization"
+msgstr "Personalisatie"
+
+#: etc/options.php:186
+msgid "News"
+msgstr "Nieuws"
+
+#: etc/options.php:185
+msgid "Navigation"
+msgstr "Navigatie"
+
+#: etc/options.php:184
+msgid "Music"
+msgstr "Muziek"
+
+#: etc/options.php:183
+msgid "Medical"
+msgstr "Medisch"
+
+#: etc/options.php:182
+msgid "Magazines"
+msgstr "Tijdschriften"
+
+#: etc/options.php:181
+msgid "Lifestyle"
+msgstr "Lifestyle"
+
+#: etc/options.php:180
+msgid "Kids"
+msgstr "Kinderen"
+
+#: etc/options.php:179
+msgid "Health"
+msgstr "Gezondheid"
+
+#: etc/options.php:178
+msgid "Government"
+msgstr "Overheid"
+
+#: etc/options.php:177
+msgid "Games"
+msgstr "Games"
+
+#: etc/options.php:176
+msgid "Food"
+msgstr "Voedsel"
+
+#: etc/options.php:175
+msgid "Fitness"
+msgstr "Fitness"
+
+#: etc/options.php:174
+msgid "Finance"
+msgstr "Financiën"
+
+#: etc/options.php:173
+msgid "Entertainment"
+msgstr "Entertainment"
+
+#: etc/options.php:172
+msgid "Education"
+msgstr "Onderwijs"
+
+#: etc/options.php:171
+msgid "Business"
 msgstr ""
 
-#: includes/iworks/rate/templates/thanks.php:37
-#: includes/iworks/rate/templates/widgets/support.php:31
-msgid "Add review"
+#: etc/options.php:170
+msgid "Books"
 msgstr ""
 
-#: includes/iworks/rate/templates/thanks.php:41
-msgid "I added review, do not show again"
+#: etc/options.php:161
+msgid "The categories member is an array of strings defining the names of categories that the application supposedly belongs to."
 msgstr ""
 
-#: includes/iworks/rate/templates/widgets/donate.php:2
-msgid ""
-"However, working on plugins and technical support requires many hours of "
-"work. If you want to appreciate it, you can provide me a coffee."
+#: etc/options.php:160
+msgid "Categories"
 msgstr ""
 
-#: includes/iworks/rate/templates/widgets/donate.php:3
-msgid ""
-"If every plugin user did it, I could devote myself fully to working on this "
-"plugin. Thanks everyone!"
-msgstr ""
-
-#: includes/iworks/rate/templates/widgets/donate.php:4
-msgid "Provide me a coffee"
-msgstr ""
-
-#: includes/iworks/rate/templates/widgets/support.php:4
-msgid ""
-"Do you have a technical problem? Please contact us. We will be happy to help "
-"you. Or maybe you have an idea for a new feature? Please let us know about "
-"it by filling the support form. We will try to add it!"
-msgstr ""
-
-#. translators: %1$s: open anchor tag, %2$s: close anchor tag, %3$s: open
-#. anchor tag, %4$s: close anchor tag
-#: includes/iworks/rate/templates/widgets/support.php:11
-msgid ""
-"Please %1$scheck our FAQ%2$s before adding a thread with technical problem. "
-"If you do not find help there, %3$scheck support forum%4$s for similar "
-"problems."
-msgstr ""
-
-#: includes/iworks/rate/templates/widgets/support.php:26
-msgid ""
-"Do you like our plugin? Could you rate him? Please let us know what you "
-"think about our plugin. It is important that we can develop this tool. Thank "
-"you for all the ratings, reviews and donates."
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "PLUGIN_URI"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid "PLUGIN_TAGLINE"
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Marcin Pietrzak"
-msgstr "Marcin Pietrzak"
-
-#. Author URI of the plugin/theme
-msgid "http://iworks.pl/"
-msgstr "http://iworks.pl/"
-
-#: etc/options.php:55
+#: etc/options.php:60
 msgctxt "PWA settings"
-msgid "Relative to the base URL."
-msgstr ""
-
-#: etc/options.php:56
-msgctxt "PWA settings"
-msgid "If the scope is relative, the manifest URL is used as a base URL."
+msgid "If the scope is limited to current site the following scope limits navigation to the current site."
 msgstr ""
 
 #: etc/options.php:59
@@ -838,153 +235,195 @@ msgctxt "PWA settings"
 msgid "Current site"
 msgstr ""
 
-#: etc/options.php:60
+#: etc/options.php:56
 msgctxt "PWA settings"
-msgid ""
-"If the scope is limited to current site the following scope limits "
-"navigation to the current site."
+msgid "If the scope is relative, the manifest URL is used as a base URL."
 msgstr ""
 
-#: etc/options.php:72
+#: etc/options.php:55
 msgctxt "PWA settings"
-msgid "Follow Device Orientation"
+msgid "Relative to the base URL."
 msgstr ""
 
-#: etc/options.php:73
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in any orientation allowed by the device's operating "
-"system or user settings. It allows the app to rotate freely to match the "
-"orientation of the device when it is rotated."
+#: etc/options.php:52
+msgid "The scope defines the navigation scope of this web application's application context. It restricts what web pages can be viewed while the manifest is applied. If the user navigates outside the scope, it reverts to a normal web page inside a browser tab or window."
 msgstr ""
 
-#: etc/options.php:76
-msgctxt "PWA settings"
-msgid "Natural"
+#: etc/options.php:51
+msgid "Scope"
 msgstr ""
 
-#: etc/options.php:77
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in the orientation considered most natural for the "
-"device, as determined by the browser, operating system, user settings, or "
-"the screen itself."
+#: etc/options.php:641
+msgid "1620px &#10005; 2160px"
+msgstr "1620px &#10005; 2160px"
+
+#: etc/options.php:640
+msgid "iPad 10.2″"
+msgstr "iPad 10.2″"
+
+#: etc/options.php:624
+msgid "1640px &#10005; 2360px"
+msgstr "1640px &#10005; 2360px"
+
+#: etc/options.php:623
+msgid "iPad Air 10.9″"
+msgstr "iPad Air 10.9″"
+
+#: etc/options.php:607
+msgid "1170px &#10005; 2532px"
+msgstr "1170px &#10005; 2532px"
+
+#: etc/options.php:606
+msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
+msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
+
+#: etc/options.php:590
+msgid "1284px &#10005; 2778px"
+msgstr "1284px &#10005; 2778px"
+
+#: etc/options.php:589
+msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
+msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
+
+#: etc/options.php:573
+msgid "1290px &#10005; 2796px"
+msgstr "1290px &#10005; 2796px"
+
+#: etc/options.php:557
+msgid "1179px &#10005; 2556px"
+msgstr "1179px &#10005; 2556px"
+
+#: etc/options.php:556 etc/options.php:572
+msgid "iPhone 14 Pro"
+msgstr "iPhone 14 Pro"
+
+#. Plugin URI of the plugin
+#: iworks-pwa.php
+msgid "https://github.com/iworks/iworks-pwa"
+msgstr "https://github.com/iworks/iworks-pwa"
+
+#: includes/iworks/options/options.php:2069
+msgid "Failed Security Check"
 msgstr ""
 
-#: etc/options.php:80
-msgctxt "PWA settings"
-msgid "Portrait"
+#. translators: %s: link to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:575
+msgid "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite rules."
 msgstr ""
 
-#: etc/options.php:81
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app with height greater than width. It allows the app to "
-"switch between portrait-primary and portrait-secondary orientations when the "
-"device is rotated."
+#. translators: %s: filename as link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:562
+msgid "The \"%s\" file is no reachable."
 msgstr ""
 
-#: etc/options.php:84
-msgctxt "PWA settings"
-msgid "Portrait Primary"
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:557
+msgid "ERROR: PWA — simple way to Progressive Web App"
 msgstr ""
 
-#: etc/options.php:85
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in portrait mode, typically with the device held "
-"upright. This is usually the default app orientation on devices that are "
-"naturally portrait. Depending on the device and browser implementation, the "
-"app will typically maintain this orientation even when the device is rotated."
+#: etc/options.php:541
+msgid "640px &#10005; 1136px"
+msgstr "640px &#10005; 1136px"
+
+#: etc/options.php:540
+msgid "iPhone 5"
+msgstr "iPhone 5"
+
+#: etc/options.php:525
+msgid "1536px &#10005; 2048px"
+msgstr "1536px &#10005; 2048px"
+
+#: etc/options.php:524
+msgid "iPad Mini, Air"
+msgstr "iPad Mini, Air"
+
+#: etc/options.php:509
+msgid "1668px &#10005; 2224px"
+msgstr "1668px &#10005; 2224px"
+
+#: etc/options.php:508
+msgid "iPad Pro 10.5\""
+msgstr "iPad Pro 10.5\""
+
+#: etc/options.php:493
+msgid "1668px &#10005; 2388px"
+msgstr "1668px &#10005; 2388px"
+
+#: etc/options.php:492
+msgid "iPad Pro 11”"
+msgstr "iPad Pro 11”"
+
+#: etc/options.php:477
+msgid "2048px &#10005; 2732px"
+msgstr "2048px &#10005; 2732px"
+
+#: etc/options.php:476
+msgid "iPad Pro 12.9\""
+msgstr "iPad Pro 12.9\""
+
+#: etc/options.php:461
+msgid "750px &#10005; 1334px"
+msgstr "750px &#10005; 1334px"
+
+#: etc/options.php:460
+msgid "iPhone 8, 7, 6s, 6"
+msgstr "iPhone 8, 7, 6s, 6"
+
+#: etc/options.php:445
+msgid "1242px &#10005; 2208px"
+msgstr "1242px &#10005; 2208px"
+
+#: etc/options.php:444
+msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
+msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
+
+#: etc/options.php:429
+msgid "1125px &#10005; 2436px"
+msgstr "1125px &#10005; 2436px"
+
+#: etc/options.php:428
+msgid "iPhone X, Xs"
+msgstr "iPhone X, Xs"
+
+#: etc/options.php:413
+msgid "828px &#10005; 1792px"
+msgstr "828px &#10005; 1792px"
+
+#: etc/options.php:412
+msgid "iPhone Xr"
+msgstr "iPhone Xr"
+
+#: etc/options.php:397
+msgid "1242px &#10005; 2688px"
+msgstr "1242px &#10005; 2688px"
+
+#: etc/options.php:396
+msgid "iPhone Xs Max"
+msgstr "iPhone Xs Max"
+
+#: etc/options.php:381
+msgid "Default"
+msgstr "Standaard"
+
+#: etc/options.php:369
+msgid "It must be a non-transparent PNG image."
 msgstr ""
 
-#: etc/options.php:88
-msgctxt "PWA settings"
-msgid "Portrait Secondary"
+#: etc/options.php:368
+msgid "Add the following elements to support custom splash screens for the different iOS devices."
 msgstr ""
 
-#: etc/options.php:89
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in inverted portrait mode, which is portrait-primary "
-"rotated 180 degrees. Depending on the device and browser implementation, the "
-"app will typically maintain this orientation even when the device is rotated."
+#: etc/options.php:364
+msgid "Custom Splash Screen"
 msgstr ""
 
-#: etc/options.php:92
+#: etc/options.php:354
 msgctxt "PWA settings"
-msgid "Landscape"
+msgid "White text and symbols, and the status bar will take the same background color as the body element of your web app."
 msgstr ""
 
-#: etc/options.php:93
+#: etc/options.php:351
 msgctxt "PWA settings"
-msgid ""
-"Displays the web app with width greater than height. It allows the app to "
-"switch between landscape-primary and landscape-secondary orientations when "
-"the device is rotated."
-msgstr ""
-
-#: etc/options.php:96
-msgctxt "PWA settings"
-msgid "Landscape Primary"
-msgstr ""
-
-#: etc/options.php:97
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in landscape mode, typically with the device held in "
-"its standard horizontal position. This is usually the default app "
-"orientation on devices that are naturally landscape. Depending on the device "
-"and browser implementation, the app will typically maintain this orientation "
-"even when the device is rotated."
-msgstr ""
-
-#: etc/options.php:100
-msgctxt "PWA settings"
-msgid "Landscape Secondary"
-msgstr ""
-
-#: etc/options.php:101
-msgctxt "PWA settings"
-msgid ""
-"Displays the web app in inverted landscape mode, which is landscape-primary "
-"rotated 180 degrees. Depending on the device and browser implementation, the "
-"app will typically maintain this orientation even when the device is rotated."
-msgstr ""
-
-#: etc/options.php:113
-msgctxt "PWA settings"
-msgid "Full Screen"
-msgstr ""
-
-#: etc/options.php:116
-msgctxt "PWA settings"
-msgid "Standalone"
-msgstr ""
-
-#: etc/options.php:119
-msgctxt "PWA settings"
-msgid "Minimal UI"
-msgstr ""
-
-#: etc/options.php:122
-msgctxt "PWA settings"
-msgid "Browser"
-msgstr ""
-
-#: etc/options.php:217
-msgctxt "PWA settings"
-msgid "Hide (recommended)"
-msgstr ""
-
-#: etc/options.php:221
-msgctxt "PWA settings"
-msgid "After &lt;body&gt; tag"
-msgstr ""
-
-#: etc/options.php:225
-msgctxt "PWA settings"
-msgid "Footer"
+msgid "Black status bar and black text and symbols, making it appear completely black."
 msgstr ""
 
 #: etc/options.php:348
@@ -992,23 +431,245 @@ msgctxt "PWA settings"
 msgid "White status bar with black text and symbols."
 msgstr ""
 
-#: etc/options.php:351
-msgctxt "PWA settings"
-msgid ""
-"Black status bar and black text and symbols, making it appear completely "
-"black."
+#: etc/options.php:345
+msgid "Customize the iOS status bar (the area along the upper edge of the screen displaying the time and battery status) of your PWA."
 msgstr ""
 
-#: etc/options.php:354
-msgctxt "PWA settings"
-msgid ""
-"White text and symbols, and the status bar will take the same background "
-"color as the body element of your web app."
+#: etc/options.php:344
+msgid "Style"
+msgstr "Stijl"
+
+#: etc/options.php:339
+msgid "Status Bar"
+msgstr "Statusbalk"
+
+#: etc/options.php:322
+msgid "Icon"
+msgstr "Pictogram"
+
+#: etc/options.php:208
+msgid "Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to \"install\" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap."
 msgstr ""
 
-#: etc/options.php:855
-msgctxt "plugin home page on WordPress.org"
-msgid "https://wordpress.org/plugins/iworks-pwa/"
+#: etc/options.php:243
+msgid "Load CSS"
+msgstr ""
+
+#: etc/options.php:237 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
+msgid "Add to home screen"
+msgstr ""
+
+#: etc/options.php:235
+msgid "Button text"
+msgstr "Knoptekst"
+
+#: etc/options.php:225
+msgctxt "PWA settings"
+msgid "Footer"
+msgstr ""
+
+#: etc/options.php:222
+msgid "This option doesn't work for \"block themes\"."
+msgstr ""
+
+#: etc/options.php:221
+msgctxt "PWA settings"
+msgid "After &lt;body&gt; tag"
+msgstr ""
+
+#: etc/options.php:218
+msgid "Browser will show A2HS prompt automatically if it is needed."
+msgstr ""
+
+#: etc/options.php:217
+msgctxt "PWA settings"
+msgid "Hide (recommended)"
+msgstr ""
+
+#: etc/options.php:214
+msgid "Position"
+msgstr "Positie"
+
+#: etc/options.php:207
+msgid "A2HS"
+msgstr "A2HS"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:382
+msgid "Short Name (PWA)"
+msgstr "Korte naam (PWA)"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:281
+msgid "PWA Shortcuts Menu"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:300
+msgid "This plugin does not support installation in a subdirectory and will not work properly."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:186
+msgid "IE config xml"
+msgstr ""
+
+#: includes/iworks/rate/templates/plugins/og.php:20
+msgid "Install"
+msgstr "Installeren"
+
+#. translators: %s is a plugin name with url
+#: includes/iworks/rate/templates/plugins/og.php:9
+msgid "Don't wait, install plugin %s!"
+msgstr "Wacht niet, installeer plugin %s!"
+
+#: includes/iworks/rate/templates/plugins/og.php:4
+msgid "Would you like to boost your website sharing abilities?"
+msgstr "Wil je je mogelijkheden voor het delen van je site vergroten?"
+
+#: includes/iworks/rate/rate.php:580
+msgid "https://wordpress.org/plugins/og/"
+msgstr "https://wordpress.org/plugins/og/"
+
+#: includes/iworks/rate/rate.php:579
+msgid "OG — Better Share on Social Media"
+msgstr ""
+
+#: includes/iworks/rate/rate.php:563
+msgid "OpenGraph"
+msgstr "OpenGraph"
+
+#. Description of the plugin
+#: iworks-pwa.php
+msgid "Your easy way to Progressive Web Application."
+msgstr ""
+
+#. translators: %s; url to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:275
+msgid "This plugin does not support the plain permalink structure. <a href=\"%s\">Please change your permalinks settings</a> to other structure to use PWA plugin."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:224
+msgid "PWA settings are now available in Settings."
+msgstr ""
+
+#: etc/options.php:138
+msgid "Offline content page"
+msgstr ""
+
+#: etc/options.php:130
+msgid "Cache version"
+msgstr ""
+
+#: etc/options.php:323
+msgid "Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to \"0 0 16 16\"."
+msgstr ""
+
+#: etc/options.php:317
+msgid "Pinned Tab Icon"
+msgstr ""
+
+#: etc/options.php:307
+msgid "Touch Icon"
+msgstr ""
+
+#: etc/options.php:251
+msgid "Generic"
+msgstr "Algemeen"
+
+#: etc/options.php:669
+msgid "It must be a PNG image. It should be exactly 310x150px."
+msgstr ""
+
+#: etc/options.php:661
+msgid "It must be a PNG image, at least 310x310px."
+msgstr ""
+
+#: etc/options.php:308
+msgid "For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG."
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:185
+msgid "Offline page"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:184
+msgid "Service Worker"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:183
+msgid "manifest.json"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:180
+msgid "Main files"
+msgstr ""
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:170
+msgid "Debug info"
+msgstr "Debug info"
+
+#: etc/options.php:666
+msgid "Wide Tile Logo"
+msgstr ""
+
+#: etc/options.php:658
+msgid "Square Tile Logo"
+msgstr ""
+
+#: etc/options.php:653
+msgid "Microsoft"
+msgstr "Microsoft"
+
+#: etc/options.php:302
+msgid "Apple"
+msgstr "Apple"
+
+#. Plugin Name of the plugin
+#: iworks-pwa.php includes/iworks/pwa/class-iworks-pwa-administrator.php:270
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:297
+msgid "PWA — simple way to Progressive Web App"
+msgstr ""
+
+#: includes/iworks/options/options.php:2004
+msgid "ON"
+msgstr "AAN"
+
+#: includes/iworks/options/options.php:2003
+msgid "OFF"
+msgstr "UIT"
+
+#: includes/iworks/options/options.php:1847
+msgid "ZIP code"
+msgstr "Postcode"
+
+#: includes/iworks/options/options.php:1846
+msgid "Street"
+msgstr "Straat"
+
+#: includes/iworks/options/options.php:1845
+msgid "City"
+msgstr "Stad"
+
+#: includes/iworks/options/options.php:1844
+msgid "Country"
+msgstr "Land"
+
+#: includes/iworks/options/options.php:955
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: includes/iworks/options/options.php:847
+msgid "Delete image"
+msgstr "Afbeelding verwijderen"
+
+#: includes/iworks/options/options.php:842
+#: includes/iworks/options/options.php:1950
+msgid "Select Image"
+msgstr "Afbeelding selecteren"
+
+#: includes/iworks/options/options.php:263
+msgid "An error occurred while getting the configuration."
+msgstr ""
+
+#: etc/options.php:890
+msgid "WordPress Help Forum"
 msgstr ""
 
 #: etc/options.php:890
@@ -1016,21 +677,191 @@ msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:165
-msgctxt "plugins home"
-msgid "https://wordpress.org/plugins/iworks-pwa"
-msgstr "https://wordpress.org/plugins/iworks-pwa"
+#: etc/options.php:855
+msgid "Link to it so others can easily find it"
+msgstr ""
 
-#. translators: %s: plugin slug
-#: includes/iworks/rate/rate.php:469
-msgctxt "plugins home"
-msgid "https://wordpress.org/plugins/%s"
-msgstr "https://wordpress.org/plugins/%s"
+#: etc/options.php:855
+msgctxt "plugin home page on WordPress.org"
+msgid "https://wordpress.org/plugins/iworks-pwa/"
+msgstr ""
 
-#: includes/iworks/class-iworks-pwa.php:168
-msgctxt "plugins support home"
-msgid "https://wordpress.org/support/plugin/iworks-pwa"
-msgstr "https://wordpress.org/support/plugin/iworks-pwa"
+#: etc/options.php:854
+msgid "Give it a five stars on WordPress.org"
+msgstr ""
+
+#: etc/options.php:852
+msgid "Below are some links to help spread this plugin to other users"
+msgstr ""
+
+#: etc/options.php:680
+msgid "I love what I do!"
+msgstr ""
+
+#: etc/options.php:674 etc/options.php:888
+msgid "We are waiting for your message"
+msgstr ""
+
+#: etc/options.php:293
+msgid "This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image."
+msgstr ""
+
+#: etc/options.php:292
+msgid "Splash Screen Icon"
+msgstr ""
+
+#: etc/options.php:275
+msgid "This will be the icon of your app when installed on the phone. It should be a PNG image."
+msgstr ""
+
+#: etc/options.php:274
+msgid "Application Icon"
+msgstr ""
+
+#: etc/options.php:267
+msgid "Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color."
+msgstr ""
+
+#: etc/options.php:266
+msgid "Theme Color"
+msgstr "Thema kleur"
+
+#: etc/options.php:258
+msgid "Background color of the splash screen."
+msgstr ""
+
+#: etc/options.php:257
+msgid "Background Color"
+msgstr ""
+
+#: etc/options.php:330
+msgid "Color"
+msgstr ""
+
+#: etc/options.php:122
+msgctxt "PWA settings"
+msgid "Browser"
+msgstr ""
+
+#: etc/options.php:119
+msgctxt "PWA settings"
+msgid "Minimal UI"
+msgstr ""
+
+#: etc/options.php:116
+msgctxt "PWA settings"
+msgid "Standalone"
+msgstr "Standalone"
+
+#: etc/options.php:113
+msgctxt "PWA settings"
+msgid "Full Screen"
+msgstr "Volledig scherm"
+
+#: etc/options.php:110
+msgid "Display mode decides what browser UI is shown when your app is launched. Standalone is default."
+msgstr ""
+
+#: etc/options.php:109
+msgid "Display"
+msgstr "Scherm"
+
+#: etc/options.php:92
+msgctxt "PWA settings"
+msgid "Landscape"
+msgstr "Landschap"
+
+#: etc/options.php:80
+msgctxt "PWA settings"
+msgid "Portrait"
+msgstr "Portret"
+
+#: etc/options.php:72
+msgctxt "PWA settings"
+msgid "Follow Device Orientation"
+msgstr "Volg apparaatoriëntatie"
+
+#: etc/options.php:69
+msgid "Orientation"
+msgstr "Oriëntatie"
+
+#: etc/options.php:44
+msgid "A brief description of what your app is about."
+msgstr "Een korte beschrijving waar je app over gaat."
+
+#: etc/options.php:43
+msgid "Description"
+msgstr "Beschrijving"
+
+#: etc/options.php:34
+msgid "Used when there is insufficient space to display the full name of the application. 15 characters or less."
+msgstr ""
+
+#: etc/options.php:33
+msgid "Application Short Name"
+msgstr "Korte applicatienaam"
+
+#: etc/options.php:25
+msgid "Application Name"
+msgstr "Applicatienaam"
+
+#: etc/options.php:19
+msgid "General"
+msgstr "Algemeen"
+
+#: etc/options.php:12
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:223
+msgid "PWA"
+msgstr "PWA"
+
+#: etc/options.php:11
+msgid "Progressive Web Application - Configuration"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/support.php:26
+msgid "Do you like our plugin? Could you rate him? Please let us know what you think about our plugin. It is important that we can develop this tool. Thank you for all the ratings, reviews and donates."
+msgstr ""
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag, %3$s: open
+#. anchor tag, %4$s: close anchor tag
+#: includes/iworks/rate/templates/widgets/support.php:11
+msgid "Please %1$scheck our FAQ%2$s before adding a thread with technical problem. If you do not find help there, %3$scheck support forum%4$s for similar problems."
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/support.php:4
+msgid "Do you have a technical problem? Please contact us. We will be happy to help you. Or maybe you have an idea for a new feature? Please let us know about it by filling the support form. We will try to add it!"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/donate.php:4
+msgid "Provide me a coffee"
+msgstr "Geef mij een kopje koffie"
+
+#: includes/iworks/rate/templates/widgets/donate.php:3
+msgid "If every plugin user did it, I could devote myself fully to working on this plugin. Thanks everyone!"
+msgstr ""
+
+#: includes/iworks/rate/templates/widgets/donate.php:2
+msgid "However, working on plugins and technical support requires many hours of work. If you want to appreciate it, you can provide me a coffee."
+msgstr ""
+
+#: includes/iworks/rate/templates/thanks.php:41
+msgid "I added review, do not show again"
+msgstr ""
+
+#: includes/iworks/rate/templates/thanks.php:37
+#: includes/iworks/rate/templates/widgets/support.php:31
+msgid "Add review"
+msgstr "Beoordeling toevoegen"
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: includes/iworks/rate/templates/thanks.php:31
+msgid "Please let us know what you think about our plugin. It is important that we can develop this tool. Thank you for all the ratings, reviews and donates. If you have a technical problem, please before you add a review %1$scheck our FAQ%2$s or contact us if you did not find help there. We will try to help you!"
+msgstr ""
+
+#. translators: %s is a plugin name wrapped by strong html tag
+#: includes/iworks/rate/templates/thanks.php:23
+msgid "Thank you for using our plugin %s!"
+msgstr "Bedankt voor het gebruik van onze plugin %s!"
 
 #. translators: %s: plugin slug
 #: includes/iworks/rate/rate.php:476
@@ -1038,5 +869,74 @@ msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/%s"
 msgstr "https://wordpress.org/support/plugin/%s"
 
-#~ msgid "https://github.com/iworks/iworks-pwa"
-#~ msgstr "https://github.com/iworks/iworks-pwa"
+#. translators: %s: plugin slug
+#: includes/iworks/rate/rate.php:469
+msgctxt "plugins home"
+msgid "https://wordpress.org/plugins/%s"
+msgstr "https://wordpress.org/plugins/%s"
+
+#: includes/iworks/rate/rate.php:147
+#: includes/iworks/rate/templates/thanks.php:39
+msgid "Provide us a coffee"
+msgstr "Voorzie ons van een kop koffie"
+
+#: includes/iworks/rate/rate.php:133
+msgid "Settings"
+msgstr "Instellingen"
+
+#: etc/options.php:144 includes/iworks/class-iworks-pwa.php:626
+msgid "Please check your network connection and try again."
+msgstr "Controleer je verbinding en probeer het nogmaals."
+
+#: etc/options.php:141 includes/iworks/class-iworks-pwa.php:623
+msgid "We were unable to load the page you requested."
+msgstr "We konden de pagina die je hebt aangevraagd niet laden."
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:134
+msgid "Sorry!"
+msgstr "Sorry!"
+
+#: includes/iworks/class-iworks-pwa.php:168
+msgctxt "plugins support home"
+msgid "https://wordpress.org/support/plugin/iworks-pwa"
+msgstr "https://wordpress.org/support/plugin/iworks-pwa"
+
+#: includes/iworks/class-iworks-pwa.php:165
+msgctxt "plugins home"
+msgid "https://wordpress.org/plugins/iworks-pwa"
+msgstr "https://wordpress.org/plugins/iworks-pwa"
+
+#: assets/templates/no-ssl.php:46 includes/iworks/rate/templates/thanks.php:35
+#: includes/iworks/rate/templates/widgets/support.php:21
+msgid "Get help"
+msgstr "Krijg hulp"
+
+#: assets/templates/no-ssl.php:45
+msgid "FAQ"
+msgstr "FAQ"
+
+#. translators: %s: url to deactivate plugin
+#: assets/templates/no-ssl.php:37
+msgid "We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again after this site will use SSL."
+msgstr ""
+
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: assets/templates/no-ssl.php:16
+msgid "The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activate this plugin."
+msgstr ""
+
+#. Author URI of the plugin
+#: iworks-pwa.php
+msgid "http://iworks.pl/"
+msgstr "http://iworks.pl/"
+
+#. Author of the plugin
+#: iworks-pwa.php
+msgid "Marcin Pietrzak"
+msgstr "Marcin Pietrzak"
+
+#: includes/iworks/class-iworks-pwa.php:164
+#: includes/iworks/class-iworks-pwa.php:868
+#: includes/iworks/pwa/class-iworks-pwa-frontend.php:71
+msgid "iWorks PWA"
+msgstr "iWorks PWA"

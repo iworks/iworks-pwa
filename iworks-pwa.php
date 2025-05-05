@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: PWA — simple way to Progressive Web App
+Plugin Name: PWA — easy way to Progressive Web App
 Text Domain: iworks-pwa
 Plugin URI: PLUGIN_URI
 Description: PLUGIN_TAGLINE
 Version: PLUGIN_VERSION
 Author: Marcin Pietrzak
 Author URI: http://iworks.pl/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Copyright 2021-PLUGIN_TILL_YEAR Marcin Pietrzak (marcin@iworks.pl)
 
