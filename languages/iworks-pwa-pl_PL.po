@@ -5,15 +5,17 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-05 11:38:48+00:00\n"
-"PO-Revision-Date: 2025-05-05 11:35:23+0000\n"
+"POT-Creation-Date: 2025-05-14 15:51:29+00:00\n"
+"PO-Revision-Date: 2025-05-14 17:52+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 "
 "&& (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
-"X-Generator: GlotPress/4.0.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
 #: assets/templates/no-ssl.php:16
@@ -116,22 +118,30 @@ msgid "Cache version"
 msgstr "Wersja pamięci podręcznej"
 
 #: etc/options.php:138
+msgid "Cache time"
+msgstr "Czas pamięci podręcznej"
+
+#: etc/options.php:142
+msgid "Cache time in seconds. Default is 1 day."
+msgstr "Czas pamięci podręcznej w sekundach. Domyślnie 1 dzień."
+
+#: etc/options.php:148
 msgid "Offline content page"
 msgstr "Treść strony przy braku połączenia"
 
-#: etc/options.php:141 includes/iworks/class-iworks-pwa.php:623
+#: etc/options.php:151 includes/iworks/class-iworks-pwa.php:644
 msgid "We were unable to load the page you requested."
 msgstr "Nie możemy załadować strony o którą pytano."
 
-#: etc/options.php:144 includes/iworks/class-iworks-pwa.php:626
+#: etc/options.php:154 includes/iworks/class-iworks-pwa.php:647
 msgid "Please check your network connection and try again."
 msgstr "Sprawdź swoje połączenie internetowe i spróbuj ponownie."
 
-#: etc/options.php:160
+#: etc/options.php:170
 msgid "Categories"
 msgstr "Kategorie"
 
-#: etc/options.php:161
+#: etc/options.php:171
 msgid ""
 "The categories member is an array of strings defining the names of "
 "categories that the application supposedly belongs to."
@@ -139,123 +149,123 @@ msgstr ""
 "Element kategorie jest tablicą wyrazów definiujących nazwy kategorii, do "
 "których należy aplikacja."
 
-#: etc/options.php:170
+#: etc/options.php:180
 msgid "Books"
 msgstr "Książki"
 
-#: etc/options.php:171
+#: etc/options.php:181
 msgid "Business"
 msgstr "Firma"
 
-#: etc/options.php:172
+#: etc/options.php:182
 msgid "Education"
 msgstr "Edukacja"
 
-#: etc/options.php:173
+#: etc/options.php:183
 msgid "Entertainment"
 msgstr "Rozrywka"
 
-#: etc/options.php:174
+#: etc/options.php:184
 msgid "Finance"
 msgstr "Finanse"
 
-#: etc/options.php:175
+#: etc/options.php:185
 msgid "Fitness"
 msgstr "Fitness"
 
-#: etc/options.php:176
+#: etc/options.php:186
 msgid "Food"
 msgstr "Jedzenie"
 
-#: etc/options.php:177
+#: etc/options.php:187
 msgid "Games"
 msgstr "Gry"
 
-#: etc/options.php:178
+#: etc/options.php:188
 msgid "Government"
 msgstr "Instytucja rządowa"
 
-#: etc/options.php:179
+#: etc/options.php:189
 msgid "Health"
 msgstr "Zdrowie"
 
-#: etc/options.php:180
+#: etc/options.php:190
 msgid "Kids"
 msgstr "Dzieci"
 
-#: etc/options.php:181
+#: etc/options.php:191
 msgid "Lifestyle"
 msgstr "Styl życia"
 
-#: etc/options.php:182
+#: etc/options.php:192
 msgid "Magazines"
 msgstr "Czasopismo"
 
-#: etc/options.php:183
+#: etc/options.php:193
 msgid "Medical"
 msgstr "Opieka zdrowotna"
 
-#: etc/options.php:184
+#: etc/options.php:194
 msgid "Music"
 msgstr "Muzyka"
 
-#: etc/options.php:185
+#: etc/options.php:195
 msgid "Navigation"
 msgstr "Nawigacja"
 
-#: etc/options.php:186
+#: etc/options.php:196
 msgid "News"
 msgstr "Wiadomości"
 
-#: etc/options.php:187
+#: etc/options.php:197
 msgid "Personalization"
 msgstr "Personalizacja"
 
-#: etc/options.php:188
+#: etc/options.php:198
 msgid "Photo"
 msgstr "Fotografia"
 
-#: etc/options.php:189
+#: etc/options.php:199
 msgid "Politics"
 msgstr "Polityka"
 
-#: etc/options.php:190
+#: etc/options.php:200
 msgid "Productivity"
 msgstr "Wydajność"
 
-#: etc/options.php:191
+#: etc/options.php:201
 msgid "Security"
 msgstr "Bezpieczeństwo"
 
-#: etc/options.php:192
+#: etc/options.php:202
 msgid "Shopping"
 msgstr "Zakupy"
 
-#: etc/options.php:193
+#: etc/options.php:203
 msgid "Social"
 msgstr "Społecznościowe"
 
-#: etc/options.php:194
+#: etc/options.php:204
 msgid "Sports"
 msgstr "Sport"
 
-#: etc/options.php:195
+#: etc/options.php:205
 msgid "Travel"
 msgstr "Podróże"
 
-#: etc/options.php:196
+#: etc/options.php:206
 msgid "Utilities"
 msgstr "Narzędzia"
 
-#: etc/options.php:197
+#: etc/options.php:207
 msgid "Weather"
 msgstr "Pogoda"
 
-#: etc/options.php:207
+#: etc/options.php:217
 msgid "A2HS"
 msgstr "A2HS"
 
-#: etc/options.php:208
+#: etc/options.php:218
 msgid ""
 "Add to Home screen (or A2HS for short) is a feature available in modern "
 "browsers that allows a user to \"install\" a web app, ie. add a shortcut to "
@@ -268,48 +278,48 @@ msgstr ""
 "ich ulubioną aplikację internetową (lub witrynę), aby mogli później uzyskać "
 "do niej dostęp jednym dotknięciem."
 
-#: etc/options.php:214
+#: etc/options.php:224
 msgid "Position"
 msgstr "Położenie"
 
-#: etc/options.php:218
+#: etc/options.php:228
 msgid "Browser will show A2HS prompt automatically if it is needed."
 msgstr ""
 "Przeglądarka automatycznie wyświetli monit A2HS, jeśli jest to konieczne."
 
-#: etc/options.php:222
+#: etc/options.php:232
 msgid "This option doesn't work for \"block themes\"."
 msgstr "Opcja nie działa dla motywów blokowych."
 
-#: etc/options.php:235
+#: etc/options.php:245
 msgid "Button text"
 msgstr "Tekst przycisku"
 
-#: etc/options.php:237 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
+#: etc/options.php:247 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
 msgid "Add to home screen"
 msgstr "Dodaj do ekranu startowego"
 
-#: etc/options.php:243
+#: etc/options.php:253
 msgid "Load CSS"
 msgstr "Wczytuj CSS"
 
-#: etc/options.php:251
+#: etc/options.php:261
 msgid "Generic"
 msgstr "Ogólnie"
 
-#: etc/options.php:257
+#: etc/options.php:267
 msgid "Background Color"
 msgstr "Kolor tła"
 
-#: etc/options.php:258
+#: etc/options.php:268
 msgid "Background color of the splash screen."
 msgstr "Kolor tła ekranu powitalnego."
 
-#: etc/options.php:266
+#: etc/options.php:276
 msgid "Theme Color"
 msgstr "Kolor motywu"
 
-#: etc/options.php:267
+#: etc/options.php:277
 msgid ""
 "Theme color is used on supported devices to tint the UI elements of the "
 "browser and app switcher. When in doubt, use the same color as Background "
@@ -319,11 +329,11 @@ msgstr ""
 "elementów interfejsu przeglądarki i przełącznika aplikacji. W razie "
 "wątpliwości proszę użyć tego samego koloru co kolor tła."
 
-#: etc/options.php:274
+#: etc/options.php:284
 msgid "Application Icon"
 msgstr "Ikonka aplikacji"
 
-#: etc/options.php:275
+#: etc/options.php:285
 msgid ""
 "This will be the icon of your app when installed on the phone. It should be "
 "a PNG image."
@@ -331,11 +341,11 @@ msgstr ""
 "Będzie to ikonka aplikacji zainstalowanej na telefonie. Powinien to być "
 "obraz PNG."
 
-#: etc/options.php:282
+#: etc/options.php:292
 msgid "Maskable Icon"
 msgstr "Ikona maskowalna"
 
-#: etc/options.php:283
+#: etc/options.php:293
 msgid ""
 "Maskable icon is adaptive icon that can be displayed in a variety of shapes "
 "that operating systems provide. For example, on Android, app icons can have "
@@ -348,11 +358,11 @@ msgstr ""
 "powinna w szczególności obsługiwać maskowanie, aby wyglądała dobrze "
 "zintegrowana z systemami operacyjnymi, które stosują maski."
 
-#: etc/options.php:292
+#: etc/options.php:302
 msgid "Splash Screen Icon"
 msgstr "Ikonka ekranu powitalnego"
 
-#: etc/options.php:293
+#: etc/options.php:303
 msgid ""
 "This icon will be displayed on the splash screen of your app on supported "
 "devices. It should be a PNG image."
@@ -360,15 +370,15 @@ msgstr ""
 "Ikonka będzie wyświetlana na ekranie powitalnym aplikacji na obsługiwanych "
 "urządzeniach. Powinien to być obraz PNG."
 
-#: etc/options.php:302
+#: etc/options.php:312
 msgid "Apple"
 msgstr "Apple"
 
-#: etc/options.php:307
+#: etc/options.php:317
 msgid "Touch Icon"
 msgstr "Ikonka"
 
-#: etc/options.php:308
+#: etc/options.php:318
 msgid ""
 "For ideal appearance on iOS when users add a progressive web app to the home "
 "screen. It must point to a non-transparent 192px (or 180px) square PNG."
@@ -377,15 +387,15 @@ msgstr ""
 "internetową do ekranu głównego. Musi wskazywać na nieprzezroczysty "
 "kwadratowy plik PNG o rozmiarze 192 pikseli (lub 180 pikseli)."
 
-#: etc/options.php:317
+#: etc/options.php:327
 msgid "Pinned Tab Icon"
 msgstr "Ikonka przpinania"
 
-#: etc/options.php:322
+#: etc/options.php:332
 msgid "Icon"
 msgstr "Ikonka"
 
-#: etc/options.php:323
+#: etc/options.php:333
 msgid ""
 "Use 100% black for all vectors with a transparent background in SVG format "
 "and add the following markup to all webpages that the icon should represent. "
@@ -397,19 +407,19 @@ msgstr ""
 "powinna reprezentować ikona. Plik SVG musi być jednowarstwowy, a atrybut "
 "viewBox musi być ustawiony na „0 0 16 16”."
 
-#: etc/options.php:330
+#: etc/options.php:340
 msgid "Color"
 msgstr "Kolor"
 
-#: etc/options.php:339
+#: etc/options.php:349
 msgid "Status Bar"
 msgstr "Pasek stanu"
 
-#: etc/options.php:344
+#: etc/options.php:354
 msgid "Style"
 msgstr "Styl"
 
-#: etc/options.php:345
+#: etc/options.php:355
 msgid ""
 "Customize the iOS status bar (the area along the upper edge of the screen "
 "displaying the time and battery status) of your PWA."
@@ -417,11 +427,11 @@ msgstr ""
 "Dostosuj pasek stanu iOS (obszar wzdłuż górnej krawędzi ekranu wyświetlający "
 "godzinę i stan baterii) swojego PWA."
 
-#: etc/options.php:364
+#: etc/options.php:374
 msgid "Custom Splash Screen"
 msgstr "Własny ekran powitalny"
 
-#: etc/options.php:368
+#: etc/options.php:378
 msgid ""
 "Add the following elements to support custom splash screens for the "
 "different iOS devices."
@@ -429,184 +439,184 @@ msgstr ""
 "Dodaj następujące elementy, aby obsługiwać ekran powitalny dla różnych "
 "urządzeń z systemem iOS."
 
-#: etc/options.php:369
+#: etc/options.php:379
 msgid "It must be a non-transparent PNG image."
 msgstr "Musi to być nieprzezroczysty obraz PNG."
 
-#: etc/options.php:381
+#: etc/options.php:391
 msgid "Default"
 msgstr "Domyślnie"
 
-#: etc/options.php:396
+#: etc/options.php:406
 msgid "iPhone Xs Max"
 msgstr "iPhone Xs Max"
 
-#: etc/options.php:397
+#: etc/options.php:407
 msgid "1242px &#10005; 2688px"
 msgstr "1242px &#10005; 2688px"
 
-#: etc/options.php:412
+#: etc/options.php:422
 msgid "iPhone Xr"
 msgstr "iPhone Xr"
 
-#: etc/options.php:413
+#: etc/options.php:423
 msgid "828px &#10005; 1792px"
 msgstr "828px &#10005; 1792px"
 
-#: etc/options.php:428
+#: etc/options.php:438
 msgid "iPhone X, Xs"
 msgstr "iPhone X, Xs"
 
-#: etc/options.php:429
+#: etc/options.php:439
 msgid "1125px &#10005; 2436px"
 msgstr "1125px &#10005; 2436px"
 
-#: etc/options.php:444
+#: etc/options.php:454
 msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
 msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
 
-#: etc/options.php:445
+#: etc/options.php:455
 msgid "1242px &#10005; 2208px"
 msgstr "1242px &#10005; 2208px"
 
-#: etc/options.php:460
+#: etc/options.php:470
 msgid "iPhone 8, 7, 6s, 6"
 msgstr "iPhone 8, 7, 6s, 6"
 
-#: etc/options.php:461
+#: etc/options.php:471
 msgid "750px &#10005; 1334px"
 msgstr "750px &#10005; 1334px"
 
-#: etc/options.php:476
+#: etc/options.php:486
 msgid "iPad Pro 12.9\""
 msgstr "iPad Pro 12.9\""
 
-#: etc/options.php:477
+#: etc/options.php:487
 msgid "2048px &#10005; 2732px"
 msgstr "2048px &#10005; 2732px"
 
-#: etc/options.php:492
+#: etc/options.php:502
 msgid "iPad Pro 11”"
 msgstr "iPad Pro 11”"
 
-#: etc/options.php:493
+#: etc/options.php:503
 msgid "1668px &#10005; 2388px"
 msgstr "1668px &#10005; 2388px"
 
-#: etc/options.php:508
+#: etc/options.php:518
 msgid "iPad Pro 10.5\""
 msgstr "iPad Pro 10.5\""
 
-#: etc/options.php:509
+#: etc/options.php:519
 msgid "1668px &#10005; 2224px"
 msgstr "1668px &#10005; 2224px"
 
-#: etc/options.php:524
+#: etc/options.php:534
 msgid "iPad Mini, Air"
 msgstr "iPad Mini, Air"
 
-#: etc/options.php:525
+#: etc/options.php:535
 msgid "1536px &#10005; 2048px"
 msgstr "1536px &#10005; 2048px"
 
-#: etc/options.php:540
+#: etc/options.php:550
 msgid "iPhone 5"
 msgstr "iPhone 5"
 
-#: etc/options.php:541
+#: etc/options.php:551
 msgid "640px &#10005; 1136px"
 msgstr "640px &#10005; 1136px"
 
-#: etc/options.php:556 etc/options.php:572
+#: etc/options.php:566 etc/options.php:582
 msgid "iPhone 14 Pro"
 msgstr "iPhone 14 Pro"
 
-#: etc/options.php:557
+#: etc/options.php:567
 msgid "1179px &#10005; 2556px"
 msgstr "1179px &#10005; 2556px"
 
-#: etc/options.php:573
+#: etc/options.php:583
 msgid "1290px &#10005; 2796px"
 msgstr "1290px &#10005; 2796px"
 
-#: etc/options.php:589
+#: etc/options.php:599
 msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
 msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
 
-#: etc/options.php:590
+#: etc/options.php:600
 msgid "1284px &#10005; 2778px"
 msgstr "1284px &#10005; 2778px"
 
-#: etc/options.php:606
+#: etc/options.php:616
 msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
 msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
 
-#: etc/options.php:607
+#: etc/options.php:617
 msgid "1170px &#10005; 2532px"
 msgstr "1170px &#10005; 2532px"
 
-#: etc/options.php:623
+#: etc/options.php:633
 msgid "iPad Air 10.9″"
 msgstr "iPad Air 10.9″"
 
-#: etc/options.php:624
+#: etc/options.php:634
 msgid "1640px &#10005; 2360px"
 msgstr "1640px &#10005; 2360px"
 
-#: etc/options.php:640
+#: etc/options.php:650
 msgid "iPad 10.2″"
 msgstr "iPad 10.2″"
 
-#: etc/options.php:641
+#: etc/options.php:651
 msgid "1620px &#10005; 2160px"
 msgstr "1620px &#10005; 2160px"
 
-#: etc/options.php:653
+#: etc/options.php:663
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: etc/options.php:658
+#: etc/options.php:668
 msgid "Square Tile Logo"
 msgstr "Kwadratowe logo kafelka"
 
-#: etc/options.php:661
+#: etc/options.php:671
 msgid "It must be a PNG image, at least 310x310px."
 msgstr "Musi to być obraz PNG. Powinien mieć co najmniej 310x310px."
 
-#: etc/options.php:666
+#: etc/options.php:676
 msgid "Wide Tile Logo"
 msgstr "Szerokie logo kafelka"
 
-#: etc/options.php:669
+#: etc/options.php:679
 msgid "It must be a PNG image. It should be exactly 310x150px."
 msgstr "Musi to być obraz PNG. Powinien mieć dokładnie 310x150px."
 
-#: etc/options.php:674 etc/options.php:888
+#: etc/options.php:684 etc/options.php:898
 msgid "We are waiting for your message"
 msgstr "Czekamy na twoją wiadomość"
 
-#: etc/options.php:680
+#: etc/options.php:690
 msgid "I love what I do!"
 msgstr "Kocham to co robię!"
 
-#: etc/options.php:852
+#: etc/options.php:862
 msgid "Below are some links to help spread this plugin to other users"
 msgstr "Poniższe odnośniki mogą pomóc innym w znalezieniu wtyczki"
 
-#: etc/options.php:854
+#: etc/options.php:864
 msgid "Give it a five stars on WordPress.org"
 msgstr "Daj wtyczce pięć gwiazdek na WordPress.org"
 
-#: etc/options.php:855
+#: etc/options.php:865
 msgid "Link to it so others can easily find it"
 msgstr "Odnośnik do wtyczki - żeby łatwo było znaleźć"
 
-#: etc/options.php:890
+#: etc/options.php:900
 msgid "WordPress Help Forum"
 msgstr "Forum Pomocy WordPressa"
 
 #: includes/iworks/class-iworks-pwa.php:164
-#: includes/iworks/class-iworks-pwa.php:868
+#: includes/iworks/class-iworks-pwa.php:893
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:71
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
@@ -1079,27 +1089,27 @@ msgctxt "PWA settings"
 msgid "Browser"
 msgstr "Przeglądarka"
 
-#: etc/options.php:217
+#: etc/options.php:227
 msgctxt "PWA settings"
 msgid "Hide (recommended)"
 msgstr "Ukryte (rekomendowane)"
 
-#: etc/options.php:221
+#: etc/options.php:231
 msgctxt "PWA settings"
 msgid "After &lt;body&gt; tag"
 msgstr "Po tagu &lt;body&gt;"
 
-#: etc/options.php:225
+#: etc/options.php:235
 msgctxt "PWA settings"
 msgid "Footer"
 msgstr "Stopka"
 
-#: etc/options.php:348
+#: etc/options.php:358
 msgctxt "PWA settings"
 msgid "White status bar with black text and symbols."
 msgstr "Biały pasek stanu z czarnym tekstem i symbolami."
 
-#: etc/options.php:351
+#: etc/options.php:361
 msgctxt "PWA settings"
 msgid ""
 "Black status bar and black text and symbols, making it appear completely "
@@ -1108,7 +1118,7 @@ msgstr ""
 "Czarny pasek stanu oraz czarny tekst i symbole, dzięki czemu wydaje się "
 "całkowicie czarny."
 
-#: etc/options.php:354
+#: etc/options.php:364
 msgctxt "PWA settings"
 msgid ""
 "White text and symbols, and the status bar will take the same background "
@@ -1117,12 +1127,12 @@ msgstr ""
 "Biały tekst i symbole oraz pasek stanu będą miały ten sam kolor tła, co "
 "główny element aplikacji webowej."
 
-#: etc/options.php:855
+#: etc/options.php:865
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr "https://pl.wordpress.org/plugins/iworks-pwa/"
 
-#: etc/options.php:890
+#: etc/options.php:900
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr "https://wordpress.org/support/plugin/iworks-pwa/"
