@@ -107,6 +107,13 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
+= 1.7.2 (2025-05-14) =
+* Added `iworks_pwa_cache_name` filter to allow modification of cache keys.
+* Centralized transient handling with new set_transient method.
+* Updated all direct set_transient calls to use the new method.
+* Improved cache key generation to use plugin version.
+* Added comprehensive PHPDoc for the new set_transient method.
+
 = 1.7.1 (2025-05-05) =
 * Added a nonce check to the menu-saving action for improved security.
 * Added escaping functions in multiple areas to enhance security.

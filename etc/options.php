@@ -133,6 +133,16 @@ function iworks_pwa_options() {
 				'class'             => 'small-text',
 			),
 			array(
+				'name'              => 'cache_time',
+				'type'              => 'number',
+				'th'                => __( 'Cache time', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'default'           => DAY_IN_SECONDS,
+				'class'             => 'small-text',
+				'description'       => __( 'Cache time in seconds. Default is 1 day.', 'iworks-pwa' ),
+				'since'             => '1.7.2',
+			),
+			array(
 				'name'    => 'offline_content',
 				'type'    => 'textarea',
 				'th'      => __( 'Offline content page', 'iworks-pwa' ),

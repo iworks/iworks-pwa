@@ -87,7 +87,7 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.0.0
 		 */
-		$file        = dirname( dirname( __FILE__ ) );
+		$file        = dirname( __DIR__, 1 );
 		$this->url   = rtrim( plugin_dir_url( $file ), '/' );
 		$this->root  = rtrim( plugin_dir_path( $file ), '/' );
 		$this->debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
@@ -208,6 +208,27 @@ abstract class iWorks_PWA {
 		return $this->configuration;
 	}
 
+	/**
+	 * Set a transient with configurable expiration.
+	 *
+	 * @since 1.7.2
+	 *
+	 * @param string $cache_name  The name of the transient.
+	 * @param mixed  $cache_value The value to cache.
+	 * @return void
+	 */
+	private function set_transient( $cache_name, $cache_value ) {
+		$expiration = intval( $this->options->get_option( 'cache_time' ) );
+		/**
+		 * do not set cache if expiration is set to 0
+		 */
+		if ( 1 > $expiration ) {
+			return;
+		}
+		set_transient( $cache_name, $cache_value, $expiration );
+	}
+
+
 	private function _set_configuration() {
 		$cache_key = $this->get_cache_name( 'cfg' );
 		$value     = get_transient( $cache_key );
@@ -242,7 +263,7 @@ abstract class iWorks_PWA {
 				)
 			);
 			if ( ! is_admin() ) {
-				set_transient( $cache_key, $value, DAY_IN_SECONDS );
+				$this->set_transient( $cache_key, $value );
 			}
 		}
 		$this->configuration = apply_filters( 'iworks_pwa_configuration_raw', $value );
@@ -388,7 +409,7 @@ abstract class iWorks_PWA {
 			 *
 			 * @since 1.3.0
 			 */
-			set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+			$this->set_transient( $cache_key, $icons );
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
 		if ( 0 < $value ) {
@@ -432,7 +453,7 @@ abstract class iWorks_PWA {
 			 *
 			 * @since 1.3.0
 			 */
-			set_transient( $cache_key, $icons, DAY_IN_SECONDS );
+			$this->set_transient( $cache_key, $icons );
 			return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 		}
 		/**
@@ -447,7 +468,7 @@ abstract class iWorks_PWA {
 		 *
 		 * @since 1.3.0
 		 */
-		set_transient( $cache_key, $icons, MINUTE_IN_SECONDS );
+		$this->set_transient( $cache_key, $icons );
 		return apply_filters( 'iworks_pwa_configuration_icons', $icons );
 	}
 
@@ -563,7 +584,7 @@ abstract class iWorks_PWA {
 	 * @since 1.0.0
 	 */
 	private function get_logo_url() {
-		return plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/images/icon.svg';
+		return plugin_dir_url( dirname( __DIR__, 1 ) ) . 'assets/images/icon.svg';
 	}
 
 	/**
@@ -576,7 +597,7 @@ abstract class iWorks_PWA {
 		if ( empty( $plugins ) ) {
 			return;
 		}
-		$root = dirname( __file__ ) . '/pwa';
+		$root = __DIR__ . '/pwa';
 		include_once $root . '/class-iworks-pwa-integrations.php';
 		$root .= '/integrations';
 		foreach ( $plugins as $plugin ) {
@@ -814,12 +835,16 @@ abstract class iWorks_PWA {
 	 * @since 1.6.2
 	 */
 	private function get_cache_name( $name ) {
-		return sprintf(
-			'%s/%s/%s',
-			$this->settings_cache_option_name,
-			$name,
-			'PLUGIN_VERSION' === $this->version ? crc32( time() ) : $this->version
+		$cache_name = apply_filters(
+			'iworks_pwa_cache_name',
+			sprintf(
+				'%s/%s/%d/PLUGIN_VERSION',
+				$this->settings_cache_option_name,
+				$name,
+				$this->options->get_option( 'cache_version' )
+			)
 		);
+		return $cache_name;
 	}
 
 	/**
@@ -860,7 +885,7 @@ abstract class iWorks_PWA {
 	 */
 	public function action_init_register_iworks_rate() {
 		if ( ! class_exists( 'iworks_rate' ) ) {
-			include_once dirname( __FILE__ ) . '/rate/rate.php';
+			include_once __DIR__ . '/rate/rate.php';
 		}
 		do_action(
 			'iworks-register-plugin',
@@ -869,5 +894,4 @@ abstract class iWorks_PWA {
 			'iworks-pwa'
 		);
 	}
-
 }
