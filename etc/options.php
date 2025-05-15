@@ -23,7 +23,9 @@ function iworks_pwa_options() {
 				'type'              => 'text',
 				'class'             => 'regular-text',
 				'th'                => __( 'Application Name', 'iworks-pwa' ),
+				'description'       => __( 'The full name of your application. This will be displayed in the app launcher and when the app is installed.', 'iworks-pwa' ),
 				'sanitize_callback' => 'esc_html',
+				'maxlength'         => 45,
 				'default'           => substr( get_bloginfo( 'name' ), 0, 45 ),
 			),
 			array(
@@ -127,7 +129,12 @@ function iworks_pwa_options() {
 			array(
 				'name'              => 'cache_version',
 				'type'              => 'number',
-				'th'                => __( 'Cache version', 'iworks-pwa' ),
+				'th'                => __( 'Cache Version', 'iworks-pwa' ),
+				'description'       => sprintf(
+					__( 'Service workers act as a proxy between your app and the network, enabling features like offline support. Increment this number to force update the service worker cache, which is particularly useful after making changes to your PWA files or when you want to ensure all users receive the latest version. When updated, the service worker will automatically install the new version in the background and activate it once all tabs using the old version are closed. %1$sLearn more about service workers%2$s.', 'iworks-pwa' ),
+					'<a href="https://developers.google.com/web/fundamentals/primers/service-workers" target="_blank" rel="noopener noreferrer">',
+					'</a>'
+				),
 				'sanitize_callback' => 'intval',
 				'default'           => 1,
 				'class'             => 'small-text',
@@ -135,18 +142,19 @@ function iworks_pwa_options() {
 			array(
 				'name'              => 'cache_time',
 				'type'              => 'number',
-				'th'                => __( 'Cache time', 'iworks-pwa' ),
+				'th'                => __( 'Cache Time', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'default'           => DAY_IN_SECONDS,
 				'class'             => 'small-text',
-				'description'       => __( 'Cache time in seconds. Default is 1 day.', 'iworks-pwa' ),
+				'description'       => __( 'Cache time in seconds. Default is 1 day. This controls how long the plugin\'s configuration is cached using WordPress transient cache. When the cache expires, the plugin will regenerate its configuration on the next page load.', 'iworks-pwa' ),
 				'since'             => '1.7.2',
 			),
 			array(
-				'name'    => 'offline_content',
-				'type'    => 'textarea',
-				'th'      => __( 'Offline content page', 'iworks-pwa' ),
-				'default' => implode(
+				'name'        => 'offline_content',
+				'type'        => 'textarea',
+				'th'          => __( 'Offline Content Page', 'iworks-pwa' ),
+				'description' => __( 'This content will be displayed when the user is offline and the requested page is not available in the cache. You can use plain text or HTML. This is your opportunity to provide helpful information or navigation options to users when they lose their internet connection.', 'iworks-pwa' ),
+				'default'     => implode(
 					array(
 						__( 'We were unable to load the page you requested.', 'iworks-pwa' ),
 						PHP_EOL,
@@ -154,11 +162,11 @@ function iworks_pwa_options() {
 						__( 'Please check your network connection and try again.', 'iworks-pwa' ),
 					)
 				),
-				'classes' => array(
+				'classes'     => array(
 					'large-text',
 					'code',
 				),
-				'rows'    => 10,
+				'rows'        => 10,
 			),
 			/**
 			 * Section "Categories"
@@ -242,7 +250,7 @@ function iworks_pwa_options() {
 				'name'              => 'button_a2hs_text',
 				'type'              => 'text',
 				'class'             => 'regular-text',
-				'th'                => __( 'Button text', 'iworks-pwa' ),
+				'th'                => __( 'Button Text', 'iworks-pwa' ),
 				'sanitize_callback' => 'esc_html',
 				'default'           => __( 'Add to home screen', 'iworks-pwa' ),
 				'since'             => '1.5.0',

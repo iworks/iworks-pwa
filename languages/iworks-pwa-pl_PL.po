@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-15 04:34:07+00:00\n"
+"POT-Creation-Date: 2025-05-15 04:41:53+00:00\n"
 "PO-Revision-Date: 2025-05-15 04:33:30+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -118,7 +118,8 @@ msgstr ""
 "wyświetlany po uruchomieniu aplikacji. Samodzielny jest trybem domyślnym."
 
 #: etc/options.php:132
-msgid "Cache version"
+#, fuzzy
+msgid "Cache Version"
 msgstr "Wersja pamięci podręcznej"
 
 #: etc/options.php:134
@@ -133,7 +134,8 @@ msgid ""
 msgstr ""
 
 #: etc/options.php:145
-msgid "Cache time"
+#, fuzzy
+msgid "Cache Time"
 msgstr "Czas pamięci podręcznej"
 
 #: etc/options.php:149
@@ -144,7 +146,8 @@ msgid ""
 msgstr ""
 
 #: etc/options.php:155
-msgid "Offline content page"
+#, fuzzy
+msgid "Offline Content Page"
 msgstr "Treść strony przy braku połączenia"
 
 #: etc/options.php:156
@@ -318,7 +321,8 @@ msgid "This option doesn't work for \"block themes\"."
 msgstr "Opcja nie działa dla motywów blokowych."
 
 #: etc/options.php:253
-msgid "Button text"
+#, fuzzy
+msgid "Button Text"
 msgstr "Tekst przycisku"
 
 #: etc/options.php:255 includes/iworks/pwa/class-iworks-pwa-frontend.php:125

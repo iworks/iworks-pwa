@@ -18,3 +18,16 @@ Users can come back to your website by launching the app from their home screen 
 
 [PWA — easy way to Progressive Web App ](https://wordpress.org/plugins/iworks-pwa/)
 
+
+## How to preapre test environment?
+
+1. get `wordpress-tests-lib` repo `git clone git@github.com:ArcFramework/wordpress-tests-lib.git`
+2. set environment variable `WP_TESTS_DIR` to path to `wordpress-tests-lib` repo
+3. configure `wp-tests-config.php` to use `wordpress-tests-lib` repo
+4. install [PHPUnit Polyfills](https://github.com/Yoast/PHPUnit-Polyfills) - `composer require --dev yoast/phpunit-polyfills:"^4.0"`
+5. set environment variable `WP_TESTS_PHPUNIT_POLYFILLS_PATH` to path to `phpunit-polyfills` directory
+6. add some tests
+7. run `grunt phpunit`
+
+
+

@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.7.2\n"
+"Project-Id-Version: 1.7.3\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-15 04:34:07+00:00\n"
+"POT-Creation-Date: 2025-05-15 04:46:37+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,7 +115,7 @@ msgid ""
 msgstr ""
 
 #: etc/options.php:132
-msgid "Cache version"
+msgid "Cache Version"
 msgstr ""
 
 #: etc/options.php:134
@@ -130,7 +130,7 @@ msgid ""
 msgstr ""
 
 #: etc/options.php:145
-msgid "Cache time"
+msgid "Cache Time"
 msgstr ""
 
 #: etc/options.php:149
@@ -142,7 +142,7 @@ msgid ""
 msgstr ""
 
 #: etc/options.php:155
-msgid "Offline content page"
+msgid "Offline Content Page"
 msgstr ""
 
 #: etc/options.php:156
@@ -308,7 +308,7 @@ msgid "This option doesn't work for \"block themes\"."
 msgstr ""
 
 #: etc/options.php:253
-msgid "Button text"
+msgid "Button Text"
 msgstr ""
 
 #: etc/options.php:255 includes/iworks/pwa/class-iworks-pwa-frontend.php:125

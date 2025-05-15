@@ -107,6 +107,10 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
+= 1.7.3 (2025-05-15) =
+* Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 3.0.1.
+* Added description for options: "Cache Version" and "Cache Time"
+
 = 1.7.2 (2025-05-14) =
 * Added `iworks_pwa_cache_name` filter to allow modification of cache keys.
 * Centralized transient handling with new set_transient method.
