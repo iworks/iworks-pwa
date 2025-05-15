@@ -1,12 +1,12 @@
-# Translation of Plugins - PWA — easy way to Progressive Web App - Stable (latest release) in Dutch
-# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
+# Translation of Plugins - PWA — easy way to Progressive Web App - Development (trunk) in Dutch
+# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Development (trunk) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
-"(latest release)\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
+"Development (trunk)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-15 04:41:53+00:00\n"
-"PO-Revision-Date: 2025-03-19 21:58:45+0000\n"
+"POT-Creation-Date: 2025-05-15 06:01:21+00:00\n"
+"PO-Revision-Date: 2025-03-19 21:58:46+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -297,9 +297,8 @@ msgid "This option doesn't work for \"block themes\"."
 msgstr ""
 
 #: etc/options.php:253
-#, fuzzy
 msgid "Button Text"
-msgstr "Knoptekst"
+msgstr ""
 
 #: etc/options.php:255 includes/iworks/pwa/class-iworks-pwa-frontend.php:125
 msgid "Add to home screen"

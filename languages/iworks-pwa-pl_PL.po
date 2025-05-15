@@ -1,12 +1,12 @@
-# Translation of Plugins - PWA — easy way to Progressive Web App - Stable (latest release) in Polish
-# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
+# Translation of Plugins - PWA — easy way to Progressive Web App - Development (trunk) in Polish
+# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Development (trunk) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
-"(latest release)\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
+"Development (trunk)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-15 04:41:53+00:00\n"
-"PO-Revision-Date: 2025-05-15 04:33:30+0000\n"
+"POT-Creation-Date: 2025-05-15 06:01:21+00:00\n"
+"PO-Revision-Date: 2025-05-15 05:59:51+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,6 +64,8 @@ msgid ""
 "The full name of your application. This will be displayed in the app "
 "launcher and when the app is installed."
 msgstr ""
+"Pełna nazwa aplikacji. Będzie ona wyświetlana w programie uruchamiającym "
+"aplikację i po jej zainstalowaniu."
 
 #: etc/options.php:35
 msgid "Application Short Name"
@@ -118,7 +120,6 @@ msgstr ""
 "wyświetlany po uruchomieniu aplikacji. Samodzielny jest trybem domyślnym."
 
 #: etc/options.php:132
-#, fuzzy
 msgid "Cache Version"
 msgstr "Wersja pamięci podręcznej"
 
@@ -132,9 +133,16 @@ msgid ""
 "version in the background and activate it once all tabs using the old "
 "version are closed. %1$sLearn more about service workers%2$s."
 msgstr ""
+"Service workers działają jako proxy między witryną a siecią, umożliwiając "
+"takie funkcje jak obsługa offline. Zwiększ wersję, aby wymusić aktualizację "
+"pamięci podręcznej service worker, co jest szczególnie przydatne po "
+"wprowadzeniu zmian w plikach PWA lub gdy chcesz mieć pewność, że wszyscy "
+"użytkownicy otrzymają najnowszą wersję. Po aktualizacji service worker "
+"automatycznie zainstaluje nową wersję w tle i aktywuje ją po zamknięciu "
+"wszystkich kart korzystających ze starej wersji. %1$sDowiedz się więcej o "
+"service workerach%2$s."
 
 #: etc/options.php:145
-#, fuzzy
 msgid "Cache Time"
 msgstr "Czas pamięci podręcznej"
 
@@ -144,9 +152,12 @@ msgid ""
 "configuration is cached using WordPress transient cache. When the cache "
 "expires, the plugin will regenerate its configuration on the next page load."
 msgstr ""
+"Czas pamięci podręcznej w sekundach. Domyślnie jest to 1 dzień. Kontroluje "
+"to, jak długo konfiguracja wtyczki jest buforowana przy użyciu przejściowej "
+"pamięci podręcznej WordPressa. Po wygaśnięciu pamięci podręcznej wtyczka "
+"zregeneruje swoją konfigurację przy następnym ładowaniu strony."
 
 #: etc/options.php:155
-#, fuzzy
 msgid "Offline Content Page"
 msgstr "Treść strony przy braku połączenia"
 
@@ -157,6 +168,10 @@ msgid ""
 "your opportunity to provide helpful information or navigation options to "
 "users when they lose their internet connection."
 msgstr ""
+"Zawartość będzie wyświetlana, gdy użytkownik jest offline, a żądana strona "
+"nie jest dostępna w pamięci podręcznej. Możesz użyć zwykłego tekstu lub "
+"HTML. Jest to szansa na dostarczenie użytkownikom pomocnych informacji lub "
+"opcji nawigacji, gdy utracą połączenie z Internetem."
 
 #: etc/options.php:159 includes/iworks/class-iworks-pwa.php:644
 msgid "We were unable to load the page you requested."
@@ -321,7 +336,6 @@ msgid "This option doesn't work for \"block themes\"."
 msgstr "Opcja nie działa dla motywów blokowych."
 
 #: etc/options.php:253
-#, fuzzy
 msgid "Button Text"
 msgstr "Tekst przycisku"
 
@@ -1188,9 +1202,6 @@ msgstr "https://wordpress.org/support/plugin/iworks-pwa"
 msgctxt "plugins support home"
 msgid "https://wordpress.org/support/plugin/%s"
 msgstr "https://wordpress.org/support/plugin/%s"
-
-#~ msgid "Cache time in seconds. Default is 1 day."
-#~ msgstr "Czas pamięci podręcznej w sekundach. Domyślnie jest to 1 dzień."
 
 #~ msgid "https://github.com/iworks/iworks-pwa"
 #~ msgstr "https://github.com/iworks/iworks-pwa"
