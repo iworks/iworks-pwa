@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
 "Development (trunk)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-27 13:12:05+00:00\n"
+"POT-Creation-Date: 2025-05-27 15:18:36+00:00\n"
 "PO-Revision-Date: 2025-03-19 21:58:46+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -791,11 +791,11 @@ msgstr ""
 msgid "Sorry!"
 msgstr "Sorry!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:281
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:316
 msgid "PWA Shortcuts Menu"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:382
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:417
 msgid "Short Name (PWA)"
 msgstr "Korte naam (PWA)"
 
