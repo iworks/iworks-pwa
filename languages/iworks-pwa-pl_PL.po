@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
 "Development (trunk)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-27 15:18:36+00:00\n"
-"PO-Revision-Date: 2025-05-15 05:59:51+0000\n"
+"POT-Creation-Date: 2025-05-27 15:52:25+00:00\n"
+"PO-Revision-Date: 2025-05-27 15:46:55+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -636,19 +636,20 @@ msgid "It must be a PNG image. It should be exactly 310x150px."
 msgstr "Musi to być obraz PNG. Powinien mieć dokładnie 310x150px."
 
 #: etc/options.php:714
-#, fuzzy
 msgid "Experimental"
-msgstr "Rozrywka"
+msgstr "Eksperymentalne"
 
 #: etc/options.php:720
 msgid "Enable"
-msgstr ""
+msgstr "Włącz"
 
 #: etc/options.php:724
 msgid ""
 "Enable experimental features that are still in development. These features "
 "may be unstable and change in future updates."
 msgstr ""
+"Włącz funkcje eksperymentalne, które są nadal w fazie rozwoju. Funkcje te "
+"mogą być niestabilne i ulec zmianie w przyszłych aktualizacjach."
 
 #: etc/options.php:731
 msgid ""
@@ -656,39 +657,44 @@ msgid ""
 "There is a maximum that kicks in after 7 lines of text (roughly 324 "
 "characters) and longer descriptions are truncated and an ellipsis."
 msgstr ""
+"Okno dialogowe wyświetli się nawet bez opisu, ale jest on zalecany. "
+"Maksymalny czas wyświetlania to 7 linii tekstu (około 324 znaków), a dłuższe "
+"opisy są obcinane i umieszczane w wielokropku."
 
 #: etc/options.php:740
 msgid "Screenshot 1"
-msgstr ""
+msgstr "Zrzut ekranu 1"
 
 #: etc/options.php:741
 msgid ""
 "Upload a screenshot to showcase your PWA (recommended size: 1280x800px)."
 msgstr ""
+"Prześlij zrzut ekranu, aby zaprezentować swój PWA (zalecany rozmiar: "
+"1280x800px)."
 
 #: etc/options.php:749
 msgid "Screenshot 2"
-msgstr ""
+msgstr "Zrzut ekranu 2"
 
 #: etc/options.php:750
 msgid "Upload a second screenshot (recommended size: 1280x800px)."
-msgstr ""
+msgstr "Prześlij drugi zrzut ekranu (zalecany rozmiar: 1280x800px)."
 
 #: etc/options.php:758
 msgid "Screenshot 3"
-msgstr ""
+msgstr "Zrzut ekranu 3"
 
 #: etc/options.php:759
 msgid "Upload a third screenshot (recommended size: 1280x800px)."
-msgstr ""
+msgstr "Prześlij trzeci zrzut ekranu (zalecany rozmiar: 1280x800px)."
 
 #: etc/options.php:767
 msgid "Screenshot 4"
-msgstr ""
+msgstr "Zrzut ekranu 4"
 
 #: etc/options.php:768
 msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
-msgstr ""
+msgstr "Prześlij czwarty zrzut ekranu (zalecany rozmiar: 1280x800px)."
 
 #: etc/options.php:776 etc/options.php:1012
 msgid "We are waiting for your message"
@@ -722,7 +728,7 @@ msgstr "iWorks PWA"
 
 #: includes/iworks/options/options.php:176
 msgid "No Page Title"
-msgstr ""
+msgstr "Brak tytułu strony"
 
 #: includes/iworks/options/options.php:341
 msgid "An error occurred while getting the configuration."
@@ -899,7 +905,7 @@ msgstr "https://pl.wordpress.org/plugins/og/"
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:21
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:21
 msgid "🎉 Happy Anniversary! 🎉"
-msgstr ""
+msgstr "🎉 Wszystkiego najlepszego z okazji rocznicy! 🎉"
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:23
 msgid ""
@@ -907,6 +913,9 @@ msgid ""
 "you so much for being part of our journey! We truly appreciate your support "
 "and hope the plugin has made your work easier and more enjoyable."
 msgstr ""
+"Wow, minął już cały rok odkąd używasz naszej wtyczki — bardzo dziękujemy za "
+"bycie częścią naszej wspólnej przygody! Naprawdę doceniam Twoje wsparcie i "
+"mam nadzieję, że wtyczka ułatwiła Ci pracę i uczyniła ją przyjemniejszą."
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:24
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:24
@@ -916,16 +925,21 @@ msgid ""
 "coffee. Every little bit helps us keep improving and adding new features for "
 "awesome users like you!"
 msgstr ""
+"Jeśli nasza wtyczka okazała się pomocna i chcesz wesprzeć jej dalszy rozwój, "
+"byłbym niezmiernie wdzięczny, gdybyś rozważyła lub rozważył postawienie mi "
+"kawy. Każda odrobina pomaga nam w ciągłym doskonaleniu i dodawaniu nowych "
+"funkcji dla wspaniałych użytkowników, takich jak Ty!"
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:26
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:26
 msgid "Thank you for your support and for making this community amazing!"
 msgstr ""
+"Dziękuję za Twoje wsparcie i za to, że tworzysz niesamowitą społeczność!"
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:30
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:30
 msgid "With gratitude"
-msgstr ""
+msgstr "Z wdzięcznością"
 
 #. Author of the plugin/theme
 msgid "Marcin Pietrzak"
@@ -934,7 +948,7 @@ msgstr "Marcin Pietrzak"
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:36
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:36
 msgid "Plugin Author"
-msgstr ""
+msgstr "Autor wtyczki"
 
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:23
 msgid ""
@@ -942,6 +956,9 @@ msgid ""
 "you so much for being part of our journey! We hope it’s made your work "
 "easier and more enjoyable."
 msgstr ""
+"Wow, minął już cały rok odkąd używasz naszej wtyczki — bardzo dziękujemy za "
+"bycie częścią naszej wspólnej przygody! Mam nadzieję, że wtyczka ułatwiła "
+"Twoją pracę i uczyniła ją przyjemniejszą."
 
 #: includes/iworks/rate/templates/plugins/og.php:4
 msgid "Would you like to boost your website sharing abilities?"
