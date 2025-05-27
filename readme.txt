@@ -112,7 +112,7 @@ Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iw
 * **New**: Added experimental features section with description field, and screenshot uploads.
 * **Security**: Improved input validation and sanitization throughout the plugin.
 * **i18n**: Fixed textdomain for consistent translation handling.
-* **Dependencies**: Updated iWorks Options to version 3.0.6 and iWorks Rate to version 2.3.0.
+* **Dependencies**: Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 3.0.6 and the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.3.0.
 
 = 1.7.4 (2025-05-18) =
 * **Performance**: Made `get_cache_name()` method protected in iWorks_PWA class for better extensibility.
