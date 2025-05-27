@@ -27,6 +27,7 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'esc_html',
 				'maxlength'         => 45,
 				'default'           => substr( get_bloginfo( 'name' ), 0, 45 ),
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'app_short_name',
@@ -37,6 +38,7 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'esc_html',
 				'maxlength'         => 15,
 				'default'           => substr( get_bloginfo( 'name' ), 0, 15 ),
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'app_description',
@@ -46,6 +48,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'A brief description of what your app is about.', 'iworks-pwa' ),
 				'sanitize_callback' => 'esc_html',
 				'default'           => get_bloginfo( 'description' ),
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'        => 'app_scope',
@@ -104,6 +107,7 @@ function iworks_pwa_options() {
 					),
 				),
 				'default' => 'portrait',
+				'since'   => '1.0.0',
 			),
 			array(
 				'name'        => 'app_display',
@@ -125,6 +129,7 @@ function iworks_pwa_options() {
 					),
 				),
 				'default'     => 'standalone',
+				'since'       => '1.0.0',
 			),
 			array(
 				'name'              => 'cache_version',
@@ -138,6 +143,7 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'intval',
 				'default'           => 1,
 				'class'             => 'small-text',
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'cache_time',
@@ -167,6 +173,7 @@ function iworks_pwa_options() {
 					'code',
 				),
 				'rows'        => 10,
+				'since'       => '1.0.0',
 			),
 			/**
 			 * Section "Categories"
@@ -180,6 +187,7 @@ function iworks_pwa_options() {
 					'The categories member is an array of strings defining the names of categories that the application supposedly belongs to.',
 					'iworks-pwa'
 				),
+				'since'       => '1.6.3',
 			),
 			array(
 				'name'    => 'categories',
@@ -214,6 +222,7 @@ function iworks_pwa_options() {
 					'utilities'       => esc_html__( 'Utilities', 'iworks-pwa' ),
 					'weather'         => esc_html__( 'Weather', 'iworks-pwa' ),
 				),
+				'since' => '1.6.3',
 			),
 			/**
 			 * Section "Add to Home screen"
@@ -276,6 +285,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'Background color of the splash screen.', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'color_theme',
@@ -285,6 +295,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color.', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'icon_app',
@@ -293,6 +304,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'This will be the icon of your app when installed on the phone. It should be a PNG image.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'icon_maskable',
@@ -311,6 +323,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'since'             => '1.0.0',
 			),
 			/**
 			 * Apple
@@ -326,6 +339,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG.', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'since'             => '1.0.0',
 			),
 			/**
 			 * Pinned Tab Icon
@@ -341,6 +355,7 @@ function iworks_pwa_options() {
 				'description'       => __( 'Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to "0 0 16 16".', 'iworks-pwa' ),
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'apple_ptic',
@@ -348,6 +363,7 @@ function iworks_pwa_options() {
 				'th'                => __( 'Color', 'iworks-pwa' ),
 				'default'           => '#d5e0eb',
 				'sanitize_callback' => 'esc_html',
+				'since'             => '1.0.0',
 			),
 			/**
 			 * Status Bar
@@ -373,6 +389,7 @@ function iworks_pwa_options() {
 					),
 				),
 				'default'     => 'default',
+				'since'       => '1.0.0',
 			),
 			/**
 			 * Custom Splash Screen
@@ -387,6 +404,7 @@ function iworks_pwa_options() {
 						__( 'It must be a non-transparent PNG image.', 'iworks-pwa' ),
 					)
 				),
+				'since'       => '1.5.4',
 			),
 			/**
 			 * @since 1.5.4
@@ -677,6 +695,7 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'description'       => __( 'It must be a PNG image, at least 310x310px.', 'iworks-pwa' ),
+				'since'             => '1.0.0',
 			),
 			array(
 				'name'              => 'ms_wide',
@@ -685,6 +704,71 @@ function iworks_pwa_options() {
 				'sanitize_callback' => 'intval',
 				'max-width'         => 64,
 				'description'       => __( 'It must be a PNG image. It should be exactly 310x150px.', 'iworks-pwa' ),
+				'since'             => '1.0.0',
+			),
+			/**
+			 * Experimental
+			 */
+			array(
+				'type'  => 'heading',
+				'label' => __( 'Experimental', 'iworks-pwa' ),
+				'since' => '1.7.5',
+			),
+			array(
+				'name'              => 'experimental_enabled',
+				'type'              => 'checkbox',
+				'th'                => __( 'Enable', 'iworks-pwa' ),
+				'default'           => 0,
+				'sanitize_callback' => 'absint',
+				'classes'           => array( 'switch-button' ),
+				'description'       => __( 'Enable experimental features that are still in development. These features may be unstable and change in future updates.', 'iworks-pwa' ),
+				'since'             => '1.7.5',
+			),
+			array(
+				'name'        => 'experimental_description',
+				'type'        => 'textarea',
+				'th'          => __( 'Description', 'iworks-pwa' ),
+				'description' => __( 'The dialog would display even without a description, but it is encouraged. There is a maximum that kicks in after 7 lines of text (roughly 324 characters) and longer descriptions are truncated and an ellipsis.', 'iworks-pwa' ),
+				'default'     => '',
+				'rows'        => 7,
+				'classes'     => array( 'regular-text' ),
+				'since'       => '1.7.5',
+			),
+			array(
+				'name'              => 'experimental_screenshot_1',
+				'type'              => 'image',
+				'th'                => __( 'Screenshot 1', 'iworks-pwa' ),
+				'description'       => __( 'Upload a screenshot to showcase your PWA (recommended size: 1280x800px).', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'since'             => '1.7.5',
+			),
+			array(
+				'name'              => 'experimental_screenshot_2',
+				'type'              => 'image',
+				'th'                => __( 'Screenshot 2', 'iworks-pwa' ),
+				'description'       => __( 'Upload a second screenshot (recommended size: 1280x800px).', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'since'             => '1.7.5',
+			),
+			array(
+				'name'              => 'experimental_screenshot_3',
+				'type'              => 'image',
+				'th'                => __( 'Screenshot 3', 'iworks-pwa' ),
+				'description'       => __( 'Upload a third screenshot (recommended size: 1280x800px).', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'since'             => '1.7.5',
+			),
+			array(
+				'name'              => 'experimental_screenshot_4',
+				'type'              => 'image',
+				'th'                => __( 'Screenshot 4', 'iworks-pwa' ),
+				'description'       => __( 'Upload a fourth screenshot (recommended size: 1280x800px).', 'iworks-pwa' ),
+				'sanitize_callback' => 'intval',
+				'max-width'         => 64,
+				'since'             => '1.7.5',
 			),
 		),
 		'metaboxes'       => array(
@@ -713,6 +797,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'manifest',
 			),
+			'since'   => '1.0.0',
 		),
 		48   => array(
 			'sizes'   => '48x48',
@@ -721,6 +806,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'manifest',
 			),
+			'since'   => '1.0.0',
 		),
 		70   => array(
 			'sizes'   => '70x70',
@@ -729,6 +815,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'ie11',
 			),
+			'since'   => '1.0.0',
 		),
 		72   => array(
 			'sizes'   => '72x72',
@@ -737,6 +824,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'manifest',
 			),
+			'since'   => '1.0.0',
 		),
 		96   => array(
 			'sizes'   => '96x96',
@@ -745,6 +833,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'manifest',
 			),
+			'since'   => '1.0.0',
 		),
 		144  => array(
 			'sizes'   => '144x144',
@@ -754,6 +843,7 @@ function iworks_pwa_options() {
 				'manifest',
 				'windows8',
 			),
+			'since'   => '1.0.0',
 		),
 		150  => array(
 			'sizes'   => '150x150',
@@ -762,6 +852,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'ie11',
 			),
+			'since'   => '1.0.0',
 		),
 		192  => array(
 			'sizes'   => '192x192',
@@ -770,6 +861,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'manifest',
 			),
+			'since'   => '1.0.0',
 		),
 		310  => array(
 			'sizes'   => '310x310',
@@ -778,6 +870,7 @@ function iworks_pwa_options() {
 			'group'   => array(
 				'ie11',
 			),
+			'since'   => '1.0.0',
 		),
 		512  => array(
 			'sizes' => '512x512',
@@ -785,6 +878,7 @@ function iworks_pwa_options() {
 			'group' => array(
 				'manifest',
 			),
+			'since' => '1.0.0',
 		),
 		1024 => array(
 			'sizes' => '1024x1024',
@@ -792,6 +886,7 @@ function iworks_pwa_options() {
 			'group' => array(
 				'manifest',
 			),
+			'since' => '1.0.0',
 		),
 	);
 	/**
@@ -801,27 +896,35 @@ function iworks_pwa_options() {
 		180 => array(
 			'sizes'   => '180x180',
 			'default' => true,
+			'since'   => '1.0.0',
 		),
 		167 => array(
 			'sizes' => '167x167',
+			'since' => '1.0.0',
 		),
 		152 => array(
 			'sizes' => '152x152',
+			'since' => '1.0.0',
 		),
 		120 => array(
 			'sizes' => '120x120',
+			'since' => '1.0.0',
 		),
 		114 => array(
 			'sizes' => '114x114',
+			'since' => '1.0.0',
 		),
 		76  => array(
 			'sizes' => '76x76',
+			'since' => '1.0.0',
 		),
 		72  => array(
 			'sizes' => '72x72',
+			'since' => '1.0.0',
 		),
 		57  => array(
 			'sizes' => '57x57',
+			'since' => '1.0.0',
 		),
 	);
 	/**
@@ -830,12 +933,15 @@ function iworks_pwa_options() {
 	$options['ms_tile_square'] = array(
 		310 => array(
 			'sizes' => '310x310',
+			'since' => '1.0.0',
 		),
 		150 => array(
 			'sizes' => '150x150',
+			'since' => '1.0.0',
 		),
 		70  => array(
 			'sizes' => '70x70',
+			'since' => '1.0.0',
 		),
 	);
 	/**

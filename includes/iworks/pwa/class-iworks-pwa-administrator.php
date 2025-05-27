@@ -1,12 +1,21 @@
 <?php
 /**
+ * Administrator implementation for iWorks PWA plugin
+ * Manages all admin-related functionality including settings, notifications,
+ * cache management, and plugin integration.
  *
+ * @package iWorks_PWA
+ * @subpackage Administrator
  * @since 1.0.0
  */
 
-require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
+require_once dirname( __DIR__, 1 ) . '/class-iworks-pwa.php';
 
 
+/**
+ * Administrator class that extends the main iWorks_PWA class
+ * This class manages all admin-specific functionality for the PWA plugin.
+ */
 class iWorks_PWA_Administrator extends iWorks_PWA {
 
 	/**
@@ -20,6 +29,12 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	 *
 	 * @since 1.4.2
 	 */
+	/**
+ * The name of the WordPress pointer used for user guidance
+ *
+ * @since 1.4.2
+ * @var string
+ */
 	private $pointer_name = 'iworks_pwa_browsing';
 
 	/**
@@ -27,8 +42,22 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 	 *
 	 * @since 1.5.5
 	 */
+	/**
+ * Option name for checking plugin URLs
+ * Used to store and retrieve URL checking settings.
+ *
+ * @since 1.5.5
+ * @var string
+ */
 	private $option_name_check_plugin_urls = 'check_urls';
 
+	/**
+ * Constructor for the Administrator class
+ * Initializes the class and sets up WordPress hooks for admin functionality.
+ * Also handles SSL warnings and plugin integration.
+ *
+ * @since 1.0.0
+ */
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -329,6 +358,13 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.6.8
 	 */
+	/**
+ * Checks if the current context allows certain operations to run
+ * Ensures operations only run in appropriate contexts (not during autosave, AJAX, etc.).
+ *
+ * @since 1.6.8
+ * @return bool True if operations can run, false otherwise
+ */
 	private function can_i_run() {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return false;
@@ -347,6 +383,12 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.3.0
 	 */
+	/**
+ * Clears cache when specific actions occur
+ * Automatically clears cache when settings are changed or related options are updated.
+ *
+ * @since 1.3.0
+ */
 	public function clear_cache() {
 		if ( ! $this->can_i_run() ) {
 			return;
@@ -360,6 +402,12 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.4.2
 	 */
+	/**
+ * Closes the admin pointer for the current user
+ * Marks the PWA browsing pointer as dismissed in user meta.
+ *
+ * @since 1.4.2
+ */
 	public function close_pointer() {
 		$dismissed_pointers = array_filter(
 			explode(
@@ -379,6 +427,12 @@ jQuery( function( $ ) {
 	 *
 	 * @since 1.5.1
 	 */
+	/**
+ * Checks for viewport meta tag on admin shutdown
+ * Ensures the viewport meta tag exists and is properly configured.
+ *
+ * @since 1.5.1
+ */
 	public function meta_viewport_check() {
 		if ( ! is_admin() ) {
 			return;
@@ -590,8 +644,8 @@ jQuery( function( $ ) {
 				echo '<dl>';
 				echo '<dt>apache</dt>';
 				echo '<dd><pre class="code">';
-				echo 'RewriteEngine on',PHP_EOL;
-				echo 'RewriteCond %{QUERY_STRING} ^$',PHP_EOL;
+				echo 'RewriteEngine on', PHP_EOL;
+				echo 'RewriteCond %{QUERY_STRING} ^$', PHP_EOL;
 				echo 'RewriteRule ^ieconfig\.xml$ /index.php?/ieconfig.xml [L]';
 				echo '</pre></code></dd>';
 				echo '<dl>';
@@ -613,8 +667,8 @@ jQuery( function( $ ) {
 				echo '<dl>';
 				echo '<dt>apache</dt>';
 				echo '<dd><pre class="code">';
-				echo 'RewriteEngine on',PHP_EOL;
-				echo 'RewriteCond %{QUERY_STRING} ^$',PHP_EOL;
+				echo 'RewriteEngine on', PHP_EOL;
+				echo 'RewriteCond %{QUERY_STRING} ^$', PHP_EOL;
 				echo 'RewriteRule ^manifest\.json$ /index.php?/manifest.json [L]';
 				echo '</pre></code></dd>';
 				echo '<dl>';

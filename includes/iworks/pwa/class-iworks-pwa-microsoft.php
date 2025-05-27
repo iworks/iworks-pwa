@@ -1,8 +1,19 @@
 <?php
+/**
+ * Microsoft-specific functionality for iWorks PWA plugin
+ * Handles Microsoft-specific PWA features including IE11 configuration and Windows tile icons.
+ *
+ * @package iWorks_PWA
+ * @subpackage Microsoft
+ * @since 1.1.5
+ */
 
+require_once dirname( __DIR__, 1 ) . '/class-iworks-pwa.php';
 
-require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
-
+/**
+ * Microsoft class that extends the main iWorks_PWA class
+ * This class manages all Microsoft-specific PWA functionality.
+ */
 class iWorks_PWA_Microsoft extends iWorks_PWA {
 
 	/**
@@ -10,6 +21,13 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 	 *
 	 * @since 1.1.5
 	 */
+	/**
+ * Filename for the IE11 configuration file
+ * Used to generate and serve the IE11 configuration XML.
+ *
+ * @since 1.1.5
+ * @var string
+ */
 	private $ieconfig_filename = '/ieconfig.xml';
 
 	/**
@@ -17,8 +35,21 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 	 *
 	 * @since 1.1.5
 	 */
+	/**
+ * Option name for storing IE11 icon settings
+ * Used to retrieve and manage IE11-specific icon configurations.
+ *
+ * @since 1.1.5
+ * @var string
+ */
 	protected $option_name_icons = 'icons_ie11';
 
+	/**
+ * Constructor for the Microsoft class
+ * Initializes the class and sets up WordPress hooks for Microsoft-specific functionality.
+ *
+ * @since 1.1.5
+ */
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -34,11 +65,24 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 	 *
 	 * @since 1.1.5
 	 */
+	/**
+ * Sets up local initialization for Microsoft-specific features
+ * Adds hooks to clear generated icons when settings are updated.
+ *
+ * @since 1.1.5
+ */
 	public function action_init_setup_local() {
 		$option_name = $this->options->get_option_name( 'ms_square' );
 		add_action( 'update_option_' . $option_name, array( $this, 'action_flush_icons' ), 10, 3 );
 	}
 
+	/**
+ * Retrieves Microsoft tile icons configuration
+ * Generates and returns the configuration for Microsoft tile icons based on settings.
+ *
+ * @since 1.1.5
+ * @return array Array of Microsoft tile icon configurations
+ */
 	private function get_ms_tile_icons() {
 		$icons = $this->options->get_option( $this->option_name_icons );
 		if ( ! empty( $icons ) ) {
@@ -130,7 +174,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		 *
 		 * @since 1.4.3
 		 */
-		$cache_key = $this->settings_cache_option_name . 'head_microsoft';
+		$cache_key = $this->get_cache_name( 'head_microsoft' );
 		$value     = get_transient( $cache_key );
 		if ( ! empty( $value ) ) {
 			echo $value;
@@ -234,6 +278,4 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		set_transient( $cache_key, $content, DAY_IN_SECONDS );
 		echo $content;
 	}
-
 }
-

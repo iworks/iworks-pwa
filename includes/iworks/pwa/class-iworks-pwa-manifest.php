@@ -229,6 +229,41 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			}
 		}
 		/**
+		 * experimental
+		 */
+		if ( $this->options->get_option( 'experimental_enabled' ) ) {
+			/**
+			 * description
+			 */
+			if ( ! empty( $this->options->get_option( 'experimental_description' ) ) ) {
+				$data['description'] = $this->options->get_option( 'experimental_description' );
+			}
+			/**
+			 * screenshots
+			 */
+			for( $i = 1; $i <= 4; $i++ ) {
+				$attachment_id = $this->options->get_option( 'experimental_screenshot_' . $i );
+				if ( ! empty( $attachment_id ) ) {
+					if ( !isset( $data['screenshots'] ) ) {
+						$data['screenshots'] = array();
+					}
+					$image = wp_get_attachment_image_src( $attachment_id, 'full' );
+					if ( empty( $image ) ) {
+						continue;
+					}
+					$item = array(
+						'src'   => $image[0],
+						'sizes' => $image[1] . 'x' . $image[2],	
+						'type'  => get_post_mime_type( $attachment_id ),
+					);
+					if ( 	! empty( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ) {
+						$item['label'] = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+					}
+					$data['screenshots'][] = $item;
+				}
+			}
+		}
+		/**
 		 * filter manifest data
 		 */
 		$data = apply_filters(

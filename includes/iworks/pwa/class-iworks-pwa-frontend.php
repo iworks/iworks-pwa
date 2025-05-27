@@ -1,14 +1,29 @@
 <?php
 /**
+ * Frontend implementation for iWorks PWA plugin
+ * Handles all frontend-related functionality including Add to Home Screen button,
+ * manifest configuration, and viewport meta tag management.
  *
+ * @package iWorks_PWA
+ * @subpackage Frontend
  * @since 1.0.0
  */
 
-require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
+require_once dirname( __DIR__, 1 ) . '/class-iworks-pwa.php';
 
 
+/**
+ * Frontend class that extends the main iWorks_PWA class
+ * This class manages all frontend-specific functionality for the PWA plugin.
+ */
 class iWorks_PWA_Frontend extends iWorks_PWA {
 
+	/**
+ * Constructor for the Frontend class
+ * Initializes the class and sets up WordPress hooks for frontend functionality.
+ *
+ * @since 1.0.0
+ */
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -23,6 +38,12 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	 *
 	 * @since 1.0.1
 	 */
+	/**
+ * Sets up local initialization for the Add to Home Screen button
+ * Configures where the A2HS button should appear based on user settings.
+ *
+ * @since 1.0.1
+ */
 	public function action_init_setup_local() {
 		switch ( $this->options->get_option( 'button_a2hs_position' ) ) {
 			case 'wp_footer':
@@ -45,6 +66,12 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	 *
 	 * @since 1.5.0
 	 */
+	/**
+ * Registers frontend styles for the plugin
+ * Adds the Add to Home Screen button styles to WordPress.
+ *
+ * @since 1.5.0
+ */
 	public function register_styles() {
 		wp_register_style(
 			$this->options->get_option_name( 'a2hs' ),
@@ -59,6 +86,12 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	 *
 	 * @since 1.5.0
 	 */
+	/**
+ * Enqueues registered styles if enabled in settings
+ * Checks if custom CSS is enabled before loading the styles.
+ *
+ * @since 1.5.0
+ */
 	public function enqueue_styles() {
 		if ( $this->options->get_option( 'button_a2hs_css' ) ) {
 			wp_enqueue_style( $this->options->get_option_name( 'a2hs' ) );
@@ -78,6 +111,12 @@ class iWorks_PWA_Frontend extends iWorks_PWA {
 	 *
 	 * @since 1.0.0
 	 */
+	/**
+ * Adds necessary meta tags to the HTML head
+ * Includes viewport meta tag and manifest.json link.
+ *
+ * @since 1.0.0
+ */
 	public function html_head() {
 		$this->before();
 		/**

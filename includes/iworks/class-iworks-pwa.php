@@ -23,20 +23,60 @@ defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 abstract class iWorks_PWA {
 
+	/**
+	 * Configuration array
+	 *
+	 * @since 1.6.2
+	 */
 	protected $configuration = array();
 
+	/**
+	 * URL
+	 *
+	 * @since 1.6.2
+	 */
 	protected $url;
 
+	/**
+	 * Debug mode
+	 *
+	 * @since 1.6.2
+	 */
 	protected $debug = false;
 
+	/**
+	 * Plugin version
+	 *
+	 * @since 1.6.2
+	 */
 	protected $version = 'PLUGIN_VERSION';
 
+	/**
+	 * Root directory
+	 *
+	 * @since 1.6.2
+	 */
 	protected $root = '';
 
+	/**
+	 * Media directory name
+	 *
+	 * @since 1.6.2
+	 */
 	private $media_dir_name = 'pwa';
 
+	/**
+	 * Icons to flush
+	 *
+	 * @since 1.6.2
+	 */
 	protected $icons_to_flush;
 
+	/**
+	 * Option name for icons
+	 *
+	 * @since 1.6.2
+	 */
 	protected $option_name_icons;
 
 	/**
@@ -81,6 +121,12 @@ abstract class iWorks_PWA {
 	 */
 	private $plugin_file;
 
+	/**
+	 * Constructor for the iWorks_PWA class
+	 * Initializes the class and sets up WordPress hooks for PWA functionality.
+	 *
+	 * @since 1.6.2
+	 */
 	protected function __construct() {
 		/**
 		 * basic settings
@@ -133,7 +179,12 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * setup
+	 * Initializes PWA configuration and sets up cache clearing hooks
+	 * This method is triggered during WordPress initialization and performs several key tasks:
+	 * 1. Sets up the options system for PWA configuration
+	 * 2. Loads the PWA configuration settings
+	 * 3. Establishes cache clearing hooks for manifest icons and Microsoft icons
+	 * 4. Sets up hooks for icon updates that trigger cache clearing
 	 *
 	 * @since 1.6.6
 	 */
@@ -154,11 +205,22 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * show no SSL warning
+	 * Displays a warning message when SSL is not enabled
+	 * This method shows an admin notice when SSL is not enabled on the site,
+	 * which is required for PWA functionality to work properly.
+	 * The warning includes a link to the plugin's documentation page.
 	 *
 	 * @since 1.0.0
 	 */
 	public function show_no_ssl() {
+		/**
+		 * Displays a warning message when SSL is not enabled
+		 * This method shows an admin notice when SSL is not enabled on the site,
+		 * which is required for PWA functionality to work properly.
+		 * The warning includes a link to the plugin's documentation page.
+		 *
+		 * @since 1.0.0
+		 */
 		$file            = $this->root . '/assets/templates/no-ssl.php';
 		$args            = array(
 			'title'       => __( 'iWorks PWA', 'iworks-pwa' ),
@@ -799,25 +861,35 @@ abstract class iWorks_PWA {
 		delete_option( $cache_key );
 	}
 
+	/**
+ * Clears the manifest icon cache
+ * Removes cached manifest icons from the system.
+ *
+ * @since 1.0.0
+ */
 	public function action_cache_clear_icons_manifest() {
 		$this->clear_icon_cache( 'manifest' );
 	}
 
+	/**
+ * Clears Microsoft-specific icon caches
+ * Removes cached Microsoft icons and Microsoft HTML head data.
+ *
+ * @since 1.0.0
+ */
 	public function action_cache_clear_icons_ms() {
 		$this->clear_icon_cache( 'windows8' );
 		$this->clear_icon_cache( 'ie11' );
-		/**
-		 * Clear cache for html head microsoft
-		 *
-		 * @since 1.4.3
-		 */
 		delete_transient( $this->get_cache_name( 'head_microsoft' ) );
 	}
 
 	/**
-	 * get configuration application ID
+	 * Retrieves the application ID configuration
+	 * Generates a unique application ID based on the current configuration.
+	 * Used to identify the application in URLs and other contexts.
 	 *
 	 * @since 1.5.3
+	 * @return string Unique application ID URL
 	 */
 	protected function get_configuration_app_id() {
 		$app_id = '';
@@ -830,11 +902,15 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * get cache key, depent of version
+	 * Generates a cache key name based on configuration
+	 * Creates a unique cache key that includes the plugin version and cache version.
+	 * The key is filterable through the 'iworks_pwa_cache_name' filter.
 	 *
 	 * @since 1.6.2
+	 * @param string $name The name of the cache (e.g., 'manifest', 'head_microsoft')
+	 * @return string The generated cache key
 	 */
-	private function get_cache_name( $name ) {
+	protected function get_cache_name( $name ) {
 		$cache_name = apply_filters(
 			'iworks_pwa_cache_name',
 			sprintf(
@@ -848,9 +924,12 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * get configuration scope
+	 * Retrieves the application scope configuration
+	 * Determines the scope of the PWA application based on settings.
+	 * Returns either the current site URL or root URL depending on configuration.
 	 *
 	 * @since 1.6.2
+	 * @return string The application scope URL
 	 */
 	protected function get_configuration_scope() {
 		$value = $this->options->get_option( 'app_scope' );
@@ -861,9 +940,12 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * get configuration categories
+	 * Retrieves the configuration categories
+	 * Returns the categories configured for the PWA application.
+	 * If no categories are configured, returns null.
 	 *
 	 * @since 1.6.3
+	 * @return array|null The categories configured for the PWA application
 	 */
 	protected function get_configuration_categories() {
 		$value = $this->options->get_option( 'categories' );
@@ -879,7 +961,8 @@ abstract class iWorks_PWA {
 	}
 
 	/**
-	 * register plugin to iWorks Rate Helper
+	 * Registers the plugin with iWorks Rate Helper
+	 * Includes the iWorks Rate Helper class and registers the plugin.
 	 *
 	 * @since 1.6.6
 	 */
@@ -887,6 +970,14 @@ abstract class iWorks_PWA {
 		if ( ! class_exists( 'iworks_rate' ) ) {
 			include_once __DIR__ . '/rate/rate.php';
 		}
+		/**
+		 * Triggers the iWorks plugin registration action
+		 *
+		 * @param string $plugin_file The plugin file name
+		 * @param string $plugin_name The plugin name in the user's language
+		 * @param string $plugin_domain The plugin text domain
+		 * @since 1.6.6
+		 */
 		do_action(
 			'iworks-register-plugin',
 			plugin_basename( $this->plugin_file ),
