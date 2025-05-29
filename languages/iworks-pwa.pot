@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.7.4\n"
+"Project-Id-Version: 1.7.5\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-27 15:52:36+00:00\n"
+"POT-Creation-Date: 2025-05-29 08:53:33+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -854,6 +854,11 @@ msgid ""
 "development, we’d be incredibly grateful if you’d consider buying us a "
 "coffee. Every little bit helps us keep improving and adding new features "
 "for awesome users like you!"
+msgstr ""
+
+#: includes/iworks/rate/templates/happy-anniversary/anniversary.php:25
+#: includes/iworks/rate/templates/happy-anniversary/first-year.php:25
+msgid "☕ Buy Me a Coffee"
 msgstr ""
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:26

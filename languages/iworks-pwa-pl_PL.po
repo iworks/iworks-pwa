@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
 "Development (trunk)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-27 15:52:25+00:00\n"
+"POT-Creation-Date: 2025-05-29 08:53:20+00:00\n"
 "PO-Revision-Date: 2025-05-27 15:46:55+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -929,6 +929,11 @@ msgstr ""
 "byłbym niezmiernie wdzięczny, gdybyś rozważyła lub rozważył postawienie mi "
 "kawy. Każda odrobina pomaga nam w ciągłym doskonaleniu i dodawaniu nowych "
 "funkcji dla wspaniałych użytkowników, takich jak Ty!"
+
+#: includes/iworks/rate/templates/happy-anniversary/anniversary.php:25
+#: includes/iworks/rate/templates/happy-anniversary/first-year.php:25
+msgid "☕ Buy Me a Coffee"
+msgstr ""
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:26
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:26
