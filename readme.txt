@@ -108,6 +108,9 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
+= 1.7.6 (2025-07-29) =
+* Removed debug function. [#19](https://github.com/iworks/iworks-pwa/issues/19). Props for [Zach Adams](https://github.com/zach-adams).
+
 = 1.7.5 (2025-05-29) =
 * **New**: Added experimental features section with description field, and screenshot uploads.
 * **Security**: Improved input validation and sanitization throughout the plugin.

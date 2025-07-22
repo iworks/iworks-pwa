@@ -1,12 +1,12 @@
-# Translation of Plugins - PWA — easy way to Progressive Web App - Development (trunk) in Polish
-# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Development (trunk) package.
+# Translation of Plugins - PWA — easy way to Progressive Web App - Stable (latest release) in Polish
+# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
-"Development (trunk)\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
+"(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-29 08:53:20+00:00\n"
-"PO-Revision-Date: 2025-05-27 15:46:55+0000\n"
+"POT-Creation-Date: 2025-07-22 04:27:18+00:00\n"
+"PO-Revision-Date: 2025-06-03 06:56:38+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,11 +173,11 @@ msgstr ""
 "HTML. Jest to szansa na dostarczenie użytkownikom pomocnych informacji lub "
 "opcji nawigacji, gdy utracą połączenie z Internetem."
 
-#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:706
+#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:703
 msgid "We were unable to load the page you requested."
 msgstr "Nie możemy załadować strony o którą pytano."
 
-#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:709
+#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:706
 msgid "Please check your network connection and try again."
 msgstr "Sprawdź swoje połączenie internetowe i spróbuj ponownie."
 
@@ -721,7 +721,7 @@ msgid "WordPress Help Forum"
 msgstr "Forum Pomocy WordPressa"
 
 #: includes/iworks/class-iworks-pwa.php:226
-#: includes/iworks/class-iworks-pwa.php:984
+#: includes/iworks/class-iworks-pwa.php:981
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:104
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
@@ -933,7 +933,7 @@ msgstr ""
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:25
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:25
 msgid "☕ Buy Me a Coffee"
-msgstr ""
+msgstr "☕ Kup mi kawę"
 
 #: includes/iworks/rate/templates/happy-anniversary/anniversary.php:26
 #: includes/iworks/rate/templates/happy-anniversary/first-year.php:26

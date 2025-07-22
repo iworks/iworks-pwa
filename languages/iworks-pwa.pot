@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.7.5\n"
+"Project-Id-Version: 1.7.6\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-29 08:53:33+00:00\n"
+"POT-Creation-Date: 2025-07-22 04:27:30+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,11 +153,11 @@ msgid ""
 "users when they lose their internet connection."
 msgstr ""
 
-#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:706
+#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:703
 msgid "We were unable to load the page you requested."
 msgstr ""
 
-#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:709
+#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:706
 msgid "Please check your network connection and try again."
 msgstr ""
 
@@ -662,7 +662,7 @@ msgid "WordPress Help Forum"
 msgstr ""
 
 #: includes/iworks/class-iworks-pwa.php:226
-#: includes/iworks/class-iworks-pwa.php:984
+#: includes/iworks/class-iworks-pwa.php:981
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:104
 msgid "iWorks PWA"
 msgstr ""

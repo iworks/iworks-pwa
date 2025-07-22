@@ -1,4 +1,4 @@
-/*! PWA — easy way to Progressive Web App - 1.7.5
+/*! PWA — easy way to Progressive Web App - 1.7.6
  * https://github.com/iworks/iworks-pwa
  * Copyright (c) 2025; * Licensed GPL-3.0 */
 window.addEventListener('load', function(event) {

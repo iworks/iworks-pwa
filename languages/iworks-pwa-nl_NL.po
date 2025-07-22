@@ -1,11 +1,11 @@
-# Translation of Plugins - PWA — easy way to Progressive Web App - Development (trunk) in Dutch
-# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Development (trunk) package.
+# Translation of Plugins - PWA — easy way to Progressive Web App - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - PWA — easy way to Progressive Web App - Stable (latest release) package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - "
-"Development (trunk)\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
+"(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-05-29 08:53:20+00:00\n"
+"POT-Creation-Date: 2025-07-22 04:27:18+00:00\n"
 "PO-Revision-Date: 2025-05-15 07:11:07+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -142,11 +142,11 @@ msgid ""
 "users when they lose their internet connection."
 msgstr ""
 
-#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:706
+#: etc/options.php:165 includes/iworks/class-iworks-pwa.php:703
 msgid "We were unable to load the page you requested."
 msgstr "We konden de pagina die je hebt aangevraagd niet laden."
 
-#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:709
+#: etc/options.php:168 includes/iworks/class-iworks-pwa.php:706
 msgid "Please check your network connection and try again."
 msgstr "Controleer je verbinding en probeer het nogmaals."
 
@@ -652,7 +652,7 @@ msgid "WordPress Help Forum"
 msgstr ""
 
 #: includes/iworks/class-iworks-pwa.php:226
-#: includes/iworks/class-iworks-pwa.php:984
+#: includes/iworks/class-iworks-pwa.php:981
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:104
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
