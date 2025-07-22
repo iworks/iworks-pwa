@@ -426,9 +426,6 @@ abstract class iWorks_PWA {
 		 * maskable
 		 */
 		$purpose_maskable_has_been_added = false;
-		if ( $maskable ) {
-			l( $maskable );
-		}
 		if ( ! $purpose_maskable_has_been_added ) {
 			$icons[] = array(
 				'src'   => sprintf( '%s/maskable.png', $root ),
