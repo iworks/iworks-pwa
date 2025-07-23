@@ -458,7 +458,7 @@ jQuery( function( $ ) {
 		 * @since 1.5.8
 		 */
 		if ( isset( $_GET['_wpnonce'] ) ) {
-			if ( wp_verify_nonce( filter_input( 'INPUT_GET', '_wpnonce' ), 'iworks-pwa-viewport' ) ) {
+			if ( wp_verify_nonce( filter_input( INPUT_GET, '_wpnonce' ), 'iworks-pwa-viewport' ) ) {
 				return;
 			}
 		}
