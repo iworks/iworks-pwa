@@ -4,7 +4,7 @@
  * @since 1.0.0
  */
 
-require_once dirname( dirname( __FILE__ ) ) . '/class-iworks-pwa.php';
+require_once dirname( __DIR__, 1 ) . '/class-iworks-pwa.php';
 
 
 class iWorks_PWA_manifest extends iWorks_PWA {
@@ -241,10 +241,10 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			/**
 			 * screenshots
 			 */
-			for( $i = 1; $i <= 4; $i++ ) {
+			for ( $i = 1; $i <= 4; $i++ ) {
 				$attachment_id = $this->options->get_option( 'experimental_screenshot_' . $i );
 				if ( ! empty( $attachment_id ) ) {
-					if ( !isset( $data['screenshots'] ) ) {
+					if ( ! isset( $data['screenshots'] ) ) {
 						$data['screenshots'] = array();
 					}
 					$image = wp_get_attachment_image_src( $attachment_id, 'full' );
@@ -253,14 +253,20 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 					}
 					$item = array(
 						'src'   => $image[0],
-						'sizes' => $image[1] . 'x' . $image[2],	
+						'sizes' => $image[1] . 'x' . $image[2],
 						'type'  => get_post_mime_type( $attachment_id ),
 					);
-					if ( 	! empty( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ) {
+					if ( ! empty( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) ) {
 						$item['label'] = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
 					}
 					$data['screenshots'][] = $item;
 				}
+			}
+			/**
+			 * display_override
+			 */
+			if ( ! empty( $this->options->get_option( 'experimental_display_override' ) ) ) {
+				$data['display_override'] = $this->options->get_option( 'experimental_display_override' );
 			}
 		}
 		/**

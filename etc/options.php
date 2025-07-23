@@ -222,7 +222,7 @@ function iworks_pwa_options() {
 					'utilities'       => esc_html__( 'Utilities', 'iworks-pwa' ),
 					'weather'         => esc_html__( 'Weather', 'iworks-pwa' ),
 				),
-				'since' => '1.6.3',
+				'since'   => '1.6.3',
 			),
 			/**
 			 * Section "Add to Home screen"
@@ -770,6 +770,29 @@ function iworks_pwa_options() {
 				'max-width'         => 64,
 				'since'             => '1.7.5',
 			),
+			array(
+				'name'              => 'experimental_display_override',
+				'type'              => 'select',
+				'th'                => __( 'Display Override', 'iworks-pwa' ),
+				'description'       => sprintf(
+					/* translators: 1: link to documentation */
+					__( 'Display Override. Read more in the %1$s documentation.', 'iworks-pwa' ),
+					'<a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Manifest/Reference/display_override" target="_blank">Mozilla Developer Network</a>'
+				),
+				'options'           => array(
+					'browser'                 => __( 'Standard Browser', 'iworks-pwa' ),
+					'fullscreen'              => __( 'Fullscreen', 'iworks-pwa' ),
+					'minimal-ui'              => __( 'Minimal User Interface', 'iworks-pwa' ),
+					'standalone'              => __( 'Standalone', 'iworks-pwa' ),
+					'tabbed'                  => __( 'Tabbed', 'iworks-pwa' ),
+					'window-controls-overlay' => __( 'Window Controls Overlay', 'iworks-pwa' ),
+				),
+				'default'           => 'standalone',
+				'sanitize_callback' => 'sanitize_key',
+				'classes'           => array( 'regular-text' ),
+				'since'             => '1.7.6',
+			),
+
 		),
 		'metaboxes'       => array(
 			'assistance' => array(

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-07-22 04:27:18+00:00\n"
+"POT-Creation-Date: 2025-07-23 05:19:15+00:00\n"
 "PO-Revision-Date: 2025-06-03 06:56:38+0000\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -696,27 +696,65 @@ msgstr "Zrzut ekranu 4"
 msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
 msgstr "Prześlij czwarty zrzut ekranu (zalecany rozmiar: 1280x800px)."
 
-#: etc/options.php:776 etc/options.php:1012
+#: etc/options.php:776
+#, fuzzy
+msgid "Display Override"
+msgstr "Widok"
+
+#. translators: 1: link to documentation
+#: etc/options.php:779
+msgid "Display Override. Read more in the %1$s documentation."
+msgstr ""
+
+#: etc/options.php:783
+#, fuzzy
+msgid "Standard Browser"
+msgstr "Samodzielna"
+
+#: etc/options.php:784
+#, fuzzy
+msgid "Fullscreen"
+msgstr "Pełny ekran"
+
+#: etc/options.php:785
+#, fuzzy
+msgid "Minimal User Interface"
+msgstr "Minimalny interface użytkownika"
+
+#: etc/options.php:786
+#, fuzzy
+msgid "Standalone"
+msgstr "Samodzielna"
+
+#: etc/options.php:787
+msgid "Tabbed"
+msgstr ""
+
+#: etc/options.php:788
+msgid "Window Controls Overlay"
+msgstr ""
+
+#: etc/options.php:799 etc/options.php:1035
 msgid "We are waiting for your message"
 msgstr "Czekamy na twoją wiadomość"
 
-#: etc/options.php:782
+#: etc/options.php:805
 msgid "I love what I do!"
 msgstr "Kocham to co robię!"
 
-#: etc/options.php:976
+#: etc/options.php:999
 msgid "Below are some links to help spread this plugin to other users"
 msgstr "Poniższe odnośniki mogą pomóc innym w znalezieniu wtyczki"
 
-#: etc/options.php:978
+#: etc/options.php:1001
 msgid "Give it a five stars on WordPress.org"
 msgstr "Daj wtyczce pięć gwiazdek na WordPress.org"
 
-#: etc/options.php:979
+#: etc/options.php:1002
 msgid "Link to it so others can easily find it"
 msgstr "Odnośnik do wtyczki - żeby łatwo było znaleźć"
 
-#: etc/options.php:1014
+#: etc/options.php:1037
 msgid "WordPress Help Forum"
 msgstr "Forum Pomocy WordPressa"
 
@@ -868,11 +906,11 @@ msgstr "Reguła przepisywania serwera dla żądania „%s”"
 msgid "Sorry!"
 msgstr "Przepraszamy!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:316
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:322
 msgid "PWA Shortcuts Menu"
 msgstr "Menu kontekstowe PWA"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:417
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:423
 msgid "Short Name (PWA)"
 msgstr "Krótka nazwa (PWA)"
 
@@ -1295,12 +1333,12 @@ msgstr ""
 "Biały tekst i symbole oraz pasek stanu będą miały ten sam kolor tła, co "
 "główny element aplikacji webowej."
 
-#: etc/options.php:979
+#: etc/options.php:1002
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr "https://pl.wordpress.org/plugins/iworks-pwa/"
 
-#: etc/options.php:1014
+#: etc/options.php:1037
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr "https://wordpress.org/support/plugin/iworks-pwa/"

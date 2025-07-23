@@ -111,6 +111,7 @@ Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iw
 
 = 1.7.7 (2025-07-23) =
 * **Bug Fix**: Fixed an issue with the `INPUT_GET` which was use as variable not constant. [#18](https://github.com/iworks/iworks-pwa/issues/18). Props for [Zach Adams](https://github.com/zach-adams).
+* **New**: Added experimental feature: "Display Override".
 
 = 1.7.6 (2025-07-22) =
 * **Code Quality**: Removed debug function. [#19](https://github.com/iworks/iworks-pwa/issues/19). Props for [Zach Adams](https://github.com/zach-adams).

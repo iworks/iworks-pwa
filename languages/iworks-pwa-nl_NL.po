@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-07-22 04:27:18+00:00\n"
+"POT-Creation-Date: 2025-07-23 05:19:15+00:00\n"
 "PO-Revision-Date: 2025-05-15 07:11:07+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -627,27 +627,64 @@ msgstr ""
 msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
 msgstr ""
 
-#: etc/options.php:776 etc/options.php:1012
+#: etc/options.php:776
+#, fuzzy
+msgid "Display Override"
+msgstr "Scherm"
+
+#. translators: 1: link to documentation
+#: etc/options.php:779
+msgid "Display Override. Read more in the %1$s documentation."
+msgstr ""
+
+#: etc/options.php:783
+#, fuzzy
+msgid "Standard Browser"
+msgstr "Standalone"
+
+#: etc/options.php:784
+#, fuzzy
+msgid "Fullscreen"
+msgstr "Volledig scherm"
+
+#: etc/options.php:785
+msgid "Minimal User Interface"
+msgstr ""
+
+#: etc/options.php:786
+#, fuzzy
+msgid "Standalone"
+msgstr "Standalone"
+
+#: etc/options.php:787
+msgid "Tabbed"
+msgstr ""
+
+#: etc/options.php:788
+msgid "Window Controls Overlay"
+msgstr ""
+
+#: etc/options.php:799 etc/options.php:1035
 msgid "We are waiting for your message"
 msgstr ""
 
-#: etc/options.php:782
+#: etc/options.php:805
 msgid "I love what I do!"
 msgstr ""
 
-#: etc/options.php:976
+#: etc/options.php:999
 msgid "Below are some links to help spread this plugin to other users"
 msgstr ""
 
-#: etc/options.php:978
+#: etc/options.php:1001
 msgid "Give it a five stars on WordPress.org"
 msgstr ""
 
-#: etc/options.php:979
+#: etc/options.php:1002
 msgid "Link to it so others can easily find it"
 msgstr ""
 
-#: etc/options.php:1014
+#: etc/options.php:1037
 msgid "WordPress Help Forum"
 msgstr ""
 
@@ -790,11 +827,11 @@ msgstr ""
 msgid "Sorry!"
 msgstr "Sorry!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:316
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:322
 msgid "PWA Shortcuts Menu"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:417
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:423
 msgid "Short Name (PWA)"
 msgstr "Korte naam (PWA)"
 
@@ -1148,12 +1185,12 @@ msgid ""
 "color as the body element of your web app."
 msgstr ""
 
-#: etc/options.php:979
+#: etc/options.php:1002
 msgctxt "plugin home page on WordPress.org"
 msgid "https://wordpress.org/plugins/iworks-pwa/"
 msgstr ""
 
-#: etc/options.php:1014
+#: etc/options.php:1037
 msgctxt "link to support forum on WordPress.org"
 msgid "https://wordpress.org/support/plugin/iworks-pwa/"
 msgstr ""
