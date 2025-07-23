@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-07-23 05:19:15+00:00\n"
+"POT-Creation-Date: 2025-07-23 06:10:41+00:00\n"
 "PO-Revision-Date: 2025-05-15 07:11:07+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -628,9 +628,8 @@ msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
 msgstr ""
 
 #: etc/options.php:776
-#, fuzzy
 msgid "Display Override"
-msgstr "Scherm"
+msgstr ""
 
 #. translators: 1: link to documentation
 #: etc/options.php:779
@@ -638,23 +637,20 @@ msgid "Display Override. Read more in the %1$s documentation."
 msgstr ""
 
 #: etc/options.php:783
-#, fuzzy
 msgid "Standard Browser"
-msgstr "Standalone"
+msgstr ""
 
 #: etc/options.php:784
-#, fuzzy
 msgid "Fullscreen"
-msgstr "Volledig scherm"
+msgstr ""
 
 #: etc/options.php:785
 msgid "Minimal User Interface"
 msgstr ""
 
 #: etc/options.php:786
-#, fuzzy
 msgid "Standalone"
-msgstr "Standalone"
+msgstr ""
 
 #: etc/options.php:787
 msgid "Tabbed"
