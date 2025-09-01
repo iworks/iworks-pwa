@@ -25,9 +25,37 @@ if ( class_exists( 'iworks_pwa_github' ) ) {
 
 class iworks_pwa_github {
 
+	/**
+	 * Plugin repository.
+	 *
+	 * @since 1.0.0
+	 * @var string
+	 */
 	private string $repository = 'iworks/iworks-pwa';
-	private string $basename   = 'iworks-pwa';
+
+	/**
+	 * Plugin basename.
+	 *
+	 * @since 1.0.0
+	 * @var string
+	 */
+	private string $basename = 'iworks-pwa';
+
+	/**
+	 * GitHub response.
+	 *
+	 * @since 1.0.0
+	 * @var array
+	 */
 	private $github_response;
+
+	/**
+	 * Plugin main file name.
+	 *
+	 * @since 1.0.0
+	 * @var string
+	 */
+	private string $plugin_file = 'iworks-pwa.php';
 
 	public function __construct() {
 		/**
@@ -45,8 +73,8 @@ class iworks_pwa_github {
 	 * @since 1.0.0
 	 */
 	public function action_init_load_plugin_textdomain() {
-		$dir  = plugin_basename( dirname( dirname( dirname( __DIR__ ) ))). '/languages';
-		load_plugin_textdomain( 'iworks-pwa', false, $dir);
+		$dir = plugin_basename( dirname( __DIR__, 3 ) ) . '/languages';
+		load_plugin_textdomain( 'iworks-pwa', false, $dir );
 	}
 
 	/**
@@ -247,4 +275,3 @@ class iworks_pwa_github {
 		return $result;
 	}
 }
-
