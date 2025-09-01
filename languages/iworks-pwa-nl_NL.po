@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable "
 "(latest release)\n"
 "Report-Msgid-Bugs-To: http://iworks.pl\n"
-"POT-Creation-Date: 2025-07-23 06:10:41+00:00\n"
+"POT-Creation-Date: 2025-09-01 09:40:27+00:00\n"
 "PO-Revision-Date: 2025-05-15 07:11:07+0000\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgid "Progressive Web Application - Configuration"
 msgstr ""
 
 #: etc/options.php:12
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:252
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:251
 msgid "PWA"
 msgstr "PWA"
 
@@ -699,7 +699,7 @@ msgid "An error occurred while getting the configuration."
 msgstr ""
 
 #: includes/iworks/options/options.php:920
-#: includes/iworks/options/options.php:2383
+#: includes/iworks/options/options.php:2408
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
@@ -711,70 +711,70 @@ msgstr "Afbeelding verwijderen"
 msgid "Save Changes"
 msgstr "Wijzigingen opslaan"
 
-#: includes/iworks/options/options.php:2256
+#: includes/iworks/options/options.php:2281
 msgid "Country"
 msgstr "Land"
 
-#: includes/iworks/options/options.php:2257
+#: includes/iworks/options/options.php:2282
 msgid "City"
 msgstr "Stad"
 
-#: includes/iworks/options/options.php:2258
+#: includes/iworks/options/options.php:2283
 msgid "Street"
 msgstr "Straat"
 
-#: includes/iworks/options/options.php:2259
+#: includes/iworks/options/options.php:2284
 msgid "ZIP code"
 msgstr "Postcode"
 
-#: includes/iworks/options/options.php:2443
+#: includes/iworks/options/options.php:2468
 msgid "OFF"
 msgstr "UIT"
 
-#: includes/iworks/options/options.php:2444
+#: includes/iworks/options/options.php:2469
 msgid "ON"
 msgstr "AAN"
 
-#: includes/iworks/options/options.php:2509
+#: includes/iworks/options/options.php:2534
 msgid "Failed Security Check"
 msgstr ""
 
 #. translators: %s: "Safe SVG" plugin name with link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:167
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:151
 msgid ""
 "This field requires an SVG file. To securely upload SVG files, please "
 "install the %s plugin."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:171
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:155
 msgid "Safe SVG"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:199
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:188
 msgid "Debug info"
 msgstr "Debug info"
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:209
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:203
 msgid "Main files"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:212
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:206
 msgid "manifest.json"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:213
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:207
 msgid "Service Worker"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:214
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:208
 msgid "Offline page"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:215
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:209
 msgid "IE config xml"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:253
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:252
 msgid "PWA settings are now available in Settings."
 msgstr ""
 
@@ -783,30 +783,30 @@ msgid "PWA — easy way to Progressive Web App"
 msgstr ""
 
 #. translators: %s; url to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:304
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:303
 msgid ""
 "This plugin does not support the plain permalink structure. <a "
 "href=\"%s\">Please change your permalinks settings</a> to other structure to "
 "use PWA plugin."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:329
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:328
 msgid ""
 "This plugin does not support installation in a subdirectory and will not "
 "work properly."
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:611
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:610
 msgid "ERROR: PWA — easy way to Progressive Web App"
 msgstr ""
 
 #. translators: %s: filename as link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:616
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:615
 msgid "The \"%s\" file is no reachable."
 msgstr ""
 
 #. translators: %s: link to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:629
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:628
 msgid ""
 "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite "
 "rules."
@@ -814,8 +814,8 @@ msgstr ""
 
 #. translators: %s: current request
 #. translators: %s: request
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:640
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:663
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:639
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:662
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 
