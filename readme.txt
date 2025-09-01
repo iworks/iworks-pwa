@@ -110,6 +110,7 @@ Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iw
 
 = 1.7.8 (2025-09-01) =
 * **Dependencies**: Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 3.0.8.
+* **Bug Fix**: Fixed an issue with emppty WP_Screen object. Props for [symington](https://wordpress.org/support/users/symington/).
 
 = 1.7.7 (2025-07-23) =
 * **Bug Fix**: Fixed an issue with the `INPUT_GET` which was use as variable not constant. [#18](https://github.com/iworks/iworks-pwa/issues/18). Props for [Zach Adams](https://github.com/zach-adams).

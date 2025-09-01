@@ -19,45 +19,29 @@ require_once dirname( __DIR__, 1 ) . '/class-iworks-pwa.php';
 class iWorks_PWA_Administrator extends iWorks_PWA {
 
 	/**
-	 * OFFLINE_VERSION
-	 *
-	 * @since 1.0.0
-	 */
-
-	/**
-	 * Pointer name
+	 * The name of the WordPress pointer used for user guidance
 	 *
 	 * @since 1.4.2
+	 * @var string
 	 */
-	/**
- * The name of the WordPress pointer used for user guidance
- *
- * @since 1.4.2
- * @var string
- */
 	private $pointer_name = 'iworks_pwa_browsing';
 
 	/**
-	 * Need check URLS option name
+	 * Option name for checking plugin URLs
+	 * Used to store and retrieve URL checking settings.
 	 *
 	 * @since 1.5.5
+	 * @var string
 	 */
-	/**
- * Option name for checking plugin URLs
- * Used to store and retrieve URL checking settings.
- *
- * @since 1.5.5
- * @var string
- */
 	private $option_name_check_plugin_urls = 'check_urls';
 
 	/**
- * Constructor for the Administrator class
- * Initializes the class and sets up WordPress hooks for admin functionality.
- * Also handles SSL warnings and plugin integration.
- *
- * @since 1.0.0
- */
+	 * Constructor for the Administrator class
+	 * Initializes the class and sets up WordPress hooks for admin functionality.
+	 * Also handles SSL warnings and plugin integration.
+	 *
+	 * @since 1.0.0
+	 */
 	public function __construct() {
 		parent::__construct();
 		/**
@@ -181,6 +165,11 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		return $options;
 	}
 
+	/**
+	 * Add debug info to config
+	 *
+	 * @since 1.6.4
+	 */
 	public function filter_add_debug_urls_to_config( $options ) {
 		if ( ! is_array( $options ) ) {
 			return $options;
@@ -205,6 +194,11 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		return $options;
 	}
 
+	/**
+	 * Add debug info to config
+	 *
+	 * @since 1.6.4
+	 */
 	public function filter_debug_info( $content ) {
 		$content .= sprintf( '<h2>%s</h2>', esc_html__( 'Main files', 'iworks-pwa' ) );
 		$row      = '<li><a href="%1$s" target="_blank">%2$s</a></li>';
@@ -217,6 +211,11 @@ class iWorks_PWA_Administrator extends iWorks_PWA {
 		return $content;
 	}
 
+	/**
+	 * Initialize options
+	 *
+	 * @since 1.6.4
+	 */
 	public function admin_init() {
 		$this->options->options_init();
 	}
@@ -373,7 +372,10 @@ jQuery( function( $ ) {
 			return false;
 		}
 		if ( is_admin() && function_exists( 'get_current_screen' ) ) {
-			return 'settings_page_iworks_pwa_index' === get_current_screen()->base;
+			$current_screen = get_current_screen();
+			if ( $current_screen instanceof WP_Screen ) {
+				return 'settings_page_iworks_pwa_index' === $current_screen->base;
+			}
 		}
 		return false;
 	}
@@ -425,14 +427,11 @@ jQuery( function( $ ) {
 	/**
 	 * check meta viewport - on shutdown
 	 *
-	 * @since 1.5.1
-	 */
-	/**
  * Checks for viewport meta tag on admin shutdown
  * Ensures the viewport meta tag exists and is properly configured.
  *
- * @since 1.5.1
- */
+	 * @since 1.5.1
+	 */
 	public function meta_viewport_check() {
 		if ( ! is_admin() ) {
 			return;
