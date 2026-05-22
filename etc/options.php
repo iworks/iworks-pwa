@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit; // Exit if accessed directly
 
 function iworks_pwa_options() {
 	$options = array();
