@@ -5,13 +5,20 @@
     "description": "Progressive Web Apps (PWA) is a technology that combines the best of mobile web and the best of mobile apps to create a superior mobile web experience. They are installed on the phone like a normal app (web app) and can be accessed from the home screen.",
     "version": "1.8.0",
     "homepage": "https://github.com/iworks/iworks-pwa",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:iworks/iworks-pwa.git",
+        "website": "https://github.com/iworks/iworks-pwa"
+    },
+    "author": "iworks",
     "tags": [
         "PWA",
         "Progressive Web Application",
         "manifest.json",
-        "offline"
+        "offline",
+        "add to homescreen"
     ],
-    "author": [
+    "contributors": [
         {
             "name": "Marcin Pietrzak",
             "email": "marcin@iworks.pl",
@@ -49,12 +56,6 @@
         "grunt-potomo": "^3",
         "grunt-replace": "^1",
         "grunt-wp-i18n": "^1"
-    },
-    "keywords": [],
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:iworks/iworks-pwa.git",
-        "website": "https://github.com/iworks/iworks-pwa"
     },
     "license": "GPL-3.0"
 }
