@@ -93,6 +93,9 @@ module.exports = function(grunt) {
 			match: /AUTHOR_URI/g,
 			replace: '<%= pkg.author[0].uri %>'
 		}, {
+			match: /AUTHOR_URL/g,
+			replace: '<%= pkg.author[0].uri %>'
+		}, {
 			match: /BUILDTIMESTAMP/g,
 			replace: buildtimestamp
 		}, {
@@ -136,6 +139,9 @@ module.exports = function(grunt) {
 			replace: '<%= pkg.title %>'
 		}, {
 			match: /PLUGIN_URI/g,
+			replace: '<%= pkg.homepage %>'
+		}, {
+			match: /PLUGIN_URL/g,
 			replace: '<%= pkg.homepage %>'
 		}, {
 			match: /PLUGIN_VERSION/g,
