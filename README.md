@@ -27,7 +27,7 @@ Users can come back to your website by launching the app from their home screen 
 4. install [PHPUnit Polyfills](https://github.com/Yoast/PHPUnit-Polyfills) - `composer require --dev yoast/phpunit-polyfills:"^4.0"`
 5. set environment variable `WP_TESTS_PHPUNIT_POLYFILLS_PATH` to path to `phpunit-polyfills` directory
 6. add some tests
-7. run `grunt phpunit`
+7. run `bun run test`
 
 
 

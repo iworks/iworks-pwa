@@ -10,20 +10,19 @@
         "url": "git@github.com:iworks/iworks-pwa.git",
         "website": "https://github.com/iworks/iworks-pwa"
     },
-    "author": "iworks",
+    "author": [
+        {
+            "name": "Marcin Pietrzak",
+            "email": "marcin@iworks.pl",
+            "uri": "http://iworks.pl/"
+        }
+    ],
     "tags": [
         "PWA",
         "Progressive Web Application",
         "manifest.json",
         "offline",
         "add to homescreen"
-    ],
-    "contributors": [
-        {
-            "name": "Marcin Pietrzak",
-            "email": "marcin@iworks.pl",
-            "uri": "http://iworks.pl/"
-        }
     ],
     "translator": {
         "name": "Marcin Pietrzak",
@@ -36,26 +35,25 @@
     "tested": {
         "WordPress": "7.0"
     },
+    "scripts": {
+        "dev": "bun bundler/index.js",
+        "js": "bun bundler/index.js js",
+        "css": "bun bundler/index.js css",
+        "build": "bun bundler/index.js build",
+        "build:wporg": "bun bundler/index.js build:wporg",
+        "build:github": "bun bundler/index.js build:github",
+        "make-pot": "bun bundler/index.js make-pot",
+        "test": "bun bundler/index.js test",
+        "update-libs": "bun bundler/index.js update-libs",
+        "pcp": "bun bundler/index.js pcp",
+        "postinstall": "test -f wp-cli.phar || curl -sSfL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o wp-cli.phar"
+    },
     "devDependencies": {
-        "grunt": "^1",
-        "load-grunt-tasks": "^0",
-        "grunt-checktextdomain": "^1",
-        "grunt-contrib-clean": "^1",
-        "grunt-contrib-compass": "^1",
-        "grunt-contrib-compress": "^1",
-        "grunt-contrib-concat": "^1",
-        "grunt-contrib-copy": "^1",
-        "grunt-contrib-cssmin": "^2",
-        "grunt-contrib-jshint": "^1",
-        "grunt-contrib-nodeunit": "^1",
-        "grunt-contrib-sass": "^1",
-        "grunt-contrib-uglify": "^1",
-        "grunt-contrib-watch": "^1",
-        "grunt-concat-css": "^0",
-        "grunt-phpunit": "^0",
-        "grunt-potomo": "^3",
-        "grunt-replace": "^1",
-        "grunt-wp-i18n": "^1"
+        "archiver": "^7",
+        "clean-css": "^5",
+        "prettier": "^3",
+        "sass": "^1",
+        "terser": "^5"
     },
     "license": "GPL-3.0"
 }

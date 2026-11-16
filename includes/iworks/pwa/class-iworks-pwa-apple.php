@@ -39,7 +39,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			printf(
 				'<link rel="apple-touch-icon"%s href="%s">%s',
 				isset( $one['default'] ) && $one['default'] ? '' : sprintf( ' sizes="%s"', esc_attr( $one['sizes'] ) ),
-				wp_make_link_relative( esc_url( $one['src'] ) ),
+				esc_url( wp_make_link_relative( $one['src'] ) ),
 				esc_html( $this->eol )
 			);
 		}
@@ -124,7 +124,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 			if ( ! empty( $value ) ) {
 				printf(
 					'<link rel="mask-icon" href="%s" color="%s">%s',
-					wp_make_link_relative( esc_url( $value ) ),
+					esc_url( wp_make_link_relative( $value ) ),
 					esc_attr( $this->options->get_option( 'apple_ptic' ) ),
 					esc_html( $this->eol )
 				);
@@ -183,7 +183,7 @@ class iWorks_PWA_Apple extends iWorks_PWA {
 				printf(
 					'<link rel="apple-touch-startup-image" %shref="%s">%s',
 					$media ? sprintf( 'media="%s" ', esc_attr( $media ) ) : '',
-					wp_make_link_relative( esc_url( $value ) ),
+					esc_url( wp_make_link_relative( $value ) ),
 					esc_html( $this->eol )
 				);
 			}

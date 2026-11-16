@@ -5,14 +5,19 @@
 node_modules/
 dist/
 
+# bun
+bun.lock
+
 # Compiled files
 .sass-cache
-package-lock.json
 
 # Compiled CSS files, needed to release not in repository
 assets/styles/
 assets/scripts/admin*.js
 assets/scripts/frontend*.js
+
+# wp-cli (downloaded by postinstall)
+wp-cli.phar
 
 # release
 release/
@@ -22,3 +27,5 @@ languages/*.mo
 
 # tests
 tests/php/.phpunit.result.cache
+.opencode/
+plugin-check.log

@@ -2,6 +2,10 @@
 /**
  * Notice displayed in admin panel.
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 ?>
 <div class="notice notice-warning">
 	<div class="<?php echo esc_attr( implode( ' ', $args['classes'] ) ); ?>">

@@ -137,6 +137,7 @@ function iworks_pwa_options() {
 				'type'              => 'number',
 				'th'                => __( 'Cache Version', 'iworks-pwa' ),
 				'description'       => sprintf(
+					/* translators: %1$s: open anchor tag, %2$s: close anchor tag */
 					__( 'Service workers act as a proxy between your app and the network, enabling features like offline support. Increment this number to force update the service worker cache, which is particularly useful after making changes to your PWA files or when you want to ensure all users receive the latest version. When updated, the service worker will automatically install the new version in the background and activate it once all tabs using the old version are closed. %1$sLearn more about service workers%2$s.', 'iworks-pwa' ),
 					'<a href="https://developers.google.com/web/fundamentals/primers/service-workers" target="_blank" rel="noopener noreferrer">',
 					'</a>'

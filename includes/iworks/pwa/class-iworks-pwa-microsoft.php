@@ -177,7 +177,8 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		$cache_key = $this->get_cache_name( 'head_microsoft' );
 		$value     = get_transient( $cache_key );
 		if ( ! empty( $value ) ) {
-			echo $value;
+			// Cached HTML built below from escaped fragments.
+			echo wp_kses_post( $value );
 			return;
 		}
 		/**
@@ -276,6 +277,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 		 * @since 1.4.3
 		 */
 		set_transient( $cache_key, $content, DAY_IN_SECONDS );
-		echo $content;
+		// Built above from escaped fragments only.
+		echo wp_kses_post( $content );
 	}
 }
