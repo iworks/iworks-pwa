@@ -12,7 +12,10 @@ bun.lock
 .sass-cache
 
 # Compiled CSS files, needed to release not in repository
-assets/styles/
+assets/styles/*
+!assets/styles/index.php
+assets/styles/frontend/*
+!assets/styles/frontend/index.php
 assets/scripts/admin*.js
 assets/scripts/frontend*.js
 
