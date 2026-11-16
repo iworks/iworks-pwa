@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-16T17:57:58+00:00\n"
+"POT-Creation-Date: 2026-11-16T18:03:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: iworks-pwa\n"
@@ -903,14 +903,14 @@ msgstr ""
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:134
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:135
 msgid "Sorry!"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:323
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:324
 msgid "PWA Shortcuts Menu"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:424
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:425
 msgid "Short Name (PWA)"
 msgstr ""

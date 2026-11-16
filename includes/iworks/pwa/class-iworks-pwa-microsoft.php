@@ -131,8 +131,12 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
-		$uri = remove_query_arg( array_keys( $_GET ), $_SERVER['REQUEST_URI'] );
-		if ( $this->ieconfig_filename !== $_SERVER['REQUEST_URI'] ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only request routing for a public XML endpoint; no state changes.
+		$uri = remove_query_arg(
+			array_keys( $_GET ), // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only request routing, no state changes.
+			esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- sanitized with esc_url_raw().
+		);
+		if ( $this->ieconfig_filename !== wp_unslash( $_SERVER['REQUEST_URI'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput -- exact string comparison for public endpoint routing, never printed.
 			return;
 		}
 		header( 'Content-type: text/xml' );

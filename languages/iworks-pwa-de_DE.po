@@ -712,15 +712,15 @@ msgstr ""
 msgid "Server rewrite rule for \"%s\" request"
 msgstr ""
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:134
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:135
 msgid "Sorry!"
 msgstr "Entschuldigung!"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:323
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:324
 msgid "PWA Shortcuts Menu"
 msgstr "PWA-Kontextmenü"
 
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:424
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:425
 msgid "Short Name (PWA)"
 msgstr "Kurzname (PWA)"
 

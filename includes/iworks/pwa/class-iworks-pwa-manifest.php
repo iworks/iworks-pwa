@@ -93,7 +93,8 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 			! isset( $_SERVER['REQUEST_URI'] ) ) {
 			return;
 		}
-		$uri = remove_query_arg( array_keys( $_GET ), esc_url( $_SERVER['REQUEST_URI'] ) );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only request routing for public endpoints; no state changes.
+		$uri = remove_query_arg( array_keys( $_GET ), esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
 		/**
 		 * manifest.json
 		 */
@@ -437,18 +438,16 @@ class iWorks_PWA_manifest extends iWorks_PWA {
 		if ( ! wp_verify_nonce( filter_input( INPUT_POST, 'update-nav-menu-nonce' ), 'update-nav_menu' ) ) {
 			return;
 		}
-		if ( ! isset( $_POST['menu-item-short-name'] ) ) {
+		if ( ! isset( $_POST['menu-item-short-name'] ) || ! is_array( $_POST['menu-item-short-name'] ) ) {
 			return;
 		}
-		if ( ! is_array( $_POST['menu-item-short-name'] ) ) {
-			return;
-		}
-		foreach ( $_POST['menu-item-short-name'] as $post_id => $value ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- nonce verified above via wp_verify_nonce( filter_input(...) ).
+		foreach ( wp_unslash( $_POST['menu-item-short-name'] ) as $post_id => $value ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput -- sanitized per element below with sanitize_text_field().
 			$post_id = intval( $post_id );
 			if ( 1 > $post_id ) {
 				continue;
 			}
-			$value = esc_html( $value );
+			$value = sanitize_text_field( $value );
 			if ( empty( $value ) ) {
 				delete_post_meta( $post_id, $this->meta_option_name_sort_menu_name );
 				continue;

@@ -47,6 +47,25 @@ function printError(error) {
 }
 
 /**
+ * Shared Plugin Check options — excludes and ignore codes used by both the
+ * build pipeline and the standalone `pcp` mode.
+ *
+ * @return {{excludeDirectories: string[], ignoreCodes: string[]}}
+ */
+function pcpOptions() {
+  return {
+    // External iWorks submodules are shared libraries maintained upstream —
+    // their findings are not this plugin's release blockers.
+    excludeDirectories: ["includes/iworks/options", "includes/iworks/rate"],
+    ignoreCodes: [
+      // "Tested up to" is bumped on the wp.org release checklist, not at
+      // every build.
+      "outdated_tested_upto_header",
+    ],
+  };
+}
+
+/**
  * Production build for one flavor.
  *
  * @param {string} flavor "wporg" or "github".
@@ -68,16 +87,7 @@ async function build(flavor) {
     await makeZip(flavor);
     if (flavor === "wporg") {
       bar.tick("plugin-check");
-      await pluginCheck(config.name, config.version, {
-        // External iWorks submodules are shared libraries maintained
-        // upstream — their findings are not this plugin's release blockers.
-        excludeDirectories: ["includes/iworks/options", "includes/iworks/rate"],
-        ignoreCodes: [
-          // "Tested up to" is bumped on the wp.org release checklist, not at
-          // every build.
-          "outdated_tested_upto_header",
-        ],
-      });
+      await pluginCheck(config.name, config.version, pcpOptions());
     }
     bar.tick("done");
     log(
@@ -235,7 +245,7 @@ async function pcp() {
     return;
   }
   try {
-    await pluginCheck(config.name, config.version);
+    await pluginCheck(config.name, config.version, pcpOptions());
   } catch (error) {
     printError(error);
     process.exit(1);

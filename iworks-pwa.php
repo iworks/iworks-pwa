@@ -34,30 +34,30 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * static options
  */
-$base     = dirname( __FILE__ );
-$includes = $base . '/includes';
+$iworks_pwa_base     = dirname( __FILE__ );
+$iworks_pwa_includes = $iworks_pwa_base . '/includes';
 
 /**
  * get plugin settings
  *
  * @since 1.0.1
  */
-include_once $base . '/etc/options.php';
+include_once $iworks_pwa_base . '/etc/options.php';
 
 /**
  * @since 1.0.6
  */
 if ( ! class_exists( 'iworks_options' ) ) {
-	include_once $includes . '/iworks/options/options.php';
+	include_once $iworks_pwa_includes . '/iworks/options/options.php';
 }
 
 /**
  * load
  */
-require_once $includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
-require_once $includes . '/iworks/pwa/class-iworks-pwa-frontend.php';
-require_once $includes . '/iworks/pwa/class-iworks-pwa-apple.php';
-require_once $includes . '/iworks/pwa/class-iworks-pwa-microsoft.php';
+require_once $iworks_pwa_includes . '/iworks/pwa/class-iworks-pwa-manifest.php';
+require_once $iworks_pwa_includes . '/iworks/pwa/class-iworks-pwa-frontend.php';
+require_once $iworks_pwa_includes . '/iworks/pwa/class-iworks-pwa-apple.php';
+require_once $iworks_pwa_includes . '/iworks/pwa/class-iworks-pwa-microsoft.php';
 /**
  * run
  */
@@ -69,7 +69,7 @@ new iWorks_PWA_Microsoft;
  * admin
  */
 if ( is_admin() ) {
-	require_once $includes . '/iworks/pwa/class-iworks-pwa-administrator.php';
+	require_once $iworks_pwa_includes . '/iworks/pwa/class-iworks-pwa-administrator.php';
 	new iWorks_PWA_Administrator;
 }
 
