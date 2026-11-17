@@ -162,6 +162,13 @@ abstract class iWorks_PWA {
 		add_action( 'init', array( $this, 'action_init_register_iworks_rate' ), PHP_INT_MAX );
 		add_action( 'init', array( $this, 'maybe_load_integrations' ), 117 );
 		/**
+		 * Site Health
+		 *
+		 * @since 1.9.0
+		 */
+		add_filter( 'site_status_tests', array( $this, 'filter_site_status_tests' ) );
+		add_filter( 'debug_information', array( $this, 'filter_debug_information' ) );
+		/**
 		 * clear cache
 		 *
 		 * @since 1.3.0
@@ -690,6 +697,16 @@ abstract class iWorks_PWA {
 				include_once $root . '/class-iworks-pwa-integrations-menu-icons.php';
 				new iWorks_PWA_Integrations_Menu_Icons( $this->options );
 			}
+			/**
+			 * WooCommerce
+			 * https://wordpress.org/plugins/woocommerce/
+			 *
+			 * @since 1.9.0
+			 */
+			if ( preg_match( '/woocommerce\.php$/', $plugin ) ) {
+				include_once $root . '/integrations/class-iworks-pwa-integrations-woocommerce.php';
+				new iWorks_PWA_Integrations_WooCommerce( $this->options );
+			}
 		}
 	}
 
@@ -981,5 +998,225 @@ abstract class iWorks_PWA {
 			__( 'iWorks PWA', 'iworks-pwa' ),
 			'iworks-pwa'
 		);
+	}
+
+	/**
+	 * Register PWA Site Health tests.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param array $tests Site Health tests.
+	 * @return array
+	 */
+	public function filter_site_status_tests( $tests ) {
+		if ( ! is_array( $tests ) ) {
+			$tests = array();
+		}
+		if ( ! isset( $tests['direct'] ) || ! is_array( $tests['direct'] ) ) {
+			$tests['direct'] = array();
+		}
+		$tests['direct']['iworks-pwa-https']        = array( $this, 'site_status_test_https' );
+		$tests['direct']['iworks-pwa-manifest']     = array( $this, 'site_status_test_manifest' );
+		$tests['direct']['iworks-pwa-service-worker'] = array( $this, 'site_status_test_service_worker' );
+		return $tests;
+	}
+
+	/**
+	 * Site Health test: HTTPS is required for PWA.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @return array
+	 */
+	public function site_status_test_https() {
+		$result = array(
+			'label'       => __( 'The site uses HTTPS, required for a PWA', 'iworks-pwa' ),
+			'status'      => 'good',
+			'badge'       => array(
+				'label' => __( 'PWA', 'iworks-pwa' ),
+				'color' => 'green',
+			),
+			'description' => sprintf(
+				'<p>%s</p>',
+				__( 'Service workers require a secure connection (HTTPS).', 'iworks-pwa' )
+			),
+			'test'        => 'iworks-pwa-https',
+		);
+		if ( ! is_ssl() ) {
+			$result['status']      = 'critical';
+			$result['badge']['color'] = 'red';
+			$result['description'] = sprintf(
+				'<p>%s</p>',
+				__( 'The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activating PWA features.', 'iworks-pwa' )
+			);
+		}
+		return $result;
+	}
+
+	/**
+	 * Site Health test: the manifest must be reachable.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @return array
+	 */
+	public function site_status_test_manifest() {
+		$result = array(
+			'label'       => __( 'The PWA manifest is reachable', 'iworks-pwa' ),
+			'status'      => 'good',
+			'badge'       => array(
+				'label' => __( 'PWA', 'iworks-pwa' ),
+				'color' => 'green',
+			),
+			'description' => sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: %s: manifest URL */
+					__( 'The web app manifest is served at %s.', 'iworks-pwa' ),
+					'<code>' . esc_html( home_url( 'manifest.json' ) ) . '</code>'
+				)
+			),
+			'test'        => 'iworks-pwa-manifest',
+		);
+		$response = wp_remote_get(
+			home_url( 'manifest.json' ),
+			array(
+				'timeout' => 10,
+			)
+		);
+		$manifest = null;
+		if ( ! is_wp_error( $response ) && 200 === (int) wp_remote_retrieve_response_code( $response ) ) {
+			$manifest = json_decode( wp_remote_retrieve_body( $response ), true );
+		}
+		if ( ! is_array( $manifest ) ) {
+			$result['status']      = 'critical';
+			$result['badge']['color'] = 'red';
+			$result['label']       = __( 'The PWA manifest is not reachable', 'iworks-pwa' );
+			$result['description'] = sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: 1: manifest URL, 2: recommendation about permalinks */
+					__( 'The manifest could not be fetched from %1$s. %2$s', 'iworks-pwa' ),
+					'<code>' . esc_html( home_url( 'manifest.json' ) ) . '</code>',
+					__( 'The plugin requires "pretty" permalinks (Settings → Permalinks) to serve the manifest and the service worker.', 'iworks-pwa' )
+				)
+			);
+			return $result;
+		}
+		/**
+		 * check required icons
+		 */
+		$sizes = array();
+		if ( ! empty( $manifest['icons'] ) && is_array( $manifest['icons'] ) ) {
+			foreach ( $manifest['icons'] as $icon ) {
+				if ( ! empty( $icon['sizes'] ) ) {
+					$sizes[] = (string) $icon['sizes'];
+				}
+			}
+		}
+		$missing = array_diff( array( '192x192', '512x512' ), $sizes );
+		if ( ! empty( $missing ) ) {
+			$result['status']      = 'recommended';
+			$result['badge']['color'] = 'orange';
+			$result['label']       = __( 'The PWA manifest is missing recommended icons', 'iworks-pwa' );
+			$result['description'] = sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: %s: icon sizes list */
+					__( 'The manifest is reachable but does not declare the recommended icon sizes: %s.', 'iworks-pwa' ),
+					esc_html( implode( ', ', $missing ) )
+				)
+			);
+		}
+		return $result;
+	}
+
+	/**
+	 * Site Health test: the service worker must be reachable.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @return array
+	 */
+	public function site_status_test_service_worker() {
+		$uri = home_url(
+			apply_filters( 'iworks_pwa_service_worker_uri', $this->options->get_group( 'service-worker-handler' ) )
+		);
+		$result = array(
+			'label'       => __( 'The PWA service worker is reachable', 'iworks-pwa' ),
+			'status'      => 'good',
+			'badge'       => array(
+				'label' => __( 'PWA', 'iworks-pwa' ),
+				'color' => 'green',
+			),
+			'description' => sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: %s: service worker URL */
+					__( 'The service worker is served at %s.', 'iworks-pwa' ),
+					'<code>' . esc_html( $uri ) . '</code>'
+				)
+			),
+			'test'        => 'iworks-pwa-service-worker',
+		);
+		$response = wp_remote_get( $uri, array( 'timeout' => 10 ) );
+		$body     = is_wp_error( $response ) ? '' : (string) wp_remote_retrieve_body( $response );
+		if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) || false === strpos( $body, 'addEventListener' ) ) {
+			$result['status']      = 'critical';
+			$result['badge']['color'] = 'red';
+			$result['label']       = __( 'The PWA service worker is not reachable', 'iworks-pwa' );
+			$result['description'] = sprintf(
+				'<p>%s</p>',
+				sprintf(
+					/* translators: 1: service worker URL, 2: recommendation about permalinks */
+					__( 'The service worker could not be fetched from %1$s. %2$s', 'iworks-pwa' ),
+					'<code>' . esc_html( $uri ) . '</code>',
+					__( 'The plugin requires "pretty" permalinks (Settings → Permalinks) to serve the manifest and the service worker.', 'iworks-pwa' )
+				)
+			);
+		}
+		return $result;
+	}
+
+	/**
+	 * Add PWA debug information to Site Health's "Info" tab.
+	 *
+	 * @since 1.9.0
+	 *
+	 * @param array $info Debug information.
+	 * @return array
+	 */
+	public function filter_debug_information( $info ) {
+		if ( ! is_array( $info ) ) {
+			$info = array();
+		}
+		$strategy = $this->options->get_option( 'cache_strategy' );
+		$info['iworks-pwa'] = array(
+			'label'       => __( 'PWA', 'iworks-pwa' ),
+			'description' => __( 'PWA configuration reported by the "PWA — easy way to Progressive Web App" plugin.', 'iworks-pwa' ),
+			'fields'      => array(
+				'cache_version' => array(
+					'label' => __( 'Cache version', 'iworks-pwa' ),
+					'value' => $this->options->get_option( 'cache_version' ),
+				),
+				'cache_strategy' => array(
+					'label' => __( 'Runtime cache strategy', 'iworks-pwa' ),
+					'value' => empty( $strategy ) ? 'network-first' : $strategy,
+				),
+				'manifest_url' => array(
+					'label' => __( 'Manifest URL', 'iworks-pwa' ),
+					'value' => home_url( 'manifest.json' ),
+				),
+				'service_worker_url' => array(
+					'label' => __( 'Service worker URL', 'iworks-pwa' ),
+					'value' => home_url( $this->options->get_group( 'service-worker-handler' ) ),
+				),
+				'offline_page_url' => array(
+					'label' => __( 'Offline page URL', 'iworks-pwa' ),
+					'value' => home_url( $this->options->get_group( 'offline-page' ) ),
+				),
+			),
+		);
+		return $info;
 	}
 }

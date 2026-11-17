@@ -108,6 +108,18 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
+= 1.9.0 (2026-11-16) =
+* **New**: Runtime caching strategies — visited pages now work offline. Choose "Network first" (recommended), "Stale-while-revalidate" or "Cache first" for navigations; static assets (CSS, JS, images, fonts) are always served cache-first.
+* **New**: Exclude URLs from caching — one regular expression per line in the settings; matching URLs bypass the service worker completely.
+* **New**: "New version available" toast with a Refresh button when a new service worker is waiting (uses `SKIP_WAITING`), so users no longer need to close all tabs to get updates.
+* **New**: Site Health checks — HTTPS requirement, manifest reachability (including recommended 192x192/512x512 icons) and service worker reachability; PWA configuration added to Site Health's Info tab.
+* **New**: WooCommerce integration — cart, checkout, my-account pages, `wc-ajax`, `add-to-cart` and WooCommerce REST/API endpoints are excluded from service-worker caching to protect carts and logged-in states.
+* **Fix**: Manifest `display_override` is now emitted as an array, as required by the spec (browsers previously ignored it).
+* **Fix**: A failing precache URL no longer blocks service worker installation (precache is now best-effort per URL).
+* **Security**: JS string escaping in the generated service worker now handles backslashes, preventing code injection via exclude patterns.
+* **Security**: Removed `sslverify => false` from internal URL self-checks so TLS is properly verified.
+* **Security**: Added `manage_options` capability check to the notice-dismiss AJAX endpoint and `X-Content-Type-Options: nosniff` headers on all generated endpoints; the service worker is now served with `Cache-Control: no-cache` so updates propagate promptly.
+
 = 1.8.1 (2026-11-16) =
 * **Build**: Replaced the Grunt build system with a Bun-based bundler (`bun run build`, `bun run dev`, …). Node is no longer required — Bun >= 1.3 only.
 * **Build**: Added WordPress.org Plugin Check (PCP) to the build pipeline — the wporg build now fails on any Plugin Check error.

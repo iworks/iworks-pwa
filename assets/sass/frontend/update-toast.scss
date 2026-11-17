@@ -1,0 +1,32 @@
+#iworks-pwa-update-toast {
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+	z-index: 99999;
+	display: flex;
+	gap: .75em;
+	align-items: center;
+	padding: .75em 1em;
+	border: 1px solid rgba( 0, 0, 0, .2 );
+	border-radius: .25em;
+	background-color: #fff;
+	box-shadow: 0 2px 8px rgba( 0, 0, 0, .25 );
+	font-size: .9em;
+
+	.iworks-pwa-update-toast__message {
+		color: #1d2327;
+	}
+
+	.iworks-pwa-update-toast__button {
+		padding: .35em 1em;
+		border: 1px solid #2271b1;
+		border-radius: .2em;
+		background-color: #2271b1;
+		color: #fff;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #135e96;
+		}
+	}
+}

@@ -474,7 +474,7 @@ jQuery( function( $ ) {
 			),
 			'iworks-pwa-viewport'
 		);
-		$response = wp_remote_get( $url, array( 'sslverify' => false ) );
+		$response = wp_remote_get( $url );
 		if ( is_wp_error( $response ) ) {
 			/**
 			 * set timestamp to recheck in the future
@@ -516,8 +516,7 @@ jQuery( function( $ ) {
 	private function check_url( $request ) {
 		$success = true;
 		if ( $success ) {
-			add_filter( 'https_ssl_verify', '__return_false' );
-			$response = wp_remote_get( site_url( '/' . $request, array( 'sslverify' => false ) ) );
+			$response = wp_remote_get( site_url( '/' . $request ) );
 			if ( is_wp_error( $response ) ) {
 				return false;
 			}
@@ -698,6 +697,9 @@ jQuery( function( $ ) {
 	 * @since 1.6.5
 	 */
 	public function action_wp_ajax_close_for_3_months() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 		if ( wp_verify_nonce( filter_input( INPUT_POST, 'nonce' ), 'iworks-pwa' ) ) {
 			$this->freeze_check_for_3_months();
 		}

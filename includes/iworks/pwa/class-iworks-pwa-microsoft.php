@@ -140,6 +140,7 @@ class iWorks_PWA_Microsoft extends iWorks_PWA {
 			return;
 		}
 		header( 'Content-type: text/xml' );
+		header( 'X-Content-Type-Options: nosniff' );
 		echo '<' . '?xml version="1.0" encoding="utf-8"?' . '>';
 		echo PHP_EOL;
 		echo '<browserconfig>';

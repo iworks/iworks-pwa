@@ -57,6 +57,10 @@ const SCSS_FILES = [
     css: "assets/styles/frontend/add-to-home-screen.css",
     scss: "assets/sass/frontend/add-to-home-screen.scss",
   },
+  {
+    css: "assets/styles/frontend/update-toast.css",
+    scss: "assets/sass/frontend/update-toast.scss",
+  },
 ];
 
 /**

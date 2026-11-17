@@ -32,3 +32,5 @@ languages/*.mo
 tests/php/.phpunit.result.cache
 .opencode/
 plugin-check.log
+.playwright-mcp/
+o

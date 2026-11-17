@@ -177,6 +177,34 @@ function iworks_pwa_options() {
 				'rows'        => 10,
 				'since'       => '1.0.0',
 			),
+			array(
+				'name'        => 'cache_strategy',
+				'type'        => 'select',
+				'th'          => __( 'Runtime Cache Strategy', 'iworks-pwa' ),
+				'description' => __( 'How visited pages are cached by the service worker. "Network first" always tries the network and works offline after the first visit. "Stale-while-revalidate" shows the cached page instantly and refreshes it in the background. "Cache first" is fastest but may show outdated content.', 'iworks-pwa' ),
+				'options'     => array(
+					'network-first'         => _x( 'Network first (recommended)', 'cache strategy', 'iworks-pwa' ),
+					'stale-while-revalidate' => _x( 'Stale-while-revalidate', 'cache strategy', 'iworks-pwa' ),
+					'cache-first'           => _x( 'Cache first', 'cache strategy', 'iworks-pwa' ),
+				),
+				'default'           => 'network-first',
+				'sanitize_callback' => 'sanitize_key',
+				'since'       => '1.9.0',
+			),
+			array(
+				'name'        => 'cache_exclude_urls',
+				'type'        => 'textarea',
+				'th'          => __( 'Exclude URLs from Caching', 'iworks-pwa' ),
+				'description' => __( 'One regular expression per line. URLs matching any pattern are never cached and bypass the service worker completely. For example: cart, checkout or my-account pages, or dynamic requests. The patterns are matched against the request path.', 'iworks-pwa' ),
+				'default'     => '',
+				'classes'     => array(
+					'large-text',
+					'code',
+				),
+				'rows'        => 6,
+				'sanitize_callback' => 'sanitize_textarea_field',
+				'since'       => '1.9.0',
+			),
 			/**
 			 * Section "Categories"
 			 *
