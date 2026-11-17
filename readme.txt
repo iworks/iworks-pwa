@@ -108,7 +108,7 @@ A2HS is supported in all mobile browsers, except iOS web view. It's also support
 
 Project maintained on GitHub at [iworks/iworks-pwa](https://github.com/iworks/iworks-pwa).
 
-= 1.9.0 (2026-11-16) =
+= 1.9.0 (2026-11-17) =
 * **New**: Runtime caching strategies — visited pages now work offline. Choose "Network first" (recommended), "Stale-while-revalidate" or "Cache first" for navigations; static assets (CSS, JS, images, fonts) are always served cache-first.
 * **New**: Exclude URLs from caching — one regular expression per line in the settings; matching URLs bypass the service worker completely.
 * **New**: "New version available" toast with a Refresh button when a new service worker is waiting (uses `SKIP_WAITING`), so users no longer need to close all tabs to get updates.

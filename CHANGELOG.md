@@ -4,77 +4,77 @@ Entries below cover releases before 1.6.0. For recent changes, see the [readme.t
 
 ## 1.5.9 - 2024-02-24
 
-- A few sizes have been added. [#3](https://github.com/iworks/iworks-pwa/issues/4). Props for [wfrank94](https://wordpress.org/support/users/wfrank94/).
-- The plugin URL has been changed to [github](https://github.com/iworks/iworks-pwa).
+- Added several icon sizes. [#3](https://github.com/iworks/iworks-pwa/issues/4). Thanks to [wfrank94](https://wordpress.org/support/users/wfrank94/).
+- Changed the plugin URL to [GitHub](https://github.com/iworks/iworks-pwa).
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.2.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.8.
 
 ## 1.5.8 - 2023-12-27
 
-- The check for a tag meta with the "viewport" value has been added after changes in plugins activations.
-- The dynamic property has been fixed.
-- The function `parse_url()` has been replaced by the function `wp_parse_url()`.
+- Added a check for the `viewport` meta tag following plugin activation changes.
+- Fixed a dynamic property deprecation issue.
+- Replaced the `parse_url()` function with `wp_parse_url()`.
+- Added a nonce check to the "viewport" detection feature.
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.9.0.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.6.
-- The nonce check has been added to check "viewport" feature.
 
 ## 1.5.7 - 2023-11-17
 
-- [Empty shortcuts in the `manifest.json` file have been fixed](https://github.com/iworks/iworks-pwa/issues/4). Props for [elmando111](https://wordpress.org/support/users/elmando111/).
-- The filter `iworks-pwa/manifest/shortcuts` has been added. It's allowed to modify the shortcuts array in the `manifest.json` file.
-- The filter `iworks-pwa/manifest/shortcuts/element/url/campain` has been added. It's allowed to modify the campaign in shortcuts urls.
+- [Fixed empty shortcuts in the `manifest.json` file](https://github.com/iworks/iworks-pwa/issues/4). Thanks to [elmando111](https://wordpress.org/support/users/elmando111/).
+- Added the `iworks-pwa/manifest/shortcuts` filter, which allows modifying the shortcuts array in the `manifest.json` file.
+- Added the `iworks-pwa/manifest/shortcuts/element/url/campain` filter, which allows modifying the campaign parameter in shortcut URLs.
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.8.
 
 ## 1.5.6 - 2023-10-27
 
-- Wrong function name `get_color_background()` has been fixed. Props for [bodhisattvac](https://wordpress.org/support/users/bodhisattvac/).
+- Fixed an incorrect function name, `get_color_background()`. Thanks to [bodhisattvac](https://wordpress.org/support/users/bodhisattvac/).
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.7.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.3.
 
 ## 1.5.5 - 2023-07-10
 
-- A check for PWA files required to work has been added.
+- Added a check for the PWA files required for the plugin to operate.
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.5.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.2.
 
 ## 1.5.4 - 2023-06-30
 
-- The meta tag `apple-mobile-web-app-capable` has been added.
-- Trailing slashes from `link` and `meta` tags have been removed.
-- The Apple-related PWA has been completely rewritten. Props for [James](https://wordpress.org/support/users/glidem/).
+- Added the `apple-mobile-web-app-capable` meta tag.
+- Removed trailing slashes from `link` and `meta` tags.
+- Completely rewrote the Apple-related PWA features. Thanks to [James](https://wordpress.org/support/users/glidem/).
 
 ## 1.5.3 - 2022-11-16
 
-- Fixed translation string.
-- Added id property to manifest.json. [Read more](https://developer.chrome.com/blog/pwa-manifest-id/).
-- Added manifest.json property `name` limit on plugin install to 45 characters.
-- Added manifest.json property `short_name` limit on plugin install to 15 characters.
+- Fixed a translation string.
+- Added the `id` property to `manifest.json`. [Read more](https://developer.chrome.com/blog/pwa-manifest-id/).
+- Added a 45-character limit on the `name` property of `manifest.json`, applied when the plugin is installed.
+- Added a 15-character limit on the `short_name` property of `manifest.json`, applied when the plugin is installed.
 
 ## 1.5.2 - 2022-09-26
 
-- Fixed issue with "apple-touch-icon" - it wasn't used even defined.
+- Fixed an issue with `apple-touch-icon`, which was not applied even when it was defined.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.1.
 
 ## 1.5.1 - 2022-09-10
 
-- Added check for a tag meta with the "viewport" value. Add it if it is missing. Props for [Bert](https://wordpress.org/support/users/bertluch/)
-- Changed [iWorks Rate Module](https://github.com/iworks/iworks-rate) repository to GitHub.
+- Added a check for the `viewport` meta tag; it is now added when missing. Thanks to [Bert](https://wordpress.org/support/users/bertluch/).
+- Changed the [iWorks Rate](https://github.com/iworks/iworks-rate) module repository to GitHub.
 
 ## 1.5.0 - 2022-08-03
 
-- Added `Add to Home screen` button to show browser prompt to install "app". Check [Browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
-- Added google campaign track to "start_url" in the `manifest.json` file.
+- Added an "Add to Home screen" button that displays the browser's application installation prompt. See [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/API/BeforeInstallPromptEvent#browser_compatibility).
+- Added a Google Analytics campaign parameter to `start_url` in the `manifest.json` file.
 
 ## 1.4.3 - 2022-05-06
 
-- Fixed issue with Microsoft Square Icon. Props for [chickendipper](https://wordpress.org/support/users/chickendipper/).
-- Fixed issues lower than 8 PHP. Props for [bamsik001](https://wordpress.org/support/users/bamsik001/).
-- Added cache for HTML head with Microsoft data.
+- Fixed an issue with the Microsoft square icon. Thanks to [chickendipper](https://wordpress.org/support/users/chickendipper/).
+- Fixed compatibility with PHP versions lower than 8.0. Thanks to [bamsik001](https://wordpress.org/support/users/bamsik001/).
+- Added caching for the HTML head section containing Microsoft data.
 
 ## 1.4.2 - 2022-04-08
 
-- Added params defaults to function called in action `wp_nav_menu_item_custom_fields` to avoid PHP warning for an improper call. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/)
-- Added permanent hide for menu pointer when a user visits the PWA Settings page.
+- Added default parameters to the function invoked by the `wp_nav_menu_item_custom_fields` action to prevent a PHP warning caused by improper calls. Thanks to [vmaxs](https://wordpress.org/support/users/vmaxs/).
+- Added an option to permanently hide the menu pointer for users who have visited the PWA settings page.
 
 ## 1.4.1 - 2022-04-05
 
@@ -82,119 +82,119 @@ Entries below cover releases before 1.6.0. For recent changes, see the [readme.t
 
 ## 1.4.0 - 2022-04-05
 
-- Added [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin integration for PWA Shortcuts.
-- Added a message when the site permalink is installed in a sub-directory - this plugin does not support it.
-- Added PWA Shortcuts Menu. [Read more about PWA Shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
+- Added integration with the [Menu Icons by ThemeIsle](https://wordpress.org/plugins/menu-icons/) plugin for PWA shortcuts.
+- Added a notice when the site permalink points to a subdirectory, which this plugin does not support.
+- Added the PWA Shortcuts menu. [Read more about PWA shortcuts](https://developer.mozilla.org/en-US/docs/Web/Manifest/shortcuts).
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.3.
 
 ## 1.3.3 - 2022-03-22
 
-- Replaced cache function o proper one.
-- Fixed problem with deleting general icon.
+- Replaced an incorrect cache function with the proper one.
+- Fixed an issue with deleting the general icon.
 
 ## 1.3.2 - 2022-03-22
 
-- Fixed wrong option name.
+- Fixed an incorrect option name.
 
 ## 1.3.1 - 2022-03-22
 
-- Added `/ieconfig.xml` link on debug tab.
-- Fixed long site title on the offline page. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
-- Fixed missed translation domain in a few strings.
-- Improved usage of the transient cache. Props for [tanohex](https://wordpress.org/support/users/tanohex/).
-- Removed images from debug tab.
+- Added the `/ieconfig.xml` link to the debug tab.
+- Fixed long site titles breaking the offline page layout. Thanks to [tanohex](https://wordpress.org/support/users/tanohex/).
+- Fixed a missing translation domain in several strings.
+- Improved the use of the transient cache. Thanks to [tanohex](https://wordpress.org/support/users/tanohex/).
+- Removed images from the debug tab.
 
 ## 1.3.0 - 2022-03-16
 
-- Added object cache for settings.
-- Fixed `protected $option_name_icons` warning.
+- Added an object cache for settings.
+- Fixed a warning related to `protected $option_name_icons`.
 
 ## 1.2.3 - 2022-02-23
 
-- Removed `console.log` from JavaScript files.
+- Removed `console.log` statements from JavaScript files.
 
 ## 1.2.2 - 2022-02-21
 
-- Added filter `iworks_plugin_get_options' to allow filtering plugin core configuration.
-- Added [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin integration.
-- Added plugin information into PWA script elements.
-- Added purpose "any maskable" to the biggest icon. Props for [vmaxs](https://wordpress.org/support/users/vmaxs/).
+- Added the `iworks_plugin_get_options` filter to allow filtering of the plugin's core configuration.
+- Added integration with the [OG — Better Share on Social Media](https://wordpress.org/plugins/og/) plugin.
+- Added plugin information to the PWA script elements.
+- Added the "any maskable" purpose to the largest icon. Thanks to [vmaxs](https://wordpress.org/support/users/vmaxs/).
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.2.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.1.0.
 
 ## 1.2.1 - 2022-02-16
 
-- Added a message when the site permalink is "plain" - this plugin does not support it.
+- Added a notice when the site permalink is set to "plain", which this plugin does not support.
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.1.
 
 ## 1.2.0 - 2022-02-15
 
 - Added the ability to change the text of the offline page.
-- Added version to cache control.
-- Added WPML plugin integration.
-- Moved worker JavaScript from PHP class to separate template.
+- Added a version parameter to cache control.
+- Added integration with the WPML plugin.
+- Moved the service worker JavaScript from a PHP class into a separate template.
 
 ## 1.1.6 - 2022-01-27
 
 - Added screenshots to `readme.txt`.
-- Removed debug functions.
+- Removed debugging functions.
 
 ## 1.1.5 - 2022-01-27
 
-- Added Apple Pinned Tab Icon.
-- Added Apple Launch Icon Title.
-- Added Microsoft Pinned Site.
-- Added Microsoft Live Tile for IE11.
-- Added HTML prefetch for `manifest.json`.
-- Refactored options.
+- Added the Apple pinned tab icon.
+- Added the Apple launch icon title.
+- Added Microsoft pinned site support.
+- Added Microsoft Live Tile support for IE11.
+- Added an HTML prefetch for `manifest.json`.
+- Refactored the options handling.
 
 ## 1.1.4 - 2022-01-24
 
-- Fixed typo.
+- Fixed a typographical error.
 
 ## 1.1.3 - 2022-01-24
 
-- Fixed class load order issue.
+- Fixed a class loading order issue.
 
 ## 1.1.2 - 2022-01-24
 
-- Added `method_exists` to check iWorks Option Class has method `set_plugin`.
-- Changed plugin name into "PWA — easy way to Progressive Web App".
-- Cleared `manifest.json` from unwanted values.
-- Improved handle `/manifest.json`.
+- Added a `method_exists` check to verify that the iWorks Options class provides the `set_plugin` method.
+- Changed the plugin name to "PWA — easy way to Progressive Web App".
+- Removed unwanted values from `manifest.json`.
+- Improved handling of `/manifest.json`.
 
 ## 1.1.1 - 2022-01-23
 
-- Added configuration for Apple Splash Screen Icons.
-- Added configuration for Apple Touch Icon.
+- Added configuration for Apple splash screen icons.
+- Added configuration for the Apple touch icon.
 - Added configuration for IE11.
-- Added configuration for Microsoft Tile Icons.
+- Added configuration for Microsoft tile icons.
 
 ## 1.1.0 - 2022-01-21
 
 - Added configuration for the application name.
-- Added configuration for application colours.
-- Added configuration for application description.
-- Added configuration for application display.
-- Added configuration for application icons.
-- Added configuration for application orientation.
-- Added configuration for application short name.
-- Changed plugin name from "iWorks PWA" to "PWA — easy way to Progressive Web App".
+- Added configuration for the application colours.
+- Added configuration for the application description.
+- Added configuration for the application display mode.
+- Added configuration for the application icons.
+- Added configuration for the application orientation.
+- Added configuration for the application short name.
+- Changed the plugin name from "iWorks PWA" to "PWA — easy way to Progressive Web App".
 - Updated the [iWorks Options](https://github.com/iworks/wordpress-options-class) module to version 2.8.0.
 - Updated the [iWorks Rate](https://github.com/iworks/iworks-rate) module to version 2.0.6.
 
 ## 1.0.0 - 2022-01-04
 
 - First stable release.
-- Added check for the non-SSL site - SSL is required for PWA.
-- Added "Rate" module.
-- Fixed duplicates in offline URLs set.
-- Bumped offline version to 2.
+- Added a check for non-SSL sites, as SSL is required for a PWA.
+- Added the "Rate" module.
+- Fixed duplicates in the offline URL set.
+- Increased the offline version to 2.
 
 ## 0.0.2 - 2021-04-26
 
-- Added meta `theme-color`. Props for [forexonlineproductionltd](https://wordpress.org/support/users/forexonlineproductionltd/).
+- Added the `theme-color` meta tag. Thanks to [forexonlineproductionltd](https://wordpress.org/support/users/forexonlineproductionltd/).
 
 ## 0.0.1 - 2021-03-18
 
-- Init.
+- Initial release.
