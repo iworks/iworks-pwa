@@ -1,36 +1,974 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Development (trunk)\n"
-"Report-Msgid-Bugs-To: http://iworks.pl\n"
+"Project-Id-Version: Plugins - PWA — easy way to Progressive Web App - Stable (latest release)\n"
+"Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-21 07:19:45+00:00\n"
-"PO-Revision-Date: 2026-07-15 04:31:53+0000\n"
+"POT-Creation-Date: 2026-11-17T09:51:45+00:00\n"
+"PO-Revision-Date: 2026-11-17 09:33:36+0000\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
-"X-Generator: GlotPress/4.0.3\n"
+"X-Generator: GlotPress/4.1.0\n"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:81
+msgid "Refresh"
+msgstr "Odśwież"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:80
+msgid "New version available."
+msgstr "Jest dostępna nowa wersja."
+
+#: includes/iworks/class-iworks-pwa.php:1215
+msgid "Offline page URL"
+msgstr "Adres URL strony offline"
+
+#: includes/iworks/class-iworks-pwa.php:1211
+msgid "Service worker URL"
+msgstr "Adres URL serwisu roboczego"
+
+#: includes/iworks/class-iworks-pwa.php:1207
+msgid "Manifest URL"
+msgstr "Adres URL pliku manifestu"
+
+#: includes/iworks/class-iworks-pwa.php:1203
+msgid "Runtime cache strategy"
+msgstr "Strategia buforowania w czasie wykonywania"
+
+#: includes/iworks/class-iworks-pwa.php:1199
+msgid "Cache version"
+msgstr "Wersja pamięci podręcznej"
+
+#: includes/iworks/class-iworks-pwa.php:1196
+msgid "PWA configuration reported by the \"PWA — easy way to Progressive Web App\" plugin."
+msgstr "Konfiguracja PWA zgłoszona przez wtyczkę „PWA — łatwy sposób na stworzenie progresywnej aplikacji internetowej”."
+
+#. translators: 1: service worker URL, 2: recommendation about permalinks
+#: includes/iworks/class-iworks-pwa.php:1172
+#, php-format
+msgid "The service worker could not be fetched from %1$s. %2$s"
+msgstr "Nie udało się pobrać service workera z %1$s. %2$s"
+
+#: includes/iworks/class-iworks-pwa.php:1167
+msgid "The PWA service worker is not reachable"
+msgstr "Nie można nawiązać połączenia z serwisem PWA"
+
+#. translators: %s: service worker URL
+#: includes/iworks/class-iworks-pwa.php:1156
+#, php-format
+msgid "The service worker is served at %s."
+msgstr "Service worker jest dostępny pod adresem %s."
+
+#: includes/iworks/class-iworks-pwa.php:1146
+msgid "The PWA service worker is reachable"
+msgstr "Można nawiązać połączenie z serwisem PWA"
+
+#. translators: %s: icon sizes list
+#: includes/iworks/class-iworks-pwa.php:1126
+#, php-format
+msgid "The manifest is reachable but does not declare the recommended icon sizes: %s."
+msgstr "Manifest jest dostępny, ale nie zawiera informacji o zalecanych rozmiarach ikonek: %s."
+
+#: includes/iworks/class-iworks-pwa.php:1121
+msgid "The PWA manifest is missing recommended icons"
+msgstr "W manifeście PWA brakuje zalecanych ikonek"
+
+#: includes/iworks/class-iworks-pwa.php:1101
+#: includes/iworks/class-iworks-pwa.php:1174
+msgid "The plugin requires \"pretty\" permalinks (Settings → Permalinks) to serve the manifest and the service worker."
+msgstr "Wtyczka wymaga „ładnych” odnośników (Ustawienia → Bezpośrednie odnośniki), żeby móc udostępniać manifest i service worker."
+
+#. translators: 1: manifest URL, 2: recommendation about permalinks
+#: includes/iworks/class-iworks-pwa.php:1099
+#, php-format
+msgid "The manifest could not be fetched from %1$s. %2$s"
+msgstr "Nie udało się pobrać manifestu z %1$s. %2$s"
+
+#: includes/iworks/class-iworks-pwa.php:1094
+msgid "The PWA manifest is not reachable"
+msgstr "Nie można uzyskać dostępu do manifestu PWA"
+
+#. translators: %s: manifest URL
+#: includes/iworks/class-iworks-pwa.php:1075
+#, php-format
+msgid "The web app manifest is served at %s."
+msgstr "Manifest aplikacji internetowej jest dostępny pod adresem %s."
+
+#: includes/iworks/class-iworks-pwa.php:1065
+msgid "The PWA manifest is reachable"
+msgstr "Dostępny jest manifest PWA"
+
+#: includes/iworks/class-iworks-pwa.php:1050
+msgid "The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activating PWA features."
+msgstr "Aplikacja PWA musi być hostowana na bezpiecznym serwerze! Przed włączeniem funkcji PWA upewnij się, że witryna korzysta z protokołu HTTPS."
+
+#: includes/iworks/class-iworks-pwa.php:1041
+msgid "Service workers require a secure connection (HTTPS)."
+msgstr "Usługi typu „Service Worker” wymagają bezpiecznego połączenia (HTTPS)."
+
+#: includes/iworks/class-iworks-pwa.php:1033
+msgid "The site uses HTTPS, required for a PWA"
+msgstr "Witryna korzysta z protokołu HTTPS, co jest wymagane w przypadku aplikacji PWA"
+
+#: etc/options.php:198
+msgid "One regular expression per line. URLs matching any pattern are never cached and bypass the service worker completely. For example: cart, checkout or my-account pages, or dynamic requests. The patterns are matched against the request path."
+msgstr "Jedno wyrażenie regularne w każdym wierszu. Adresy URL pasujące do dowolnego wzorca nigdy nie są buforowane i całkowicie omijają service worker. Na przykład: strony koszyka, kasy lub „moje konto”, a także żądania dynamiczne. Wzorce są porównywane ze ścieżką żądania."
+
+#: etc/options.php:197
+msgid "Exclude URLs from Caching"
+msgstr "Wyklucz adresy URL z buforowania"
+
+#: etc/options.php:188
+msgctxt "cache strategy"
+msgid "Cache first"
+msgstr "Najpierw pamięć podręczna"
+
+#: etc/options.php:187
+msgctxt "cache strategy"
+msgid "Stale-while-revalidate"
+msgstr "„Stale-while-revalidate”"
+
+#: etc/options.php:186
+msgctxt "cache strategy"
+msgid "Network first (recommended)"
+msgstr "Najpierw sieć (zalecane)"
+
+#: etc/options.php:184
+msgid "How visited pages are cached by the service worker. \"Network first\" always tries the network and works offline after the first visit. \"Stale-while-revalidate\" shows the cached page instantly and refreshes it in the background. \"Cache first\" is fastest but may show outdated content."
+msgstr "Jak serwis worker buforuje odwiedzane strony. Tryb „Network first” zawsze najpierw próbuje połączyć się z siecią, a po pierwszej wizycie działa w trybie offline. Tryb „Stale-while-revalidate” od razu wyświetla stronę z pamięci podręcznej i odświeża ją w tle. Tryb „Cache first” jest najszybszy, ale może wyświetlać nieaktualne treści."
+
+#: etc/options.php:183
+msgid "Runtime Cache Strategy"
+msgstr "Strategia buforowania w czasie wykonywania"
+
+#: etc/options.php:818
+msgid "Window Controls Overlay"
+msgstr "Sterowanie nakładką wyświetlania"
+
+#: etc/options.php:817
+msgid "Tabbed"
+msgstr "Z zakładkami"
+
+#: etc/options.php:816
+msgid "Standalone"
+msgstr "Samodzielne"
+
+#: etc/options.php:815
+msgid "Minimal User Interface"
+msgstr "Minimalny interfejs użytkownika"
+
+#: etc/options.php:814
+msgid "Fullscreen"
+msgstr "Tryb pełnoekranowy"
+
+#: etc/options.php:813
+msgid "Standard Browser"
+msgstr "Standardowa przeglądarka"
+
+#. translators: 1: link to documentation
+#: etc/options.php:809
+#, php-format
+msgid "Display Override. Read more in the %1$s documentation."
+msgstr "Nadpisz ustawienia wyświetlania. Przeczytaj więcej w dokumentacji %1$s."
+
+#: etc/options.php:806
+msgid "Display Override"
+msgstr "Nadpisywanie ustawień wyświetlania"
+
+#: etc/options.php:798
+msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
+msgstr "Prześlij czwarty zrzut ekranu (zalecany rozmiar: 1280x800px)."
+
+#: etc/options.php:797
+msgid "Screenshot 4"
+msgstr "Zrzut ekranu 4"
+
+#: etc/options.php:789
+msgid "Upload a third screenshot (recommended size: 1280x800px)."
+msgstr "Prześlij trzeci zrzut ekranu (zalecany rozmiar: 1280x800px)."
+
+#: etc/options.php:788
+msgid "Screenshot 3"
+msgstr "Zrzut ekranu 3"
+
+#: etc/options.php:780
+msgid "Upload a second screenshot (recommended size: 1280x800px)."
+msgstr "Prześlij drugi zrzut ekranu (zalecany rozmiar: 1280x800px)."
+
+#: etc/options.php:779
+msgid "Screenshot 2"
+msgstr "Zrzut ekranu 2"
+
+#: etc/options.php:771
+msgid "Upload a screenshot to showcase your PWA (recommended size: 1280x800px)."
+msgstr "Prześlij zrzut ekranu, aby zaprezentować swój PWA (zalecany rozmiar: 1280x800px)."
+
+#: etc/options.php:770
+msgid "Screenshot 1"
+msgstr "Zrzut ekranu 1"
+
+#: etc/options.php:761
+msgid "The dialog would display even without a description, but it is encouraged. There is a maximum that kicks in after 7 lines of text (roughly 324 characters) and longer descriptions are truncated and an ellipsis."
+msgstr "Okno dialogowe wyświetli się nawet bez opisu, ale jest on zalecany. Maksymalny czas wyświetlania to 7 linii tekstu (około 324 znaków), a dłuższe opisy są obcinane i umieszczane w wielokropku."
+
+#: etc/options.php:754
+msgid "Enable experimental features that are still in development. These features may be unstable and change in future updates."
+msgstr "Włącz funkcje eksperymentalne, które są nadal w fazie rozwoju. Funkcje te mogą być niestabilne i ulec zmianie w przyszłych aktualizacjach."
+
+#: etc/options.php:750
+msgid "Enable"
+msgstr "Włącz"
+
+#: etc/options.php:744
+msgid "Experimental"
+msgstr "Eksperymentalne"
+
+#: etc/options.php:164
+msgid "This content will be displayed when the user is offline and the requested page is not available in the cache. You can use plain text or HTML. This is your opportunity to provide helpful information or navigation options to users when they lose their internet connection."
+msgstr "Zawartość będzie wyświetlana, gdy użytkownik jest offline, a żądana strona nie jest dostępna w pamięci podręcznej. Możesz użyć zwykłego tekstu lub HTML. Jest to szansa na dostarczenie użytkownikom pomocnych informacji lub opcji nawigacji, gdy utracą połączenie z Internetem."
+
+#: etc/options.php:157
+msgid "Cache time in seconds. Default is 1 day. This controls how long the plugin's configuration is cached using WordPress transient cache. When the cache expires, the plugin will regenerate its configuration on the next page load."
+msgstr "Czas pamięci podręcznej w sekundach. Domyślnie jest to 1 dzień. Kontroluje to, jak długo konfiguracja wtyczki jest buforowana przy użyciu przejściowej pamięci podręcznej WordPressa. Po wygaśnięciu pamięci podręcznej wtyczka zregeneruje swoją konfigurację przy następnym ładowaniu strony."
 
 #. translators: %1$s: open anchor tag, %2$s: close anchor tag
-#: assets/templates/no-ssl.php:20
-msgid "The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activate this plugin."
-msgstr "PWA wymaga do działania bezpiecznego protokołu! Proszę wdrożyć w swojej witrynie protokół HTTPS zanim wtyczka zostanie włączona."
-
-#. translators: %s: url to deactivate plugin
-#: assets/templates/no-ssl.php:41
+#: etc/options.php:141
 #, php-format
-msgid "We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again after this site will use SSL."
-msgstr "Zalecamy <a href=\"%s\">wyłączenie</a> wtyczki i jej ponowne włączenie wtedy, kiedy witryna będzie używać SSL."
+msgid "Service workers act as a proxy between your app and the network, enabling features like offline support. Increment this number to force update the service worker cache, which is particularly useful after making changes to your PWA files or when you want to ensure all users receive the latest version. When updated, the service worker will automatically install the new version in the background and activate it once all tabs using the old version are closed. %1$sLearn more about service workers%2$s."
+msgstr "Service workers działają jako proxy między witryną a siecią, umożliwiając takie funkcje jak obsługa offline. Zwiększ wersję, aby wymusić aktualizację pamięci podręcznej service worker, co jest szczególnie przydatne po wprowadzeniu zmian w plikach PWA lub gdy chcesz mieć pewność, że wszyscy użytkownicy otrzymają najnowszą wersję. Po aktualizacji service worker automatycznie zainstaluje nową wersję w tle i aktywuje ją po zamknięciu wszystkich kart korzystających ze starej wersji. %1$sDowiedz się więcej o service workerach%2$s."
 
-#: assets/templates/no-ssl.php:49
-msgid "FAQ"
-msgstr "Najczęściej zadawane pytania"
+#: etc/options.php:27
+msgid "The full name of your application. This will be displayed in the app launcher and when the app is installed."
+msgstr "Pełna nazwa aplikacji. Będzie ona wyświetlana w programie uruchamiającym aplikację i po jej zainstalowaniu."
 
-#: etc/options.php:12
-msgid "Progressive Web Application - Configuration"
-msgstr "Progresywna aplikacja internetowa - konfiguracja"
+#: etc/options.php:153
+msgid "Cache Time"
+msgstr "Czas pamięci podręcznej"
+
+#: etc/options.php:107
+msgctxt "PWA settings"
+msgid "Displays the web app in inverted landscape mode, which is landscape-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
+msgstr "Wyświetla aplikację internetową w odwróconym trybie poziomym, czyli w orientacji poziomej obróconej o 180 stopni. W zależności od urządzenia i implementacji przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
+
+#: etc/options.php:106
+msgctxt "PWA settings"
+msgid "Landscape Secondary"
+msgstr "Poziomo tryb drugi"
+
+#: etc/options.php:103
+msgctxt "PWA settings"
+msgid "Displays the web app in landscape mode, typically with the device held in its standard horizontal position. This is usually the default app orientation on devices that are naturally landscape. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
+msgstr "Wyświetla aplikację internetową w trybie poziomym, zazwyczaj z urządzeniem trzymanym w standardowej pozycji poziomej. Jest to zazwyczaj domyślna orientacja aplikacji na urządzeniach, które są naturalnie poziome. W zależności od implementacji urządzenia i przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
+
+#: etc/options.php:102
+msgctxt "PWA settings"
+msgid "Landscape Primary"
+msgstr "Poziomo tryb pierwszy"
+
+#: etc/options.php:99
+msgctxt "PWA settings"
+msgid "Displays the web app with width greater than height. It allows the app to switch between landscape-primary and landscape-secondary orientations when the device is rotated."
+msgstr "Wyświetla aplikację internetową z szerokością większą niż wysokość. Umożliwia aplikacji przełączanie się między orientacją podstawową poziomą a orientacją dodatkową poziomą po obróceniu urządzenia."
+
+#: etc/options.php:95
+msgctxt "PWA settings"
+msgid "Displays the web app in inverted portrait mode, which is portrait-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
+msgstr "Wyświetla aplikację internetową w odwróconym trybie portretowym, czyli w orientacji pionowej obróconej o 180 stopni. W zależności od urządzenia i implementacji przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
+
+#: etc/options.php:94
+msgctxt "PWA settings"
+msgid "Portrait Secondary"
+msgstr "Portretowo tryb drugi"
+
+#: etc/options.php:91
+msgctxt "PWA settings"
+msgid "Displays the web app in portrait mode, typically with the device held upright. This is usually the default app orientation on devices that are naturally portrait. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
+msgstr "Wyświetla aplikację internetową w trybie portretowym, zwykle z urządzeniem trzymanym pionowo. Jest to zazwyczaj domyślna orientacja aplikacji na urządzeniach, które są naturalnie pionowe. W zależności od implementacji urządzenia i przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
+
+#: etc/options.php:90
+msgctxt "PWA settings"
+msgid "Portrait Primary"
+msgstr "Portretowo tryb pierwszy"
+
+#: etc/options.php:87
+msgctxt "PWA settings"
+msgid "Displays the web app with height greater than width. It allows the app to switch between portrait-primary and portrait-secondary orientations when the device is rotated."
+msgstr "Wyświetla aplikację internetową z wysokością większą niż szerokość. Pozwala to aplikacji na przełączanie się między orientacją pionową-podstawową i pionową-drugą, gdy urządzenie jest obracane."
+
+#: etc/options.php:83
+msgctxt "PWA settings"
+msgid "Displays the web app in the orientation considered most natural for the device, as determined by the browser, operating system, user settings, or the screen itself."
+msgstr "Wyświetla aplikację internetową w orientacji uznanej za najbardziej naturalną dla urządzenia, zgodnie z ustawieniami przeglądarki, systemu operacyjnego, użytkownika lub samego ekranu."
+
+#: etc/options.php:82
+msgctxt "PWA settings"
+msgid "Natural"
+msgstr "Naturalnie"
+
+#: etc/options.php:79
+msgctxt "PWA settings"
+msgid "Displays the web app in any orientation allowed by the device's operating system or user settings. It allows the app to rotate freely to match the orientation of the device when it is rotated."
+msgstr "Wyświetla aplikację internetową w dowolnej orientacji dozwolonej przez system operacyjny urządzenia lub ustawienia użytkownika. Pozwala na swobodne obracanie aplikacji, aby dopasować ją do orientacji urządzenia, gdy jest ono obracane."
+
+#. translators: %s: current request
+#. translators: %s: request
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:638
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:661
+#, php-format
+msgid "Server rewrite rule for \"%s\" request"
+msgstr "Reguła przepisywania serwera dla żądania „%s”"
+
+#: etc/options.php:343
+msgid "Maskable icon is adaptive icon that can be displayed in a variety of shapes that operating systems provide. For example, on Android, app icons can have a circular mask. Your PWA app icon should specifically support masking to look well integrated with operating systems that apply masks."
+msgstr "Ikonka maskowalna to adaptacyjna ikonka, która może być wyświetlana w różnych kształtach, które zapewniają systemy operacyjne. Na przykład w systemie Android ikony aplikacji mogą mieć okrągłą maskę. Twoja ikonka aplikacji PWA powinna w szczególności obsługiwać maskowanie, aby wyglądała dobrze zintegrowana z systemami operacyjnymi, które stosują maski."
+
+#: etc/options.php:342
+msgid "Maskable Icon"
+msgstr "Ikonka maskowalna"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:155
+msgid "Safe SVG"
+msgstr "Bezpieczny SVG"
+
+#. translators: %s: "Safe SVG" plugin name with link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:151
+#, php-format
+msgid "This field requires an SVG file. To securely upload SVG files, please install the %s plugin."
+msgstr "Pole wymaga pliku SVG. Aby bezpiecznie przesyłać pliki SVG, zainstaluj wtyczkę %s."
+
+#: etc/options.php:253
+msgid "Weather"
+msgstr "Pogoda"
+
+#: etc/options.php:252
+msgid "Utilities"
+msgstr "Narzędzia"
+
+#: etc/options.php:251
+msgid "Travel"
+msgstr "Podróże"
+
+#: etc/options.php:250
+msgid "Sports"
+msgstr "Sport"
+
+#: etc/options.php:249
+msgid "Social"
+msgstr "Społecznościowe"
+
+#: etc/options.php:248
+msgid "Shopping"
+msgstr "Zakupy"
+
+#: etc/options.php:247
+msgid "Security"
+msgstr "Bezpieczeństwo"
+
+#: etc/options.php:246
+msgid "Productivity"
+msgstr "Wydajność"
+
+#: etc/options.php:245
+msgid "Politics"
+msgstr "Polityka"
+
+#: etc/options.php:244
+msgid "Photo"
+msgstr "Fotografia"
+
+#: etc/options.php:243
+msgid "Personalization"
+msgstr "Personalizacja"
+
+#: etc/options.php:242
+msgid "News"
+msgstr "Wiadomości"
+
+#: etc/options.php:241
+msgid "Navigation"
+msgstr "Nawigacja"
+
+#: etc/options.php:240
+msgid "Music"
+msgstr "Muzyka"
+
+#: etc/options.php:239
+msgid "Medical"
+msgstr "Opieka zdrowotna"
+
+#: etc/options.php:238
+msgid "Magazines"
+msgstr "Czasopismo"
+
+#: etc/options.php:237
+msgid "Lifestyle"
+msgstr "Styl życia"
+
+#: etc/options.php:236
+msgid "Kids"
+msgstr "Dzieci"
+
+#: etc/options.php:235
+msgid "Health"
+msgstr "Zdrowie"
+
+#: etc/options.php:234
+msgid "Government"
+msgstr "Instytucja rządowa"
+
+#: etc/options.php:233
+msgid "Games"
+msgstr "Gry"
+
+#: etc/options.php:232
+msgid "Food"
+msgstr "Jedzenie"
+
+#: etc/options.php:231
+msgid "Fitness"
+msgstr "Fitness"
+
+#: etc/options.php:230
+msgid "Finance"
+msgstr "Finanse"
+
+#: etc/options.php:229
+msgid "Entertainment"
+msgstr "Rozrywka"
+
+#: etc/options.php:228
+msgid "Education"
+msgstr "Edukacja"
+
+#: etc/options.php:227
+msgid "Business"
+msgstr "Firma"
+
+#: etc/options.php:226
+msgid "Books"
+msgstr "Książki"
+
+#: etc/options.php:216
+msgid "The categories member is an array of strings defining the names of categories that the application supposedly belongs to."
+msgstr "Element kategorie jest tablicą wyrazów definiujących nazwy kategorii, do których należy aplikacja."
+
+#: etc/options.php:215
+msgid "Categories"
+msgstr "Kategorie"
+
+#: etc/options.php:66
+msgctxt "PWA settings"
+msgid "If the scope is limited to current site the following scope limits navigation to the current site."
+msgstr "Jeśli „scope” ograniczono do bieżącej witryny, to ogranicza on nawigację do bieżącej witryny."
+
+#: etc/options.php:65
+msgctxt "PWA settings"
+msgid "Current site"
+msgstr "Bieżąca strona"
+
+#: etc/options.php:62
+msgctxt "PWA settings"
+msgid "If the scope is relative, the manifest URL is used as a base URL."
+msgstr "Jeśli „scope” jest względny, adres URL manifestu jest używany jako podstawowy adres URL."
+
+#: etc/options.php:61
+msgctxt "PWA settings"
+msgid "Relative to the base URL."
+msgstr "Względem bazowego adresu URL."
+
+#: etc/options.php:58
+msgid "The scope defines the navigation scope of this web application's application context. It restricts what web pages can be viewed while the manifest is applied. If the user navigates outside the scope, it reverts to a normal web page inside a browser tab or window."
+msgstr "„Scope” definiuje zakres nawigacji kontekstu aplikacji internetowej. Ogranicza witryny internetowe, które mogą być wyświetlane podczas stosowania manifestu. Jeśli użytkownik porusza się poza zakresem, powraca do normalnej witryny internetowej wewnątrz karty lub okna przeglądarki."
+
+#: etc/options.php:57
+msgid "Scope"
+msgstr "Scope"
+
+#: etc/options.php:707
+msgid "1620px &#10005; 2160px"
+msgstr "1620px &#10005; 2160px"
+
+#: etc/options.php:706
+msgid "iPad 10.2″"
+msgstr "iPad 10.2″"
+
+#: etc/options.php:690
+msgid "1640px &#10005; 2360px"
+msgstr "1640px &#10005; 2360px"
+
+#: etc/options.php:689
+msgid "iPad Air 10.9″"
+msgstr "iPad Air 10.9″"
+
+#: etc/options.php:673
+msgid "1170px &#10005; 2532px"
+msgstr "1170px &#10005; 2532px"
+
+#: etc/options.php:672
+msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
+msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
+
+#: etc/options.php:656
+msgid "1284px &#10005; 2778px"
+msgstr "1284px &#10005; 2778px"
+
+#: etc/options.php:655
+msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
+msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
+
+#: etc/options.php:639
+msgid "1290px &#10005; 2796px"
+msgstr "1290px &#10005; 2796px"
+
+#: etc/options.php:623
+msgid "1179px &#10005; 2556px"
+msgstr "1179px &#10005; 2556px"
+
+#: etc/options.php:622
+#: etc/options.php:638
+msgid "iPhone 14 Pro"
+msgstr "iPhone 14 Pro"
+
+#. translators: %s: link to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:627
+#, php-format
+msgid "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite rules."
+msgstr "<a href=\"%s\">Zmień ustawienia bezpośrednich odnośników</a> lub reguły rewrite serwera."
+
+#. translators: %s: filename as link
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:614
+#, php-format
+msgid "The \"%s\" file is no reachable."
+msgstr "Nie można pobrać pliku „%s”."
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:609
+msgid "ERROR: PWA — easy way to Progressive Web App"
+msgstr "Błąd: PWA — prosta droga do Progresywnej Aplikacji Internetowej"
+
+#: etc/options.php:607
+msgid "640px &#10005; 1136px"
+msgstr "640px &#10005; 1136px"
+
+#: etc/options.php:606
+msgid "iPhone 5"
+msgstr "iPhone 5"
+
+#: etc/options.php:591
+msgid "1536px &#10005; 2048px"
+msgstr "1536px &#10005; 2048px"
+
+#: etc/options.php:590
+msgid "iPad Mini, Air"
+msgstr "iPad Mini, Air"
+
+#: etc/options.php:575
+msgid "1668px &#10005; 2224px"
+msgstr "1668px &#10005; 2224px"
+
+#: etc/options.php:574
+msgid "iPad Pro 10.5\""
+msgstr "iPad Pro 10.5\""
+
+#: etc/options.php:559
+msgid "1668px &#10005; 2388px"
+msgstr "1668px &#10005; 2388px"
+
+#: etc/options.php:558
+msgid "iPad Pro 11”"
+msgstr "iPad Pro 11”"
+
+#: etc/options.php:543
+msgid "2048px &#10005; 2732px"
+msgstr "2048px &#10005; 2732px"
+
+#: etc/options.php:542
+msgid "iPad Pro 12.9\""
+msgstr "iPad Pro 12.9\""
+
+#: etc/options.php:527
+msgid "750px &#10005; 1334px"
+msgstr "750px &#10005; 1334px"
+
+#: etc/options.php:526
+msgid "iPhone 8, 7, 6s, 6"
+msgstr "iPhone 8, 7, 6s, 6"
+
+#: etc/options.php:511
+msgid "1242px &#10005; 2208px"
+msgstr "1242px &#10005; 2208px"
+
+#: etc/options.php:510
+msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
+msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
+
+#: etc/options.php:495
+msgid "1125px &#10005; 2436px"
+msgstr "1125px &#10005; 2436px"
+
+#: etc/options.php:494
+msgid "iPhone X, Xs"
+msgstr "iPhone X, Xs"
+
+#: etc/options.php:479
+msgid "828px &#10005; 1792px"
+msgstr "828px &#10005; 1792px"
+
+#: etc/options.php:478
+msgid "iPhone Xr"
+msgstr "iPhone Xr"
+
+#: etc/options.php:463
+msgid "1242px &#10005; 2688px"
+msgstr "1242px &#10005; 2688px"
+
+#: etc/options.php:462
+msgid "iPhone Xs Max"
+msgstr "iPhone Xs Max"
+
+#: etc/options.php:447
+msgid "Default"
+msgstr "Domyślnie"
+
+#: etc/options.php:434
+msgid "It must be a non-transparent PNG image."
+msgstr "Musi to być nieprzezroczysty obraz PNG."
+
+#: etc/options.php:433
+msgid "Add the following elements to support custom splash screens for the different iOS devices."
+msgstr "Dodaj następujące elementy, aby obsługiwać ekran powitalny dla różnych urządzeń z systemem iOS."
+
+#: etc/options.php:429
+msgid "Custom Splash Screen"
+msgstr "Własny ekran powitalny"
+
+#: etc/options.php:418
+msgctxt "PWA settings"
+msgid "White text and symbols, and the status bar will take the same background color as the body element of your web app."
+msgstr "Biały tekst i symbole oraz pasek stanu będą miały ten sam kolor tła, co główny element aplikacji webowej."
+
+#: etc/options.php:415
+msgctxt "PWA settings"
+msgid "Black status bar and black text and symbols, making it appear completely black."
+msgstr "Czarny pasek stanu oraz czarny tekst i symbole, dzięki czemu wydaje się całkowicie czarny."
+
+#: etc/options.php:412
+msgctxt "PWA settings"
+msgid "White status bar with black text and symbols."
+msgstr "Biały pasek stanu z czarnym tekstem i symbolami."
+
+#: etc/options.php:409
+msgid "Customize the iOS status bar (the area along the upper edge of the screen displaying the time and battery status) of your PWA."
+msgstr "Dostosuj pasek stanu iOS (obszar wzdłuż górnej krawędzi ekranu wyświetlający godzinę i stan baterii) swojego PWA."
+
+#: etc/options.php:408
+msgid "Style"
+msgstr "Styl"
+
+#: etc/options.php:403
+msgid "Status Bar"
+msgstr "Pasek stanu"
+
+#: etc/options.php:384
+msgid "Icon"
+msgstr "Ikonka"
+
+#: etc/options.php:265
+msgid "Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to \"install\" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap."
+msgstr "Dodaj do ekranu głównego (lub w skrócie A2HS) jest funkcją dostępna w nowoczesnych przeglądarkach, która pozwala użytkownikowi „zainstalować” aplikację internetową, czyli dodać do ekranu głównego skrót reprezentujący ich ulubioną aplikację internetową (lub witrynę), aby mogli później uzyskać do niej dostęp jednym dotknięciem."
+
+#: etc/options.php:300
+msgid "Load CSS"
+msgstr "Wczytuj CSS"
+
+#: etc/options.php:294
+#: includes/iworks/pwa/class-iworks-pwa-frontend.php:164
+msgid "Add to home screen"
+msgstr "Dodaj do ekranu startowego"
+
+#: etc/options.php:292
+msgid "Button Text"
+msgstr "Tekst przycisku"
+
+#: etc/options.php:282
+msgctxt "PWA settings"
+msgid "Footer"
+msgstr "Stopka"
+
+#: etc/options.php:279
+msgid "This option doesn't work for \"block themes\"."
+msgstr "Opcja nie działa dla motywów blokowych."
+
+#: etc/options.php:278
+msgctxt "PWA settings"
+msgid "After &lt;body&gt; tag"
+msgstr "Po tagu &lt;body&gt;"
+
+#: etc/options.php:275
+msgid "Browser will show A2HS prompt automatically if it is needed."
+msgstr "Przeglądarka automatycznie wyświetli monit A2HS, jeśli jest to konieczne."
+
+#: etc/options.php:274
+msgctxt "PWA settings"
+msgid "Hide (recommended)"
+msgstr "Ukryte (rekomendowane)"
+
+#: etc/options.php:271
+msgid "Position"
+msgstr "Położenie"
+
+#: etc/options.php:264
+msgid "A2HS"
+msgstr "A2HS"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:547
+msgid "Short Name (PWA)"
+msgstr "Krótka nazwa (PWA)"
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:446
+msgid "PWA Shortcuts Menu"
+msgstr "Menu kontekstowe PWA"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:328
+msgid "This plugin does not support installation in a subdirectory and will not work properly."
+msgstr "Wtyczka nie obsługuje instalacji w podkatalogu i nie będzie działać poprawnie."
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:209
+msgid "IE config xml"
+msgstr "Plik konfiguracyjny xml dla IE"
+
+#. translators: %s; url to permalinks settings
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:303
+#, php-format
+msgid "This plugin does not support the plain permalink structure. <a href=\"%s\">Please change your permalinks settings</a> to other structure to use PWA plugin."
+msgstr "Wtyczka nie obsługuje zwykłej struktury stałych odnośników. <a href=\"%s\">Proszę zmienić ustawienia odnośników</a> na inną strukturę, aby korzystać z wtyczki PWA."
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:252
+msgid "PWA settings are now available in Settings."
+msgstr "Konfiguracja PWA jest dostępna w menu Ustawienia."
+
+#: etc/options.php:163
+msgid "Offline Content Page"
+msgstr "Treść strony przy braku połączenia"
+
+#: etc/options.php:138
+msgid "Cache Version"
+msgstr "Wersja pamięci podręcznej"
+
+#: etc/options.php:385
+msgid "Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to \"0 0 16 16\"."
+msgstr "Użyj 100% czerni dla wszystkich wektorów z przezroczystym tłem w formacie SVG i dodaj następujący znacznik do wszystkich stron internetowych, które powinna reprezentować ikonka. Plik SVG musi być jednowarstwowy, a atrybut viewBox musi być ustawiony na „0 0 16 16”."
+
+#: etc/options.php:379
+msgid "Pinned Tab Icon"
+msgstr "Ikonka przpinania"
+
+#: etc/options.php:368
+msgid "Touch Icon"
+msgstr "Ikonka"
+
+#: etc/options.php:308
+msgid "Generic"
+msgstr "Ogólnie"
+
+#: etc/options.php:736
+msgid "It must be a PNG image. It should be exactly 310x150px."
+msgstr "Musi to być obraz PNG. Powinien mieć dokładnie 310x150px."
+
+#: etc/options.php:727
+msgid "It must be a PNG image, at least 310x310px."
+msgstr "Musi to być obraz PNG. Powinien mieć co najmniej 310x310px."
+
+#: etc/options.php:369
+msgid "For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG."
+msgstr "Idealny wygląd na iOS, gdy użytkownicy dodają progresywną aplikację internetową do ekranu głównego. Musi wskazywać na nieprzezroczysty kwadratowy plik PNG o rozmiarze 192 pikseli (lub 180 pikseli)."
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:208
+msgid "Offline page"
+msgstr "Strona offline"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:207
+msgid "Service Worker"
+msgstr "Service Worker"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:206
+msgid "manifest.json"
+msgstr "manifest.json"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:203
+msgid "Main files"
+msgstr "Główne pliki"
+
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:188
+msgid "Debug info"
+msgstr "Informacje debugowania"
+
+#: etc/options.php:733
+msgid "Wide Tile Logo"
+msgstr "Szerokie logo kafelka"
+
+#: etc/options.php:724
+msgid "Square Tile Logo"
+msgstr "Kwadratowe logo kafelka"
+
+#: etc/options.php:719
+msgid "Microsoft"
+msgstr "Microsoft"
+
+#: etc/options.php:363
+msgid "Apple"
+msgstr "Apple"
+
+#. Plugin Name of the plugin
+#: iworks-pwa.php
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:298
+#: includes/iworks/pwa/class-iworks-pwa-administrator.php:325
+msgid "PWA — easy way to Progressive Web App"
+msgstr "PWA — prosta droga do Progresywnej Aplikacji Internetowej"
+
+#: etc/options.php:1067
+msgid "WordPress Help Forum"
+msgstr "Forum pomocy WordPressa"
+
+#: etc/options.php:1067
+msgctxt "link to support forum on WordPress.org"
+msgid "https://wordpress.org/support/plugin/iworks-pwa/"
+msgstr "https://wordpress.org/support/plugin/iworks-pwa/"
+
+#: etc/options.php:1032
+msgid "Link to it so others can easily find it"
+msgstr "Odnośnik do wtyczki - żeby łatwo było znaleźć"
+
+#: etc/options.php:1032
+msgctxt "plugin home page on WordPress.org"
+msgid "https://wordpress.org/plugins/iworks-pwa/"
+msgstr "https://pl.wordpress.org/plugins/iworks-pwa/"
+
+#: etc/options.php:1031
+msgid "Give it a five stars on WordPress.org"
+msgstr "Daj wtyczce pięć gwiazdek na WordPress.org"
+
+#: etc/options.php:1029
+msgid "Below are some links to help spread this plugin to other users"
+msgstr "Poniższe odnośniki mogą pomóc innym w znalezieniu wtyczki"
+
+#: etc/options.php:835
+msgid "I love what I do!"
+msgstr "Kocham to co robię!"
+
+#: etc/options.php:829
+#: etc/options.php:1065
+msgid "We are waiting for your message"
+msgstr "Czekamy na twoją wiadomość"
+
+#: etc/options.php:353
+msgid "This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image."
+msgstr "Ikonka będzie wyświetlana na ekranie powitalnym aplikacji na obsługiwanych urządzeniach. Powinien to być obraz PNG."
+
+#: etc/options.php:352
+msgid "Splash Screen Icon"
+msgstr "Ikonka ekranu powitalnego"
+
+#: etc/options.php:334
+msgid "This will be the icon of your app when installed on the phone. It should be a PNG image."
+msgstr "Będzie to ikonka aplikacji zainstalowanej na telefonie. Powinien to być obraz PNG."
+
+#: etc/options.php:333
+msgid "Application Icon"
+msgstr "Ikonka aplikacji"
+
+#: etc/options.php:325
+msgid "Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color."
+msgstr "Kolor motywu jest używany na obsługiwanych urządzeniach do przyciemniania elementów interfejsu przeglądarki i przełącznika aplikacji. W razie wątpliwości proszę użyć tego samego koloru co kolor tła."
+
+#: etc/options.php:324
+msgid "Theme Color"
+msgstr "Kolor motywu"
+
+#: etc/options.php:315
+msgid "Background color of the splash screen."
+msgstr "Kolor tła ekranu powitalnego."
+
+#: etc/options.php:314
+msgid "Background Color"
+msgstr "Kolor tła"
+
+#: etc/options.php:393
+msgid "Color"
+msgstr "Kolor"
+
+#: etc/options.php:129
+msgctxt "PWA settings"
+msgid "Browser"
+msgstr "Przeglądarka"
+
+#: etc/options.php:126
+msgctxt "PWA settings"
+msgid "Minimal UI"
+msgstr "Minimalny interface użytkownika"
+
+#: etc/options.php:123
+msgctxt "PWA settings"
+msgid "Standalone"
+msgstr "Samodzielna"
+
+#: etc/options.php:120
+msgctxt "PWA settings"
+msgid "Full Screen"
+msgstr "Pełny ekran"
+
+#: etc/options.php:117
+msgid "Display mode decides what browser UI is shown when your app is launched. Standalone is default."
+msgstr "Tryb wyświetlania decyduje o tym, jaki interfejs przeglądarki jest wyświetlany po uruchomieniu aplikacji. Samodzielny jest trybem domyślnym."
+
+#: etc/options.php:116
+msgid "Display"
+msgstr "Widok"
+
+#: etc/options.php:98
+msgctxt "PWA settings"
+msgid "Landscape"
+msgstr "Poziomo"
+
+#: etc/options.php:86
+msgctxt "PWA settings"
+msgid "Portrait"
+msgstr "Pionowo"
+
+#: etc/options.php:78
+msgctxt "PWA settings"
+msgid "Follow Device Orientation"
+msgstr "Podążaj za orientacją urządzenia"
+
+#: etc/options.php:75
+msgid "Orientation"
+msgstr "Orientacja"
+
+#: etc/options.php:49
+msgid "A brief description of what your app is about."
+msgstr "Krótki opis tego, o czym jest aplikacja."
+
+#: etc/options.php:48
+#: etc/options.php:760
+msgid "Description"
+msgstr "Opis"
+
+#: etc/options.php:38
+msgid "Used when there is insufficient space to display the full name of the application. 15 characters or less."
+msgstr "Używane, gdy nie ma wystarczającej ilości miejsca, aby wyświetlić pełną nazwę aplikacji. 15 znaków lub mniej."
+
+#: etc/options.php:37
+msgid "Application Short Name"
+msgstr "Krótka nazwa aplikacji"
+
+#: etc/options.php:26
+msgid "Application Name"
+msgstr "Nazwa aplikacji"
+
+#: etc/options.php:20
+msgid "General"
+msgstr "Główne"
 
 #: etc/options.php:13
 #: includes/iworks/class-iworks-pwa.php:1036
@@ -41,697 +979,64 @@ msgstr "Progresywna aplikacja internetowa - konfiguracja"
 msgid "PWA"
 msgstr "PWA"
 
-#: etc/options.php:20
-msgid "General"
-msgstr "Główne"
-
-#: etc/options.php:26
-msgid "Application Name"
-msgstr "Nazwa aplikacji"
-
-#: etc/options.php:27
-msgid "The full name of your application. This will be displayed in the app launcher and when the app is installed."
-msgstr "Pełna nazwa aplikacji. Będzie ona wyświetlana w programie uruchamiającym aplikację i po jej zainstalowaniu."
-
-#: etc/options.php:37
-msgid "Application Short Name"
-msgstr "Krótka nazwa aplikacji"
-
-#: etc/options.php:38
-msgid "Used when there is insufficient space to display the full name of the application. 15 characters or less."
-msgstr "Używane, gdy nie ma wystarczającej ilości miejsca, aby wyświetlić pełną nazwę aplikacji. 15 znaków lub mniej."
-
-#: etc/options.php:48
-#: etc/options.php:760
-msgid "Description"
-msgstr "Opis"
-
-#: etc/options.php:49
-msgid "A brief description of what your app is about."
-msgstr "Krótki opis tego, o czym jest aplikacja."
-
-#: etc/options.php:57
-msgid "Scope"
-msgstr "Scope"
-
-#: etc/options.php:58
-msgid "The scope defines the navigation scope of this web application's application context. It restricts what web pages can be viewed while the manifest is applied. If the user navigates outside the scope, it reverts to a normal web page inside a browser tab or window."
-msgstr "„Scope” definiuje zakres nawigacji kontekstu aplikacji internetowej. Ogranicza witryny internetowe, które mogą być wyświetlane podczas stosowania manifestu. Jeśli użytkownik porusza się poza zakresem, powraca do normalnej witryny internetowej wewnątrz karty lub okna przeglądarki."
-
-#: etc/options.php:75
-msgid "Orientation"
-msgstr "Orientacja"
-
-#: etc/options.php:116
-msgid "Display"
-msgstr "Widok"
-
-#: etc/options.php:117
-msgid "Display mode decides what browser UI is shown when your app is launched. Standalone is default."
-msgstr "Tryb wyświetlania decyduje o tym, jaki interfejs przeglądarki jest wyświetlany po uruchomieniu aplikacji. Samodzielny jest trybem domyślnym."
-
-#: etc/options.php:138
-msgid "Cache Version"
-msgstr "Wersja pamięci podręcznej"
-
-#. translators: %1$s: open anchor tag, %2$s: close anchor tag
-#: etc/options.php:141
-#, php-format
-msgid "Service workers act as a proxy between your app and the network, enabling features like offline support. Increment this number to force update the service worker cache, which is particularly useful after making changes to your PWA files or when you want to ensure all users receive the latest version. When updated, the service worker will automatically install the new version in the background and activate it once all tabs using the old version are closed. %1$sLearn more about service workers%2$s."
-msgstr "Service workers działają jako proxy między witryną a siecią, umożliwiając takie funkcje jak obsługa offline. Zwiększ wersję, aby wymusić aktualizację pamięci podręcznej service worker, co jest szczególnie przydatne po wprowadzeniu zmian w plikach PWA lub gdy chcesz mieć pewność, że wszyscy użytkownicy otrzymają najnowszą wersję. Po aktualizacji service worker automatycznie zainstaluje nową wersję w tle i aktywuje ją po zamknięciu wszystkich kart korzystających ze starej wersji. %1$sDowiedz się więcej o service workerach%2$s."
-
-#: etc/options.php:153
-msgid "Cache Time"
-msgstr "Czas pamięci podręcznej"
-
-#: etc/options.php:157
-msgid "Cache time in seconds. Default is 1 day. This controls how long the plugin's configuration is cached using WordPress transient cache. When the cache expires, the plugin will regenerate its configuration on the next page load."
-msgstr "Czas pamięci podręcznej w sekundach. Domyślnie jest to 1 dzień. Kontroluje to, jak długo konfiguracja wtyczki jest buforowana przy użyciu przejściowej pamięci podręcznej WordPressa. Po wygaśnięciu pamięci podręcznej wtyczka zregeneruje swoją konfigurację przy następnym ładowaniu strony."
-
-#: etc/options.php:163
-msgid "Offline Content Page"
-msgstr "Treść strony przy braku połączenia"
-
-#: etc/options.php:164
-msgid "This content will be displayed when the user is offline and the requested page is not available in the cache. You can use plain text or HTML. This is your opportunity to provide helpful information or navigation options to users when they lose their internet connection."
-msgstr "Zawartość będzie wyświetlana, gdy użytkownik jest offline, a żądana strona nie jest dostępna w pamięci podręcznej. Możesz użyć zwykłego tekstu lub HTML. Jest to szansa na dostarczenie użytkownikom pomocnych informacji lub opcji nawigacji, gdy utracą połączenie z Internetem."
-
-#: etc/options.php:167
-#: includes/iworks/class-iworks-pwa.php:720
-msgid "We were unable to load the page you requested."
-msgstr "Nie możemy załadować strony o którą pytano."
+#: etc/options.php:12
+msgid "Progressive Web Application - Configuration"
+msgstr "Progresywna aplikacja internetowa - konfiguracja"
 
 #: etc/options.php:170
 #: includes/iworks/class-iworks-pwa.php:723
 msgid "Please check your network connection and try again."
 msgstr "Sprawdź swoje połączenie internetowe i spróbuj ponownie."
 
-#: etc/options.php:215
-msgid "Categories"
-msgstr "Kategorie"
-
-#: etc/options.php:216
-msgid "The categories member is an array of strings defining the names of categories that the application supposedly belongs to."
-msgstr "Element kategorie jest tablicą wyrazów definiujących nazwy kategorii, do których należy aplikacja."
-
-#: etc/options.php:226
-msgid "Books"
-msgstr "Książki"
-
-#: etc/options.php:227
-msgid "Business"
-msgstr "Firma"
-
-#: etc/options.php:228
-msgid "Education"
-msgstr "Edukacja"
-
-#: etc/options.php:229
-msgid "Entertainment"
-msgstr "Rozrywka"
-
-#: etc/options.php:230
-msgid "Finance"
-msgstr "Finanse"
-
-#: etc/options.php:231
-msgid "Fitness"
-msgstr "Fitness"
-
-#: etc/options.php:232
-msgid "Food"
-msgstr "Jedzenie"
-
-#: etc/options.php:233
-msgid "Games"
-msgstr "Gry"
-
-#: etc/options.php:234
-msgid "Government"
-msgstr "Instytucja rządowa"
-
-#: etc/options.php:235
-msgid "Health"
-msgstr "Zdrowie"
-
-#: etc/options.php:236
-msgid "Kids"
-msgstr "Dzieci"
-
-#: etc/options.php:237
-msgid "Lifestyle"
-msgstr "Styl życia"
-
-#: etc/options.php:238
-msgid "Magazines"
-msgstr "Czasopismo"
-
-#: etc/options.php:239
-msgid "Medical"
-msgstr "Opieka zdrowotna"
-
-#: etc/options.php:240
-msgid "Music"
-msgstr "Muzyka"
-
-#: etc/options.php:241
-msgid "Navigation"
-msgstr "Nawigacja"
-
-#: etc/options.php:242
-msgid "News"
-msgstr "Wiadomości"
-
-#: etc/options.php:243
-msgid "Personalization"
-msgstr "Personalizacja"
-
-#: etc/options.php:244
-msgid "Photo"
-msgstr "Fotografia"
-
-#: etc/options.php:245
-msgid "Politics"
-msgstr "Polityka"
-
-#: etc/options.php:246
-msgid "Productivity"
-msgstr "Wydajność"
-
-#: etc/options.php:247
-msgid "Security"
-msgstr "Bezpieczeństwo"
-
-#: etc/options.php:248
-msgid "Shopping"
-msgstr "Zakupy"
-
-#: etc/options.php:249
-msgid "Social"
-msgstr "Społecznościowe"
-
-#: etc/options.php:250
-msgid "Sports"
-msgstr "Sport"
-
-#: etc/options.php:251
-msgid "Travel"
-msgstr "Podróże"
-
-#: etc/options.php:252
-msgid "Utilities"
-msgstr "Narzędzia"
-
-#: etc/options.php:253
-msgid "Weather"
-msgstr "Pogoda"
-
-#: etc/options.php:264
-msgid "A2HS"
-msgstr "A2HS"
-
-#: etc/options.php:265
-msgid "Add to Home screen (or A2HS for short) is a feature available in modern browsers that allows a user to \"install\" a web app, ie. add a shortcut to their Home screen representing their favorite web app (or site) so they can subsequently access it with a single tap."
-msgstr "Dodaj do ekranu głównego (lub w skrócie A2HS) jest funkcją dostępna w nowoczesnych przeglądarkach, która pozwala użytkownikowi „zainstalować” aplikację internetową, czyli dodać do ekranu głównego skrót reprezentujący ich ulubioną aplikację internetową (lub witrynę), aby mogli później uzyskać do niej dostęp jednym dotknięciem."
-
-#: etc/options.php:271
-msgid "Position"
-msgstr "Położenie"
-
-#: etc/options.php:275
-msgid "Browser will show A2HS prompt automatically if it is needed."
-msgstr "Przeglądarka automatycznie wyświetli monit A2HS, jeśli jest to konieczne."
-
-#: etc/options.php:279
-msgid "This option doesn't work for \"block themes\"."
-msgstr "Opcja nie działa dla motywów blokowych."
-
-#: etc/options.php:292
-msgid "Button Text"
-msgstr "Tekst przycisku"
-
-#: etc/options.php:294
-#: includes/iworks/pwa/class-iworks-pwa-frontend.php:164
-msgid "Add to home screen"
-msgstr "Dodaj do ekranu startowego"
-
-#: etc/options.php:300
-msgid "Load CSS"
-msgstr "Wczytuj CSS"
-
-#: etc/options.php:308
-msgid "Generic"
-msgstr "Ogólnie"
-
-#: etc/options.php:314
-msgid "Background Color"
-msgstr "Kolor tła"
-
-#: etc/options.php:315
-msgid "Background color of the splash screen."
-msgstr "Kolor tła ekranu powitalnego."
-
-#: etc/options.php:324
-msgid "Theme Color"
-msgstr "Kolor motywu"
-
-#: etc/options.php:325
-msgid "Theme color is used on supported devices to tint the UI elements of the browser and app switcher. When in doubt, use the same color as Background Color."
-msgstr "Kolor motywu jest używany na obsługiwanych urządzeniach do przyciemniania elementów interfejsu przeglądarki i przełącznika aplikacji. W razie wątpliwości proszę użyć tego samego koloru co kolor tła."
-
-#: etc/options.php:333
-msgid "Application Icon"
-msgstr "Ikonka aplikacji"
-
-#: etc/options.php:334
-msgid "This will be the icon of your app when installed on the phone. It should be a PNG image."
-msgstr "Będzie to ikonka aplikacji zainstalowanej na telefonie. Powinien to być obraz PNG."
-
-#: etc/options.php:342
-msgid "Maskable Icon"
-msgstr "Ikonka maskowalna"
-
-#: etc/options.php:343
-msgid "Maskable icon is adaptive icon that can be displayed in a variety of shapes that operating systems provide. For example, on Android, app icons can have a circular mask. Your PWA app icon should specifically support masking to look well integrated with operating systems that apply masks."
-msgstr "Ikonka maskowalna to adaptacyjna ikonka, która może być wyświetlana w różnych kształtach, które zapewniają systemy operacyjne. Na przykład w systemie Android ikony aplikacji mogą mieć okrągłą maskę. Twoja ikonka aplikacji PWA powinna w szczególności obsługiwać maskowanie, aby wyglądała dobrze zintegrowana z systemami operacyjnymi, które stosują maski."
-
-#: etc/options.php:352
-msgid "Splash Screen Icon"
-msgstr "Ikonka ekranu powitalnego"
-
-#: etc/options.php:353
-msgid "This icon will be displayed on the splash screen of your app on supported devices. It should be a PNG image."
-msgstr "Ikonka będzie wyświetlana na ekranie powitalnym aplikacji na obsługiwanych urządzeniach. Powinien to być obraz PNG."
-
-#: etc/options.php:363
-msgid "Apple"
-msgstr "Apple"
-
-#: etc/options.php:368
-msgid "Touch Icon"
-msgstr "Ikonka"
-
-#: etc/options.php:369
-msgid "For ideal appearance on iOS when users add a progressive web app to the home screen. It must point to a non-transparent 192px (or 180px) square PNG."
-msgstr "Idealny wygląd na iOS, gdy użytkownicy dodają progresywną aplikację internetową do ekranu głównego. Musi wskazywać na nieprzezroczysty kwadratowy plik PNG o rozmiarze 192 pikseli (lub 180 pikseli)."
-
-#: etc/options.php:379
-msgid "Pinned Tab Icon"
-msgstr "Ikonka przpinania"
-
-#: etc/options.php:384
-msgid "Icon"
-msgstr "Ikonka"
-
-#: etc/options.php:385
-msgid "Use 100% black for all vectors with a transparent background in SVG format and add the following markup to all webpages that the icon should represent. The SVG file must be a single layer and the viewBox attribute must be set to \"0 0 16 16\"."
-msgstr "Użyj 100% czerni dla wszystkich wektorów z przezroczystym tłem w formacie SVG i dodaj następujący znacznik do wszystkich stron internetowych, które powinna reprezentować ikonka. Plik SVG musi być jednowarstwowy, a atrybut viewBox musi być ustawiony na „0 0 16 16”."
-
-#: etc/options.php:393
-msgid "Color"
-msgstr "Kolor"
-
-#: etc/options.php:403
-msgid "Status Bar"
-msgstr "Pasek stanu"
-
-#: etc/options.php:408
-msgid "Style"
-msgstr "Styl"
-
-#: etc/options.php:409
-msgid "Customize the iOS status bar (the area along the upper edge of the screen displaying the time and battery status) of your PWA."
-msgstr "Dostosuj pasek stanu iOS (obszar wzdłuż górnej krawędzi ekranu wyświetlający godzinę i stan baterii) swojego PWA."
-
-#: etc/options.php:429
-msgid "Custom Splash Screen"
-msgstr "Własny ekran powitalny"
-
-#: etc/options.php:433
-msgid "Add the following elements to support custom splash screens for the different iOS devices."
-msgstr "Dodaj następujące elementy, aby obsługiwać ekran powitalny dla różnych urządzeń z systemem iOS."
-
-#: etc/options.php:434
-msgid "It must be a non-transparent PNG image."
-msgstr "Musi to być nieprzezroczysty obraz PNG."
-
-#: etc/options.php:447
-msgid "Default"
-msgstr "Domyślnie"
-
-#: etc/options.php:462
-msgid "iPhone Xs Max"
-msgstr "iPhone Xs Max"
-
-#: etc/options.php:463
-msgid "1242px &#10005; 2688px"
-msgstr "1242px &#10005; 2688px"
-
-#: etc/options.php:478
-msgid "iPhone Xr"
-msgstr "iPhone Xr"
-
-#: etc/options.php:479
-msgid "828px &#10005; 1792px"
-msgstr "828px &#10005; 1792px"
-
-#: etc/options.php:494
-msgid "iPhone X, Xs"
-msgstr "iPhone X, Xs"
-
-#: etc/options.php:495
-msgid "1125px &#10005; 2436px"
-msgstr "1125px &#10005; 2436px"
-
-#: etc/options.php:510
-msgid "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
-msgstr "iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus"
-
-#: etc/options.php:511
-msgid "1242px &#10005; 2208px"
-msgstr "1242px &#10005; 2208px"
-
-#: etc/options.php:526
-msgid "iPhone 8, 7, 6s, 6"
-msgstr "iPhone 8, 7, 6s, 6"
-
-#: etc/options.php:527
-msgid "750px &#10005; 1334px"
-msgstr "750px &#10005; 1334px"
-
-#: etc/options.php:542
-msgid "iPad Pro 12.9\""
-msgstr "iPad Pro 12.9\""
-
-#: etc/options.php:543
-msgid "2048px &#10005; 2732px"
-msgstr "2048px &#10005; 2732px"
-
-#: etc/options.php:558
-msgid "iPad Pro 11”"
-msgstr "iPad Pro 11”"
-
-#: etc/options.php:559
-msgid "1668px &#10005; 2388px"
-msgstr "1668px &#10005; 2388px"
-
-#: etc/options.php:574
-msgid "iPad Pro 10.5\""
-msgstr "iPad Pro 10.5\""
-
-#: etc/options.php:575
-msgid "1668px &#10005; 2224px"
-msgstr "1668px &#10005; 2224px"
-
-#: etc/options.php:590
-msgid "iPad Mini, Air"
-msgstr "iPad Mini, Air"
-
-#: etc/options.php:591
-msgid "1536px &#10005; 2048px"
-msgstr "1536px &#10005; 2048px"
-
-#: etc/options.php:606
-msgid "iPhone 5"
-msgstr "iPhone 5"
-
-#: etc/options.php:607
-msgid "640px &#10005; 1136px"
-msgstr "640px &#10005; 1136px"
-
-#: etc/options.php:622
-#: etc/options.php:638
-msgid "iPhone 14 Pro"
-msgstr "iPhone 14 Pro"
-
-#: etc/options.php:623
-msgid "1179px &#10005; 2556px"
-msgstr "1179px &#10005; 2556px"
-
-#: etc/options.php:639
-msgid "1290px &#10005; 2796px"
-msgstr "1290px &#10005; 2796px"
-
-#: etc/options.php:655
-msgid "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
-msgstr "iPhone 14 Plus, 13 Pro Max, 12 Pro Max"
-
-#: etc/options.php:656
-msgid "1284px &#10005; 2778px"
-msgstr "1284px &#10005; 2778px"
-
-#: etc/options.php:672
-msgid "iPhone 14, 13 Pro, 13, 12 Pro, 12"
-msgstr "iPhone 14, 13 Pro, 13, 12 Pro, 12"
-
-#: etc/options.php:673
-msgid "1170px &#10005; 2532px"
-msgstr "1170px &#10005; 2532px"
-
-#: etc/options.php:689
-msgid "iPad Air 10.9″"
-msgstr "iPad Air 10.9″"
-
-#: etc/options.php:690
-msgid "1640px &#10005; 2360px"
-msgstr "1640px &#10005; 2360px"
-
-#: etc/options.php:706
-msgid "iPad 10.2″"
-msgstr "iPad 10.2″"
-
-#: etc/options.php:707
-msgid "1620px &#10005; 2160px"
-msgstr "1620px &#10005; 2160px"
-
-#: etc/options.php:719
-msgid "Microsoft"
-msgstr "Microsoft"
-
-#: etc/options.php:724
-msgid "Square Tile Logo"
-msgstr "Kwadratowe logo kafelka"
-
-#: etc/options.php:727
-msgid "It must be a PNG image, at least 310x310px."
-msgstr "Musi to być obraz PNG. Powinien mieć co najmniej 310x310px."
-
-#: etc/options.php:733
-msgid "Wide Tile Logo"
-msgstr "Szerokie logo kafelka"
-
-#: etc/options.php:736
-msgid "It must be a PNG image. It should be exactly 310x150px."
-msgstr "Musi to być obraz PNG. Powinien mieć dokładnie 310x150px."
-
-#: etc/options.php:744
-msgid "Experimental"
-msgstr "Eksperymentalne"
-
-#: etc/options.php:750
-msgid "Enable"
-msgstr "Włącz"
-
-#: etc/options.php:754
-msgid "Enable experimental features that are still in development. These features may be unstable and change in future updates."
-msgstr "Włącz funkcje eksperymentalne, które są nadal w fazie rozwoju. Funkcje te mogą być niestabilne i ulec zmianie w przyszłych aktualizacjach."
-
-#: etc/options.php:761
-msgid "The dialog would display even without a description, but it is encouraged. There is a maximum that kicks in after 7 lines of text (roughly 324 characters) and longer descriptions are truncated and an ellipsis."
-msgstr "Okno dialogowe wyświetli się nawet bez opisu, ale jest on zalecany. Maksymalny czas wyświetlania to 7 linii tekstu (około 324 znaków), a dłuższe opisy są obcinane i umieszczane w wielokropku."
-
-#: etc/options.php:770
-msgid "Screenshot 1"
-msgstr "Zrzut ekranu 1"
-
-#: etc/options.php:771
-msgid "Upload a screenshot to showcase your PWA (recommended size: 1280x800px)."
-msgstr "Prześlij zrzut ekranu, aby zaprezentować swój PWA (zalecany rozmiar: 1280x800px)."
-
-#: etc/options.php:779
-msgid "Screenshot 2"
-msgstr "Zrzut ekranu 2"
-
-#: etc/options.php:780
-msgid "Upload a second screenshot (recommended size: 1280x800px)."
-msgstr "Prześlij drugi zrzut ekranu (zalecany rozmiar: 1280x800px)."
-
-#: etc/options.php:788
-msgid "Screenshot 3"
-msgstr "Zrzut ekranu 3"
-
-#: etc/options.php:789
-msgid "Upload a third screenshot (recommended size: 1280x800px)."
-msgstr "Prześlij trzeci zrzut ekranu (zalecany rozmiar: 1280x800px)."
-
-#: etc/options.php:797
-msgid "Screenshot 4"
-msgstr "Zrzut ekranu 4"
-
-#: etc/options.php:798
-msgid "Upload a fourth screenshot (recommended size: 1280x800px)."
-msgstr "Prześlij czwarty zrzut ekranu (zalecany rozmiar: 1280x800px)."
-
-#: etc/options.php:806
-msgid "Display Override"
-msgstr "Nadpisywanie ustawień wyświetlania"
-
-#. translators: 1: link to documentation
-#: etc/options.php:809
+#: etc/options.php:167
+#: includes/iworks/class-iworks-pwa.php:720
+msgid "We were unable to load the page you requested."
+msgstr "Nie możemy załadować strony o którą pytano."
+
+#: includes/iworks/pwa/class-iworks-pwa-manifest.php:145
+msgid "Sorry!"
+msgstr "Przepraszamy!"
+
+#: includes/iworks/class-iworks-pwa.php:237
+msgctxt "plugins support home"
+msgid "https://wordpress.org/support/plugin/iworks-pwa"
+msgstr "https://wordpress.org/support/plugin/iworks-pwa"
+
+#: includes/iworks/class-iworks-pwa.php:234
+msgctxt "plugins home"
+msgid "https://wordpress.org/plugins/iworks-pwa"
+msgstr "https://pl.wordpress.org/plugins/iworks-pwa"
+
+#: assets/templates/no-ssl.php:49
+msgid "FAQ"
+msgstr "Najczęściej zadawane pytania"
+
+#. translators: %s: url to deactivate plugin
+#: assets/templates/no-ssl.php:41
 #, php-format
-msgid "Display Override. Read more in the %1$s documentation."
-msgstr "Nadpisz ustawienia wyświetlania. Przeczytaj więcej w dokumentacji %1$s."
+msgid "We recommend <a href=\"%s\">deactivate</a> this plugin and activate it again after this site will use SSL."
+msgstr "Zalecamy <a href=\"%s\">wyłączenie</a> wtyczki i jej ponowne włączenie wtedy, kiedy witryna będzie używać SSL."
 
-#: etc/options.php:813
-msgid "Standard Browser"
-msgstr "Standardowa przeglądarka"
+#. translators: %1$s: open anchor tag, %2$s: close anchor tag
+#: assets/templates/no-ssl.php:20
+msgid "The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activate this plugin."
+msgstr "PWA wymaga do działania bezpiecznego protokołu! Proszę wdrożyć w swojej witrynie protokół HTTPS zanim wtyczka zostanie włączona."
 
-#: etc/options.php:814
-msgid "Fullscreen"
-msgstr "Tryb pełnoekranowy"
+#. Author URI of the plugin
+#: iworks-pwa.php
+msgid "http://iworks.pl/"
+msgstr "http://iworks.pl/"
 
-#: etc/options.php:815
-msgid "Minimal User Interface"
-msgstr "Minimalny interfejs użytkownika"
-
-#: etc/options.php:816
-msgid "Standalone"
-msgstr "Samodzielne"
-
-#: etc/options.php:817
-msgid "Tabbed"
-msgstr "Z zakładkami"
-
-#: etc/options.php:818
-msgid "Window Controls Overlay"
-msgstr "Sterowanie nakładką wyświetlania"
-
-#: etc/options.php:829
-#: etc/options.php:1065
-msgid "We are waiting for your message"
-msgstr "Czekamy na twoją wiadomość"
-
-#: etc/options.php:835
-msgid "I love what I do!"
-msgstr "Kocham to co robię!"
-
-#: etc/options.php:1029
-msgid "Below are some links to help spread this plugin to other users"
-msgstr "Poniższe odnośniki mogą pomóc innym w znalezieniu wtyczki"
-
-#: etc/options.php:1031
-msgid "Give it a five stars on WordPress.org"
-msgstr "Daj wtyczce pięć gwiazdek na WordPress.org"
-
-#: etc/options.php:1032
-msgid "Link to it so others can easily find it"
-msgstr "Odnośnik do wtyczki - żeby łatwo było znaleźć"
-
-#: etc/options.php:1067
-msgid "WordPress Help Forum"
-msgstr "Forum pomocy WordPressa"
+#. Author of the plugin
+#: iworks-pwa.php
+msgid "Marcin Pietrzak"
+msgstr "Marcin Pietrzak"
 
 #: includes/iworks/class-iworks-pwa.php:233
 #: includes/iworks/class-iworks-pwa.php:998
 #: includes/iworks/pwa/class-iworks-pwa-frontend.php:104
 msgid "iWorks PWA"
 msgstr "iWorks PWA"
-
-#. translators: %s: "Safe SVG" plugin name with link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:151
-#, php-format
-msgid "This field requires an SVG file. To securely upload SVG files, please install the %s plugin."
-msgstr "Pole wymaga pliku SVG. Aby bezpiecznie przesyłać pliki SVG, zainstaluj wtyczkę %s."
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:155
-msgid "Safe SVG"
-msgstr "Bezpieczny SVG"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:188
-msgid "Debug info"
-msgstr "Informacje debugowania"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:203
-msgid "Main files"
-msgstr "Główne pliki"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:206
-msgid "manifest.json"
-msgstr "manifest.json"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:207
-msgid "Service Worker"
-msgstr "Service Worker"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:208
-msgid "Offline page"
-msgstr "Strona offline"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:209
-msgid "IE config xml"
-msgstr "Plik konfiguracyjny xml dla IE"
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:252
-msgid "PWA settings are now available in Settings."
-msgstr "Konfiguracja PWA jest dostępna w menu Ustawienia."
-
-#. Plugin Name of the plugin
-#: iworks-pwa.php
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:298
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:325
-msgid "PWA — easy way to Progressive Web App"
-msgstr "PWA — prosta droga do Progresywnej Aplikacji Internetowej"
-
-#. translators: %s; url to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:303
-#, php-format
-msgid "This plugin does not support the plain permalink structure. <a href=\"%s\">Please change your permalinks settings</a> to other structure to use PWA plugin."
-msgstr "Wtyczka nie obsługuje zwykłej struktury stałych odnośników. <a href=\"%s\">Proszę zmienić ustawienia odnośników</a> na inną strukturę, aby korzystać z wtyczki PWA."
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:328
-msgid "This plugin does not support installation in a subdirectory and will not work properly."
-msgstr "Wtyczka nie obsługuje instalacji w podkatalogu i nie będzie działać poprawnie."
-
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:609
-msgid "ERROR: PWA — easy way to Progressive Web App"
-msgstr "Błąd: PWA — prosta droga do Progresywnej Aplikacji Internetowej"
-
-#. translators: %s: filename as link
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:614
-#, php-format
-msgid "The \"%s\" file is no reachable."
-msgstr "Nie można pobrać pliku „%s”."
-
-#. translators: %s: link to permalinks settings
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:627
-#, php-format
-msgid "<a href=\"%s\">Please change your permalinks settings</a> or server rewrite rules."
-msgstr "<a href=\"%s\">Zmień ustawienia bezpośrednich odnośników</a> lub reguły rewrite serwera."
-
-#. translators: %s: current request
-#. translators: %s: request
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:638
-#: includes/iworks/pwa/class-iworks-pwa-administrator.php:661
-#, php-format
-msgid "Server rewrite rule for \"%s\" request"
-msgstr "Reguła przepisywania serwera dla żądania „%s”"
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:145
-msgid "Sorry!"
-msgstr "Przepraszamy!"
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:446
-msgid "PWA Shortcuts Menu"
-msgstr "Menu kontekstowe PWA"
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:547
-msgid "Short Name (PWA)"
-msgstr "Krótka nazwa (PWA)"
-
-#. Author of the plugin
-#: iworks-pwa.php
-msgid "Marcin Pietrzak"
-msgstr "Marcin Pietrzak"
 
 #. Plugin URI of the plugin
 #: iworks-pwa.php
@@ -741,309 +1046,4 @@ msgstr ""
 #. Description of the plugin
 #: iworks-pwa.php
 msgid "PLUGIN_TAGLINE"
-msgstr ""
-
-#. Author URI of the plugin
-#: iworks-pwa.php
-msgid "http://iworks.pl/"
-msgstr "http://iworks.pl/"
-
-#: etc/options.php:61
-msgctxt "PWA settings"
-msgid "Relative to the base URL."
-msgstr "Względem bazowego adresu URL."
-
-#: etc/options.php:62
-msgctxt "PWA settings"
-msgid "If the scope is relative, the manifest URL is used as a base URL."
-msgstr "Jeśli „scope” jest względny, adres URL manifestu jest używany jako podstawowy adres URL."
-
-#: etc/options.php:65
-msgctxt "PWA settings"
-msgid "Current site"
-msgstr "Bieżąca strona"
-
-#: etc/options.php:66
-msgctxt "PWA settings"
-msgid "If the scope is limited to current site the following scope limits navigation to the current site."
-msgstr "Jeśli „scope” ograniczono do bieżącej witryny, to ogranicza on nawigację do bieżącej witryny."
-
-#: etc/options.php:78
-msgctxt "PWA settings"
-msgid "Follow Device Orientation"
-msgstr "Podążaj za orientacją urządzenia"
-
-#: etc/options.php:79
-msgctxt "PWA settings"
-msgid "Displays the web app in any orientation allowed by the device's operating system or user settings. It allows the app to rotate freely to match the orientation of the device when it is rotated."
-msgstr "Wyświetla aplikację internetową w dowolnej orientacji dozwolonej przez system operacyjny urządzenia lub ustawienia użytkownika. Pozwala na swobodne obracanie aplikacji, aby dopasować ją do orientacji urządzenia, gdy jest ono obracane."
-
-#: etc/options.php:82
-msgctxt "PWA settings"
-msgid "Natural"
-msgstr "Naturalnie"
-
-#: etc/options.php:83
-msgctxt "PWA settings"
-msgid "Displays the web app in the orientation considered most natural for the device, as determined by the browser, operating system, user settings, or the screen itself."
-msgstr "Wyświetla aplikację internetową w orientacji uznanej za najbardziej naturalną dla urządzenia, zgodnie z ustawieniami przeglądarki, systemu operacyjnego, użytkownika lub samego ekranu."
-
-#: etc/options.php:86
-msgctxt "PWA settings"
-msgid "Portrait"
-msgstr "Pionowo"
-
-#: etc/options.php:87
-msgctxt "PWA settings"
-msgid "Displays the web app with height greater than width. It allows the app to switch between portrait-primary and portrait-secondary orientations when the device is rotated."
-msgstr "Wyświetla aplikację internetową z wysokością większą niż szerokość. Pozwala to aplikacji na przełączanie się między orientacją pionową-podstawową i pionową-drugą, gdy urządzenie jest obracane."
-
-#: etc/options.php:90
-msgctxt "PWA settings"
-msgid "Portrait Primary"
-msgstr "Portretowo tryb pierwszy"
-
-#: etc/options.php:91
-msgctxt "PWA settings"
-msgid "Displays the web app in portrait mode, typically with the device held upright. This is usually the default app orientation on devices that are naturally portrait. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
-msgstr "Wyświetla aplikację internetową w trybie portretowym, zwykle z urządzeniem trzymanym pionowo. Jest to zazwyczaj domyślna orientacja aplikacji na urządzeniach, które są naturalnie pionowe. W zależności od implementacji urządzenia i przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
-
-#: etc/options.php:94
-msgctxt "PWA settings"
-msgid "Portrait Secondary"
-msgstr "Portretowo tryb drugi"
-
-#: etc/options.php:95
-msgctxt "PWA settings"
-msgid "Displays the web app in inverted portrait mode, which is portrait-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
-msgstr "Wyświetla aplikację internetową w odwróconym trybie portretowym, czyli w orientacji pionowej obróconej o 180 stopni. W zależności od urządzenia i implementacji przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
-
-#: etc/options.php:98
-msgctxt "PWA settings"
-msgid "Landscape"
-msgstr "Poziomo"
-
-#: etc/options.php:99
-msgctxt "PWA settings"
-msgid "Displays the web app with width greater than height. It allows the app to switch between landscape-primary and landscape-secondary orientations when the device is rotated."
-msgstr "Wyświetla aplikację internetową z szerokością większą niż wysokość. Umożliwia aplikacji przełączanie się między orientacją podstawową poziomą a orientacją dodatkową poziomą po obróceniu urządzenia."
-
-#: etc/options.php:102
-msgctxt "PWA settings"
-msgid "Landscape Primary"
-msgstr "Poziomo tryb pierwszy"
-
-#: etc/options.php:103
-msgctxt "PWA settings"
-msgid "Displays the web app in landscape mode, typically with the device held in its standard horizontal position. This is usually the default app orientation on devices that are naturally landscape. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
-msgstr "Wyświetla aplikację internetową w trybie poziomym, zazwyczaj z urządzeniem trzymanym w standardowej pozycji poziomej. Jest to zazwyczaj domyślna orientacja aplikacji na urządzeniach, które są naturalnie poziome. W zależności od implementacji urządzenia i przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
-
-#: etc/options.php:106
-msgctxt "PWA settings"
-msgid "Landscape Secondary"
-msgstr "Poziomo tryb drugi"
-
-#: etc/options.php:107
-msgctxt "PWA settings"
-msgid "Displays the web app in inverted landscape mode, which is landscape-primary rotated 180 degrees. Depending on the device and browser implementation, the app will typically maintain this orientation even when the device is rotated."
-msgstr "Wyświetla aplikację internetową w odwróconym trybie poziomym, czyli w orientacji poziomej obróconej o 180 stopni. W zależności od urządzenia i implementacji przeglądarki, aplikacja zazwyczaj zachowuje tę orientację nawet po obróceniu urządzenia."
-
-#: etc/options.php:120
-msgctxt "PWA settings"
-msgid "Full Screen"
-msgstr "Pełny ekran"
-
-#: etc/options.php:123
-msgctxt "PWA settings"
-msgid "Standalone"
-msgstr "Samodzielna"
-
-#: etc/options.php:126
-msgctxt "PWA settings"
-msgid "Minimal UI"
-msgstr "Minimalny interface użytkownika"
-
-#: etc/options.php:129
-msgctxt "PWA settings"
-msgid "Browser"
-msgstr "Przeglądarka"
-
-#: etc/options.php:274
-msgctxt "PWA settings"
-msgid "Hide (recommended)"
-msgstr "Ukryte (rekomendowane)"
-
-#: etc/options.php:278
-msgctxt "PWA settings"
-msgid "After &lt;body&gt; tag"
-msgstr "Po tagu &lt;body&gt;"
-
-#: etc/options.php:282
-msgctxt "PWA settings"
-msgid "Footer"
-msgstr "Stopka"
-
-#: etc/options.php:412
-msgctxt "PWA settings"
-msgid "White status bar with black text and symbols."
-msgstr "Biały pasek stanu z czarnym tekstem i symbolami."
-
-#: etc/options.php:415
-msgctxt "PWA settings"
-msgid "Black status bar and black text and symbols, making it appear completely black."
-msgstr "Czarny pasek stanu oraz czarny tekst i symbole, dzięki czemu wydaje się całkowicie czarny."
-
-#: etc/options.php:418
-msgctxt "PWA settings"
-msgid "White text and symbols, and the status bar will take the same background color as the body element of your web app."
-msgstr "Biały tekst i symbole oraz pasek stanu będą miały ten sam kolor tła, co główny element aplikacji webowej."
-
-#: etc/options.php:1032
-msgctxt "plugin home page on WordPress.org"
-msgid "https://wordpress.org/plugins/iworks-pwa/"
-msgstr "https://pl.wordpress.org/plugins/iworks-pwa/"
-
-#: etc/options.php:1067
-msgctxt "link to support forum on WordPress.org"
-msgid "https://wordpress.org/support/plugin/iworks-pwa/"
-msgstr "https://wordpress.org/support/plugin/iworks-pwa/"
-
-#: includes/iworks/class-iworks-pwa.php:234
-msgctxt "plugins home"
-msgid "https://wordpress.org/plugins/iworks-pwa"
-msgstr "https://pl.wordpress.org/plugins/iworks-pwa"
-
-#: includes/iworks/class-iworks-pwa.php:237
-msgctxt "plugins support home"
-msgid "https://wordpress.org/support/plugin/iworks-pwa"
-msgstr "https://wordpress.org/support/plugin/iworks-pwa"
-
-#: etc/options.php:183
-msgid "Runtime Cache Strategy"
-msgstr ""
-
-#: etc/options.php:184
-msgid "How visited pages are cached by the service worker. \"Network first\" always tries the network and works offline after the first visit. \"Stale-while-revalidate\" shows the cached page instantly and refreshes it in the background. \"Cache first\" is fastest but may show outdated content."
-msgstr ""
-
-#: etc/options.php:186
-msgctxt "cache strategy"
-msgid "Network first (recommended)"
-msgstr ""
-
-#: etc/options.php:187
-msgctxt "cache strategy"
-msgid "Stale-while-revalidate"
-msgstr ""
-
-#: etc/options.php:188
-msgctxt "cache strategy"
-msgid "Cache first"
-msgstr ""
-
-#: etc/options.php:197
-msgid "Exclude URLs from Caching"
-msgstr ""
-
-#: etc/options.php:198
-msgid "One regular expression per line. URLs matching any pattern are never cached and bypass the service worker completely. For example: cart, checkout or my-account pages, or dynamic requests. The patterns are matched against the request path."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1033
-msgid "The site uses HTTPS, required for a PWA"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1041
-msgid "Service workers require a secure connection (HTTPS)."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1050
-msgid "The PWA needs to be hosted on a secure server! Please use HTTPS on your site before activating PWA features."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1065
-msgid "The PWA manifest is reachable"
-msgstr ""
-
-#. translators: %s: manifest URL
-#: includes/iworks/class-iworks-pwa.php:1075
-#, php-format
-msgid "The web app manifest is served at %s."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1094
-msgid "The PWA manifest is not reachable"
-msgstr ""
-
-#. translators: 1: manifest URL, 2: recommendation about permalinks
-#: includes/iworks/class-iworks-pwa.php:1099
-#, php-format
-msgid "The manifest could not be fetched from %1$s. %2$s"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1101
-#: includes/iworks/class-iworks-pwa.php:1174
-msgid "The plugin requires \"pretty\" permalinks (Settings → Permalinks) to serve the manifest and the service worker."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1121
-msgid "The PWA manifest is missing recommended icons"
-msgstr ""
-
-#. translators: %s: icon sizes list
-#: includes/iworks/class-iworks-pwa.php:1126
-#, php-format
-msgid "The manifest is reachable but does not declare the recommended icon sizes: %s."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1146
-msgid "The PWA service worker is reachable"
-msgstr ""
-
-#. translators: %s: service worker URL
-#: includes/iworks/class-iworks-pwa.php:1156
-#, php-format
-msgid "The service worker is served at %s."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1167
-msgid "The PWA service worker is not reachable"
-msgstr ""
-
-#. translators: 1: service worker URL, 2: recommendation about permalinks
-#: includes/iworks/class-iworks-pwa.php:1172
-#, php-format
-msgid "The service worker could not be fetched from %1$s. %2$s"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1196
-msgid "PWA configuration reported by the \"PWA — easy way to Progressive Web App\" plugin."
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1199
-msgid "Cache version"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1203
-msgid "Runtime cache strategy"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1207
-msgid "Manifest URL"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1211
-msgid "Service worker URL"
-msgstr ""
-
-#: includes/iworks/class-iworks-pwa.php:1215
-msgid "Offline page URL"
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:80
-msgid "New version available."
-msgstr ""
-
-#: includes/iworks/pwa/class-iworks-pwa-manifest.php:81
-msgid "Refresh"
 msgstr ""
